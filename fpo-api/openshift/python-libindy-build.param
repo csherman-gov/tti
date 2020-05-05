@@ -4,7 +4,7 @@
 # JSON Template File: templates/python-libindy/python-libindy-build.json
 #=========================================================
 NAME=python-libindy
-GIT_REPO_URL=git@github.com:arthur-newman-belmar/openshift-intake.git
+GIT_REPO_URL=https://github.com/csherman-gov/tti.git
 GIT_REF=master
 SOURCE_CONTEXT_DIR=tob-api/openshift/templates/python-libindy
 OUTPUT_IMAGE_TAG=latest

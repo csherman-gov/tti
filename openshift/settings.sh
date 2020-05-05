@@ -4,8 +4,8 @@ export PROJECT_NAMESPACE="qjtfov"
 # Templates NOT in this list will have they GIT referances over-ridden
 # with the values of GIT_URI and GIT_REF
 export skip_git_overrides="schema-spy-build.json"
-export GIT_URI="git@github.com:arthur-newman-belmar/openshift-intake.git"
-# export GIT_URI="git@github.com:arthur-newman-belmar/openshift-intake.git"
+export GIT_URI="https://github.com/csherman-gov/tti.git"
+# export GIT_URI="https://github.com/csherman-gov/tti.git"
 export GIT_REF="master"
 
 # The builds to be triggered after buildconfigs created (not auto-triggered)

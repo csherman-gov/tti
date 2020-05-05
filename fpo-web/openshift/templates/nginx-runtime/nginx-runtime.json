@@ -61,7 +61,7 @@
       "displayName": "Git Repo URL",
       "description": "The URL to your GIT repo, don't use the this default unless your just experimenting.",
       "required": true,
-      "value": "git@github.com:arthur-newman-belmar/openshift-intake.git"
+      "value": "https://github.com/csherman-gov/tti.git"
     },
     {
       "name": "GIT_REF",
