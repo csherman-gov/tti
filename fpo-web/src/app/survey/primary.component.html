@@ -1,0 +1,30 @@
+<div class="container survey-content survey-primary">
+  <div class="row">
+    <div class="col-md-12" *ngIf="!printUrl">
+      <app-survey-view
+        [surveyPath]="surveyPath"
+        [surveyJson]="surveyJson"
+        [cacheName]="cacheName"
+        [onComplete]="complete"
+        [showSidebar]="showSidebar"
+        [initialMode]="initialMode"
+      ></app-survey-view>
+    </div>
+    <div class="col-md-12" *ngIf="printUrl">
+      <h2>You have completed the survey</h2>
+      <form
+        method="post"
+        [action]="printUrl"
+        target="_blank"
+        ngNoForm
+        class="mrgn-tp-lg"
+        (submit)="onPrint()"
+      >
+        <input name="data" type="hidden" [value]="resultJson" />
+        <button type="submit" class="btn btn-primary btn-lg">
+          <span class="fa fa-print btn-icon-left"></span> Print Your Application
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

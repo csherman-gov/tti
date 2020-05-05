@@ -1,0 +1,111 @@
+<div class="app-outer fill-body">
+  <header class="app-header">
+    <!-- <div id="app-exit" class="app-exit">
+      <a
+        target="_blank"
+        href="https://www.google.ca"
+        rel="external"
+        class="btn btn-primary"
+        (click)="quickExit()"
+        ><span class="fa fa-sign-out"></span> Quick Exit</a
+      >
+    </div> -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <!-- <div class="navbar-brand logo">
+        <a routerLink="/" tabindex="-1" class="navbar-link">
+          <img
+            class="img-fluid d-none d-md-block"
+            src="assets/images/bcid-logo-rev-en.svg"
+            width="181"
+            height="44"
+            alt="B.C. Government Logo"
+          />
+          <img
+            class="img-fluid d-md-none"
+            src="assets/images/bcid-symbol-rev.svg"
+            width="64"
+            height="44"
+            alt="B.C. Government Logo"
+          />
+        </a>
+      </div> -->
+      <div class="navbar-brand navbar-text">
+        {{complaintTitle}}
+      </div>
+      <div class="navbar-extra">
+        <div id="app-profile">
+          <a routerLink="/prv/status" class="btn btn-primary" *ngIf="isPrv"
+            ><span class="fa fa-user"></span> Profile</a
+          >
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main role="main" class="app-content">
+    <app-insert id="sidebar-left" class="sidebar-left"></app-insert>
+
+    <div class="app-main">
+      <!--<breadcrumb></breadcrumb>-->
+
+      <router-outlet></router-outlet>
+    </div>
+
+    <app-insert id="sidebar-right" class="sidebar-right"></app-insert>
+  </main>
+
+  <footer class="footer">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <!-- Navbar content -->
+      <div class="container">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/terms" target="_blank"
+              >Terms of Use</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="https://www2.gov.bc.ca/gov/content/home/disclaimer"
+              target="_blank"
+              >Disclaimer</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="https://www2.gov.bc.ca/gov/content/home/privacy"
+              target="_blank"
+              >Privacy</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="https://www2.gov.bc.ca/gov/content/home/accessibility"
+              target="_blank"
+              >Accessibility</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="https://www2.gov.bc.ca/gov/content/home/copyright"
+              target="_blank"
+              >Copyright</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="https://www2.gov.bc.ca/gov/content/home/contact-us"
+              target="_blank"
+              >Contact Us</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </footer>
+</div>

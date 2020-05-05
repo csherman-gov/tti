@@ -1,0 +1,30 @@
+ul {
+  padding-left: 20px;
+}
+.contact-info {
+  display: flex;
+  justify-content: space-between;
+  max-width: 800px;
+  div {
+    h4 {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+}
+.privacy {
+  border-top: 1px solid #333;
+}
+
+#surveyElementHRT
+  > div
+  > form
+  > div.sv_container
+  > div
+  > div.panel-footer.card-footer {
+  display: none;
+}
+
+.hide-form {
+  display: none;
+}

@@ -1,0 +1,1238 @@
+<div class="row">
+  <!-- <ng-container *ngIf="show"> -->
+  <h1>
+    Review & Submit
+  </h1>
+
+  <div style="margin: 20px auto;">
+    <button class="btn btn-secondary" (click)="handleBackBtnClick()">
+      Back
+    </button>
+  </div>
+  <div class="block">
+    <h3>
+      Representative and Group or Class
+    </h3>
+    <div class="grey-box">
+      <p>
+        <b>Organization Name:</b>
+        {{ formData.representative["Organization Name"] }}
+      </p>
+      <p>
+        <b>Individual Legal Name:</b>
+        {{ formData.representative["Individual Legal name – First name"] }}
+        {{ formData.representative["Individual Legal Name – Last name"] }}
+      </p>
+      <p>
+        <b>Preferred name:</b>
+        {{ formData.representative["Preferred name"] || "N/A" }}
+      </p>
+      <p *ngIf="formData.representative['Use my preferred name']">
+        <b>Use my preferred name:</b>
+        {{ formData.representative["Use my preferred name"].join(", ") }}
+      </p>
+
+      <p>
+        <b>How do you want to be addressed:</b>
+        {{
+          formData.representative["Title"]
+            ? formData.representative["Title"]
+            : "N/A"
+        }}
+      </p>
+
+      <p>
+        <b>Pronoun:</b>
+        {{
+          formData.representative["Pronoun"]
+            ? formData.representative["Pronoun"]
+            : "N/A"
+        }}
+      </p>
+
+      <div style="margin-top: 30px;"></div>
+
+      <div
+        *ngIf="
+          formData.representative['Select only one option'] !==
+          'The Representative of the group or class or, if the Representative is an organization, the individual speaking for the organization'
+        "
+      >
+        <p>
+          <b>Person who will communicate with the Tribunal: </b>
+          {{ formData.representative["First name"] }}
+          {{ formData.representative["Last name"] }}
+          {{
+            formData.representative["Representative Preferred name"]
+              ? "(" +
+                formData.representative["Representative Preferred name"] +
+                ")"
+              : ""
+          }}
+        </p>
+
+        <p>
+          <b>
+            Title:
+          </b>
+          {{ formData.representative["Representative Title"] }}
+        </p>
+        <p>
+          <b>
+            Pronoun
+          </b>
+          {{ formData.representative["Representative Pronoun"] }}
+        </p>
+      </div>
+      <div>
+        <p>
+          <b>Address:</b>
+          {{ formData.representative["Mailing address"] }},
+          {{ formData.representative["City"] }},
+          {{ formData.representative["Province"] }}
+          {{ formData.representative["Postal Code"] }}
+        </p>
+        <p>
+          <b>Phone number:</b>
+          {{ formData.representative["Phone number"] || "NA" }}
+        </p>
+        <p *ngIf="formData.representative['Cell Phone number']">
+          <b>Cell phone number:</b>
+          {{ formData.representative["Cell Phone number"] || "NA" }}
+        </p>
+        <p *ngIf="formData.representative['Fax']">
+          <b>Fax:</b>
+          {{ formData.representative["Fax"] || "NA" }}
+        </p>
+        <p>
+          Email:
+          {{ formData.representative["Email"] || "NA" }}
+        </p>
+      </div>
+    </div>
+    <h3>
+      Suitability of Representative
+    </h3>
+    <div class="grey-box">
+      <p>
+        <b>
+          Are you a member of the group or class?
+        </b>
+        {{ formData.repSutability["Are you a member of the group or class?"] }}
+      </p>
+      <p>
+        <b>
+          Why are you filing the complaint?
+        </b>
+        {{ formData.repSutability["Why are you filing the complaint?"] }}
+      </p>
+      <p>
+        <b>
+          Are your interests in the complaint different from the group or class
+          members’ interests?
+        </b>
+        {{
+          formData.repSutability[
+            "Are your interests in the complaint different from the group or class members’ interests?"
+          ]
+        }}
+      </p>
+      <p
+        *ngIf="
+          formData.repSutability[
+            'Are your interests in the complaint different from the group or class members’ interests?'
+          ] === 'Yes'
+        "
+      >
+        <b>
+          If yes, explain the differences between your interests and the
+          interests of the group or class members’ interests
+        </b>
+        {{
+          formData.repSutability[
+            "If yes, explain the differences between your interests and the interests of the group or class members’ interests"
+          ]
+        }}
+      </p>
+      <p>
+        <b>
+          Do you have reason to believe that group or class members may not want
+          you to make this complaint on their behalf?
+        </b>
+        {{
+          formData.repSutability[
+            "Do you have reason to believe that group or class members may not want you to make this complaint on their behalf?"
+          ]
+        }}
+      </p>
+      <p
+        *ngIf="
+          formData.repSutability[
+            'Do you have reason to believe that group or class members may not want you to make this complaint on their behalf?'
+          ] === 'Yes'
+        "
+      >
+        <b>
+          If yes, explain.
+        </b>
+        {{ formData.repSutability["If yes, explain"] }}
+      </p>
+      <p>
+        <b>
+          Have you notified the group or class about the complaint?
+        </b>
+        {{
+          formData.repSutability[
+            "Have you notified the group or class about the complaint?"
+          ]
+        }}
+      </p>
+      <p
+        *ngIf="
+          formData.repSutability[
+            'Have you notified the group or class about the complaint?'
+          ] === 'Yes'
+        "
+      >
+        <b>
+          If yes, please explain how they have been notified.
+        </b>
+        {{
+          formData.repSutability[
+            "If yes, please explain how they have been notified"
+          ]
+        }}
+      </p>
+      <p>
+        <b>
+          How will you communicate with the group or class members?
+        </b>
+        {{
+          formData.repSutability[
+            "How will you communicate with the group or class members?"
+          ]
+        }}
+      </p>
+
+      <p>
+        <b>Declarations</b>
+      </p>
+      <p>
+        I declare that I:
+      </p>
+      <ul>
+        <li *ngFor="let term of formData.repSutability['Declarations']">
+          {{ term }}
+        </li>
+      </ul>
+    </div>
+    <h3>
+      Suitability of Complaint
+    </h3>
+    <div class="grey-box">
+      <p>
+        <b>
+          Describe the Group or Class
+        </b>
+        {{ formData.complaintSutability["Describe the Group or Class"] }}
+      </p>
+      <p>
+        <b>
+          Explain how the alleged discrimination is similar for all group or
+          class members
+        </b>
+        {{
+          formData.complaintSutability[
+            "Explain how the alleged discrimination is similar for all group or class members"
+          ]
+        }}
+      </p>
+    </div>
+    <div class="grey-box">
+      <div
+        style="margin-bottom: 20px;"
+        *ngFor="
+          let respondent of formData.respondentContact[
+            'Respondents Contact Information'
+          ]
+        "
+      >
+        <p>
+          <b>Name of the Respondent:</b>
+          {{ respondent["Name of the Respondent"] }}
+        </p>
+        <p>
+          <b>Relationship to you:</b> {{ respondent["RELATIONSHIP TO YOU"] }}
+        </p>
+        <p>
+          <b>Mailing Address:</b><br />
+          {{ respondent["Mailing address"] }},
+          {{ respondent["ADDRESS LINE 2"] + ", " || "" }}
+          {{ respondent["City"] + ", " || "" }}
+          {{ respondent["PROVINCE"] + ", " || "" }}
+          {{ respondent["POSTAL CODE"] }}
+        </p>
+        <p>
+          <b>Phone number:</b>
+          {{ respondent["Respondent Contact Phone number"] || "NA" }}
+        </p>
+        <p>
+          <b>Cell phone number:</b>
+          {{ respondent["Respondent Contact Cell Phone number"] || "NA" }}
+        </p>
+        <p>
+          <b>Respondent Contact Email:</b>
+          {{ respondent["Respondent Contact Email"] || "NA" }}
+        </p>
+        <p>
+          <b>Respondent Contact Fax:</b>
+          {{ respondent["Respondent Contact Fax"] || "NA" }}
+        </p>
+      </div>
+    </div>
+    <div style="margin-top: 30px;"></div>
+    <h3>
+      Area and Grounds
+    </h3>
+    <div class="grey-box">
+      <div
+        *ngFor="let area of formData.areaAndGrounds.areas"
+        style="margin-bottom: 20px;"
+      >
+        <p>
+          <b>What is the Area of Discrimination?</b>
+          {{ area["What is the Area of Discrimination?"] }}
+        </p>
+        <p *ngIf="area['What is the Area of Discrimination?'] === 'Employment'">
+          <b>It’s about:</b>
+          {{
+            area[
+              "If your complaint is about employment, check if it’s about"
+            ].join(", ")
+          }}{{
+            area[
+              "If your complaint is about employment, check if it’s about-Comment"
+            ]
+              ? ": " +
+                area[
+                  "If your complaint is about employment, check if it’s about-Comment"
+                ]
+              : ""
+          }}
+        </p>
+        <p>
+          <b>What are the Grounds of Discrimination and related details?</b>
+        </p>
+        <p *ngFor="let item of area['What are the Grounds of Discrimination?']">
+          {{ item }}: {{ area["Details - " + item] }}
+        </p>
+        <p
+          *ngIf="
+            !!area[
+              'Please select which of the following Ground subcategories apply'
+            ] && false
+          "
+        >
+          <b>Subcategories</b>
+          {{
+            area[
+              "Please select which of the following Ground subcategories apply"
+            ].join(", ")
+          }}
+        </p>
+      </div>
+    </div>
+
+    <div style="margin-top: 30px;"></div>
+    <h3>
+      Details of the Discrimination
+    </h3>
+    <div class="grey-box">
+      <p>
+        <b>Describe what your complaint is about in a few words:</b><br />
+        {{
+          formData.detailsOfDiscrimination[
+            "Describe what your complaint is about in a few words"
+          ]
+        }}
+      </p>
+      <p>
+        <b>Describe the harm in a few word:</b><br />
+        {{
+          formData.detailsOfDiscrimination["Describe the harm in a few word"]
+        }}
+      </p>
+      <p>
+        <b
+          >Explain how the harm relates to the grounds you have selected
+          before:</b
+        ><br />
+        {{
+          formData.detailsOfDiscrimination[
+            "Explain how the harm relates to the grounds you have selected before"
+          ]
+        }}
+      </p>
+      <h4 style="margin: 20px 0; font-size: 18px;">
+        <b
+          >Describe what this Respondent did that harmed you based on the
+          grounds:</b
+        >
+      </h4>
+      <ng-container
+        *ngFor="
+          let event of formData.detailsOfDiscrimination[
+            'Describe what this Respondent did that harmed group or class members based on the grounds'
+          ]
+        "
+        style="margin-bottom: 10px;"
+      >
+        <p><b>Respondent:</b> {{ event.Respondent }}</p>
+        <p><b>Event:</b> {{ event.Event }}</p>
+        <p style="margin-bottom: 20px;"><b>Date:</b> {{ event.Date }}</p>
+      </ng-container>
+    </div>
+
+    <div style="margin-top: 30px;"></div>
+    <h3>
+      Time Limit to Accept Complaint
+    </h3>
+    <div class="grey-box">
+      <h4 style="margin: 20px 0; font-size: 18px;">
+        <b
+          >For each Respondent, what is the date of the most recent event that
+          you say is discrimination?</b
+        >
+      </h4>
+      <ng-container
+        *ngFor="
+          let respondent of formData.fileInTime[
+            'There is a one-year time limit for filing a complaint'
+          ]
+        "
+        style="margin-bottom: 10px;"
+      >
+        <p><b>Respondent:</b> {{ respondent["Respondent name"] }}</p>
+        <p>
+          <b
+            >What is the date of the most recent event that you say is
+            discrimination?</b
+          >
+          {{
+            respondent[
+              "What is the date of the most recent event that you say is discrimination?"
+            ]
+          }}
+        </p>
+        <p>
+          <b>Did the most recent event happen in the last year?</b>
+          {{ respondent["Did the most recent event happen in the last year?"] }}
+        </p>
+      </ng-container>
+      <p>
+        <b>Did every event happen in the last year for all respondents?</b>
+        {{
+          formData.fileInTime[
+            "Did every event happen in the last year for all respondents?"
+          ]
+        }}
+      </p>
+      <p
+        *ngIf="
+          formData.fileInTime[
+            'Did every event happen in the last year for all respondents?'
+          ] === 'No'
+        "
+      >
+        <b>Are all the event Related or similar?</b>
+        {{ formData.fileInTime["Are all the event Related or similar?"] }}
+      </p>
+      <p
+        *ngIf="
+          formData.fileInTime['Are all the event Related or similar?'] === 'Yes'
+        "
+      >
+        <b>Explain how the incidents are similar or related</b><br />
+        {{
+          formData.fileInTime[
+            "Explain how the incidents are similar or related"
+          ]
+        }}
+      </p>
+      <p
+        *ngIf="
+          formData.fileInTime['Are all the event Related or similar?'] === 'Yes'
+        "
+      >
+        <b>Explain any gaps between events</b><br />
+        {{ formData.fileInTime["Explain any gaps between events"] }}
+      </p>
+      <p
+        *ngIf="
+          formData.fileInTime[
+            'Did every event happen in the last year for all respondents?'
+          ] === 'No'
+        "
+      >
+        <b>Why did you file late?</b><br />
+        {{ formData.fileInTime["Why did you file late?"] }}
+      </p>
+      <p
+        *ngIf="
+          formData.fileInTime[
+            'Did every event happen in the last year for all respondents?'
+          ] === 'No'
+        "
+      >
+        <b>How will accepting your complaint benefit the public?</b><br />
+        {{
+          formData.fileInTime[
+            "How will accepting your complaint benefit the public?"
+          ]
+        }}
+      </p>
+      <p
+        *ngIf="
+          formData.fileInTime[
+            'Did every event happen in the last year for all respondents?'
+          ] === 'No'
+        "
+      >
+        <b>Why would the delay in filing not harm anyone else?</b><br />
+        {{
+          formData.fileInTime[
+            "Why would the delay in filing not harm anyone else?"
+          ]
+        }}
+      </p>
+    </div>
+
+    <div style="margin-top: 30px;"></div>
+    <h3>Other proceedings</h3>
+    <div class="grey-box">
+      <p>
+        <b
+          >Does the group or class have another proceeding about the same
+          events?</b
+        >
+        {{
+          formData.otherProceedings[
+            "Does the group or class have another proceeding about the same events?"
+          ]
+        }}
+      </p>
+      <p
+        *ngIf="
+          formData.otherProceedings[
+            'Does the group or class have another proceeding about the same events?'
+          ] === 'Yes'
+        "
+      >
+        <b>What kind of proceeding is it?</b>
+        {{ formData.otherProceedings["What kind of proceeding is it?"] }}
+      </p>
+      <p
+        *ngIf="
+          formData.otherProceedings[
+            'Does the group or class have another proceeding about the same events?'
+          ] === 'Yes'
+        "
+      >
+        <b>What stage is that proceeding at?</b>
+        {{ formData.otherProceedings["What stage is that proceeding at?"] }}
+      </p>
+      <p
+        *ngIf="
+          formData.otherProceedings[
+            'Does the group or class have another proceeding about the same events?'
+          ] === 'Yes'
+        "
+      >
+        <b>Do you want the Tribunal to wait to deal with the complaint?</b>
+        {{
+          formData.otherProceedings[
+            "Do you want the Tribunal to wait to deal with the complaint?"
+          ]
+        }}
+      </p>
+      <p
+        *ngIf="
+          formData.otherProceedings[
+            'Do you want the Tribunal to wait to deal with the complaint?'
+          ] === 'Yes'
+        "
+      >
+        <b
+          >Explain why you want the Tribunal to wait to deal with your
+          complaint</b
+        ><br />
+        {{
+          formData.otherProceedings[
+            "Explain why you want the Tribunal to wait to deal with the complaint"
+          ]
+        }}
+      </p>
+    </div>
+
+    <div style="margin-top: 30px;"></div>
+    <h3>Remedies</h3>
+    <div class="grey-box">
+      <p>
+        <b>Select the kinds of remedies you want:</b>
+        {{
+          formData.remedies["Select the kinds of remedies you want"].join(", ")
+        }}
+      </p>
+      <p
+        *ngIf="
+          formData.remedies['Select the kinds of remedies you want'].includes(
+            'Detail - Something specific (job back, policy…)'
+          )
+        "
+      >
+        <b>Detail - Something specific (job back, policy…):</b>
+        {{
+          formData.remedies["Detail - Something specific (job back, policy…)"]
+        }}
+      </p>
+      <p
+        *ngIf="
+          formData.remedies['Select the kinds of remedies you want'].includes(
+            'Other'
+          )
+        "
+      >
+        <b>Detail - Other:</b>
+        {{ formData.remedies["Detail - Other"] }}
+      </p>
+    </div>
+
+    <div style="margin-top: 30px;"></div>
+    <h3>Mediation</h3>
+    <div class="grey-box">
+      <p>
+        <b>Do you want to attend a mediation?</b>
+        {{ formData.mediation["Do you want to attend a mediation?"] }}
+      </p>
+    </div>
+
+    <div style="margin-top: 30px;"></div>
+
+    <h3 *ngIf="formData.statisticalInformation">
+      Statistical Information
+    </h3>
+    <div class="grey-box" *ngIf="formData.statisticalInformation">
+      <p>
+        <b>Indigenous Identity</b>
+        {{ formData.statisticalInformation["Indigenous Identity"] }}
+        {{
+          formData.statisticalInformation["Indigenous Identity-Comment"]
+            ? " - " +
+              formData.statisticalInformation["Indigenous Identity-Comment"]
+            : ""
+        }}
+      </p>
+      <p>
+        <b>Racial Identity</b>
+        {{ formData.statisticalInformation["Racial Identity"] }}
+        {{
+          formData.statisticalInformation["Racial Identity-Comment"]
+            ? " - " + formData.statisticalInformation["Racial Identity-Comment"]
+            : ""
+        }}
+      </p>
+      <p>
+        <b>Immigration Status</b>
+        {{ formData.statisticalInformation["Immigration Status"] }}
+        {{
+          formData.statisticalInformation["Immigration Status-Comment"]
+            ? " - " +
+              formData.statisticalInformation["Immigration Status-Comment"]
+            : ""
+        }}
+      </p>
+      <p>
+        <b>Language</b>
+        {{ formData.statisticalInformation["Language"] }}
+        {{
+          formData.statisticalInformation["Language-Comment"]
+            ? " - " + formData.statisticalInformation["Language-Comment"]
+            : ""
+        }}
+      </p>
+      <p>
+        Disability requiring accommodation in employment and services
+        {{
+          formData.statisticalInformation[
+            "Disability requiring accommodation in employment and services"
+          ]
+        }}
+      </p>
+      <p>
+        <b>Gender Identity</b>
+        {{ formData.statisticalInformation["Gender Identity"] }}
+        {{
+          formData.statisticalInformation["Gender Identity-Comment"]
+            ? " - " + formData.statisticalInformation["Gender Identity-Comment"]
+            : ""
+        }}
+      </p>
+      <p>
+        <b>Sexual Orientation</b>
+        {{ formData.statisticalInformation["Sexual Orientation"] }}
+        {{
+          formData.statisticalInformation["Sexual Orientation-Comment"]
+            ? " - " +
+              formData.statisticalInformation["Sexual Orientation-Comment"]
+            : ""
+        }}
+      </p>
+      <p>
+        <b>Age</b>
+        {{ formData.statisticalInformation["Age"] }}
+      </p>
+      <p>
+        <b>Household</b>
+        {{ formData.statisticalInformation["Household"] }}
+        {{
+          formData.statisticalInformation["Household-Comment"]
+            ? " - " + formData.statisticalInformation["Household-Comment"]
+            : ""
+        }}
+      </p>
+      <p>
+        <b>Household Income After Tax</b>
+        {{ formData.statisticalInformation["Household Income After Tax"] }}
+      </p>
+    </div>
+    <!-- <div
+        *ngIf="
+          formData.complainant['Select only one option'] !== 'The complainant'
+        "
+      >
+        <p>
+          <b>The person who will communicate with the Tribunal:</b><br />
+          {{
+            formData.complainant[
+              "Name of the person who will communicate with the Tribunal, if different from the Complainant"
+            ]
+          }}
+        </p>
+        <p>
+          {{ formData.complainant["Contact Title"] }}
+          {{ formData.complainant["First name"] }}
+          {{ formData.complainant["Last name"] }}
+          {{
+            formData.complainant["Pronoun"]
+              ? " (" + formData.complainant["Pronoun"] + ")"
+              : ""
+          }}
+        </p>
+        <p>
+          <b>Address:</b>
+          {{ formData.complainant["Complainant Contact Mailing address"] }},
+          {{ formData.complainant["Complainant Contact City"] }},
+          {{ formData.complainant["Complainant Contact Province"] }}
+          {{ formData.complainant["Complainant Contact Postal Code"] }}
+        </p>
+        <p>
+          <b>Phone number:</b>
+          {{ formData.complainant["Complainant Contact Phone number"] || "NA" }}
+        </p>
+        <p
+          *ngIf="formData.complainant['Complainant Contact Cell Phone number']"
+        >
+          <b>Cell phone number:</b>
+          {{
+            formData.complainant["Complainant Contact Cell Phone number"] ||
+              "NA"
+          }}
+        </p>
+        <p *ngIf="formData.complainant['Complainant Contact Fax']">
+          <b>Fax:</b>
+          {{ formData.complainant["Complainant Contact Fax"] || "NA" }}
+        </p>
+        <p>
+          Email:
+          {{ formData.complainant["Complainant Contact Email"] || "NA" }}
+        </p>
+      </div>
+
+      <div style="margin-top: 30px;"></div>
+      <h4 style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">
+        Respondents:
+      </h4>
+      <div
+        style="margin-bottom: 20px;"
+        *ngFor="
+          let respondent of formData.complainant[
+            'Respondents Contact Information'
+          ]
+        "
+      >
+        <p>
+          <b>Name of the Respondent:</b>
+          {{ respondent["Name of the Respondent"] }}
+        </p>
+        <p>
+          <b>Relationship to you:</b> {{ respondent["RELATIONSHIP TO YOU"] }}
+        </p>
+        <p>
+          <b>Mailing Address:</b><br />
+          {{ respondent["Mailing address"] }},
+          {{ respondent["ADDRESS LINE 2"] + ", " || "" }}
+          {{ respondent["City"] + ", " || "" }}
+          {{ respondent["PROVINCE"] + ", " || "" }}
+          {{ respondent["POSTAL CODE"] }}
+        </p>
+        <p>
+          <b>Phone number:</b>
+          {{ respondent["Respondent Contact Phone number"] || "NA" }}
+        </p>
+        <p>
+          <b>Cell phone number:</b>
+          {{ respondent["Respondent Contact Cell Phone number"] || "NA" }}
+        </p>
+        <p>
+          <b>Respondent Contact Email:</b>
+          {{ respondent["Respondent Contact Email"] || "NA" }}
+        </p>
+        <p>
+          <b>Respondent Contact Fax:</b>
+          {{ respondent["Respondent Contact Fax"] || "NA" }}
+        </p>
+      </div>
+    </div>
+
+    <div style="margin-top: 30px;"></div>
+    <h3>
+      Area and Grounds
+    </h3>
+    <div class="grey-box">
+      <div
+        *ngFor="let area of formData.areaAndGrounds.areas"
+        style="margin-bottom: 20px;"
+      >
+        <p>
+          <b>What is the Area of Discrimination?</b>
+          {{ area["What is the Area of Discrimination?"] }}
+        </p>
+        <p *ngIf="area['What is the Area of Discrimination?'] === 'Employment'">
+          <b>It’s about:</b>
+          {{
+            area[
+              "If your complaint is about employment, check if it’s about"
+            ].join(", ")
+          }}{{
+            area[
+              "If your complaint is about employment, check if it’s about-Comment"
+            ]
+              ? ": " +
+                area[
+                  "If your complaint is about employment, check if it’s about-Comment"
+                ]
+              : ""
+          }}
+        </p>
+        <p>
+          <b>What are the Grounds of Discrimination and related details?</b>
+        </p>
+        <p *ngFor="let item of area['What are the Grounds of Discrimination?']">
+          {{ item }}: {{ area["Details - " + item] }}
+        </p>
+        <p
+          *ngIf="
+            !!area[
+              'Please select which of the following Ground subcategories apply'
+            ] && false
+          "
+        >
+          <b>Subcategories</b>
+          {{
+            area[
+              "Please select which of the following Ground subcategories apply"
+            ].join(", ")
+          }}
+        </p>
+      </div>
+    </div>
+
+    <div style="margin-top: 30px;"></div>
+    <h3>
+      Details of the Discrimination
+    </h3>
+    <div class="grey-box">
+      <p>
+        <b>Describe what your complaint is about in a few words:</b><br />
+        {{
+          formData.detailsOfDiscrimination[
+            "Describe what your complaint is about in a few words"
+          ]
+        }}
+      </p>
+      <p>
+        <b>Describe the harm in a few word:</b><br />
+        {{
+          formData.detailsOfDiscrimination["Describe the harm in a few word"]
+        }}
+      </p>
+      <p>
+        <b
+          >Explain how the harm relates to the grounds you have selected
+          before:</b
+        ><br />
+        {{
+          formData.detailsOfDiscrimination[
+            "Explain how the harm relates to the grounds you have selected before"
+          ]
+        }}
+      </p>
+      <h4 style="margin: 20px 0; font-size: 18px;">
+        <b
+          >Describe what this Respondent did that harmed you based on the
+          grounds:</b
+        >
+      </h4>
+      <ng-container
+        *ngFor="
+          let event of formData.detailsOfDiscrimination[
+            'Describe what this Respondent did that harmed group or class members based on the grounds'
+          ]
+        "
+        style="margin-bottom: 10px;"
+      >
+        <p><b>Respondent:</b> {{ event.Respondent }}</p>
+        <p><b>Event:</b> {{ event.Event }}</p>
+        <p style="margin-bottom: 20px;"><b>Date:</b> {{ event.Date }}</p>
+      </ng-container>
+    </div>
+
+    <div style="margin-top: 30px;"></div>
+    <h3>
+      Is the complaint filed in time?
+    </h3>
+    <div class="grey-box">
+      <h4 style="margin: 20px 0; font-size: 18px;">
+        <b
+          >For each Respondent, what is the date of the most recent event that
+          you say is discrimination?</b
+        >
+      </h4>
+      <ng-container
+        *ngFor="
+          let respondent of formData.fileInTime[
+            'There is a one-year time limit for filing a complaint'
+          ]
+        "
+        style="margin-bottom: 10px;"
+      >
+        <p><b>Respondent:</b> {{ respondent["Respondent name"] }}</p>
+        <p>
+          <b
+            >What is the date of the most recent event that you say is
+            discrimination?</b
+          >
+          {{
+            respondent[
+              "What is the date of the most recent event that you say is discrimination?"
+            ]
+          }}
+        </p>
+        <p>
+          <b>Did the most recent event happen in the last year?</b>
+          {{ respondent["Did the most recent event happen in the last year?"] }}
+        </p>
+      </ng-container>
+      <p>
+        <b>Did every event happen in the last year for all respondents?</b>
+        {{
+          formData.fileInTime[
+            "Did every event happen in the last year for all respondents?"
+          ]
+        }}
+      </p>
+      <p
+        *ngIf="
+          formData.fileInTime[
+            'Did every event happen in the last year for all respondents?'
+          ] === 'No'
+        "
+      >
+        <b>Are all the event Related or similar?</b>
+        {{ formData.fileInTime["Are all the event Related or similar?"] }}
+      </p>
+      <p
+        *ngIf="
+          formData.fileInTime['Are all the event Related or similar?'] === 'Yes'
+        "
+      >
+        <b>Explain how the incidents are similar or related</b><br />
+        {{
+          formData.fileInTime[
+            "Explain how the incidents are similar or related"
+          ]
+        }}
+      </p>
+      <p
+        *ngIf="
+          formData.fileInTime['Are all the event Related or similar?'] === 'Yes'
+        "
+      >
+        <b>Explain any gaps between events</b><br />
+        {{ formData.fileInTime["Explain any gaps between events"] }}
+      </p>
+      <p
+        *ngIf="
+          formData.fileInTime[
+            'Did every event happen in the last year for all respondents?'
+          ] === 'No'
+        "
+      >
+        <b>Why did you file late?</b><br />
+        {{ formData.fileInTime["Why did you file late?"] }}
+      </p>
+      <p
+        *ngIf="
+          formData.fileInTime[
+            'Did every event happen in the last year for all respondents?'
+          ] === 'No'
+        "
+      >
+        <b>How will accepting your complaint benefit the public?</b><br />
+        {{
+          formData.fileInTime[
+            "How will accepting your complaint benefit the public?"
+          ]
+        }}
+      </p>
+      <p
+        *ngIf="
+          formData.fileInTime[
+            'Did every event happen in the last year for all respondents?'
+          ] === 'No'
+        "
+      >
+        <b>Why would the delay in filing not harm anyone else?</b><br />
+        {{
+          formData.fileInTime[
+            "Why would the delay in filing not harm anyone else?"
+          ]
+        }}
+      </p>
+    </div>
+
+    <div style="margin-top: 30px;"></div>
+    <h3>Other proceedings</h3>
+    <div class="grey-box">
+      <p>
+        <b>Does the group or class have another proceeding about the same events?</b>
+        {{
+          formData.otherProceedings[
+            "Does the group or class have another proceeding about the same events?"
+          ]
+        }}
+      </p>
+      <p
+        *ngIf="
+          formData.otherProceedings[
+            'Does the group or class have another proceeding about the same events?'
+          ] === 'Yes'
+        "
+      >
+        <b>What kind of proceeding is it?</b>
+        {{ formData.otherProceedings["What kind of proceeding is it?"] }}
+      </p>
+      <p
+        *ngIf="
+          formData.otherProceedings[
+            'Does the group or class have another proceeding about the same events?'
+          ] === 'Yes'
+        "
+      >
+        <b>What stage is that proceeding at?</b>
+        {{ formData.otherProceedings["What stage is that proceeding at?"] }}
+      </p>
+      <p
+        *ngIf="
+          formData.otherProceedings[
+            'Does the group or class have another proceeding about the same events?'
+          ] === 'Yes'
+        "
+      >
+        <b>Do you want the Tribunal to wait to deal with the complaint?</b>
+        {{
+          formData.otherProceedings[
+            "Do you want the Tribunal to wait to deal with the complaint?"
+          ]
+        }}
+      </p>
+      <p
+        *ngIf="
+          formData.otherProceedings[
+            'Do you want the Tribunal to wait to deal with the complaint?'
+          ] === 'Yes'
+        "
+      >
+        <b
+          >Explain why you want the Tribunal to wait to deal with your
+          complaint</b
+        ><br />
+        {{
+          formData.otherProceedings[
+            "Explain why you want the Tribunal to wait to deal with the complaint"
+          ]
+        }}
+      </p>
+    </div>
+
+    <div style="margin-top: 30px;"></div>
+    <h3>Remedies</h3>
+    <div class="grey-box">
+      <p>
+        <b>Select the kinds of remedies you want:</b>
+        {{
+          formData.remedies["Select the kinds of remedies you want"].join(", ")
+        }}
+      </p>
+      <p
+        *ngIf="
+          formData.remedies['Select the kinds of remedies you want'].includes(
+            'Detail - Something specific (job back, policy…)'
+          )
+        "
+      >
+        <b>Detail - Something specific (job back, policy…):</b>
+        {{
+          formData.remedies["Detail - Something specific (job back, policy…)"]
+        }}
+      </p>
+      <p
+        *ngIf="
+          formData.remedies['Select the kinds of remedies you want'].includes(
+            'Other'
+          )
+        "
+      >
+        <b>Detail - Other:</b>
+        {{ formData.remedies["Detail - Other"] }}
+      </p>
+    </div>
+
+    <div style="margin-top: 30px;"></div>
+    <h3>Mediation</h3>
+    <div class="grey-box">
+      <p>
+        <b>Do you want to attend a mediation?</b>
+        {{ formData.mediation["Do you want to attend a mediation?"] }}
+      </p>
+    </div>
+
+    <div style="margin-top: 30px;"></div>
+
+    <h3 *ngIf="formData.statisticalInformation">
+      Statistical Information
+    </h3>
+    <div class="grey-box" *ngIf="formData.statisticalInformation">
+      <p>
+        <b>Indigenous Identity</b>
+        {{ formData.statisticalInformation["Indigenous Identity"] }}
+        {{
+          formData.statisticalInformation["Indigenous Identity-Comment"]
+            ? " - " +
+              formData.statisticalInformation["Indigenous Identity-Comment"]
+            : ""
+        }}
+      </p>
+      <p>
+        <b>Racial Identity</b>
+        {{ formData.statisticalInformation["Racial Identity"] }}
+        {{
+          formData.statisticalInformation["Racial Identity-Comment"]
+            ? " - " + formData.statisticalInformation["Racial Identity-Comment"]
+            : ""
+        }}
+      </p>
+      <p>
+        <b>Immigration Status</b>
+        {{ formData.statisticalInformation["Immigration Status"] }}
+        {{
+          formData.statisticalInformation["Immigration Status-Comment"]
+            ? " - " +
+              formData.statisticalInformation["Immigration Status-Comment"]
+            : ""
+        }}
+      </p>
+      <p>
+        <b>Language</b>
+        {{ formData.statisticalInformation["Language"] }}
+        {{
+          formData.statisticalInformation["Language-Comment"]
+            ? " - " + formData.statisticalInformation["Language-Comment"]
+            : ""
+        }}
+      </p>
+      <p>
+        Disability requiring accommodation in employment and services
+        {{
+          formData.statisticalInformation[
+            "Disability requiring accommodation in employment and services"
+          ]
+        }}
+      </p>
+      <p>
+        <b>Gender Identity</b>
+        {{ formData.statisticalInformation["Gender Identity"] }}
+        {{
+          formData.statisticalInformation["Gender Identity-Comment"]
+            ? " - " + formData.statisticalInformation["Gender Identity-Comment"]
+            : ""
+        }}
+      </p>
+      <p>
+        <b>Sexual Orientation</b>
+        {{ formData.statisticalInformation["Sexual Orientation"] }}
+        {{
+          formData.statisticalInformation["Sexual Orientation-Comment"]
+            ? " - " +
+              formData.statisticalInformation["Sexual Orientation-Comment"]
+            : ""
+        }}
+      </p>
+      <p>
+        <b>Age</b>
+        {{ formData.statisticalInformation["Age"] }}
+      </p>
+      <p>
+        <b>Household</b>
+        {{ formData.statisticalInformation["Household"] }}
+        {{
+          formData.statisticalInformation["Household-Comment"]
+            ? " - " + formData.statisticalInformation["Household-Comment"]
+            : ""
+        }}
+      </p>
+      <p>
+        <b>Household Income After Tax</b>
+        {{ formData.statisticalInformation["Household Income After Tax"] }}
+      </p>
+    </div> -->
+    <div class="opt">
+      <label
+        ><input
+          type="checkbox"
+          [value]="checkbox"
+          (click)="handleCheckboxChange($event)"
+        />
+        <span
+          >I confirm that the information in this complaint form is true and
+          accurate to the best of my knowledge and belief</span
+        ></label
+      >
+    </div>
+    <p class="warning" *ngIf="error">
+      Please confirm your information is correct before submitting the form.
+    </p>
+
+    <button class="{{ buttonClass }}" (click)="handleSubmit()">Submit</button>
+  </div>
+</div>

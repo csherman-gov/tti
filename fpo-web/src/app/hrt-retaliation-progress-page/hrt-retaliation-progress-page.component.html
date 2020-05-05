@@ -1,0 +1,38 @@
+<div class="row">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div class="col-md-12">
+      <h1>
+        Application progress page
+      </h1>
+      <div class="intro">
+        <h3>
+          Complete these steps to apply
+        </h3>
+        <ul class="no-list-style">
+          <li *ngFor="let step of steps; let index = index">
+            <div class="left-container">
+              <h3>
+                {{index+1}}. {{step.name}} <i *ngIf="index <= completedSteps && formData[step.short_name]"
+                  style="color: green;" class="fa fa-fw fa-check"></i>
+              </h3>
+              <p>
+                <i>{{step.intro}}</i>
+              </p>
+            </div>
+            <div class="right-container">
+              <button class="btn btn-default" *ngIf="index <= completedSteps" [attr.data-url]="step.url"
+                (click)="handleClickEvent($event)">
+                {{formData[step.short_name] ? "Edit" : "Start"}}
+              </button>
+            </div>
+          </li>
+        </ul>
+        <div class="button-container">
+          <button class={{buttonClass}} (click)="handleReviewEvent($event)">
+            Review & submit complaint
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

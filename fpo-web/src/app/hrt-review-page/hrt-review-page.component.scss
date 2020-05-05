@@ -1,0 +1,43 @@
+.row {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 20px 6%;
+}
+
+.grey-box {
+  background-color: #f8f8f8;
+  padding: 15px;
+  font-family: Arial;
+}
+
+.opt {
+  font-size: 18px;
+  display: flex;
+}
+
+.btn {
+
+  &-secondary,
+  &-inactive {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
+
+  &-secondary:hover {
+    color: #fff;
+    background-color: #003366;
+    border-color: #012952;
+  }
+}
+
+.opt {
+  margin: 30px 0;
+}
+
+p > b {
+  margin-right: 10px;
+}
+div > p {
+  line-height: 1.6;
+}

@@ -1,0 +1,27 @@
+#=========================================================
+# OpenShift template parameters for:
+# Component: fpo-api
+# Template File: templates/django/django-deploy.yaml
+#=========================================================
+# NAME=django
+# APP_NAME=fpo
+# ROLE=api
+# IMAGE_NAMESPACE=qjtfov-tools
+# DATABASE_SERVICE_NAME=postgresql
+# DATABASE_ENGINE=postgresql
+# DATABASE_NAME=[a-zA-Z_][a-zA-Z0-9_]{10}
+# APP_CONFIG=
+# #DJANGO_SECRET_KEY=[\w]{50}
+# DJANGO_DEBUG=False
+# PDF_SERVICE_URL=http://weasyprint:5001
+TAG_NAME=dev
+# DATABASE_DEPLOYMENT_NAME=postgresql
+# CPU_REQUEST=10m
+# CPU_LIMIT=500m
+# MEMORY_REQUEST=10Mi
+# MEMORY_LIMIT=1Gi
+# SFDC_USERNAME=username
+# SFDC_SECRET=password
+# SFDC_SECURITY=security_key
+# SFDC_ORGID=organization_id
+# SFDC_DOMAIN=test

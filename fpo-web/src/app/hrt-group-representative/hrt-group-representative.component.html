@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1>
+      Representative Contact Information
+    </h1>
+    <div class="intro">
+      <h2>
+        {{ currentPageTitle }}
+        
+        <button *ngIf="!!pageHelpText[currentPageTitle]" (click)="handlePopupClick()" type="button" class="btn btn-default btn-xs" style="margin-left: 20px;">More Info</button>
+      </h2>
+    </div>
+    <div id="surveyElementHRT"></div>
+    <div class="navigation">
+      <button *ngIf="survey.currentPageNo !== 0" class="btn btn-default" (click)="handlePreviousStep()">
+        Previous
+      </button>
+      <button class="btn btn-default" (click)="handleNextStep()">
+        Continue
+      </button>
+    </div>
+
+  </div>
+</div>
+<div class="popup-container" [style.display]="!closed ? 'flex' : 'none'">
+  <div class="popup-content">
+    <div class="popup-header">
+      <span (click)="toggleModal()">CLOSE</span>
+    </div>
+    <div class="popup-body"></div>
+  </div>
+</div>

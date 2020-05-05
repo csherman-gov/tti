@@ -1,0 +1,10 @@
+#=========================================================
+# OpenShift template parameters for:
+# Component: .
+# Template File: ../fpo-web/openshift/templates/nginx-runtime/nginx-runtime.json
+#=========================================================
+NAME=nginx-runtime
+GIT_REPO_URL=git@github.com:arthur-newman-belmar/openshift-intake.git
+GIT_REF=master
+SOURCE_CONTEXT_DIR=fpo-web/openshift/templates/nginx-runtime/
+OUTPUT_IMAGE_TAG=latest

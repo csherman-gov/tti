@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1>
+      Areas & Grounds of discrimination
+    </h1>
+    <div class="intro">
+
+    </div>
+    <div id="surveyElementHRT"></div>
+    <div class="navigation">
+      <button class="btn btn-default" (click)="handleNextStep()">
+        Continue
+      </button>
+    </div>
+
+  </div>
+</div>
+<div class="popup-container" [style.display]="!closed ? 'flex' : 'none'">
+  <div class="popup-content">
+    <div class="popup-header">
+      <span (click)="toggleModal()">CLOSE</span>
+    </div>
+    <div class="popup-body"></div>
+  </div>
+</div>
+

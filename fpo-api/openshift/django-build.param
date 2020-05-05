@@ -1,0 +1,16 @@
+#=========================================================
+# OpenShift template parameters for:
+# Component: fpo-api
+# Template File: templates/django/django-build.yaml
+#=========================================================
+NAME=django
+ENV_NAME=tools
+GIT_REPO_URL=git@github.com:arthur-newman-belmar/openshift-intake.git
+GIT_REF=master
+SOURCE_CONTEXT_DIR=fpo-api
+KIND_OF_IMAGE=ImageStreamTag
+SOURCE_IMAGE_NAME=python
+SOURCE_IMAGE_TAG=3.6
+SOURCE_IMAGE_NAMESPACE=openshift
+PIP_INDEX_URL=
+OUTPUT_IMAGE_TAG=latest
