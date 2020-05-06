@@ -11,15 +11,17 @@ import * as Survey from "survey-angular";
 // import { addQuestionTypes } from '../survey/question-types';
 // widgets.inputmask(Survey);
 @Component({
-  selector: 'app-hrt-retaliation-other-proceedings-page',
-  templateUrl: './hrt-retaliation-other-proceedings-page.component.html',
-  styleUrls: ['./hrt-retaliation-other-proceedings-page.component.scss']
+  selector: "app-hrt-retaliation-other-proceedings-page",
+  templateUrl: "./hrt-retaliation-other-proceedings-page.component.html",
+  styleUrls: ["./hrt-retaliation-other-proceedings-page.component.scss"],
 })
-export class HrtRetaliationOtherProceedingsPageComponent implements OnInit, OnDestroy {
+export class HrtRetaliationOtherProceedingsPageComponent
+  implements OnInit, OnDestroy {
   subscription: Subscription;
   private json = {
     showNavigationButtons: false,
     completeText: "",
+    showQuestionNumbers: "off",
 
     pages: [
       {
@@ -135,7 +137,7 @@ export class HrtRetaliationOtherProceedingsPageComponent implements OnInit, OnDe
       btn.className = "btn btn-default btn-xs";
 
       // btn.style.position = "absolute";
-      btn.style.marginLeft = "20px";
+      btn.style.marginLeft = "10px";
 
       btn.innerHTML = "More Info";
       var question = options.question;

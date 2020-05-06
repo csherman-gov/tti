@@ -20,6 +20,7 @@ export class HrtOtherProceedingsPageComponent implements OnInit, OnDestroy {
   private json = {
     showNavigationButtons: false,
     completeText: "",
+    showQuestionNumbers: "off",
 
     pages: [
       {
@@ -135,7 +136,7 @@ export class HrtOtherProceedingsPageComponent implements OnInit, OnDestroy {
       btn.className = "btn btn-default btn-xs";
 
       // btn.style.position = "absolute";
-      btn.style.marginLeft = "20px";
+      btn.style.marginLeft = "10px";
 
       btn.innerHTML = "More Info";
       var question = options.question;

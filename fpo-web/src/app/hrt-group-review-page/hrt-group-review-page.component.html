@@ -36,7 +36,7 @@
         <b>How do you want to be addressed:</b>
         {{
           formData.representative["Title"]
-            ? formData.representative["Title"]
+            ? formData.representative["Title"] === 'other' ? formData.representative["Title-Comment"] : formData.representative["Title"]
             : "N/A"
         }}
       </p>
@@ -45,7 +45,7 @@
         <b>Pronoun:</b>
         {{
           formData.representative["Pronoun"]
-            ? formData.representative["Pronoun"]
+            ? formData.representative["Pronoun"] === 'other' ? formData.representative["Pronoun-Comment"] : formData.representative["Pronoun"]
             : "N/A"
         }}
       </p>
@@ -75,13 +75,17 @@
           <b>
             Title:
           </b>
-          {{ formData.representative["Representative Title"] }}
+          {{ formData.representative["Representative Title"] ? formData.representative["Representative Title"] === 'other' ? formData.representative["Representative Title-Comment"] : formData.representative["Representative Title"] : 'N/A' }}
         </p>
         <p>
           <b>
             Pronoun
           </b>
-          {{ formData.representative["Representative Pronoun"] }}
+          {{
+            formData.representative["Representative Pronoun"]
+              ? formData.representative["Representative Pronoun"] === 'other' ? formData.representative["Representative Pronoun-Comment"] : formData.representative["Representative Pronoun"]
+              : "N/A"
+          }}
         </p>
       </div>
       <div>
@@ -110,6 +114,7 @@
         </p>
       </div>
     </div>
+    <div style="margin-top: 30px;"></div>
     <h3>
       Suitability of Representative
     </h3>
@@ -226,6 +231,7 @@
         </li>
       </ul>
     </div>
+    <div style="margin-top: 30px;"></div>
     <h3>
       Suitability of Complaint
     </h3>
@@ -624,7 +630,7 @@
     <div class="grey-box" *ngIf="formData.statisticalInformation">
       <p>
         <b>Indigenous Identity</b>
-        {{ formData.statisticalInformation["Indigenous Identity"] }}
+        {{ formData.statisticalInformation["Indigenous Identity"] || 'N/A'}}
         {{
           formData.statisticalInformation["Indigenous Identity-Comment"]
             ? " - " +
@@ -634,7 +640,7 @@
       </p>
       <p>
         <b>Racial Identity</b>
-        {{ formData.statisticalInformation["Racial Identity"] }}
+        {{ formData.statisticalInformation["Racial Identity"] || 'N/A'}}
         {{
           formData.statisticalInformation["Racial Identity-Comment"]
             ? " - " + formData.statisticalInformation["Racial Identity-Comment"]
@@ -643,7 +649,7 @@
       </p>
       <p>
         <b>Immigration Status</b>
-        {{ formData.statisticalInformation["Immigration Status"] }}
+        {{ formData.statisticalInformation["Immigration Status"] || 'N/A'}}
         {{
           formData.statisticalInformation["Immigration Status-Comment"]
             ? " - " +
@@ -653,7 +659,7 @@
       </p>
       <p>
         <b>Language</b>
-        {{ formData.statisticalInformation["Language"] }}
+        {{ formData.statisticalInformation["Language"] || 'N/A'}}
         {{
           formData.statisticalInformation["Language-Comment"]
             ? " - " + formData.statisticalInformation["Language-Comment"]
@@ -661,16 +667,18 @@
         }}
       </p>
       <p>
-        Disability requiring accommodation in employment and services
+        <b>
+            Disability requiring accommodation in employment and services
+        </b>
         {{
           formData.statisticalInformation[
             "Disability requiring accommodation in employment and services"
-          ]
+          ] || 'N/A'
         }}
       </p>
       <p>
         <b>Gender Identity</b>
-        {{ formData.statisticalInformation["Gender Identity"] }}
+        {{ formData.statisticalInformation["Gender Identity"] || 'N/A'}}
         {{
           formData.statisticalInformation["Gender Identity-Comment"]
             ? " - " + formData.statisticalInformation["Gender Identity-Comment"]
@@ -679,7 +687,7 @@
       </p>
       <p>
         <b>Sexual Orientation</b>
-        {{ formData.statisticalInformation["Sexual Orientation"] }}
+        {{ formData.statisticalInformation["Sexual Orientation"] || 'N/A'}}
         {{
           formData.statisticalInformation["Sexual Orientation-Comment"]
             ? " - " +
@@ -689,11 +697,11 @@
       </p>
       <p>
         <b>Age</b>
-        {{ formData.statisticalInformation["Age"] }}
+        {{ formData.statisticalInformation["Age"] || 'N/A'}}
       </p>
       <p>
         <b>Household</b>
-        {{ formData.statisticalInformation["Household"] }}
+        {{ formData.statisticalInformation["Household"] || 'N/A'}}
         {{
           formData.statisticalInformation["Household-Comment"]
             ? " - " + formData.statisticalInformation["Household-Comment"]
@@ -702,7 +710,7 @@
       </p>
       <p>
         <b>Household Income After Tax</b>
-        {{ formData.statisticalInformation["Household Income After Tax"] }}
+        {{ formData.statisticalInformation["Household Income After Tax"] || 'N/A'}}
       </p>
     </div>
     <!-- <div

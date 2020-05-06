@@ -24,6 +24,7 @@ export class HrtRetaliationDetailsOfTheRetaliationPageComponent
   private json = {
     showNavigationButtons: false,
     completeText: "",
+    showQuestionNumbers: "off",
 
     pages: [
       {
@@ -69,6 +70,7 @@ export class HrtRetaliationDetailsOfTheRetaliationPageComponent
                     cellType: "text",
                     isRequired: true,
                     inputType: "date",
+                    max: "2999-12-31",
                   },
                 ],
                 choices: [1, 2, 3, 4, 5],

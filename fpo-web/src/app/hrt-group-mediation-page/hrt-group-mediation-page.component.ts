@@ -20,6 +20,7 @@ export class HrtGroupMediationPageComponent implements OnInit, OnDestroy {
   private json = {
     showNavigationButtons: false,
     completeText: "",
+    showQuestionNumbers: "off",
 
     pages: [
       {
@@ -29,7 +30,7 @@ export class HrtGroupMediationPageComponent implements OnInit, OnDestroy {
             type: "html",
             name: "question1",
             html:
-              "<p>\nAt a \"mediation\", an expert mediator works with you and the respondent to find a solution to your complaint. Settlement is voluntary. If you can’t agree, the process continues. \n</p>\n<p>Mediation is free. </p>\n<p>What you and the respondent say in mediation is confidential. </p></p>\n<p>A mediator does not act for either party.</p><p>You can bring your lawyer, advocate, or a support person</p> <p>You don’t have to be in the same room as a respondent to participant in mediation. The mediator can speak to you and the respondent separately.</p> <p>For more information see the Tribunal’s website <a href='www.bchrt.bc.ca' target='_blank'>www.bchrt.bc.ca</a>. Search “settle a complaint“.</p>",
+              "<ul><li>\nAt a \"mediation\", an expert mediator works with you and the respondent to find a solution to your complaint. Settlement is voluntary. If you can’t agree, the process continues. \n</li>\n<li>Mediation is free. </li>\n<li>What you and the respondent say in mediation is confidential. </li></li>\n<li>A mediator does not act for either party.</li><li>You can bring your lawyer, advocate, or a support person</li> <li>You don’t have to be in the same room as a respondent to participant in mediation. The mediator can speak to you and the respondent separately.</li> <li>For more information see the Tribunal’s website <a href='http://www.bchrt.bc.ca' target='_blank'>www.bchrt.bc.ca</a>. Search “settle a complaint“.</li></ul>",
           },
           {
             type: "radiogroup",
@@ -63,11 +64,35 @@ export class HrtGroupMediationPageComponent implements OnInit, OnDestroy {
   }
   ngOnInit() {
     // console.log("Survey.Survey.cssType", Survey.Survey.cssType);
-    // this.initSurvey();
+    //  this.initSurvey();
 
     this.renderSurvey();
   }
-
+  initSurvey() {
+    // addQuestionTypes(Survey);
+    // console.log("Survey.Survey.cssType", Survey.Survey.cssType);
+    // Survey.Survey.cssType = "bootstrap";
+    Survey.defaultBootstrapCss.page.root = "sv_page";
+    Survey.defaultBootstrapCss.pageDescription = "sv_page_description";
+    Survey.defaultBootstrapCss.pageTitle = "sv_page_title";
+    Survey.defaultBootstrapCss.navigationButton = "btn btn-primary";
+    Survey.defaultBootstrapCss.question.title = "sv_q_title";
+    Survey.defaultBootstrapCss.question.description = "sv_q_description small";
+    Survey.defaultBootstrapCss.panel.title = "sv_p_title";
+    Survey.defaultBootstrapCss.panel.container = "sv_p_container";
+    Survey.defaultBootstrapCss.panel.description = "sv_p_description";
+    Survey.defaultBootstrapCss.row = "sv_row";
+    Survey.defaultBootstrapCss.matrixdynamic.button = "btn btn-default";
+    Survey.defaultBootstrapCss.paneldynamic.button = "btn btn-default";
+    Survey.defaultBootstrapCss.paneldynamic.root = "sv_p_dynamic"; // not used?
+    Survey.defaultBootstrapCss.checkbox.item = "sv-checkbox";
+    Survey.defaultBootstrapCss.checkbox.controlLabel = "sv-checkbox-label";
+    Survey.defaultBootstrapCss.checkbox.materialDecorator = "";
+    Survey.defaultBootstrapCss.radiogroup.item = "sv-radio";
+    Survey.defaultBootstrapCss.radiogroup.controlLabel = "sv-checkbox-label";
+    Survey.defaultBootstrapCss.radiogroup.materialDecorator = "";
+    Survey.StylesManager.applyTheme("bootstrap");
+  }
   renderSurvey() {
     console.log("hi!1");
     // let surveyModel =
@@ -84,7 +109,7 @@ export class HrtGroupMediationPageComponent implements OnInit, OnDestroy {
     if (this.survey.isLastPage) {
       const validated = this.survey.completeLastPage();
       if (validated) {
-          console.log('this.survey.data ', this.survey.data)
+        console.log("this.survey.data ", this.survey.data);
         this.missionService.confirmMission({
           name: "mediation",
           data: this.survey.data,

@@ -21,141 +21,121 @@ export class HrtStatisticalInformationPageComponent
   private json = {
     showNavigationButtons: false,
     completeText: "",
+    showQuestionNumbers: "off",
 
-  
-    "pages": [
+    pages: [
       {
-      "name": "page1",
-      "elements": [
-        {
-        "type": "html",
-        "name": "question1",
-        "html": "<p>\nThe Tribunal wants to ensure that everyone can access and use its process. We will use the following information to know what groups of people are coming to the Tribunal. We share this information with the Office of the Human Rights Commissioner on a <strong>confidential</strong> basis.\n</p>\n<p>\nThis section is <strong>voluntary</strong>. You can choose if you want to give any of this information. Check all that apply.\n</p>"
-        },
-        {
-        "type": "radiogroup",
-        "name": "Indigenous Identity",
-        "hasOther": true,
-        "choices": [
-          "First Nations",
-          "Metis",
-          "Inuit"
+        name: "page1",
+        elements: [
+          {
+            type: "html",
+            name: "question1",
+            html:
+              "<p>\nThe Tribunal wants to ensure that everyone can access and use its process. We will use the following information to know what groups of people are coming to the Tribunal. We share this information with the Office of the Human Rights Commissioner on a <strong>confidential</strong> basis.\n</p>\n<p>\nThis section is <strong>voluntary</strong>. You can choose if you want to give any of this information. Check all that apply.\n</p>",
+          },
+          {
+            type: "radiogroup",
+            name: "Indigenous Identity",
+            hasOther: true,
+            choices: ["First Nations", "Métis", "Inuit"],
+            otherText: "Other",
+          },
+          {
+            type: "radiogroup",
+            name: "Racial Identity",
+            hasOther: true,
+            choices: [
+              "Indigenous",
+              "Black",
+              "Asian",
+              "South Asian",
+              "Latinx",
+              "Middle Eastern",
+              "White",
+              "Mixed Race",
+            ],
+            otherText: "Other",
+          },
+          {
+            type: "radiogroup",
+            name: "Immigration Status",
+            hasOther: true,
+            choices: [
+              "Canadian citizen",
+              "Permanant resident",
+              "Refugee",
+              "Temporary visa",
+            ],
+            otherText: "Other",
+          },
+          {
+            type: "radiogroup",
+            name: "Language",
+            hasOther: true,
+            choices: ["English", "French", "ASL"],
+            otherText: "Other",
+          },
+          {
+            type: "radiogroup",
+            name:
+              "Disability requiring accommodation in employment and services",
+            choices: ["Yes - physical", "Yes - mental health", "Yes cognitive"],
+            otherText: "Other",
+          },
+          {
+            type: "radiogroup",
+            name: "Gender Identity",
+            hasOther: true,
+            choices: [
+              "Woman",
+              "Man",
+              "Non-binary",
+              "Transgender",
+              "Two Spirit",
+            ],
+            otherText: "Other",
+          },
+          {
+            type: "radiogroup",
+            name: "Sexual Orientation",
+            hasOther: true,
+            choices: ["LGBQ", "Heterosexual"],
+            otherText: "Other",
+          },
+          {
+            type: "radiogroup",
+            name: "Age",
+            choices: ["Under 19", "20-34", "35-49", "50-64", "65 and over"],
+            otherText: "Other",
+          },
+          {
+            type: "radiogroup",
+            name: "Household",
+            hasOther: true,
+            choices: [
+              "Single parent",
+              "Two parent family",
+              "Single adult",
+              "Two adults",
+            ],
+            otherText: "Other",
+          },
+          {
+            type: "radiogroup",
+            name: "Household Income After Tax",
+            choices: [
+              "Under $20,000",
+              "$20,000 to $39,999",
+              "$40,000 to $59,999",
+              "$60,000 to $79,999",
+              "$80,000 to $99,999",
+              "$100,000 or more",
+            ],
+            otherText: "Other",
+          },
         ],
-        "otherText": "Other"
-        },
-        {
-        "type": "radiogroup",
-        "name": "Racial Identity",
-        "hasOther": true,
-        "choices": [
-          "Indigenous",
-          "Black",
-          "Asian",
-          "South Asian",
-          "Latinx",
-          "Middle Eastern",
-          "White",
-          "Mixed Race"
-        ],
-        "otherText": "Other"
-        },
-        {
-        "type": "radiogroup",
-        "name": "Immigration Status",
-        "hasOther": true,
-        "choices": [
-          "Canadian citizen",
-          "Permanant resident",
-          "Refugee",
-          "Temporary visa"
-        ],
-        "otherText": "Other"
-        },
-        {
-        "type": "radiogroup",
-        "name": "Language",
-        "hasOther": true,
-        "choices": [
-          "English",
-          "French",
-          "ASL"
-        ],
-        "otherText": "Other"
-        },
-        {
-        "type": "radiogroup",
-        "name": "Disability requiring accommodation in employment and services",
-        "choices": [
-          "Yes - physical",
-          "Yes - mental health",
-          "Yes cognitive"
-        ],
-        "otherText": "Other"
-        },
-        {
-        "type": "radiogroup",
-        "name": "Gender Identity",
-        "hasOther": true,
-        "choices": [
-          "Woman",
-          "Man",
-          "Non-binary",
-          "Transgender",
-          "Two Spirit"
-        ],
-        "otherText": "Other"
-        },
-        {
-        "type": "radiogroup",
-        "name": "Sexual Orientation",
-        "hasOther": true,
-        "choices": [
-          "LGBQ",
-          "Heterosexual"
-        ],
-        "otherText": "Other"
-        },
-        {
-        "type": "radiogroup",
-        "name": "Age",
-        "choices": [
-          "Under 19",
-          "20-34",
-          "35-49",
-          "50-64",
-          "65 and over"
-        ],
-        "otherText": "Other"
-        },
-        {
-        "type": "radiogroup",
-        "name": "Household",
-        "hasOther": true,
-        "choices": [
-          "Single parent",
-          "Two parent family",
-          "Single adult",
-          "Two adults"
-        ],
-        "otherText": "Other"
-        },
-        {
-        "type": "radiogroup",
-        "name": "Household Income After Tax",
-        "choices": [
-          "Under $20,000",
-          "$20,000 to $39,999",
-          "$40,000 to $59,999",
-          "$60,000 to $79,999",
-          "$80,000 to $99,999",
-          "$100,000 or more"
-        ],
-        "otherText": "Other"
-        }
-      ]
-      }
-    ]
-     
+      },
+    ],
   };
 
   survey: any;

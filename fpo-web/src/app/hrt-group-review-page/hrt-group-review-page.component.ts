@@ -48,7 +48,7 @@ export class HrtGroupReviewPageComponent implements OnInit, OnDestroy {
         console.log("allFormData", allFormData);
         if (allFormData) {
           this.formData = allFormData;
-          this.formData = this.newFormData;
+        //   this.formData = this.newFormData;
           console.log(this.formData);
           for (let key in this.formData) {
             if (key == "home") {

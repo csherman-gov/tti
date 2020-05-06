@@ -21,6 +21,7 @@ export class HrtRetaliationFileInTimePageComponent
   private json = {
     showNavigationButtons: false,
     completeText: "",
+    showQuestionNumbers: "off",
 
     pages: [
       {
@@ -174,7 +175,7 @@ export class HrtRetaliationFileInTimePageComponent
       btn.className = "btn btn-default btn-xs";
 
       // btn.style.position = "absolute";
-      btn.style.marginLeft = "20px";
+      btn.style.marginLeft = "10px";
 
       btn.innerHTML = "More Info";
       var question = options.question;
@@ -200,7 +201,7 @@ export class HrtRetaliationFileInTimePageComponent
           data: this.survey.data,
           complete: true,
         });
-        this.router.navigateByUrl("hrt/progress");
+        this.router.navigateByUrl("hrt-retaliation/progress");
       }
     } else {
       this.survey.nextPage();

@@ -186,7 +186,7 @@ $indicator-thickness: 0.2em;
   margin: 0;
 }
 .sv_main .sv_q_title {
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 500;
   margin-bottom:0.5em;
   color: #000;
@@ -194,3 +194,5 @@ $indicator-thickness: 0.2em;
 .sv_main .sv_q_description {
     margin-bottom: 0.5em;
 }
+
+@import 'hrt-scss.scss'

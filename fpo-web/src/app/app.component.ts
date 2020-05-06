@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Renderer2 } from "@angular/core";
+import { AfterViewInit, Component, Renderer2, DoCheck, OnInit } from "@angular/core";
 import { LocationStrategy } from "@angular/common";
 import { NavigationEnd, Router } from "@angular/router";
 import { BreadcrumbComponent } from "./breadcrumb/breadcrumb.component";
@@ -7,19 +7,19 @@ import { InsertService } from "./insert/insert.service";
 import { MatomoInjector } from "@ambroise-rabier/ngx-matomo";
 import { environment } from "../environments/environment";
 import { MissionService } from "./mission.service";
-
+import * as Survey from "survey-angular";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
   providers: [MissionService],
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements AfterViewInit, DoCheck, OnInit {
   title = "";
   _isPrv = false;
   // Add default survey data
   allFormData = {};
-  complaintTitle = 'B.C. Human Rights Tribunal'
+  complaintTitle = "B.C. Human Rights Tribunal";
   constructor(
     private renderer: Renderer2,
     private router: Router,
@@ -42,7 +42,45 @@ export class AppComponent implements AfterViewInit {
       }
     });
   }
-
+  ngOnInit() {
+      this.initSurvey()
+  }
+  initSurvey() {
+    // addQuestionTypes(Survey);
+    Survey.defaultBootstrapCss.page.root = "sv_page";
+    Survey.defaultBootstrapCss.pageDescription = "sv_page_description";
+    Survey.defaultBootstrapCss.page.description = "sv_page_description";
+    Survey.defaultBootstrapCss.pageTitle = "sv_page_title";
+    Survey.defaultBootstrapCss.page.title = "sv_page_title";
+    Survey.defaultBootstrapCss.navigationButton = "btn btn-primary";
+    Survey.defaultBootstrapCss.question.title = "sv_q_title";
+    Survey.defaultBootstrapCss.question.description = "sv_q_description";
+    Survey.defaultBootstrapCss.panel.description = "sv_p_description";
+    Survey.defaultBootstrapCss.matrixdynamic.button = "btn btn-primary";
+    Survey.defaultBootstrapCss.paneldynamic.button = "btn btn-primary";
+    Survey.defaultBootstrapCss.paneldynamic.root = "sv_p_dynamic";
+    Survey.defaultBootstrapCss.checkbox.item = "sv-checkbox";
+    Survey.defaultBootstrapCss.checkbox.controlLabel = "sv-checkbox-label";
+    Survey.defaultBootstrapCss.checkbox.materialDecorator = "";
+    Survey.defaultBootstrapCss.radiogroup.item = "sv-radio";
+    Survey.defaultBootstrapCss.radiogroup.controlLabel = "sv-checkbox-label";
+    Survey.defaultBootstrapCss.radiogroup.materialDecorator = "";
+    Survey.StylesManager.applyTheme("bootstrap");
+  }
+  ngDoCheck() {
+    console.log(111111111111);
+    console.log(this.router.url.includes("hrt-group"));
+    if (this.router.url.includes("hrt-group")) {
+      this.complaintTitle = "Form 1.3 - Group or Class Complaint";
+      document.title = "File a Group Complaint ";
+    } else if (this.router.url.includes("hrt-retaliation")) {
+      this.complaintTitle = "Retaliation Complaint";
+      document.title = "File a Retaliation Complaint ";
+    } else {
+        this.complaintTitle = "Form 1.1 - Individual Complaint";
+      document.title = "File a Individual Complaint ";
+    }
+  }
   ngAfterViewInit(): void {
     let isPopState = false;
     let prevSlug: string;

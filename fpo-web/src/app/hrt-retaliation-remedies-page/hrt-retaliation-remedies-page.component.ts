@@ -11,15 +11,16 @@ import * as Survey from "survey-angular";
 // import { addQuestionTypes } from '../survey/question-types';
 // widgets.inputmask(Survey);
 @Component({
-  selector: 'app-hrt-retaliation-remedies-page',
-  templateUrl: './hrt-retaliation-remedies-page.component.html',
-  styleUrls: ['./hrt-retaliation-remedies-page.component.scss']
+  selector: "app-hrt-retaliation-remedies-page",
+  templateUrl: "./hrt-retaliation-remedies-page.component.html",
+  styleUrls: ["./hrt-retaliation-remedies-page.component.scss"],
 })
 export class HrtRetaliationRemediesPageComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   private json = {
     showNavigationButtons: false,
     completeText: "",
+    showQuestionNumbers: "off",
 
     pages: [
       {
@@ -103,7 +104,7 @@ export class HrtRetaliationRemediesPageComponent implements OnInit, OnDestroy {
           data: this.survey.data,
           complete: true,
         });
-        this.router.navigateByUrl("hrt/progress");
+        this.router.navigateByUrl("hrt-retaliation/progress");
       }
     } else {
       this.survey.nextPage();
