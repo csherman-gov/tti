@@ -75,34 +75,34 @@ class SurveyResultView(APIView):
 
     def post(self, request, *args, **kwargs):
         collection = kwargs.get("collection")
-        # if not collection:
-        #     return HttpResponseBadRequest("Missing survey collection")
-        # survey_type = kwargs.get("type")
-        # if not survey_type:
-        #     return HttpResponseBadRequest("Missing survey type")
-        # survey_type = survey_type[:32]
-        # uid = self.get_request_user_id(request)
-        # if not uid:
-        #     return HttpResponseForbidden("Missing user ID")
+        if not collection:
+            return HttpResponseBadRequest("Missing survey collection")
+        survey_type = kwargs.get("type")
+        if not survey_type:
+            return HttpResponseBadRequest("Missing survey type")
+        survey_type = survey_type[:32]
+        uid = self.get_request_user_id(request)
+        if not uid:
+            return HttpResponseForbidden("Missing user ID")
         body = request.data
         if not body:
             return HttpResponseBadRequest("Missing application results")
         key = kwargs.get("id")
         key = key[:32] if key else None
 
-        # if key:
-        #     try:
-        #         result = SurveyResult.objects.get(
-        #             collection=collection, survey_type=survey_type, id=key, user_id=uid
-        #         )
-        #     except SurveyResult.DoesNotExist:
-        #         return HttpResponseNotFound()
-        # else:
-        #     result = SurveyResult(
-        #         collection=collection, survey_type=survey_type, user_id=uid
-        #     )
-        # result.result = body
-        # result.save()
+        if key:
+            try:
+                result = SurveyResult.objects.get(
+                    collection=collection, survey_type=survey_type, id=key, user_id=uid
+                )
+            except SurveyResult.DoesNotExist:
+                return HttpResponseNotFound()
+        else:
+            result = SurveyResult(
+                collection=collection, survey_type=survey_type, user_id=uid
+            )
+        result.result = body
+        result.save()
 
         sSFDC_org = 'dev01'
         sf_instance = SFDC(sSFDC_org)
