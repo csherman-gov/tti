@@ -84,7 +84,7 @@ class SurveyResultView(APIView):
         # uid = self.get_request_user_id(request)
         # if not uid:
         #     return HttpResponseForbidden("Missing user ID")
-        # body = request.data
+        body = request.data
         if not body:
             return HttpResponseBadRequest("Missing application results")
         key = kwargs.get("id")
