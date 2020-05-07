@@ -420,6 +420,13 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             choices: ["Mr.", "Ms.", "Mx."],
             otherText: "Other",
           },
+          {
+            type: "radiogroup",
+            name: "Pronoun",
+            hasOther: true,
+            choices: ["She", "He", "They"],
+            otherText: "Other",
+          },
         ],
         title: "Who experienced discrimination (Complainant)?",
       },
@@ -427,6 +434,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
         name: "Who will communicate with the Tribunal about this Complaint?",
         elements: [
           {
+            isRequired: true,
             type: "radiogroup",
             name: "Select only one option",
             choices: [
@@ -462,10 +470,11 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             name: "Last name",
             isRequired: true,
           },
-          {
-            type: "text",
-            name: "Preferred name - e.g. traditional name, nickname, alias",
-          },
+        //   {
+        //     type: "text",
+        //     title: 'Preferred name - e.g. traditional name, nickname, alias',
+        //     name: "Contact Preferred name - e.g. traditional name, nickname, alias",
+        //   },
           {
             type: "radiogroup",
             name: "Contact Title",
@@ -476,7 +485,8 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
           },
           {
             type: "radiogroup",
-            name: "Pronoun",
+            name: "Contact Pronoun",
+            title: "Pronoun",
             hasOther: true,
             choices: ["She", "He", "They"],
             otherText: "Other",
