@@ -11,7 +11,7 @@ import { addQuestionTypes } from "./question-types";
 @Component({
   selector: "app-survey-view",
   templateUrl: "./survey.component.html",
-  styleUrls: ["./survey.component.scss"]
+  styleUrls: ["./survey.component.scss"],
 })
 export class SurveyComponent implements OnInit, OnDestroy {
   private _active = false;
@@ -56,7 +56,7 @@ export class SurveyComponent implements OnInit, OnDestroy {
     }
     // this.initSurvey();
     this.glossaryService.onLoaded(() => {
-      this._route.params.subscribe(params => {
+      this._route.params.subscribe((params) => {
         this.cacheKey = params.id || null;
       });
       this.loadSurvey(true);
@@ -64,7 +64,7 @@ export class SurveyComponent implements OnInit, OnDestroy {
     if (this.showSidebar) {
       this.insertService.updateInsert("sidebar-left", {
         type: "survey-sidebar",
-        inputs: { survey: this }
+        inputs: { survey: this },
       });
     }
     this._active = true;
@@ -124,7 +124,7 @@ export class SurveyComponent implements OnInit, OnDestroy {
         this.renderSurvey();
       }
     } else if (this.surveyPath) {
-      this.dataService.loadJson(this.surveyPath).then(data => {
+      this.dataService.loadJson(this.surveyPath).then((data) => {
         this.surveyJson = data;
       }); // .catch( (err) => ...)
     }
@@ -140,7 +140,7 @@ export class SurveyComponent implements OnInit, OnDestroy {
     // Create showdown markdown converter
     if (this.useMarkdown) {
       this.markdownConverter = new showdown.Converter({
-        noHeaderId: true
+        noHeaderId: true,
       });
       surveyModel.onTextMarkdown.add((survey, options) => {
         let str = this.markdownConverter.makeHtml(options.text);
@@ -305,7 +305,7 @@ export class SurveyComponent implements OnInit, OnDestroy {
       time: new Date().getTime(),
       data: this.surveyModel.data,
       page: this.surveyModel.currentPageNo,
-      completed: this.surveyCompleted
+      completed: this.surveyCompleted,
     };
     const cmpCache = JSON.stringify(cache.data);
     if (auto && cmpCache === this._lastSavedData) {
@@ -321,7 +321,7 @@ export class SurveyComponent implements OnInit, OnDestroy {
         this.useLocalCache
       )
       .then(this.doneSaveCache.bind(this))
-      .catch(err => this.doneSaveCache(null, err));
+      .catch((err) => this.doneSaveCache(null, err));
   }
 
   doneSaveCache(response, err?) {

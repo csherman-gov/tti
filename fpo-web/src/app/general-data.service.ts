@@ -27,8 +27,8 @@ export class GeneralDataService {
   }
 
   getApiUrl(action: string): string {
-    return this.getBaseHref() + "api/v1/" + action;
-    // return "https://family-protection-order-dev.pathfinder.gov.bc.ca/protection-order/api/v1/" + action;
+    return this.getBaseHref() + "api/v1/" + action; 
+    // return "https://angular-on-nginx-qjtfov-dev.pathfinder.gov.bc.ca/api/v1/" + action;
   }
 
   getBrowserUser() {
@@ -175,7 +175,12 @@ export class GeneralDataService {
       return this.http
         .post(url, null, { withCredentials: true })
         .toPromise()
-        .then(result => this.loadUserInfo());
+        .then(result => {
+            console.log('back!!!!')
+            console.log(result)
+            // this.loadUserInfo()
+            return this.loadUserInfo('joseph11@belmar.ca')
+        });
     }
   }
 

@@ -1,57 +1,55 @@
 .popup-container {
-    // display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba($color: #000000, $alpha: 0.65);
-    justify-content: center;
-    align-items: center;
+  // display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba($color: #000000, $alpha: 0.65);
+  justify-content: center;
+  align-items: center;
+}
+.popup-content {
+  width: 60%;
+  min-width: 300px;
+  padding: 2rem;
+  box-shadow: 0 0 3px 2px #999;
+  background-color: #ffffff;
+  max-height: 80vh;
+}
+.popup-header {
+  display: flex;
+  justify-content: flex-end;
+  span {
+    border: 2px solid #777;
+    padding: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 5px;
   }
-  .popup-content {
-    width: 60%;
-    min-width: 300px;
-    padding: 2rem;
-    box-shadow: 0 0 3px 2px #999;
-    background-color: #ffffff;
-    max-height: 80vh;
+}
+.popup-body {
+  // margin-top: 10px;
+  padding-top: 5px;
+  overflow: auto;
+  height: 70vh;
+  -ms-overflow-style: none;
+}
+.popup-body::-webkit-scrollbar {
+  display: none;
+}
+:host /deep/ .section {
+  margin-bottom: 30px;
+  h4 {
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 2px solid;
   }
-  .popup-header {
-    display: flex;
-    justify-content: flex-end;
-    span {
-      border: 2px solid #777;
-      padding: 5px;
-      cursor: pointer;
-      font-weight: 600;
-      border-radius: 5px;
-    }
-  }
-  .popup-body {
-    // margin-top: 10px;
-    padding-top: 5px;
-    overflow: auto;
-    height: 70vh;
-    -ms-overflow-style: none;
-  }
-  .popup-body::-webkit-scrollbar {
-    display: none;
-  }
-  :host /deep/ .section {
-    margin-bottom: 30px;
-    h4 {
-      font-size: 18px;
-      font-weight: bold;
-      border-bottom: 2px solid;
-    }
-  }
-  
-  .row {
-    max-width: 1170px;
-    margin: 0 auto;
-    // .navigation {
-    //     text-align: right;
-    // }
-  }
-  
+}
+
+.row {
+  max-width: 1170px;
+  // .navigation {
+  //     text-align: right;
+  // }
+}

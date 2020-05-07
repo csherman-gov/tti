@@ -120,25 +120,11 @@ export default {
       "name": "Complainant’s address for Delivery",
       "elements": [
         {
-          "type": "html",
-          "name": "question1",
-          "html": "<p><strong>Purpose of collecting contact information:</strong> The Tribunal and Respondents use your contact information to communicate with you about the complaint. The Tribunal may also use it to conduct surveys to evaluate and improve its services.</p>"
-        },
-        {
-          "type": "html",
-          "name": "question3",
-          "html": "<p><strong>Mailing address: </strong> You must give a mailing address.</p>"
-        },
-        {
-          "type": "html",
-          "name": "question2",
-          "html": "<p><strong>Email:</strong>The Tribunal usually communicates via email. If possible, give an email address where all parties can reach you. If you have confidential contact information, do not put it on this form. Put it in your cover email or letter.\n</p>"
-        },
-        {
-          "type": "html",
-          "name": "question4",
-          "html": "<p><strong>Important information:</strong>A document sent to an address below is deemed to be received by the complainant. You must notify the Tribunal of any change to the address for delivery.\n</p>"
-        },
+            type: "html",
+            name: "question1",
+            html:
+              "<p><strong>Purpose of collecting contact information:</strong> The Tribunal and Respondents use your contact information to communicate with you about the complaint. The Tribunal may also use it to conduct surveys to evaluate and improve its services.</p><p><strong>Mailing address: </strong> You must give a mailing address.</p><p><strong>Email:</strong>The Tribunal usually communicates via email. If possible, give an email address where all parties can reach you. If you have confidential contact information, do not put it on this form. Put it in your cover email or letter.\n</p><p><strong>Important information:</strong>A document sent to an address below is deemed to be received by the complainant. You must notify the Tribunal of any change to the address for delivery.\n</p>",
+          },
         {
           "type": "text",
           "name": "Complainant Contact Mailing address",

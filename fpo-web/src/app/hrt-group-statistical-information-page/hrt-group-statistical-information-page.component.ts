@@ -21,6 +21,7 @@ export class HrtGroupStatisticalInformationPageComponent
   private json = {
     showNavigationButtons: false,
     completeText: "",
+    showQuestionNumbers: "off",
 
     pages: [
       {
@@ -36,7 +37,7 @@ export class HrtGroupStatisticalInformationPageComponent
             type: "radiogroup",
             name: "Indigenous Identity",
             hasOther: true,
-            choices: ["First Nations", "Metis", "Inuit"],
+            choices: ["First Nations", "Métis", "Inuit"],
             otherText: "Other",
           },
           {
@@ -184,7 +185,7 @@ export class HrtGroupStatisticalInformationPageComponent
           data: this.survey.data,
           complete: true,
         });
-        this.router.navigateByUrl("hrt-group/progprogress");
+        this.router.navigateByUrl("hrt-group/progress");
       }
     } else {
       this.survey.nextPage();

@@ -20,6 +20,7 @@ export class HrtGroupTimeLimitPageComponent implements OnInit, OnDestroy {
   private json = {
     showNavigationButtons: false,
     completeText: "",
+    showQuestionNumbers: "off",
 
     pages: [
       {
@@ -41,7 +42,7 @@ export class HrtGroupTimeLimitPageComponent implements OnInit, OnDestroy {
                 name:
                   "What is the date of the most recent event that you say is discrimination?",
                 isRequired: true,
-                inputType: "datetime",
+                inputType: "date",
               },
               {
                 type: "radiogroup",
@@ -150,14 +151,39 @@ export class HrtGroupTimeLimitPageComponent implements OnInit, OnDestroy {
   }
   ngOnInit() {
     // console.log("Survey.Survey.cssType", Survey.Survey.cssType);
-    // this.initSurvey();
+    //  this.initSurvey();
     //Add a property a text property into all questions types and into page
     Survey.JsonObject.metaData.addProperty("question", "popupdescription:text");
     Survey.JsonObject.metaData.addProperty("page", "popupdescription:text");
 
     this.renderSurvey();
   }
-
+  initSurvey() {
+    Survey.defaultBootstrapCss.page.root = "sv_page";
+    Survey.defaultBootstrapCss.pageDescription = "sv_page_description";
+    Survey.defaultBootstrapCss.pageTitle = "sv_page_title";
+    Survey.defaultBootstrapCss.navigationButton = "btn btn-primary";
+    Survey.defaultBootstrapCss.question.title = "sv_q_title";
+    Survey.defaultBootstrapCss.question.description = "sv_q_description small";
+    Survey.defaultBootstrapCss.panel.title = "sv_p_title";
+    Survey.defaultBootstrapCss.panel.container = "sv_p_container";
+    Survey.defaultBootstrapCss.panel.description = "sv_p_description";
+    Survey.defaultBootstrapCss.row = "sv_row";
+    Survey.defaultBootstrapCss.matrixdynamic.button = "btn btn-default";
+    Survey.defaultBootstrapCss.paneldynamic.button = "btn btn-default";
+    Survey.defaultBootstrapCss.paneldynamic.root = "sv_p_dynamic"; // not used?
+    Survey.defaultBootstrapCss.checkbox.item = "sv-checkbox";
+    Survey.defaultBootstrapCss.checkbox.controlLabel = "sv-checkbox-label";
+    Survey.defaultBootstrapCss.checkbox.materialDecorator = "";
+    Survey.defaultBootstrapCss.radiogroup.item = "sv-radio";
+    Survey.defaultBootstrapCss.radiogroup.controlLabel = "sv-checkbox-label";
+    Survey.defaultBootstrapCss.radiogroup.materialDecorator = "";
+    //Add a property a text property into all questions types and into page
+    // Survey.JsonObject.metaData.addProperty("question", "popupdescription:text");
+    // Survey.JsonObject.metaData.addProperty("page", "popupdescription:text");
+    // console.log(Survey.JsonObject.metaData.addProperty)
+    Survey.StylesManager.applyTheme("bootstrap");
+  }
   showDescription(element) {
     document.querySelector(".popup-body").innerHTML = element.popupdescription;
     // $("#questionDescriptionPopup").modal();
@@ -188,7 +214,7 @@ export class HrtGroupTimeLimitPageComponent implements OnInit, OnDestroy {
       btn.className = "btn btn-default btn-xs";
 
       // btn.style.position = "absolute";
-      btn.style.marginLeft = "20px";
+      btn.style.marginLeft = "10px";
 
       btn.innerHTML = "More Info";
       var question = options.question;

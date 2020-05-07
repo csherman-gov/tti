@@ -20,29 +20,35 @@ export class HrtComplaintFileInTimePageComponent implements OnInit, OnDestroy {
   private json = {
     showNavigationButtons: false,
     completeText: "",
+    showQuestionNumbers: "off",
 
     pages: [
       {
         name: "Is the Complaint filed in Time?",
+        // title: "Is the Complaint filed in Time? ",
         elements: [
           {
             type: "paneldynamic",
             name: "There is a one-year time limit for filing a complaint",
+            titleLocation: "hidden",
             description: "For each Respondent",
             isRequired: true,
             templateElements: [
               {
+                titleLocation: "top",
                 type: "text",
                 name: "Respondent name",
               },
               {
+                titleLocation: "top",
                 type: "text",
                 name:
                   "What is the date of the most recent event that you say is discrimination?",
                 isRequired: true,
-                inputType: "datetime",
+                inputType: "date",
               },
               {
+                titleLocation: "top",
                 type: "radiogroup",
                 name: "Did the most recent event happen in the last year?",
                 isRequired: true,
@@ -187,7 +193,7 @@ export class HrtComplaintFileInTimePageComponent implements OnInit, OnDestroy {
       btn.className = "btn btn-default btn-xs";
 
       // btn.style.position = "absolute";
-      btn.style.marginLeft = "20px";
+      btn.style.marginLeft = "10px";
 
       btn.innerHTML = "More Info";
       var question = options.question;

@@ -1,17 +1,21 @@
 <div class="row">
   <div class="col-md-12">
     <h1>
-      Complainant
+      Party information
     </h1>
-    <div class="intro">
-
-    </div>
+    <div class="intro"></div>
     <div id="surveyElementHRT"></div>
     <div class="navigation">
+      <button
+        *ngIf="survey.currentPageNo !== 0"
+        class="btn btn-default"
+        (click)="handlePreviousStep()"
+      >
+        Previous
+      </button>
       <button class="btn btn-default" (click)="handleNextStep()">
         Continue
       </button>
     </div>
-
   </div>
 </div>

@@ -40,6 +40,7 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
   private json = {
     showNavigationButtons: false,
     completeText: "",
+    showQuestionNumbers: "off",
     showPageTitles: false,
     pages: [
       {
@@ -158,7 +159,7 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
             type: "html",
             name: "question1",
             html:
-              "<p><b>Purpose of collecting contact information:</b> The Tribunal and Respondents use your contact information to communicate with you about the complaint. The Tribunal may also use it to conduct surveys to evaluate and improve its services.</p>\n<p><b>Mailing address:</b> You must give a mailing address where all parties can send you documents.</p>\n<p><b>Email:</b> The Tribunal usually communicates via email. If possible, give an email address where all parties can reach you. If you have confidential contact information, do not put it on this form. Provide it separately by email, mail, fax, or in person.</p> \n<p><b>Important information:</b> A document sent to an address below is deemed to be received by the complainant. You must notify the Tribunal of any change to the address for delivery.</p>",
+              "<p><b>Purpose of collecting contact information:</b> The Tribunal and Respondents use your contact information to communicate with you about the complaint. The Tribunal may also use it to conduct surveys to evaluate and improve its services.</p>\n<p><b>Mailing address: </b> You must give a mailing address where all parties can send you documents.</p>\n<p><b>Email: </b> The Tribunal usually communicates via email. If possible, give an email address where all parties can reach you. If you have confidential contact information, do not put it on this form. Provide it separately by email, mail, fax, or in person.</p> \n<p><b>Important information: </b> A document sent to an address below is deemed to be received by the complainant. You must notify the Tribunal of any change to the address for delivery.</p>",
           },
           {
             type: "text",
@@ -250,7 +251,7 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
   }
   ngOnInit() {
     // console.log("Survey.Survey.cssType", Survey.Survey.cssType);
-    // this.initSurvey();
+    //  this.initSurvey();
 
     //Add a property a text property into all questions types and into page
     Survey.JsonObject.metaData.addProperty("question", "popupdescription:text");
@@ -258,7 +259,35 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
 
     this.renderSurvey();
   }
-
+  initSurvey() {
+    // addQuestionTypes(Survey);
+    // console.log("Survey.Survey.cssType", Survey.Survey.cssType);
+    // Survey.Survey.cssType = "bootstrap";
+    Survey.defaultBootstrapCss.page.root = "sv_page";
+    Survey.defaultBootstrapCss.pageDescription = "sv_page_description";
+    Survey.defaultBootstrapCss.pageTitle = "sv_page_title";
+    Survey.defaultBootstrapCss.navigationButton = "btn btn-primary";
+    Survey.defaultBootstrapCss.question.title = "sv_q_title";
+    Survey.defaultBootstrapCss.question.description = "sv_q_description small";
+    Survey.defaultBootstrapCss.panel.title = "sv_p_title";
+    Survey.defaultBootstrapCss.panel.container = "sv_p_container";
+    Survey.defaultBootstrapCss.panel.description = "sv_p_description";
+    Survey.defaultBootstrapCss.row = "sv_row";
+    Survey.defaultBootstrapCss.matrixdynamic.button = "btn btn-default";
+    Survey.defaultBootstrapCss.paneldynamic.button = "btn btn-default";
+    Survey.defaultBootstrapCss.paneldynamic.root = "sv_p_dynamic"; // not used?
+    Survey.defaultBootstrapCss.checkbox.item = "sv-checkbox";
+    Survey.defaultBootstrapCss.checkbox.controlLabel = "sv-checkbox-label";
+    Survey.defaultBootstrapCss.checkbox.materialDecorator = "";
+    Survey.defaultBootstrapCss.radiogroup.item = "sv-radio";
+    Survey.defaultBootstrapCss.radiogroup.controlLabel = "sv-checkbox-label";
+    Survey.defaultBootstrapCss.radiogroup.materialDecorator = "";
+    //Add a property a text property into all questions types and into page
+    // Survey.JsonObject.metaData.addProperty("question", "popupdescription:text");
+    // Survey.JsonObject.metaData.addProperty("page", "popupdescription:text");
+    // console.log(Survey.JsonObject.metaData.addProperty)
+    Survey.StylesManager.applyTheme("bootstrap");
+  }
   renderSurvey() {
     console.log("hi!1");
     // let surveyModel =
@@ -281,7 +310,7 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
       btn.className = "btn btn-default btn-xs";
 
       // btn.style.position = "absolute";
-      btn.style.marginLeft = "20px";
+      btn.style.marginLeft = "10px";
 
       btn.innerHTML = "More Info";
       var question = options.question;

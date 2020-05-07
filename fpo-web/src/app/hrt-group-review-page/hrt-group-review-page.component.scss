@@ -1,7 +1,8 @@
 .row {
   max-width: 1170px;
-  margin: 0 auto;
+  margin: 30 auto;
   padding: 20px 6%;
+  display: block;
 }
 
 .grey-box {
@@ -16,7 +17,6 @@
 }
 
 .btn {
-
   &-secondary,
   &-inactive {
     color: #fff;

@@ -22,6 +22,7 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
   private json = {
     showNavigationButtons: false,
     completeText: "",
+    showQuestionNumbers: "off",
 
     pages: [
       {
@@ -369,7 +370,7 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
   initSurvey() {
     addQuestionTypes(Survey);
     // console.log("Survey.Survey.cssType", Survey.Survey.cssType);
-    Survey.Survey.cssType = "bootstrap";
+    // Survey.Survey.cssType = "bootstrap";
     Survey.defaultBootstrapCss.page.root = "sv_page";
     Survey.defaultBootstrapCss.pageDescription = "sv_page_description";
     Survey.defaultBootstrapCss.pageTitle = "sv_page_title";
@@ -393,6 +394,7 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
     Survey.JsonObject.metaData.addProperty("question", "popupdescription:text");
     Survey.JsonObject.metaData.addProperty("page", "popupdescription:text");
     // console.log(Survey.JsonObject.metaData.addProperty)
+    Survey.StylesManager.applyTheme("bootstrap");
   }
   showDescription(element) {
     document.querySelector(".popup-body").innerHTML = element.popupdescription;
@@ -426,7 +428,7 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
       btn.className = "btn btn-default btn-xs";
 
       // btn.style.position = "absolute";
-      btn.style.marginLeft = "20px";
+      btn.style.marginLeft = "10px";
 
       btn.innerHTML = "More Info";
       var question = options.question;

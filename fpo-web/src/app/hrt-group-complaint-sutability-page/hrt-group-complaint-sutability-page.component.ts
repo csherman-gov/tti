@@ -22,6 +22,7 @@ export class HrtGroupComplaintSutabilityPageComponent
   private json = {
     showNavigationButtons: false,
     completeText: "",
+    showQuestionNumbers: "off",
 
     pages: [
       {
@@ -36,7 +37,8 @@ export class HrtGroupComplaintSutabilityPageComponent
           {
             type: "comment",
             name: "Describe the Group or Class",
-            popupdescription: '<p>A “group” of people could be identified by name. For example, all women who work for one employer.</p><p>A “class” of people could be identified by their shared characteristics. For example, residents of Vancouver who have a visual impairment.</p><p><b>Instructions</b></p><ul><li>Describe the group or class so that its members can be identified. Set out the criteria that would be used to identify the members. Name the members if you can.</li><li>Make sure the group or class is no broader than needed to capture those with an interest in the issue raised in the complaint.</li></ul>',
+            popupdescription:
+              "<p>A “group” of people could be identified by name. For example, all women who work for one employer.</p><p>A “class” of people could be identified by their shared characteristics. For example, residents of Vancouver who have a visual impairment.</p><p><b>Instructions</b></p><ul><li>Describe the group or class so that its members can be identified. Set out the criteria that would be used to identify the members. Name the members if you can.</li><li>Make sure the group or class is no broader than needed to capture those with an interest in the issue raised in the complaint.</li></ul>",
             isRequired: true,
           },
           {
@@ -44,7 +46,8 @@ export class HrtGroupComplaintSutabilityPageComponent
             name:
               "Explain how the alleged discrimination is similar for all group or class members.",
             isRequired: true,
-            popupdescription: '<p>You will give details about the alleged discrimination below.</p><p><b>Instructions</b></p><ul><li>Explain how the alleged discrimination is similar for all group or class members</li><li>Identify any differences</li><li>Identify the common issues</li></ul>',
+            popupdescription:
+              "<p>You will give details about the alleged discrimination below.</p><p><b>Instructions</b></p><ul><li>Explain how the alleged discrimination is similar for all group or class members</li><li>Identify any differences</li><li>Identify the common issues</li></ul>",
           },
         ],
       },
@@ -66,7 +69,7 @@ export class HrtGroupComplaintSutabilityPageComponent
       }
     );
   }
-  closed = true
+  closed = true;
   showDescription(element) {
     document.querySelector(".popup-body").innerHTML = element.popupdescription;
     // $("#questionDescriptionPopup").modal();
@@ -81,14 +84,42 @@ export class HrtGroupComplaintSutabilityPageComponent
     this.subscription.unsubscribe();
   }
   ngOnInit() {
-    // this.initSurvey();
+    //  this.initSurvey();
 
     Survey.JsonObject.metaData.addProperty("question", "popupdescription:text");
     Survey.JsonObject.metaData.addProperty("page", "popupdescription:text");
-    
+
     this.renderSurvey();
   }
-
+  initSurvey() {
+    // addQuestionTypes(Survey);
+    // console.log("Survey.Survey.cssType", Survey.Survey.cssType);
+    // Survey.Survey.cssType = "bootstrap";
+    Survey.defaultBootstrapCss.page.root = "sv_page";
+    Survey.defaultBootstrapCss.pageDescription = "sv_page_description";
+    Survey.defaultBootstrapCss.pageTitle = "sv_page_title";
+    Survey.defaultBootstrapCss.navigationButton = "btn btn-primary";
+    Survey.defaultBootstrapCss.question.title = "sv_q_title";
+    Survey.defaultBootstrapCss.question.description = "sv_q_description small";
+    Survey.defaultBootstrapCss.panel.title = "sv_p_title";
+    Survey.defaultBootstrapCss.panel.container = "sv_p_container";
+    Survey.defaultBootstrapCss.panel.description = "sv_p_description";
+    Survey.defaultBootstrapCss.row = "sv_row";
+    Survey.defaultBootstrapCss.matrixdynamic.button = "btn btn-default";
+    Survey.defaultBootstrapCss.paneldynamic.button = "btn btn-default";
+    Survey.defaultBootstrapCss.paneldynamic.root = "sv_p_dynamic"; // not used?
+    Survey.defaultBootstrapCss.checkbox.item = "sv-checkbox";
+    Survey.defaultBootstrapCss.checkbox.controlLabel = "sv-checkbox-label";
+    Survey.defaultBootstrapCss.checkbox.materialDecorator = "";
+    Survey.defaultBootstrapCss.radiogroup.item = "sv-radio";
+    Survey.defaultBootstrapCss.radiogroup.controlLabel = "sv-checkbox-label";
+    Survey.defaultBootstrapCss.radiogroup.materialDecorator = "";
+    //Add a property a text property into all questions types and into page
+    // Survey.JsonObject.metaData.addProperty("question", "popupdescription:text");
+    // Survey.JsonObject.metaData.addProperty("page", "popupdescription:text");
+    // console.log(Survey.JsonObject.metaData.addProperty)
+    Survey.StylesManager.applyTheme("bootstrap");
+  }
   renderSurvey() {
     console.log("hi!1");
     // let surveyModel =
@@ -97,7 +128,7 @@ export class HrtGroupComplaintSutabilityPageComponent
       console.log("hi122!");
       this.survey.data = this.formData;
     }
-    
+
     this.survey.onAfterRenderQuestion.add((survey, options) => {
       console.log("+++++++");
       console.log(options);
@@ -111,7 +142,7 @@ export class HrtGroupComplaintSutabilityPageComponent
       btn.className = "btn btn-default btn-xs";
 
       // btn.style.position = "absolute";
-      btn.style.marginLeft = "20px";
+      btn.style.marginLeft = "10px";
 
       btn.innerHTML = "More Info";
       var question = options.question;
@@ -124,8 +155,7 @@ export class HrtGroupComplaintSutabilityPageComponent
       header.appendChild(span);
       header.appendChild(btn);
     });
-    
-    
+
     console.log("hi!2");
     Survey.SurveyNG.render("surveyElementHRT", { model: this.survey });
     console.log("hi!3");

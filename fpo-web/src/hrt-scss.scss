@@ -21,3 +21,58 @@
     font-weight: bold;
   }
 }
+.app-main .row {
+  margin: 30px auto;
+}
+
+
+.privacy {
+    margin-top: 20px;
+    padding: 20px 0;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.6em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #adb5bd;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.contact-info p {
+    margin-bottom: 4px;
+}
+.btn.btn-edit {
+    color: #036;
+    background: #fff;
+    border: 1px solid #036;
+}
+
+input[value="Add new"], input[value="Add Event"] {
+    color: #fff;
+    background-color: #78A300 !important;
+}
+input[value="Remove Respondent"],  input[value="Remove Event"]{
+    color: #712024;
+    background-color: #f7d8da;
+}
+.navigation {
+    * {
+        margin: 0 40px 0 0;
+    }
+} 
+.sv_main.sv_main .table > tbody > tr > td  {
+    min-width: 150px !important;
+}
+
+td[headers="Date"] {
+    display: flex;
+    
+}

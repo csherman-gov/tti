@@ -20,6 +20,7 @@ export class HrtMediationPageComponent implements OnInit, OnDestroy {
   private json = {
     showNavigationButtons: false,
     completeText: "",
+    showQuestionNumbers: "off",
 
     pages: [
       {
