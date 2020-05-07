@@ -380,7 +380,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
 
     pages: [
       {
-        name: "Who experienced discrimination (Complainant)?",
+        name: "Who experienced retaliation (Complainant)?",
         elements: [
           {
             type: "text",
@@ -418,12 +418,16 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             type: "radiogroup",
             name: "Title",
             title: "Title",
-            choices: ["Mr.", "Ms.", "Other"],
+            hasOther: true,
+            choices: ["Mr.", "Ms.", "Mx."],
+            otherText: "Other",
           },
           {
-            type: "text",
-            name: "Other title",
-            visibleIf: "{Title} = 'Other'",
+            type: "radiogroup",
+            name: "Pronoun",
+            hasOther: true,
+            choices: ["She", "He", "They"],
+            otherText: "Other",
           },
         ],
         title: "Who experienced discrimination (Complainant)?",
@@ -432,6 +436,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
         name: "Who will communicate with the Tribunal about this Complaint?",
         elements: [
           {
+            isRequired: true,
             type: "radiogroup",
             name: "Select only one option",
             choices: [
@@ -439,8 +444,8 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
                 value: "The complainant",
                 text: "The complainant",
               },
-              "A lawyer for the complainant",
-              "A person in a legal clinic acting for the complainant",
+              "A lawyer",
+              "A legal advocate (Example: A person who works for a law clinic)",
               "Another person – You must file a Form 1.2 with this complaint (attach PDF of form 1.2)",
             ],
           },
@@ -460,11 +465,6 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
         elements: [
           {
             type: "text",
-            name:
-              "Name of the person who will communicate with the Tribunal, if different from the Complainant",
-          },
-          {
-            type: "text",
             name: "First name",
           },
           {
@@ -472,28 +472,36 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             name: "Last name",
           },
           {
+            type: "text",
+            name:
+              "Contact Preferred name - e.g. traditional name, nickname, alias",
+            title: "Preferred name - e.g. traditional name, nickname, alias",
+          },
+          {
             type: "radiogroup",
             name: "Contact Title",
             title: "Title",
-            choices: ["Mr.", "Ms.", "Other"],
+            hasOther: true,
+            choices: ["Mr.", "Ms.", "Mx."],
+            otherText: "Other",
           },
           {
             type: "radiogroup",
-            name: "Pronoun",
-            choices: ["She", "He", "They", "Other"],
-          },
-          {
-            type: "text",
-            name: "Other pronoun",
-            visibleIf: "{Pronoun} = 'Other'",
+            name: "Contact Pronoun",
+            title: "Pronoun",
+            hasOther: true,
+            choices: ["She", "He", "They"],
+            otherText: "Other",
           },
         ],
         visibleIf:
-          "{Select only one option} = 'A lawyer for the complainant' or {Select only one option} = 'A person in a legal clinic acting for the complainant' or {Select only one option} = 'Another person – You must file a Form 1.2 with this complaint (attach PDF of form 1.2)'",
-        title: "Complainant Contact Information",
+          "{Select only one option} = 'A lawyer' or {Select only one option} = 'A legal advocate (Example: A person who works for a law clinic)' or {Select only one option} = 'Another person – You must file a Form 1.2 with this complaint (attach PDF of form 1.2)'",
+        title:
+          "Name of the person who will communicate with the Tribunal, if different from the Complainant",
       },
       {
         name: "Complainant’s address for Delivery",
+        title: "Complainant’s address for Delivery",
         elements: [
           {
             type: "html",
@@ -553,13 +561,6 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
           },
           {
             type: "text",
-            name: "Complainant Contact Email",
-            width: "40%",
-            title: "Email",
-            isRequired: true,
-          },
-          {
-            type: "text",
             name: "Complainant Contact Cell Phone number",
             width: "30%",
             startWithNewLine: false,
@@ -572,17 +573,25 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             startWithNewLine: false,
             title: "Fax",
           },
+          {
+            type: "text",
+            name: "Complainant Contact Email",
+            width: "40%",
+            title: "Email",
+            isRequired: true,
+          },
         ],
         visibleIf: "{Select only one option} <> 'The complainant'",
       },
       {
         name: "Respondent Contact Information",
+        title: "Respondent Contact Information",
         elements: [
           {
             type: "html",
             name: "question5",
             html:
-              "<h3>\nImportant information about Respondents:\n</h3>\n<ul>\n<li>\nThe Respondent is the person or organization you say discriminated. Usually, there is only one.\n</li>\n<li>\nUsually the Respondent is your employer, landlord, service provider, union. They are usually responsible for their employees’ actions. Make them Respondent #1.\n</li>\n<li>\nAn individual can be a Respondent, but you need to say what they did that you think is discrimination. For example, name the person who harassed you. Do not name the person who only handed you a letter firing you.\n</li>\n</ul>\n<p>\n<strong>Email:</strong> The Tribunal sends your complaint to the Respondent’s email address that you give us. Please give email contact information for an official in the organization that you think has authority to respond to your complaint. For example, someone in the human resources, or legal department.\n</p>\n\n",
+              "<h4>\nImportant information about Respondents:\n</h4>\n<ol>\n<li>\nThe Respondent is the person or organization you say discriminated. Usually, there is only one.\n</li>\n<li>\nUsually the Respondent is your employer, landlord, service provider, union. They are usually responsible for their employees’ actions. Make them Respondent #1.\n</li>\n<li>\nAn individual can be a Respondent, but you need to say what they did that you think is discrimination. For example, name the person who harassed you. Do not name the person who only handed you a letter firing you.\n</li>\n</ol>\n<p>\n<strong>Email:</strong> The Tribunal sends your complaint to the Respondent’s email address that you give us. Please give email contact information for an official in the organization that you think has authority to respond to your complaint. For example, someone in the human resources, or legal department.\n</p>\n\n",
           },
           {
             type: "paneldynamic",
@@ -595,7 +604,9 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
               },
               {
                 type: "text",
-                name: "RELATIONSHIP TO YOU",
+                name: "Relationship to you",
+                title:
+                  "Relationship to you (For example: your employer, landlord, government body)",
                 isRequired: true,
               },
               {
@@ -605,7 +616,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
               },
               {
                 type: "text",
-                name: "ADDRESS LINE 2",
+                name: "Address line 2",
               },
               {
                 type: "text",
@@ -614,7 +625,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
               },
               {
                 type: "dropdown",
-                name: "PROVINCE",
+                name: "Province",
                 startWithNewLine: false,
                 isRequired: true,
                 choices: [
@@ -635,14 +646,14 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
               },
               {
                 type: "text",
-                name: "POSTAL CODE",
+                name: "Postal Code",
                 startWithNewLine: false,
                 isRequired: true,
               },
               {
                 type: "text",
                 name: "Respondent Contact Phone number",
-                width: "33%",
+                width: "30%",
                 title: "Phone number  ",
                 isRequired: true,
               },
@@ -656,7 +667,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
               {
                 type: "text",
                 name: "Respondent Contact Fax",
-                width: "33%",
+                width: "30%",
                 startWithNewLine: false,
                 title: "Fax",
               },

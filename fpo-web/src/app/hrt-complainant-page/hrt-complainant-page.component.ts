@@ -420,6 +420,13 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             choices: ["Mr.", "Ms.", "Mx."],
             otherText: "Other",
           },
+          {
+            type: "radiogroup",
+            name: "Pronoun",
+            hasOther: true,
+            choices: ["She", "He", "They"],
+            otherText: "Other",
+          },
         ],
         title: "Who experienced discrimination (Complainant)?",
       },
@@ -427,6 +434,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
         name: "Who will communicate with the Tribunal about this Complaint?",
         elements: [
           {
+            isRequired: true,
             type: "radiogroup",
             name: "Select only one option",
             choices: [
@@ -449,7 +457,8 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
         title: "Who will communicate with the Tribunal about this Complaint?",
       },
       {
-        name: "Complainant Contact Information",
+        name: "Name of the person who will communicate with the Tribunal, if different from the Complainant",
+        title: "Name of the person who will communicate with the Tribunal, if different from the Complainant",
         elements: [
           {
             type: "text",
@@ -461,10 +470,11 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             name: "Last name",
             isRequired: true,
           },
-          {
-            type: "text",
-            name: "Preferred name - e.g. traditional name, nickname, alias",
-          },
+        //   {
+        //     type: "text",
+        //     title: 'Preferred name - e.g. traditional name, nickname, alias',
+        //     name: "Contact Preferred name - e.g. traditional name, nickname, alias",
+        //   },
           {
             type: "radiogroup",
             name: "Contact Title",
@@ -475,7 +485,8 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
           },
           {
             type: "radiogroup",
-            name: "Pronoun",
+            name: "Contact Pronoun",
+            title: "Pronoun",
             hasOther: true,
             choices: ["She", "He", "They"],
             otherText: "Other",
@@ -483,7 +494,6 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
         ],
         visibleIf:
           "{Select only one option} = 'A lawyer for the complainant' or {Select only one option} = 'A person in a legal clinic acting for the complainant' or {Select only one option} = 'Another person – You must file a Form 1.2 with this complaint (attach PDF of form 1.2)'",
-        title: "Complainant Contact Information",
       },
       {
         name: "Complainant’s address for Delivery",
