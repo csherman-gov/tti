@@ -27,11 +27,11 @@ export class UserStatusResolver implements Resolve<any> {
       this.dataService
         .getUserInfo()
         .then(result => {
-            console.log('This got called!')
-            console.table('sub: ', sub)
-            console.log('sub: ', JSON.stringify(sub, null, 4))
+            // console.log('This got called!')
+            // console.table('sub: ', sub)
+            // console.log('sub: ', JSON.stringify(sub, null, 4))
           if (this.handleLogin(result, state.url, reqTerms)) {
-            console.dir('sub: ', sub)
+            // console.dir('sub: ', sub)
             sub.next();
           }
           // otherwise - observable has no result, navigation paused

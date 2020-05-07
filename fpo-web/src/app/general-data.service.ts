@@ -175,7 +175,11 @@ export class GeneralDataService {
       return this.http
         .post(url, null, { withCredentials: true })
         .toPromise()
-        .then(result => this.loadUserInfo());
+        .then(result => {
+            console.log('back!!!!')
+            // this.loadUserInfo()
+            return this.loadUserInfo('joseph11@belmar.ca')
+        });
     }
   }
 

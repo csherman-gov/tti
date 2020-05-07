@@ -9,6 +9,9 @@ import { addQuestionTypes } from "../survey/question-types";
 import * as Survey from "survey-angular";
 // widgets.inputmask(Survey);
 
+// data service
+import { GeneralDataService, UserInfo } from "../general-data.service";
+
 @Component({
   selector: "app-hrt-home-page",
   templateUrl: "./hrt-home-page.component.html",
@@ -16,12 +19,35 @@ import * as Survey from "survey-angular";
 })
 export class HrtHomePageComponent implements OnInit, OnDestroy {
   subscription: Subscription;
+  constructor(
+    private missionService: MissionService,
+    private router: Router,
+    private dataService: GeneralDataService
+  ) {
+    this.subscription = missionService.missionAnnounced$.subscribe(
+      (allFormData) => {
+        console.log("allFormData", allFormData);
 
+        if (allFormData.home) {
+          this.formData = allFormData.home;
+        }
+        this.subscription.unsubscribe();
+      }
+    );
+  }
   ngOnDestroy() {
     // prevent memory leak when component destroyed
     this.subscription.unsubscribe();
   }
 
+  clickTest() {
+      this.dataService.getUserInfo('joseph11@belmar.ca').then(res => {
+          console.dir('user ifo: ', res)
+          this.dataService.acceptTerms().then(response => {
+              console.log('response is: ', response)
+          });
+      })
+  }
   survey: any;
   completedSteps = {
     step1: false,
@@ -68,18 +94,7 @@ export class HrtHomePageComponent implements OnInit, OnDestroy {
   };
 
   formData: object;
-  constructor(private missionService: MissionService, private router: Router) {
-    this.subscription = missionService.missionAnnounced$.subscribe(
-      (allFormData) => {
-        console.log("allFormData", allFormData);
 
-        if (allFormData.home) {
-          this.formData = allFormData.home;
-        }
-        this.subscription.unsubscribe();
-      }
-    );
-  }
   confirm() {
     // this.confirmed = true;
     if (this.survey.completeLastPage()) {
