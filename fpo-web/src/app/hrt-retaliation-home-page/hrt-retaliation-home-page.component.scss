@@ -1,35 +1,40 @@
 .container {
-    margin-top: 30px;
+  margin-top: 30px;
+}
+h3 {
+  margin-top: 20px;
+}
+h3:first-child {
+  margin-top: 0px;
 }
 ul {
-    padding-left: 20px;
-  }
-  .contact-info {
-    display: flex;
-    justify-content: space-between;
-    max-width: 800px;
-    div {
-      h4 {
-        font-size: 20px;
-        font-weight: bold;
-      }
+  padding-left: 20px;
+} 
+.contact-info {
+  display: flex;
+  justify-content: space-between;
+  max-width: 800px;
+  div {
+    h4 {
+      font-size: 20px;
+      font-weight: bold;
     }
   }
-  .privacy {
-    border-top: 1px solid #333;
-    padding-top: 20px;
-  }
-  
-  #surveyElementHRT
-    > div
-    > form
-    > div.sv_container
-    > div
-    > div.panel-footer.card-footer {
-    display: none;
-  }
-  
-  .hide-form {
-    display: none;
-  }
-  
+}
+.privacy {
+  border-top: 1px solid #333;
+  //   padding-top: 20px;
+}
+
+#surveyElementHRT
+  > div
+  > form
+  > div.sv_container
+  > div
+  > div.panel-footer.card-footer {
+  display: none;
+}
+
+.hide-form {
+  display: none;
+}

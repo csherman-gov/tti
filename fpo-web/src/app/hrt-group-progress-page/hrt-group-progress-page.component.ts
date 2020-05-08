@@ -110,7 +110,7 @@ export class HrtGroupProgressPageComponent implements OnInit, OnDestroy {
       short_name: 'detailsOfDiscrimination'
     },
     {
-      name: 'Time Limit to Accept Complaint',
+      name: 'Time Limit to Make Complaint',
       intro: '',
       url: 'hrt-group/file-in-time',
       short_name: 'fileInTime'

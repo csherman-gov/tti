@@ -88,9 +88,11 @@ export class HrtRetaliationFileInTimePageComponent
             isRequired: true,
           },
         ],
+        title: "Is the Complaint Filed in Time?"
       },
       {
         name: "Ask Tribunal to accept late Complaint",
+        title: "Ask Tribunal to accept late Complaint",
         elements: [
           {
             type: "html",

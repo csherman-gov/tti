@@ -430,7 +430,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             otherText: "Other",
           },
         ],
-        title: "Who experienced discrimination (Complainant)?",
+        title: "Who experienced retaliation (Complainant)?",
       },
       {
         name: "Who will communicate with the Tribunal about this Complaint?",

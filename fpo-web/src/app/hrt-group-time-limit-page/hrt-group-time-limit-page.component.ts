@@ -25,6 +25,7 @@ export class HrtGroupTimeLimitPageComponent implements OnInit, OnDestroy {
     pages: [
       {
         name: "Is the Complaint filed in Time?",
+        title: "Is the Complaint Filed in Time?",
         elements: [
           {
             type: "paneldynamic",
@@ -88,6 +89,7 @@ export class HrtGroupTimeLimitPageComponent implements OnInit, OnDestroy {
       },
       {
         name: "Ask Tribunal to accept late Complaint",
+        title: "Ask Tribunal to accept late Complaint",
         elements: [
           {
             type: "html",
