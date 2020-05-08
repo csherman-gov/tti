@@ -120,19 +120,19 @@
           {{ respondent["Name of the Respondent"] }}
         </p>
         <p>
-          <b>Relationship to you:</b> {{ respondent["RELATIONSHIP TO YOU"] }}
+          <b>Relationship to you:</b> {{ respondent["Relationship to you"] }}
         </p>
         <p>
           <b>Mailing Address:</b><br />
           {{ respondent["Mailing address"] }},
           {{
-            respondent["ADDRESS LINE 2"]
-              ? respondent["ADDRESS LINE 2"] + ", "
+            respondent["Address line 2"]
+              ? respondent["Address line 2"] + ", "
               : ""
           }}
           {{ respondent["City"] + ", " || "" }}
-          {{ respondent["PROVINCE"] + ", " || "" }}
-          {{ respondent["POSTAL CODE"] }}
+          {{ respondent["Province"] + ", " || "" }}
+          {{ respondent["Postal Code"] }}
         </p>
         <p>
           <b>Phone number:</b>
@@ -421,202 +421,203 @@
         }}
       </p>
     </div>
-   
-      <div style="margin-top: 30px;"></div>
-      <h3>Other proceedings</h3>
-      <div class="grey-box">
-        <p>
-          <b>Do you have another proceeding about the same events?</b>
-          {{
-            formData.otherProceedings[
-              "Do you have another proceeding about the same events?"
-            ]
-          }}
-        </p>
-        <p
-          *ngIf="
-            formData.otherProceedings[
-              'Do you have another proceeding about the same events?'
-            ] === 'Yes'
-          "
-        >
-          <b>What kind of proceeding is it?</b>
-          {{ formData.otherProceedings["What kind of proceeding is it?"] }}
-        </p>
-        <p
-          *ngIf="
-            formData.otherProceedings[
-              'Do you have another proceeding about the same events?'
-            ] === 'Yes'
-          "
-        >
-          <b>What stage is that proceeding at?</b>
-          {{ formData.otherProceedings["What stage is that proceeding at?"] }}
-        </p>
-        <p
-          *ngIf="
-            formData.otherProceedings[
-              'Do you have another proceeding about the same events?'
-            ] === 'Yes'
-          "
-        >
-          <b>Do you want the Tribunal to wait to deal with your complaint?</b>
-          {{
-            formData.otherProceedings[
-              "Do you want the Tribunal to wait to deal with your complaint?"
-            ]
-          }}
-        </p>
-        <p
-          *ngIf="
-            formData.otherProceedings[
-              'Do you want the Tribunal to wait to deal with your complaint?'
-            ] === 'Yes'
-          "
-        >
-          <b
-            >Explain why you want the Tribunal to wait to deal with your
-            complaint</b
-          ><br />
-          {{
-            formData.otherProceedings[
-              "Explain why you want the Tribunal to wait to deal with your complaint"
-            ]
-          }}
-        </p>
-      </div>
-   
-      <div style="margin-top: 30px;"></div>
-      <h3>Remedies</h3>
-      <div class="grey-box">
-        <p>
-          <b>Select the kinds of remedies you want:</b>
-          {{
-            formData.remedies["Select the kinds of remedies you want"].join(", ")
-          }}
-        </p>
-        <p
-          *ngIf="
-            formData.remedies['Select the kinds of remedies you want'].includes(
-              'Detail - Something specific (job back, policy…)'
-            )
-          "
-        >
-          <b>Detail - Something specific (job back, policy…):</b>
-          {{
-            formData.remedies["Detail - Something specific (job back, policy…)"]
-          }}
-        </p>
-        <p
-          *ngIf="
-            formData.remedies['Select the kinds of remedies you want'].includes(
-              'Other'
-            )
-          "
-        >
-          <b>Detail - Other:</b>
-          {{ formData.remedies["Detail - Other"] }}
-        </p>
-      </div>
-  
-      <div style="margin-top: 30px;"></div>
-      <h3>Mediation</h3>
-      <div class="grey-box">
-        <p>
-          <b>Do you want to attend a mediation?</b>
-          {{ formData.mediation["Do you want to attend a mediation?"] }}
-        </p>
-      </div>
-  
-      <div style="margin-top: 30px;"></div>
-  
-      <h3 *ngIf="formData.statisticalInformation">
-        Statistical Information
-      </h3>
-      <div class="grey-box" *ngIf="formData.statisticalInformation">
-        <p>
-          <b>Indigenous Identity</b>
-          {{ formData.statisticalInformation["Indigenous Identity"] }}
-          {{
-            formData.statisticalInformation["Indigenous Identity-Comment"]
-              ? " - " +
-                formData.statisticalInformation["Indigenous Identity-Comment"]
-              : ""
-          }}
-        </p>
-        <p>
-          <b>Racial Identity</b>
-          {{ formData.statisticalInformation["Racial Identity"] }}
-          {{
-            formData.statisticalInformation["Racial Identity-Comment"]
-              ? " - " + formData.statisticalInformation["Racial Identity-Comment"]
-              : ""
-          }}
-        </p>
-        <p>
-          <b>Immigration Status</b>
-          {{ formData.statisticalInformation["Immigration Status"] }}
-          {{
-            formData.statisticalInformation["Immigration Status-Comment"]
-              ? " - " +
-                formData.statisticalInformation["Immigration Status-Comment"]
-              : ""
-          }}
-        </p>
-        <p>
-          <b>Language</b>
-          {{ formData.statisticalInformation["Language"] }}
-          {{
-            formData.statisticalInformation["Language-Comment"]
-              ? " - " + formData.statisticalInformation["Language-Comment"]
-              : ""
-          }}
-        </p>
-        <p>
-          Disability requiring accommodation in employment and services
-          {{
-            formData.statisticalInformation[
-              "Disability requiring accommodation in employment and services"
-            ]
-          }}
-        </p>
-        <p>
-          <b>Gender Identity</b>
-          {{ formData.statisticalInformation["Gender Identity"] }}
-          {{
-            formData.statisticalInformation["Gender Identity-Comment"]
-              ? " - " + formData.statisticalInformation["Gender Identity-Comment"]
-              : ""
-          }}
-        </p>
-        <p>
-          <b>Sexual Orientation</b>
-          {{ formData.statisticalInformation["Sexual Orientation"] }}
-          {{
-            formData.statisticalInformation["Sexual Orientation-Comment"]
-              ? " - " +
-                formData.statisticalInformation["Sexual Orientation-Comment"]
-              : ""
-          }}
-        </p>
-        <p>
-          <b>Age</b>
-          {{ formData.statisticalInformation["Age"] }}
-        </p>
-        <p>
-          <b>Household</b>
-          {{ formData.statisticalInformation["Household"] }}
-          {{
-            formData.statisticalInformation["Household-Comment"]
-              ? " - " + formData.statisticalInformation["Household-Comment"]
-              : ""
-          }}
-        </p>
-        <p>
-          <b>Household Income After Tax</b>
-          {{ formData.statisticalInformation["Household Income After Tax"] }}
-        </p>
-      </div><!-- -->
+
+    <div style="margin-top: 30px;"></div>
+    <h3>Other proceedings</h3>
+    <div class="grey-box">
+      <p>
+        <b>Do you have another proceeding about the same events?</b>
+        {{
+          formData.otherProceedings[
+            "Do you have another proceeding about the same events?"
+          ]
+        }}
+      </p>
+      <p
+        *ngIf="
+          formData.otherProceedings[
+            'Do you have another proceeding about the same events?'
+          ] === 'Yes'
+        "
+      >
+        <b>What kind of proceeding is it?</b>
+        {{ formData.otherProceedings["What kind of proceeding is it?"] }}
+      </p>
+      <p
+        *ngIf="
+          formData.otherProceedings[
+            'Do you have another proceeding about the same events?'
+          ] === 'Yes'
+        "
+      >
+        <b>What stage is that proceeding at?</b>
+        {{ formData.otherProceedings["What stage is that proceeding at?"] }}
+      </p>
+      <p
+        *ngIf="
+          formData.otherProceedings[
+            'Do you have another proceeding about the same events?'
+          ] === 'Yes'
+        "
+      >
+        <b>Do you want the Tribunal to wait to deal with your complaint?</b>
+        {{
+          formData.otherProceedings[
+            "Do you want the Tribunal to wait to deal with your complaint?"
+          ]
+        }}
+      </p>
+      <p
+        *ngIf="
+          formData.otherProceedings[
+            'Do you want the Tribunal to wait to deal with your complaint?'
+          ] === 'Yes'
+        "
+      >
+        <b
+          >Explain why you want the Tribunal to wait to deal with your
+          complaint</b
+        ><br />
+        {{
+          formData.otherProceedings[
+            "Explain why you want the Tribunal to wait to deal with your complaint"
+          ]
+        }}
+      </p>
+    </div>
+
+    <div style="margin-top: 30px;"></div>
+    <h3>Remedies</h3>
+    <div class="grey-box">
+      <p>
+        <b>Select the kinds of remedies you want:</b>
+        {{
+          formData.remedies["Select the kinds of remedies you want"].join(", ")
+        }}
+      </p>
+      <p
+        *ngIf="
+          formData.remedies['Select the kinds of remedies you want'].includes(
+            'Detail - Something specific (example: job back)'
+          )
+        "
+      >
+        <b>Detail - Something specific (example: job back):</b>
+        {{
+          formData.remedies["Detail - Something specific (example: job back)"]
+        }}
+      </p>
+      <p
+        *ngIf="
+          formData.remedies['Select the kinds of remedies you want'].includes(
+            'Other'
+          )
+        "
+      >
+        <b>Detail - Other:</b>
+        {{ formData.remedies["Detail - Other"] }}
+      </p>
+    </div>
+
+    <div style="margin-top: 30px;"></div>
+    <h3>Mediation</h3>
+    <div class="grey-box">
+      <p>
+        <b>Do you want to attend a mediation?</b>
+        {{ formData.mediation["Do you want to attend a mediation?"] }}
+      </p>
+    </div>
+
+    <div style="margin-top: 30px;"></div>
+
+    <h3 *ngIf="formData.statisticalInformation">
+      Statistical Information
+    </h3>
+    <div class="grey-box" *ngIf="formData.statisticalInformation">
+      <p>
+        <b>Indigenous Identity</b>
+        {{ formData.statisticalInformation["Indigenous Identity"] }}
+        {{
+          formData.statisticalInformation["Indigenous Identity-Comment"]
+            ? " - " +
+              formData.statisticalInformation["Indigenous Identity-Comment"]
+            : ""
+        }}
+      </p>
+      <p>
+        <b>Racial Identity</b>
+        {{ formData.statisticalInformation["Racial Identity"] }}
+        {{
+          formData.statisticalInformation["Racial Identity-Comment"]
+            ? " - " + formData.statisticalInformation["Racial Identity-Comment"]
+            : ""
+        }}
+      </p>
+      <p>
+        <b>Immigration Status</b>
+        {{ formData.statisticalInformation["Immigration Status"] }}
+        {{
+          formData.statisticalInformation["Immigration Status-Comment"]
+            ? " - " +
+              formData.statisticalInformation["Immigration Status-Comment"]
+            : ""
+        }}
+      </p>
+      <p>
+        <b>Language</b>
+        {{ formData.statisticalInformation["Language"] }}
+        {{
+          formData.statisticalInformation["Language-Comment"]
+            ? " - " + formData.statisticalInformation["Language-Comment"]
+            : ""
+        }}
+      </p>
+      <p>
+        Disability requiring accommodation in employment and services
+        {{
+          formData.statisticalInformation[
+            "Disability requiring accommodation in employment and services"
+          ]
+        }}
+      </p>
+      <p>
+        <b>Gender Identity</b>
+        {{ formData.statisticalInformation["Gender Identity"] }}
+        {{
+          formData.statisticalInformation["Gender Identity-Comment"]
+            ? " - " + formData.statisticalInformation["Gender Identity-Comment"]
+            : ""
+        }}
+      </p>
+      <p>
+        <b>Sexual Orientation</b>
+        {{ formData.statisticalInformation["Sexual Orientation"] }}
+        {{
+          formData.statisticalInformation["Sexual Orientation-Comment"]
+            ? " - " +
+              formData.statisticalInformation["Sexual Orientation-Comment"]
+            : ""
+        }}
+      </p>
+      <p>
+        <b>Age</b>
+        {{ formData.statisticalInformation["Age"] }}
+      </p>
+      <p>
+        <b>Household</b>
+        {{ formData.statisticalInformation["Household"] }}
+        {{
+          formData.statisticalInformation["Household-Comment"]
+            ? " - " + formData.statisticalInformation["Household-Comment"]
+            : ""
+        }}
+      </p>
+      <p>
+        <b>Household Income After Tax</b>
+        {{ formData.statisticalInformation["Household Income After Tax"] }}
+      </p>
+    </div>
+    <!-- -->
     <div class="opt">
       <label
         ><input

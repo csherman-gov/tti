@@ -31,18 +31,19 @@ export class HrtRetaliationRemediesPageComponent implements OnInit, OnDestroy {
             name: "Select the kinds of remedies you want",
             isRequired: true,
             choices: [
-              "Order to stop the discrimination",
+              "Order to stop the retaliation",
+              "Declaration that the conduct is retaliation",
+              "Steps or programs to address the retaliation (examples: training, policy)",
               "Compensation for injury to dignity, feelings, and self-respect",
-              "Compensation for lost waged or expenses",
-              "Something specific (job back, policy…)",
-              "Other",
+              "Compensation for lost wages or other expenses such as moving expenses, photocopying, costs of attending the hearing (keep receipts)",
+              "Something specific (example: job back)",
             ],
           },
           {
             type: "comment",
-            name: "Detail - Something specific (job back, policy…)",
+            name: "Detail - Something specific (example: job back)",
             visibleIf:
-              "{Select the kinds of remedies you want} contains 'Something specific (job back, policy…)'",
+              "{Select the kinds of remedies you want} contains 'Something specific (example: job back)'",
             isRequired: true,
           },
           {
