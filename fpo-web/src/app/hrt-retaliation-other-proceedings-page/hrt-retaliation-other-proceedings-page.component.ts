@@ -31,7 +31,7 @@ export class HrtRetaliationOtherProceedingsPageComponent
             type: "html",
             name: "question1",
             html:
-              "<p>Information. The Tribunal can defer your complaint (put it on hold) until another proceeding is finished.</p>",
+              "<p style='margin-bottom: -15px;'><b>Information:</b> The Tribunal can defer your complaint (put it on hold) until another proceeding is finished.</p>",
           },
           {
             type: "radiogroup",
