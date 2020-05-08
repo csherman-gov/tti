@@ -1,3 +1,9 @@
+:host /deep/ #sq_100.sv_qstn {
+    padding-bottom: 0;
+}
+:host /deep/ #sq_108.sv_qstn {
+    padding-bottom: 0;
+}
 .popup-container {
   // display: none;
   position: fixed;
@@ -32,7 +38,7 @@
   // margin-top: 10px;
   padding-top: 5px;
   overflow: auto;
-  height: 70vh;
+//   height: 70vh;
   -ms-overflow-style: none;
 }
 .popup-body::-webkit-scrollbar {

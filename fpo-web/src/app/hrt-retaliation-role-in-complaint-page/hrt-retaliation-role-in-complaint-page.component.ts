@@ -32,7 +32,7 @@ export class HrtRetaliationRoleInComplaintPageComponent
             type: "html",
             name: "question1",
             html:
-              "<h2>Retaliation About a Complaint</h2>\n<p>\n<b>Information:</b> The Human Rights Code forbids retaliation. It says that no one can retaliate against you for your role in a complaint to the BC Human Rights Tribunal.</p>",
+              "<h2>Retaliation About a Complaint</h2>\n<p style='margin-bottom: 0;'>\n<b>Information:</b> The Human Rights Code forbids retaliation. It says that no one can retaliate against you for your role in a complaint to the BC Human Rights Tribunal.</p>",
           },
           {
             type: "radiogroup",
@@ -90,6 +90,7 @@ export class HrtRetaliationRoleInComplaintPageComponent
             type: "text",
             name: "How did the Respondent(s) know about your role?",
             isRequired: true,
+            popupdescription: '<b>Example.</b> “The Tribunal sent the complaint to the Respondents.”'
           },
         ],
         visibleIf:
@@ -102,7 +103,7 @@ export class HrtRetaliationRoleInComplaintPageComponent
             type: "html",
             name: "question3",
             html:
-              "<h2>Retaliation About a Complaint that Someone Might File</h2>\n<p>\n<b>If the retaliation is about a complaint that someone might file, answer these questions:</p>",
+              "<h2>Retaliation About a Complaint that Someone Might File</h2>\n<p style='margin-bottom: 0;'>\n<b>If the retaliation is about a complaint that someone might file, answer these questions:</b></p>",
           },
           {
             type: "radiogroup",
@@ -117,6 +118,7 @@ export class HrtRetaliationRoleInComplaintPageComponent
           {
             type: "text",
             name: "Why did the Respondent(s) think this?",
+            popupdescription: '<p><b>Example. </b>“I told my boss it was discrimination when I didn’t get the promotion. So my boss and employer knew I might file a complaint.”</p>',
             isRequired: true,
           },
         ],
@@ -149,6 +151,9 @@ export class HrtRetaliationRoleInComplaintPageComponent
     // console.log('Survey.Survey.cssType', Survey.Survey.cssType)
     // this.initSurvey();
     // if (!Survey.Survey.cssType) this.initSurvey();
+    //Add a property a text property into all questions types and into page
+    Survey.JsonObject.metaData.addProperty("question", "popupdescription:text");
+    Survey.JsonObject.metaData.addProperty("page", "popupdescription:text");
     this.renderSurvey();
   }
 
@@ -205,7 +210,7 @@ export class HrtRetaliationRoleInComplaintPageComponent
 
       //Return if there is no description to show in popup
       if (!options.question.popupdescription) return;
-
+      console.log("hi!123122"); 
       //Add a button;
       var btn = document.createElement("button");
       btn.type = "button";
