@@ -36,7 +36,9 @@
         <b>How do you want to be addressed:</b>
         {{
           formData.representative["Title"]
-            ? formData.representative["Title"] === 'other' ? formData.representative["Title-Comment"] : formData.representative["Title"]
+            ? formData.representative["Title"] === "other"
+              ? formData.representative["Title-Comment"]
+              : formData.representative["Title"]
             : "N/A"
         }}
       </p>
@@ -45,7 +47,9 @@
         <b>Pronoun:</b>
         {{
           formData.representative["Pronoun"]
-            ? formData.representative["Pronoun"] === 'other' ? formData.representative["Pronoun-Comment"] : formData.representative["Pronoun"]
+            ? formData.representative["Pronoun"] === "other"
+              ? formData.representative["Pronoun-Comment"]
+              : formData.representative["Pronoun"]
             : "N/A"
         }}
       </p>
@@ -75,7 +79,13 @@
           <b>
             Title:
           </b>
-          {{ formData.representative["Representative Title"] ? formData.representative["Representative Title"] === 'other' ? formData.representative["Representative Title-Comment"] : formData.representative["Representative Title"] : 'N/A' }}
+          {{
+            formData.representative["Representative Title"]
+              ? formData.representative["Representative Title"] === "other"
+                ? formData.representative["Representative Title-Comment"]
+                : formData.representative["Representative Title"]
+              : "N/A"
+          }}
         </p>
         <p>
           <b>
@@ -83,7 +93,9 @@
           </b>
           {{
             formData.representative["Representative Pronoun"]
-              ? formData.representative["Representative Pronoun"] === 'other' ? formData.representative["Representative Pronoun-Comment"] : formData.representative["Representative Pronoun"]
+              ? formData.representative["Representative Pronoun"] === "other"
+                ? formData.representative["Representative Pronoun-Comment"]
+                : formData.representative["Representative Pronoun"]
               : "N/A"
           }}
         </p>
@@ -268,7 +280,7 @@
           {{ respondent["Name of the Respondent"] }}
         </p>
         <p>
-          <b>Relationship to you:</b> {{ respondent["RELATIONSHIP TO YOU"] }}
+          <b>Relationship to you:</b> {{ respondent["Relationship to you"] }}
         </p>
         <p>
           <b>Mailing Address:</b><br />
@@ -592,13 +604,13 @@
       <p
         *ngIf="
           formData.remedies['Select the kinds of remedies you want'].includes(
-            'Detail - Something specific (job back, policy…)'
+            'Details - Something specific (job back, policy…)'
           )
         "
       >
-        <b>Detail - Something specific (job back, policy…):</b>
+        <b>Details - Something specific (job back, policy…):</b>
         {{
-          formData.remedies["Detail - Something specific (job back, policy…)"]
+          formData.remedies["Details - Something specific (job back, policy…)"]
         }}
       </p>
       <p
@@ -608,8 +620,8 @@
           )
         "
       >
-        <b>Detail - Other:</b>
-        {{ formData.remedies["Detail - Other"] }}
+        <b>Details - Other:</b>
+        {{ formData.remedies["Details - Other"] }}
       </p>
     </div>
 
@@ -630,7 +642,7 @@
     <div class="grey-box" *ngIf="formData.statisticalInformation">
       <p>
         <b>Indigenous Identity</b>
-        {{ formData.statisticalInformation["Indigenous Identity"] || 'N/A'}}
+        {{ formData.statisticalInformation["Indigenous Identity"] || "N/A" }}
         {{
           formData.statisticalInformation["Indigenous Identity-Comment"]
             ? " - " +
@@ -640,7 +652,7 @@
       </p>
       <p>
         <b>Racial Identity</b>
-        {{ formData.statisticalInformation["Racial Identity"] || 'N/A'}}
+        {{ formData.statisticalInformation["Racial Identity"] || "N/A" }}
         {{
           formData.statisticalInformation["Racial Identity-Comment"]
             ? " - " + formData.statisticalInformation["Racial Identity-Comment"]
@@ -649,7 +661,7 @@
       </p>
       <p>
         <b>Immigration Status</b>
-        {{ formData.statisticalInformation["Immigration Status"] || 'N/A'}}
+        {{ formData.statisticalInformation["Immigration Status"] || "N/A" }}
         {{
           formData.statisticalInformation["Immigration Status-Comment"]
             ? " - " +
@@ -659,7 +671,7 @@
       </p>
       <p>
         <b>Language</b>
-        {{ formData.statisticalInformation["Language"] || 'N/A'}}
+        {{ formData.statisticalInformation["Language"] || "N/A" }}
         {{
           formData.statisticalInformation["Language-Comment"]
             ? " - " + formData.statisticalInformation["Language-Comment"]
@@ -668,17 +680,17 @@
       </p>
       <p>
         <b>
-            Disability requiring accommodation in employment and services
+          Disability requiring accommodation in employment and services
         </b>
         {{
           formData.statisticalInformation[
             "Disability requiring accommodation in employment and services"
-          ] || 'N/A'
+          ] || "N/A"
         }}
       </p>
       <p>
         <b>Gender Identity</b>
-        {{ formData.statisticalInformation["Gender Identity"] || 'N/A'}}
+        {{ formData.statisticalInformation["Gender Identity"] || "N/A" }}
         {{
           formData.statisticalInformation["Gender Identity-Comment"]
             ? " - " + formData.statisticalInformation["Gender Identity-Comment"]
@@ -687,7 +699,7 @@
       </p>
       <p>
         <b>Sexual Orientation</b>
-        {{ formData.statisticalInformation["Sexual Orientation"] || 'N/A'}}
+        {{ formData.statisticalInformation["Sexual Orientation"] || "N/A" }}
         {{
           formData.statisticalInformation["Sexual Orientation-Comment"]
             ? " - " +
@@ -697,11 +709,11 @@
       </p>
       <p>
         <b>Age</b>
-        {{ formData.statisticalInformation["Age"] || 'N/A'}}
+        {{ formData.statisticalInformation["Age"] || "N/A" }}
       </p>
       <p>
         <b>Household</b>
-        {{ formData.statisticalInformation["Household"] || 'N/A'}}
+        {{ formData.statisticalInformation["Household"] || "N/A" }}
         {{
           formData.statisticalInformation["Household-Comment"]
             ? " - " + formData.statisticalInformation["Household-Comment"]
@@ -710,7 +722,9 @@
       </p>
       <p>
         <b>Household Income After Tax</b>
-        {{ formData.statisticalInformation["Household Income After Tax"] || 'N/A'}}
+        {{
+          formData.statisticalInformation["Household Income After Tax"] || "N/A"
+        }}
       </p>
     </div>
     <!-- <div
@@ -783,7 +797,7 @@
           {{ respondent["Name of the Respondent"] }}
         </p>
         <p>
-          <b>Relationship to you:</b> {{ respondent["RELATIONSHIP TO YOU"] }}
+          <b>Relationship to you:</b> {{ respondent["Relationship to you"] }}
         </p>
         <p>
           <b>Mailing Address:</b><br />
@@ -1105,13 +1119,13 @@
       <p
         *ngIf="
           formData.remedies['Select the kinds of remedies you want'].includes(
-            'Detail - Something specific (job back, policy…)'
+            'Details - Something specific (job back, policy…)'
           )
         "
       >
-        <b>Detail - Something specific (job back, policy…):</b>
+        <b>Details - Something specific (job back, policy…):</b>
         {{
-          formData.remedies["Detail - Something specific (job back, policy…)"]
+          formData.remedies["Details - Something specific (job back, policy…)"]
         }}
       </p>
       <p
@@ -1121,8 +1135,8 @@
           )
         "
       >
-        <b>Detail - Other:</b>
-        {{ formData.remedies["Detail - Other"] }}
+        <b>Details - Other:</b>
+        {{ formData.remedies["Details - Other"] }}
       </p>
     </div>
 

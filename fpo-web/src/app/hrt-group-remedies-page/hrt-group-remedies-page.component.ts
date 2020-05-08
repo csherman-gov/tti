@@ -44,14 +44,14 @@ export class HrtGroupRemediesPageComponent implements OnInit, OnDestroy {
           },
           {
             type: "comment",
-            name: "Detail - Something specific (job back, policy…)",
+            name: "Details - Something specific (job back, policy…)",
             visibleIf:
               "{Select the kinds of remedies you want} contains 'Something specific (job back, policy…)'",
             isRequired: true,
           },
           {
             type: "comment",
-            name: "Detail - Other",
+            name: "Details - Other",
             visibleIf:
               "{Select the kinds of remedies you want} contains 'Other'",
             isRequired: true,

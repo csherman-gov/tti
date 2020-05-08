@@ -457,8 +457,10 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
         title: "Who will communicate with the Tribunal about this Complaint?",
       },
       {
-        name: "Name of the person who will communicate with the Tribunal, if different from the Complainant",
-        title: "Name of the person who will communicate with the Tribunal, if different from the Complainant",
+        name:
+          "Name of the person who will communicate with the Tribunal, if different from the Complainant",
+        title:
+          "Name of the person who will communicate with the Tribunal, if different from the Complainant",
         elements: [
           {
             type: "text",
@@ -470,11 +472,11 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             name: "Last name",
             isRequired: true,
           },
-        //   {
-        //     type: "text",
-        //     title: 'Preferred name - e.g. traditional name, nickname, alias',
-        //     name: "Contact Preferred name - e.g. traditional name, nickname, alias",
-        //   },
+          //   {
+          //     type: "text",
+          //     title: 'Preferred name - e.g. traditional name, nickname, alias',
+          //     name: "Contact Preferred name - e.g. traditional name, nickname, alias",
+          //   },
           {
             type: "radiogroup",
             name: "Contact Title",
@@ -599,7 +601,8 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
               },
               {
                 type: "text",
-                name: "RELATIONSHIP TO YOU",
+                name: "Relationship to you",
+                title: 'Relationship to you (For example: your employer, landlord, government body)',
                 isRequired: true,
               },
               {

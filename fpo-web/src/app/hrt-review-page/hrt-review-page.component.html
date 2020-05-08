@@ -44,6 +44,18 @@
           formData.complainant["Title"] ? formData.complainant["Title"] : "N/A"
         }}
       </p>
+      <p>
+        <b>
+          Pronoun
+        </b>
+        {{
+          formData.complainant["Pronoun"]
+            ? formData.complainant["Pronoun"] === "other"
+              ? formData.complainant["Pronoun-Comment"]
+              : formData.complainant["Pronoun"]
+            : ""
+        }}
+      </p>
 
       <p>
         <b>Other names:</b>
@@ -73,8 +85,8 @@
           {{ formData.complainant["First name"] }}
           {{ formData.complainant["Last name"] }}
           {{
-            formData.complainant["Pronoun"]
-              ? " (" + formData.complainant["Pronoun"] + ")"
+            formData.complainant["Contact Pronoun"]
+              ? " (" + formData.complainant["Contact Pronoun"] + ")"
               : ""
           }}
         </p>
@@ -125,7 +137,7 @@
           {{ respondent["Name of the Respondent"] }}
         </p>
         <p>
-          <b>Relationship to you:</b> {{ respondent["RELATIONSHIP TO YOU"] }}
+          <b>Relationship to you:</b> {{ respondent["Relationship to you"] }}
         </p>
         <p>
           <b>Mailing Address:</b><br />
