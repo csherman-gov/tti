@@ -50,14 +50,14 @@ export class HrtRetaliationDetailsOfTheRetaliationPageComponent
                 name:
                   "Describe in a few words the conduct that you say is retaliation",
                 description:
-                  "Information. Conduct that can be retaliation is:\nEvicting                                 -  Expelling                                   -   Denying a right or benefit\nFiring                                    -   Intimidating or Coercing            -  Threatening to do one of these things\nSuspending                          -   Penalizing                                 -   Other similar conduct\nInstructions. Give a short answer here. You will give details below. Your short answer helps us understand the details you give below.\nExamples. “This Respondent fired me.” “This Respondent threatened me.” \n",
+                  "<div><p><b>Information: </b>Conduct that can be retaliation is: </p><ul> <li> <span> Evicting </span> <span> -  Expelling </span> <span> -   Denying a right or benefit </span> </li> <li> <span> Firing </span> <span> -  Intimidating or Coercing </span> <span> -  Threatening to do one of these things </span> </li> <li> <span> Suspending </span> <span> -  Penalizing </span> <span> -   Other similar conduct </span> </li> </ul><b>Instructions: </b> Give a short answer here. You will give details below. Your short answer helps us understand the details you give below. </p><p><b>Examples: </b> “This Respondent fired me.” “This Respondent threatened me.”</p>\n</div>",
               },
               {
                 type: "matrixdynamic",
                 name:
                   "Give details about this Respondent’s conduct that you say is retaliation.",
                 description:
-                  "Be specific\nExample. Do not say, “This person threatened me.” Write out their words and actions.\nIf you don’t know the exact date, give an approximate date. Examples. 2020/02/23 or 2020/02\n",
+                  "<div><ul><li>Be specific</li><li><b>Example: </b>Do not say, “This person threatened me.” Write out their words and actions.</li><li>If you don’t know the exact date, give an approximate date. <b>Example: </b> 2020-02-01</li></ul></div>",
                 columns: [
                   {
                     name: "Conduct",
@@ -73,6 +73,7 @@ export class HrtRetaliationDetailsOfTheRetaliationPageComponent
                     max: "2999-12-31",
                   },
                 ],
+                addRowText: "Add Conduct",
                 choices: [1, 2, 3, 4, 5],
                 rowCount: 1,
                 minRowCount: 1,
@@ -82,9 +83,10 @@ export class HrtRetaliationDetailsOfTheRetaliationPageComponent
                 name:
                   "Explain why you think this conduct is retaliation for your role in a complaint",
                 description:
-                  "Examples:\n“I talked about discrimination at work. My boss said he’d never promote me if I made a complaint.”\n“I filed a discrimination complaint against my landlord. Two months later the landlord sued me in court. The lawsuit had no basis. It was just to smear my character.”\n“After I filed a complaint, my manager investigated me. My employer suspended me for 5 days for being late to work once. At most, this deserved a verbal warning.”\nConsider getting help if you are not sure. See the Resources Sheet at the end of the Form. ",
+                  "<div> <p> <b> Examples: </b> </p> <ul> <li> “I talked about discrimination at work. My boss said he’d never promote me if I made a complaint.” </li> <li> “I filed a discrimination complaint against my landlord. Two months later the landlord sued me in court. The lawsuit had no basis. It was just to smear my character.” </li> <li> “After I filed a complaint, my manager investigated me. My employer suspended me for 5 days for being late to work once. At most, this deserved a verbal warning.” </li> </ul> <p> Consider getting help if you are not sure. See the Resources Sheet at the end of the Form. </p> </div>",
               },
             ],
+            panelAddText: "Add Respondent",
             panelCount: 1,
             minPanelCount: 1,
             maxPanelCount: 10,
@@ -123,6 +125,17 @@ export class HrtRetaliationDetailsOfTheRetaliationPageComponent
     console.log("hi!1");
     // let surveyModel =
     this.survey = new Survey.Model(this.json);
+
+    this.survey.onAfterRenderQuestion.add(function (survey, options) {
+      console.log(options);
+      // Return if there is no description to show in popup
+      if (!options.question.description) return;
+      // Add a button;
+      console.log("options: ", options.question.description);
+      const desc = options.htmlElement.querySelector(".sv_q_description");
+      desc.innerHTML = options.question.description;
+    });
+
     if (this.formData) {
       console.log("hi122!");
       this.survey.data = this.formData;
