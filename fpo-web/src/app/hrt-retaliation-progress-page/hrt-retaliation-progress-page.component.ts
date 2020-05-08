@@ -40,7 +40,7 @@ export class HrtRetaliationProgressPageComponent implements OnInit, OnDestroy {
       short_name: 'detailsOfRetaliation'
     },
     {
-      name: 'Is the Complaint filed in Time?',
+      name: 'Time Limit to Make Complaint',
       intro: '',
       url: 'hrt-retaliation/file-in-time',
       short_name: 'fileInTime'
@@ -135,7 +135,7 @@ export class HrtRetaliationProgressPageComponent implements OnInit, OnDestroy {
       }
       return acc && this.formData[step.short_name]
     }, true)) {
-      this.router.navigateByUrl('hrt/review')
+      this.router.navigateByUrl('hrt-retaliation/review')
     }
   }
 }
