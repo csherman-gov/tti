@@ -1,22 +1,29 @@
 <div class="row">
-    <div class="col-md-12">
-      <h1>
-        Your Role in a Complaint
-      </h1>
-      <div class="intro"></div>
-      <div id="surveyElementHRT"></div>
-      <div class="navigation" style="margin-top: 20px;">
-        <button class="btn btn-default" (click)="handleNextStep()">
-          Continue
-        </button>
-      </div>
+  <div class="col-md-12">
+    <h1>
+      Your Role in a Complaint
+    </h1>
+    <div class="intro"></div>
+    <div id="surveyElementHRT"></div>
+    <div class="navigation" style="margin-top: 20px;">
+      <button
+        *ngIf="survey.currentPageNo !== 0"
+        class="btn btn-default"
+        (click)="handlePreviousStep()"
+      >
+        Previous
+      </button>
+      <button class="btn btn-default" (click)="handleNextStep()">
+        Continue
+      </button>
     </div>
   </div>
-  <div class="popup-container" [style.display]="!closed ? 'flex' : 'none'">
-    <div class="popup-content">
-      <div class="popup-header">
-        <span (click)="toggleModal()">CLOSE</span>
-      </div>
-      <div class="popup-body"></div>
+</div>
+<div class="popup-container" [style.display]="!closed ? 'flex' : 'none'">
+  <div class="popup-content">
+    <div class="popup-header">
+      <span (click)="toggleModal()">CLOSE</span>
     </div>
+    <div class="popup-body"></div>
   </div>
+</div>

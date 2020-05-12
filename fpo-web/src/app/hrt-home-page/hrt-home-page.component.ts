@@ -45,9 +45,21 @@ export class HrtHomePageComponent implements OnInit, OnDestroy {
           console.dir('user ifo: ', res)
           this.dataService.acceptTerms().then(response => {
               console.log('response is: ', response)
+              this.dataService.saveSurveyResult('default', 'primary', {
+                  test: '123'
+              }).then(re => {
+                  console.log('re: ', re)
+              }).catch(e => {
+                  console.log('e: ', e)
+              })
           });
       })
   }
+  clickTest2() {
+    this.dataService.loadSurveyResult('default', 'primary', '501').then(res => {
+        console.log("res: ", res)
+    })
+}
   survey: any;
   completedSteps = {
     step1: false,

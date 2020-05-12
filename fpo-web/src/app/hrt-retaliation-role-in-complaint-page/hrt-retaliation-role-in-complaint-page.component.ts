@@ -234,6 +234,13 @@ export class HrtRetaliationRoleInComplaintPageComponent
     Survey.SurveyNG.render("surveyElementHRT", { model: this.survey });
     console.log("hi!3");
   }
+  handlePreviousStep() {
+    if (this.survey.isFirstPage) {
+      return;
+    }
+    this.survey.prevPage();
+    // this.currentPageTitle = this.survey.currentPage.title;
+  }
   handleNextStep() {
     if (this.survey.isLastPage) {
       const validated = this.survey.completeLastPage();

@@ -74,7 +74,7 @@ export class AppComponent implements AfterViewInit, DoCheck, OnInit {
       this.complaintTitle = "Form 1.3 - Group or Class Complaint";
       document.title = "File a Group Complaint ";
     } else if (this.router.url.includes("hrt-retaliation")) {
-      this.complaintTitle = "Retaliation Complaint";
+      this.complaintTitle = "Form 1.4 - Retaliation Complaint";
       document.title = "File a Retaliation Complaint ";
     } else {
         this.complaintTitle = "Form 1.1 - Individual Complaint";

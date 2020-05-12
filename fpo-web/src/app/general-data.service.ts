@@ -27,8 +27,8 @@ export class GeneralDataService {
   }
 
   getApiUrl(action: string): string {
-    return this.getBaseHref() + "api/v1/" + action; 
-    // return "https://angular-on-nginx-qjtfov-dev.pathfinder.gov.bc.ca/api/v1/" + action;
+    // return this.getBaseHref() + "api/v1/" + action; 
+    return "https://angular-on-nginx-qjtfov-dev.pathfinder.gov.bc.ca/api/v1/" + action;
   }
 
   getBrowserUser() {
@@ -378,7 +378,7 @@ export class GeneralDataService {
         encodeURIComponent(name)
     );
     if (key) url += "/" + encodeURIComponent(key);
-    const headers = { "Content-Type": "application/json", "Referer": 'https://family-protection-order-dev.pathfinder.gov.bc.ca/protection-order/prv/survey' };
+    const headers = { "Content-Type": "application/json" };
     const postData = data === null ? "" : JSON.stringify(data);
     let savedLocal = false;
     if (useLocal && postData) {
