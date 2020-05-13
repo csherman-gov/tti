@@ -472,11 +472,11 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             name: "Last name",
             isRequired: true,
           },
-          //   {
-          //     type: "text",
-          //     title: 'Preferred name - e.g. traditional name, nickname, alias',
-          //     name: "Contact Preferred name - e.g. traditional name, nickname, alias",
-          //   },
+            {
+              type: "text",
+              title: 'Preferred name - e.g. traditional name, nickname, alias',
+              name: "Contact Preferred name - e.g. traditional name, nickname, alias",
+            },
           {
             type: "radiogroup",
             name: "Contact Title",
