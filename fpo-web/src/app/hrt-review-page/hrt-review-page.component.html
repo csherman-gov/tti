@@ -243,7 +243,9 @@
       <p>
         <b>Describe the harm you experienced in a few words:</b><br />
         {{
-          formData.detailsOfDiscrimination["Describe the harm you experienced in a few words"]
+          formData.detailsOfDiscrimination[
+            "Describe the harm you experienced in a few words"
+          ]
         }}
       </p>
       <p>
@@ -309,52 +311,57 @@
           }}
         </p>
         <p>
-          <b>Did the most recent event happen in the last year?</b>
-          {{ respondent["Did the most recent event happen in the last year?"] }}
+          <b>Did the most recent conduct happen in the last year?</b>
+          {{
+            respondent["Did the most recent conduct happen in the last year?"]
+          }}
         </p>
       </ng-container>
       <p>
-        <b>Did every event happen in the last year for all respondents?</b>
+        <b
+          >Did all of the conduct happen in the last year for all
+          Respondents?</b
+        >
         {{
           formData.fileInTime[
-            "Did every event happen in the last year for all respondents?"
+            "Did all of the conduct happen in the last year for all Respondents?"
           ]
         }}
       </p>
       <p
         *ngIf="
           formData.fileInTime[
-            'Did every event happen in the last year for all respondents?'
+            'Did all of the conduct happen in the last year for all Respondents?'
           ] === 'No'
         "
       >
-        <b>Are all the event Related or similar?</b>
-        {{ formData.fileInTime["Are all the event Related or similar?"] }}
+        <b>Is all of the conduct related or similar?</b>
+        {{ formData.fileInTime["Is all of the conduct related or similar?"] }}
       </p>
       <p
         *ngIf="
-          formData.fileInTime['Are all the event Related or similar?'] === 'Yes'
+          formData.fileInTime['Is all of the conduct related or similar?'] ===
+          'Yes'
         "
       >
-        <b>Explain how the incidents are similar or related</b><br />
+        <b>Explain how the conduct is similar or related</b><br />
         {{
-          formData.fileInTime[
-            "Explain how the incidents are similar or related"
-          ]
+          formData.fileInTime["Explain how the conduct is similar or related"]
         }}
       </p>
       <p
         *ngIf="
-          formData.fileInTime['Are all the event Related or similar?'] === 'Yes'
+          formData.fileInTime['Is all of the conduct related or similar?'] ===
+          'Yes'
         "
       >
-        <b>Explain any gaps between events</b><br />
-        {{ formData.fileInTime["Explain any gaps between events"] }}
+        <b>Explain any gaps in time</b><br />
+        {{ formData.fileInTime["Explain any gaps in time"] }}
       </p>
       <p
         *ngIf="
           formData.fileInTime[
-            'Did every event happen in the last year for all respondents?'
+            'Did all of the conduct happen in the last year for all Respondents?'
           ] === 'No'
         "
       >
@@ -364,7 +371,7 @@
       <p
         *ngIf="
           formData.fileInTime[
-            'Did every event happen in the last year for all respondents?'
+            'Did all of the conduct happen in the last year for all Respondents?'
           ] === 'No'
         "
       >
@@ -378,7 +385,7 @@
       <p
         *ngIf="
           formData.fileInTime[
-            'Did every event happen in the last year for all respondents?'
+            'Did all of the conduct happen in the last year for all Respondents?'
           ] === 'No'
         "
       >

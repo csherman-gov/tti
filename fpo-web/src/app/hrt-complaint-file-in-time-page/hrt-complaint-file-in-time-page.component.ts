@@ -28,11 +28,19 @@ export class HrtComplaintFileInTimePageComponent implements OnInit, OnDestroy {
         // title: "Is the Complaint filed in Time? ",
         elements: [
           {
+            type: "html",
+            name: "question2",
+            html:
+              "<h4>There is a 1-year time limit for filing a complaint</h4>\n<p>Please provide all dates in the following format: YYYY MM DD. If the date of the event of discrimination was February 3rd, 2020, you would write 2020-02-03<p>\n<p style='margin-bottom: -15px;'><b>For each Respondent, what is the date of the most recent conduct that you say is discrimination?</b></p>",
+          },
+          {
             type: "paneldynamic",
             name: "There is a one-year time limit for filing a complaint",
             titleLocation: "hidden",
             description: "For each Respondent",
             isRequired: true,
+            "panelAddText": "Add Respondent",
+            "panelRemoveText": "Remove Respondent",
             templateElements: [
               {
                 titleLocation: "top",
@@ -50,7 +58,7 @@ export class HrtComplaintFileInTimePageComponent implements OnInit, OnDestroy {
               {
                 titleLocation: "top",
                 type: "radiogroup",
-                name: "Did the most recent event happen in the last year?",
+                name: "Did the most recent conduct happen in the last year?",
                 isRequired: true,
                 choices: ["Yes", "No"],
               },
@@ -61,75 +69,76 @@ export class HrtComplaintFileInTimePageComponent implements OnInit, OnDestroy {
           {
             type: "radiogroup",
             name:
-              "Did every event happen in the last year for all respondents?",
+              "Did all of the conduct happen in the last year for all Respondents?",
             isRequired: true,
             choices: ["Yes", "No"],
           },
           {
             type: "radiogroup",
-            name: "Are all the event Related or similar?",
+            name: "Is all of the conduct related or similar?",
             visibleIf:
-              "{Did every event happen in the last year for all respondents?} = 'No'",
+              "{Did all of the conduct happen in the last year for all Respondents?} = 'No'",
             isRequired: true,
-            popupdescription: `<p>You must file a complaint within one year of the last event if the events are similar or related. The legal term is “continuing contravention”.</p>`,
+            popupdescription: `<p>You must file a complaint within one year of the last conduct if the conduct is similar or related. The legal term is “continuing contravention”. </p>`,
             choices: ["Yes", "No"],
           },
           {
             type: "comment",
-            name: "Explain how the incidents are similar or related",
+            name: "Explain how the conduct is similar or related",
             popupdescription: `<div class="section"> <p> <b>Examples.</b> </p> <ul> <li>Each event is about a co-worker using racial slurs. </li> <li>Each event is about an employer not accommodating a disability.</li> </ul> </div>`,
-            visibleIf: "{Are all the event Related or similar?} = 'Yes'",
+            visibleIf: "{Is all of the conduct related or similar?} = 'Yes'",
             isRequired: true,
           },
           {
             type: "comment",
-            name: "Explain any gaps between events",
-            popupdescription: `<div class="section"> <p> Gaps in time might mean there is no "continuing contravention". The Tribunal will consider reasons for gaps. </p> <p> <b>Examples.</b> </p> <ul> <li>Your employer denied you three promotions. You explain that the job postings were three months apart. </li> <li>Your manager used racial slurs. You explain that the supervisor was on leave for four months.</li> </ul> </div>`,
-            visibleIf: "{Are all the event Related or similar?} = 'Yes'",
+            name: "Explain any gaps in time",
+            popupdescription: `<div class="section"> <p> Gaps in time might mean there is no “continuing contravention”. The Tribunal will consider reasons for gaps. </p> <p> <b>Examples.</b> </p> <ul> <li>“My employer denied me three promotions. The job postings were three months apart.”</li> <li>“My manager used racial slurs. He was on leave for four months.”</li> </ul> </div>`,
+            visibleIf: "{Is all of the conduct related or similar?} = 'Yes'",
             isRequired: true,
           },
         ],
       },
       {
         name: "Ask Tribunal to accept late Complaint",
+        title: "Ask Tribunal to Accept Late Complaint",
         elements: [
           {
             type: "html",
             name: "Information",
             html:
-              "<h3>\nInformation\n</h3>\n<p>\nThere must be a good reason to accept the late complaint. The legal term is that it must be in the “public interest”.\n</p>\n<p>\nThere must be no real harm to anyone because of the delay in filing. The legal term is no “substantial prejudice”.\n</p>",
+              "<h4>\nInformation\n</h4>\n<p>\nThere must be a good reason to accept the late complaint. The legal term is that it must be in the “public interest”.\n</p>\n<p>\nThere must be no real harm to anyone because of the delay in filing. The legal term is no “substantial prejudice”.\n</p>",
           },
-          // {
-          //   type: "html",
-          //   name: "Resonsto",
-          //   html: "<h4>Reasons to accept complaint</h4>",
-          //   popupdescription:
-          //     '<div class="section"> <p> The Tribunal will consider: </p> <ul> <li>Why you filed late, and how late you filed complaint</li> <li>Any other reason why accepting the complaint would benefit the public </li> <li>Evidence that supports your reason for filling your complaint late.  </li> </ul> </div>',
-          // },
+          {
+            type: "html",
+            html:
+              "<h5 class='sv_q_title'><b>Reasons to accept complaint</b></h5>",
+            popupdescription:
+              "<p><b>Reasons</b> to accept a late complaint include:</p><ul style='margin-bottom: 0;'><li>Why you filed late, and how late you filed</li><li>Any other reason why accepting the complaint would benefit the public </li></ul>",
+          },
           {
             type: "comment",
             name: "Why did you file late?",
             isRequired: true,
             popupdescription:
-              '<div class="section"> <p> <b>Examples the Tribunal will consider: </b> </p> <ul> <li>The complainant has a disability that prevented them from filing on time. </li> <li>The complainant faced trauma or a family or housing crisis that made it hard to file the complaint at the time of the events</li> <li>The complainant recently found evidence of discrimination </li> <li> The delay is very short and there is some reason for filing late </li> </ul> <p> You can attach any documents that support your reasons for filing your complaint late </p> </div>',
+              "<p><b>Examples the Tribunal will consider:</b></p><ul><li>The complainant has a disability that prevented them from filing on time. </li><li>The complainant faced trauma or a family or housing crisis that made it hard to file the complaint at the time of the events</li><li>The complainant recently found evidence of discrimination</li><li>The delay is very short and there is some reason for filing late</li></ul><p>You can submit any documents that support your reasons for filing your complaint late</p>",
           },
           {
             type: "comment",
             name: "How will accepting your complaint benefit the public?",
             isRequired: true,
             popupdescription:
-              '<div class="section"> <p> <b>Example </b> </p> <p>Your complaint raises a new or unusual issue.</p> </div>',
+              "<p><b>Example:</b></p><ul><li>A complaint is about a situation that the Tribunal has not addressed often</li><li>A complaint seeks a remedy that would help many people. </li></ul> ",
           },
           {
             type: "comment",
             name: "Why would the delay in filing not harm anyone else?",
             isRequired: true,
             popupdescription:
-              '<div class="section"> <p> The Respondent could be harmed if: </p> <ul> <li>they don’t have the evidence about what happened because of the delay</li> <li>they lost contact with witnesses that could help their case</li> </ul> </div>',
+              "<p><b>Information:</b> The delay means the time after the 1-year time limit.</p><ul><li>“The complaint is two months late. Documents and witnesses should still be available.” </li><li>“The complaint is six months late. I know of no harm to the Respondents.”</li></ul>",
           },
         ],
         visibleIf:
-          "{Did every event happen in the last year for all respondents?} = 'No'",
+          "{Did all of the conduct happen in the last year for all Respondents?} = 'No'",
       },
     ],
   };
