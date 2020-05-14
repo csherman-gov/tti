@@ -38,7 +38,7 @@ export class HrtGroupComplaintSutabilityPageComponent
             type: "comment",
             name: "Describe the Group or Class",
             popupdescription:
-              "<p>A “group” of people could be identified by name. For example, all women who work for one employer.</p><p>A “class” of people could be identified by their shared characteristics. For example, residents of Vancouver who have a visual impairment.</p><p><b>Instructions</b></p><ul><li>Describe the group or class so that its members can be identified. Set out the criteria that would be used to identify the members. Name the members if you can.</li><li>Make sure the group or class is no broader than needed to capture those with an interest in the issue raised in the complaint.</li></ul>",
+              "<p>A “group” of people could be identified by name. For example, all women who work for one employer. Someone could name all of the women in the group. </p><p>A “class” of people could be identified by their shared characteristics. For example, residents of Vancouver who have a visual impairment.</p><p><b>Instructions</b></p><ul><li>Describe the group or class so that its members can be identified. Set out the criteria that would be used to identify the members. Name the members if you can.</li><li>Make sure the group or class is no broader than needed to capture those with an interest in the issue raised in the complaint.</li></ul>",
             isRequired: true,
           },
           {
