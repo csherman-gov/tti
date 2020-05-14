@@ -29,17 +29,16 @@ export class HrtGroupRemediesPageComponent implements OnInit, OnDestroy {
           {
             type: "checkbox",
             name: "Select the kinds of remedies you want",
-            title:
-              "Select the kinds of remedies you want for the group or class members that are available under s. 37 of the Human Rights Code",
+            title: "Select the kinds of remedies you want for the group or class members that are available under s. 37 of the Human Rights Code",
             isRequired: true,
+            hasOther: true,
+            otherText: "Something specific (job back, policy…)",
             choices: [
               "Order to stop the discrimination",
-              "Compensation for injury to dignity, feelings, and self-respect",
-              "Compensation for lost waged or expenses or other expenses such as moving expenses, photocopying, costs of attending the hearing (keep receipts)",
               "Declaration that the conduct is discrimination",
               "Steps or programs to address the discrimination (examples: training, policy)",
-              "Something specific (job back, policy…)",
-              "Other",
+              "Compensation for injury to dignity, feelings, and self-respect",
+              "Compensation for lost wages or other expenses such as moving expenses, photocopying, costs of attending the hearing (keep receipts)",
             ],
           },
           {

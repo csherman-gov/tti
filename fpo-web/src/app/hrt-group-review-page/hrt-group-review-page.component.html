@@ -620,14 +620,11 @@
       </p>
       <p
         *ngIf="
-          formData.remedies['Select the kinds of remedies you want'].includes(
-            'Details - Something specific (job back, policy…)'
-          )
-        "
+          formData.remedies['Select the kinds of remedies you want-Comment']"
       >
         <b>Details - Something specific (job back, policy…):</b>
         {{
-          formData.remedies["Details - Something specific (job back, policy…)"]
+          formData.remedies["Select the kinds of remedies you want-Comment"]
         }}
       </p>
       <p
