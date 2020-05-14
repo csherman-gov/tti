@@ -24,7 +24,7 @@ export class HrtDetailsOfTheDiscriminationPageComponent
     showQuestionNumbers: "off",
     pages: [
       {
-        name: "Details of the Discrimination",
+        name: "page1",
         elements: [
           {
             type: "html",
@@ -33,59 +33,61 @@ export class HrtDetailsOfTheDiscriminationPageComponent
               "<p>\nTo show possible discrimination under the Human Rights Code, you must show:\n</p>\n<ul><li>\nThe Respondent harmed you in the area you selected, such as employment. The legal term is “adverse effect” regarding the area. </li>\n<li>\nThe harm is based on grounds you selected. The legal term is that the grounds “are a factor in” or are “connected to” the harm.\n</li></ul>",
           },
           {
-            type: "comment",
-            name: "Describe the harm you experienced in a few words",
-            description:
-              "<b>Example.</b> My landlord evicted me based on my race. My co-worker said things that made work very uncomfortable for me. <br>Give a short answer. Your short answer helps us understand the details you give below.",
-            isRequired: true,
-          },
-          {
-            type: "comment",
-            name:
-              "Explain how the harm relates to the grounds you have selected before.",
-            description:
-              "<div><b>Examples:</b> <ul><li>The words my co-worker used are slurs about Black men.</li><li>Security only followed me around the store, not the other people who were not First Nations.</li><li>The respondent fired me one week after they learned I was pregnant.</li><li>AA white male colleague got the promotion. I am at least as qualified. I am an Asian woman.</li><li>My employer said I have to work Saturdays. My religion does not allow me to work Saturdays.</li><li>My employer disciplined me for shouting at someone. My disability caused me to shout.</li><li>This organization refused to provide an interpreter which I need because I am Deaf.</li></ul><p>Consider getting help if you are not sure. See <a href='http://www.bchrt.bc.ca/resources/index.htm' target='_blank'>Who Can Help?</a> </p></div> ",
-            isRequired: true,
-          },
-        ],
-      },
-      {
-        name: "page1",
-        elements: [
-          {
-            addRowText: "Add Conduct",
-            removeRowText: "Remove Conduct",
-            type: "matrixdynamic",
-            name:
-              "Describe what this Respondent did that harmed you based on the grounds. ",
-              description:
-              "<div><ul><li>Be specific</li><li><b>Example: </b>Do not say, “This person threatened me.” Write out their words and actions.</li><li>If you don’t know the exact date, give an approximate date. <b>Example: </b> 2020-02-01</li></ul></div>",
-            isRequired: true,
-            columns: [
+            type: "paneldynamic",
+            name: "Details of the Discrimination for each Respondent",
+            templateElements: [
               {
+                type: "text",
                 name: "Respondent",
-                isRequired: true,
-                width: "15%",
+                titleLocation: "left",
               },
               {
-                name: "Date",
-                width: "40%",
-                cellType: "text",
+                type: "comment",
+                name: "Describe the harm you experienced in a few words",
+                description:
+                  "<b>Example.</b> My landlord evicted me based on my race. My co-worker said things that made work very uncomfortable for me. <br>Give a short answer. Your short answer helps us understand the details you give below.",
                 isRequired: true,
-                inputType: "date",
-                max: "2999-12-31",
               },
               {
-                name: "Conduct",
-                cellType: "comment",
+                type: "comment",
+                name:
+                  "Explain how the harm relates to the grounds you have selected before",
+                description:
+                  "<div><b>Examples:</b> <ul><li>The words my co-worker used are slurs about Black men.</li><li>Security only followed me around the store, not the other people who were not First Nations.</li><li>The respondent fired me one week after they learned I was pregnant.</li><li>A white male colleague got the promotion. I am at least as qualified. I am an Asian woman.</li><li>My employer said I have to work Saturdays. My religion does not allow me to work Saturdays.</li><li>My employer disciplined me for shouting at someone. My disability caused me to shout.</li><li>This organization refused to provide an interpreter which I need because I am Deaf.</li></ul><p>Consider getting help if you are not sure. See <a href='http://www.bchrt.bc.ca/resources/index.htm' target='_blank'>Who Can Help?</a> </p></div> ",
                 isRequired: true,
-                width: "35%",
-                rows: 2,
+              },
+              {
+                type: "matrixdynamic",
+                name:
+                  "Give details about this Respondent’s conduct that you say is discrimination",
+                  title: "Describe what this Respondent did that harmed group or class members based on the grounds.",
+                description:
+                  "<div><ul><li>Be specific</li><li><b>Example: </b>Do not say, “This person threatened me.” Write out their words and actions.</li><li>Conduct can be what someone did or didn’t do. The legal term is “acts or omissions.”</li><li>If you don’t know the exact date, give an approximate date. <b>Example: </b> 2020-02-01</li></ul></div>",
+                columns: [
+                  {
+                    name: "Conduct",
+                    cellType: "comment",
+                    isRequired: true,
+                    rows: 1,
+                  },
+                  {
+                    name: "Date",
+                    cellType: "text",
+                    isRequired: true,
+                    inputType: "date",
+                    max: "2999-12-31",
+                  },
+                ],
+                choices: [1, 2, 3, 4, 5],
+                rowCount: 1,
+                minRowCount: 1,
+                addRowText: "Add Conduct",
               },
             ],
-            choices: [1, 2, 3, 4, 5],
-            cellType: "text",
-            rowCount: 1,
+            panelCount: 1,
+            minPanelCount: 1,
+            maxPanelCount: 10,
+            panelAddText: "Add Respondent",
           },
         ],
       },
@@ -151,18 +153,17 @@ export class HrtDetailsOfTheDiscriminationPageComponent
     console.log("hi!1");
     // let surveyModel =
     this.survey = new Survey.Model(this.json);
-    
-    
+
     this.survey.onAfterRenderQuestion.add(function (survey, options) {
-        console.log(options);
-        // Return if there is no description to show in popup
-        if (!options.question.description) return;
-        // Add a button;
-        console.log("options: ", options.question.description);
-        const desc = options.htmlElement.querySelector(".sv_q_description");
-        desc.innerHTML = options.question.description;
-      });
-    
+      console.log(options);
+      // Return if there is no description to show in popup
+      if (!options.question.description) return;
+      // Add a button;
+      console.log("options: ", options.question.description);
+      const desc = options.htmlElement.querySelector(".sv_q_description");
+      desc.innerHTML = options.question.description;
+    });
+
     if (this.formData) {
       console.log("hi122!");
       this.survey.data = this.formData;
