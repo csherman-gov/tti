@@ -58,13 +58,11 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
                 visibleIf:
                   "{panel.What is the Area of Discrimination?} = 'Employment'",
                 isRequired: true,
-                hasOther: true,
                 choices: [
                   "A job",
                   "A job ad",
                   "Lower rate of pay based on sex for similar work",
                 ],
-                otherText: "Other",
               },
               {
                 type: "checkbox",
