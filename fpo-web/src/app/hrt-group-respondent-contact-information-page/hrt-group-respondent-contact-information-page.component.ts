@@ -55,7 +55,7 @@ export class HrtGroupRespondentContactInformationPageComponent
               },
               {
                 type: "text",
-                name: "ADDRESS LINE 2:",
+                name: "Address line 2:",
               },
               {
                 type: "text",
@@ -64,7 +64,7 @@ export class HrtGroupRespondentContactInformationPageComponent
               },
               {
                 type: "dropdown",
-                name: "PROVINCE",
+                name: "Province",
                 startWithNewLine: false,
                 isRequired: true,
                 choices: [
@@ -85,7 +85,7 @@ export class HrtGroupRespondentContactInformationPageComponent
               },
               {
                 type: "text",
-                name: "POSTAL CODE",
+                name: "Postal Code",
                 startWithNewLine: false,
                 isRequired: true,
               },
@@ -101,7 +101,7 @@ export class HrtGroupRespondentContactInformationPageComponent
                 name: "Respondent Contact Cell Phone number",
                 width: "30%",
                 startWithNewLine: false,
-                title: "Cellphone number  ",
+                title: "Cell phone number",
               },
               {
                 type: "text",

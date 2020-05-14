@@ -564,7 +564,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             name: "Complainant Contact Cell Phone number",
             width: "30%",
             startWithNewLine: false,
-            title: "Cellphone number  ",
+            title: "Cell phone number",
           },
           {
             type: "text",
@@ -595,7 +595,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
           },
           {
             type: "paneldynamic",
-            "panelAddText": "Add Respondent",
+            panelAddText: "Add Respondent",
             name: "Respondents Contact Information",
             templateElements: [
               {
@@ -663,7 +663,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
                 name: "Respondent Contact Cell Phone number",
                 width: "30%",
                 startWithNewLine: false,
-                title: "Cellphone number  ",
+                title: "Cell phone number",
               },
               {
                 type: "text",

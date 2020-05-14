@@ -85,6 +85,22 @@
           {{ formData.complainant["First name"] }}
           {{ formData.complainant["Last name"] }}
           {{
+            formData.complainant["Organization name"]
+              ? "Organization name = " +
+                formData.complainant["Organization name"]
+              : ""
+          }}
+          {{
+            formData.complainant[
+              "Contact Preferred name - e.g. traditional name, nickname, alias"
+            ]
+              ? "Pre name - " +
+                formData.complainant[
+                  "Contact Preferred name - e.g. traditional name, nickname, alias"
+                ]
+              : ""
+          }}
+          {{
             formData.complainant["Contact Pronoun"]
               ? " (" + formData.complainant["Contact Pronoun"] + ")"
               : ""
@@ -142,10 +158,10 @@
         <p>
           <b>Mailing Address:</b><br />
           {{ respondent["Mailing address"] }},
-          {{ respondent["ADDRESS LINE 2"] + ", " || "" }}
+          {{ respondent["Address line 2"] + ", " || "" }}
           {{ respondent["City"] + ", " || "" }}
-          {{ respondent["PROVINCE"] + ", " || "" }}
-          {{ respondent["POSTAL CODE"] }}
+          {{ respondent["Province"] + ", " || "" }}
+          {{ respondent["Postal Code"] }}
         </p>
         <p>
           <b>Phone number:</b>
