@@ -60,37 +60,34 @@ export class HrtGroupDetailsOfDiscriminationPageComponent
         name: "page1",
         elements: [
           {
+            addRowText: "Add Conduct",
+            removeRowText: "Remove Conduct",
             type: "matrixdynamic",
             name:
               "Describe what this Respondent did that harmed group or class members based on the grounds. ",
             description:
-              "Be specific. Example. Do not say, “This person bullied group or class members.” Write out the words they used. Give the date for each event. If you don’t know the exact date, give an approximate date. Please provide the date in the format YYYY-MM-DD. Example: If the event occurred on February 3rd, 2020, please provide the date as 2020-02-03.",
+              "<div><ul><li>Be specific</li><li><b>Example: </b>Do not say, “This person bullied group or class members.” Write out their words and actions.</li><li>If you don’t know the exact date, give an approximate date. <b>Example: </b> 2020-02-01</li></ul></div>",
             isRequired: true,
             columns: [
               {
                 name: "Respondent",
                 isRequired: true,
-                width: "20%",
-              },
-              {
-                name: "Event",
-                isRequired: true,
-                width: "50%",
+                width: "15%",
               },
               {
                 name: "Date",
-                inputType: "date",
+                width: "40%",
                 cellType: "text",
                 isRequired: true,
-                width: "20%",
-                // validators: [
-                //   {
-                //     type: "regex",
-                //     text: "Please enter the correct date",
-                //     regex:
-                //       "([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))",
-                //   },
-                // ],
+                inputType: "date",
+                max: "2999-12-31",
+              },
+              {
+                name: "Conduct",
+                cellType: "comment",
+                isRequired: true,
+                width: "35%",
+                rows: 2,
               },
             ],
             choices: [1, 2, 3, 4, 5],
@@ -123,7 +120,7 @@ export class HrtGroupDetailsOfDiscriminationPageComponent
   }
   ngOnInit() {
     // this.initSurvey();
-    console.log('Survey.StylesManager: ', Survey.StylesManager.applyTheme)
+    console.log("Survey.StylesManager: ", Survey.StylesManager.applyTheme);
     this.renderSurvey();
   }
   initSurvey() {
