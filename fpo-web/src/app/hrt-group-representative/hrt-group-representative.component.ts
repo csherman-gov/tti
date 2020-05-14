@@ -143,7 +143,7 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
           {
             type: "text",
             name: "Representative Organization Name",
-            name: "Organization Name (e.g. law firm, if applicable)",
+            title: "Organization Name (e.g. law firm, if applicable)",
           },
           {
             type: "radiogroup",
