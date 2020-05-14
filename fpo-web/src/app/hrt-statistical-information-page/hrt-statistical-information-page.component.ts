@@ -115,10 +115,10 @@ export class HrtStatisticalInformationPageComponent
             choices: [
               "Woman",
               "Man",
+              "Intersex",
               "Non-binary",
               "Transgender",
               "Two Spirit",
-              "Intersex",
             ],
             showClearButton: true,
             otherText: "Other",
