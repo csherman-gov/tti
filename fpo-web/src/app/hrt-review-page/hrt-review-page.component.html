@@ -507,7 +507,7 @@
     <div style="margin-top: 30px;"></div>
 
     <h3 *ngIf="formData.statisticalInformation">
-      Statistical Information
+      Demographic Information
     </h3>
     <div class="grey-box" *ngIf="formData.statisticalInformation">
       <p>
@@ -541,7 +541,7 @@
       </p>
       <p>
         <b>Language</b>
-        {{ formData.statisticalInformation["Language"] }}
+        {{ formData.statisticalInformation["Primary Language"] }}
         {{
           formData.statisticalInformation["Language-Comment"]
             ? " - " + formData.statisticalInformation["Language-Comment"]
