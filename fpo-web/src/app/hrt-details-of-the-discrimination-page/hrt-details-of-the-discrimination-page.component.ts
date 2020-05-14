@@ -34,16 +34,9 @@ export class HrtDetailsOfTheDiscriminationPageComponent
           },
           {
             type: "comment",
-            name: "Describe what your complaint is about in a few words. ",
+            name: "Describe the harm you experienced in a few words",
             description:
-              "<b>Example.</b> This person fired me based on my race. You can give details below.\n",
-            isRequired: true,
-          },
-          {
-            type: "comment",
-            name: "Describe the harm in a few word",
-            description:
-              "<b>Example.</b> I lost my job and I felt terrible. You can say what remedy you want below",
+              "<b>Example.</b> My landlord evicted me based on my race. My co-worker said things that made work very uncomfortable for me. <br>Give a short answer. Your short answer helps us understand the details you give below.",
             isRequired: true,
           },
           {
@@ -51,7 +44,7 @@ export class HrtDetailsOfTheDiscriminationPageComponent
             name:
               "Explain how the harm relates to the grounds you have selected before.",
             description:
-              "<div><b>Examples:</b> <ul><li>The words my manager used are slurs about my race; </li><li>Security only followed me around the store, not the other people who were not First Nations; </li><li>The respondent fired me one week after they learned I was pregnant; </li><li>A white male colleague got the promotion. I am at least as qualified. I am a Black woman; </li><li>My employer said I have to work Saturdays. My religion does not allow me to work Saturdays; </li><li>My employer disciplined me for shouting at someone. My disability caused me to shout; </li><li>This organization refused to provide an interpreter which I need because I am Deaf.</li></ul><p>Consider getting help if you are not sure. See <a href='http://www.bchrt.bc.ca/resources/index.htm' target='_blank'>Who Can Help?</a> </p></div> ",
+              "<div><b>Examples:</b> <ul><li>The words my co-worker used are slurs about Black men.</li><li>Security only followed me around the store, not the other people who were not First Nations.</li><li>The respondent fired me one week after they learned I was pregnant.</li><li>AA white male colleague got the promotion. I am at least as qualified. I am an Asian woman.</li><li>My employer said I have to work Saturdays. My religion does not allow me to work Saturdays.</li><li>My employer disciplined me for shouting at someone. My disability caused me to shout.</li><li>This organization refused to provide an interpreter which I need because I am Deaf.</li></ul><p>Consider getting help if you are not sure. See <a href='http://www.bchrt.bc.ca/resources/index.htm' target='_blank'>Who Can Help?</a> </p></div> ",
             isRequired: true,
           },
         ],
@@ -60,8 +53,8 @@ export class HrtDetailsOfTheDiscriminationPageComponent
         name: "page1",
         elements: [
           {
-            addRowText: "Add Event",
-            removeRowText: "Remove Event",
+            addRowText: "Add Conduct",
+            removeRowText: "Remove Conduct",
             type: "matrixdynamic",
             name:
               "Describe what this Respondent did that harmed you based on the grounds. ",
@@ -72,12 +65,7 @@ export class HrtDetailsOfTheDiscriminationPageComponent
               {
                 name: "Respondent",
                 isRequired: true,
-                width: "20%",
-              },
-              {
-                name: "Event",
-                isRequired: true,
-                width: "40%",
+                width: "15%",
               },
               {
                 name: "Date",
@@ -86,6 +74,13 @@ export class HrtDetailsOfTheDiscriminationPageComponent
                 isRequired: true,
                 inputType: "date",
                 max: "2999-12-31",
+              },
+              {
+                name: "Conduct",
+                cellType: "comment",
+                isRequired: true,
+                width: "35%",
+                rows: 2,
               },
             ],
             choices: [1, 2, 3, 4, 5],

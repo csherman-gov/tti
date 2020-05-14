@@ -241,17 +241,9 @@
     </h3>
     <div class="grey-box">
       <p>
-        <b>Describe what your complaint is about in a few words:</b><br />
+        <b>Describe the harm you experienced in a few words:</b><br />
         {{
-          formData.detailsOfDiscrimination[
-            "Describe what your complaint is about in a few words"
-          ]
-        }}
-      </p>
-      <p>
-        <b>Describe the harm in a few word:</b><br />
-        {{
-          formData.detailsOfDiscrimination["Describe the harm in a few word"]
+          formData.detailsOfDiscrimination["Describe the harm you experienced in a few words"]
         }}
       </p>
       <p>
@@ -280,7 +272,7 @@
         style="margin-bottom: 10px;"
       >
         <p><b>Respondent:</b> {{ event.Respondent }}</p>
-        <p><b>Event:</b> {{ event.Event }}</p>
+        <p><b>Conduct:</b> {{ event.Conduct }}</p>
         <p style="margin-bottom: 20px;"><b>Date:</b> {{ event.Date }}</p>
       </ng-container>
     </div>
