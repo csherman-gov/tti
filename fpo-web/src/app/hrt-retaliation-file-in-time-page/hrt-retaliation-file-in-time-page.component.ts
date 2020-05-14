@@ -98,11 +98,11 @@ export class HrtRetaliationFileInTimePageComponent
             type: "html",
             name: "Information",
             html:
-              "<h4>\nInformation\n</h4>\n<p>\nThere must be a good reason to accept the late complaint. The legal term is that it must be in the “public interest”.\n</p>\n<p style='margin-bottom: 0;'>\nThere must be no real harm to anyone because of the delay in filing. The legal term is no “substantial prejudice”.\n</p>",
+              "<h4>\nInformation\n</h4>\n<ul><li>\nThere must be a good reason to accept the late complaint. The legal term is that it must be in the “public interest”.\n</li>\n<li style='margin-bottom: 0;'>\nThere must be no real harm to anyone because of the delay in filing. The legal term is no “substantial prejudice”.\n</li></ul>",
           },
           {
               type: "html",
-              html: "<h5 class='sv_q_title'>Reasons to accept complaint</h5>",
+              html: "<h5 class='sv_q_title'><b>Reasons to accept complaint</b></h5>",
               popupdescription: '<p><b>Reasons</b> to accept a late complaint include:</p><ul><li>Why you filed late, and how late you filed</li><li>Any other reason why accepting the complaint would benefit the public </li></ul>',
           },
           {
