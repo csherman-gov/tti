@@ -446,14 +446,14 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
               },
               "A lawyer",
               "A legal advocate (Example: A person who works for a law clinic)",
-              "Another person – You must file a Form 1.2 with this complaint (attach PDF of form 1.2)",
+              "Another person – You must file a Form 1.2 with this complaint",
             ],
           },
           {
             type: "html",
             name: "question11",
             visibleIf:
-              "{Select only one option} = 'Another person – You must file a Form 1.2 with this complaint (attach PDF of form 1.2)'",
+              "{Select only one option} = 'Another person – You must file a Form 1.2 with this complaint'",
             html: `<p style="margin-top: 20px;">The Tribunal may accept your complaint filed for another person if the person has legal capacity and consent, or you have legal authority to file the complaint for someone without legal capacity, such as a child.</p><p style="margin-bottom: 20px;">
               In order to determine if your complaint on behalf of another person can be accepted, please complete an additional form "<a href="#">FORM 1.2 – REPRESENTATIVE AUTHORIZATION</a>". You will need to email us a copy of your completed authorization form at <a href="mailto:BCHumanRightsTribunal@gov.bc.ca">BCHumanRightsTribunal@gov.bc.ca</a>.</p>`,
           },
@@ -495,7 +495,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
           },
         ],
         visibleIf:
-          "{Select only one option} = 'A lawyer' or {Select only one option} = 'A legal advocate (Example: A person who works for a law clinic)' or {Select only one option} = 'Another person – You must file a Form 1.2 with this complaint (attach PDF of form 1.2)'",
+          "{Select only one option} = 'A lawyer' or {Select only one option} = 'A legal advocate (Example: A person who works for a law clinic)' or {Select only one option} = 'Another person – You must file a Form 1.2 with this complaint'",
         title:
           "Name of the person who will communicate with the Tribunal, if different from the Complainant",
       },
@@ -595,6 +595,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
           },
           {
             type: "paneldynamic",
+            "panelAddText": "Add Respondent",
             name: "Respondents Contact Information",
             templateElements: [
               {
