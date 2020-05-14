@@ -54,7 +54,7 @@ export class HrtRetaliationRoleInComplaintPageComponent
             visibleIf:
               "{Is the conduct that you say is retaliation about} = 'A complaint that someone filed with the BC Human Rights Tribunal'",
             html:
-              "<h2>Retaliation About a Complaint that Someone Filed</h2>\n<p>\n<b>If the retaliation is about a complaint that someone filed, answer these questions:</p>",
+              "<h2>Retaliation About a Complaint that Someone Filed</h2>\n<p style='margin-bottom: 0;'>\n<b>If the retaliation is about a complaint that someone filed, answer these questions:</p>",
           },
           {
             type: "text",
