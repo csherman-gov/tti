@@ -32,7 +32,7 @@ export class HrtGroupRespondentContactInformationPageComponent
             type: "html",
             name: "question5",
             html:
-              "<h4>\nImportant information about Respondents:\n</h4>\n<ol>\n<li>\nThe Respondent is the person or organization you say discriminated against the group or class members. Usually, there is only one.</li>\n<li>\nUsually the Respondent is an organization such as: the employer, landlord, government body, service provider, business, or union. They are usually responsible for their employees’ actions. Make the organization Respondent #1</li>\n<li>\n individual can be a Respondent, but only name the person who you say discriminated against the group or class. For example, name the person who harassed group or class members. Do not name the person who only told the members about a policy you say is discriminatory</li>\n</ol>\n<p>\n<strong>Email:</strong> The Tribunal sends the complaint to the Respondent’s email address that you give us. Please give email contact information for an official in the organization that you think has authority to respond to the complaint. For example, someone in the human resources, or legal department.</p>\n\n",
+            "<h4>\nImportant information about Respondents:\n</h4>\n<ol>\n<li>\nThe Respondent is the person or organization you say discriminated. Usually, there is only one.\n</li>\n<li>Usually the Respondent is an organization such as: corporate employer, landlord, government body, service provider, business or union. Organizations are usually responsible for their employees’ actions. Make the organization Respondent #1.</li>\n<li>An individual can be a Respondent. Only name the person who you say discriminated against you. For example, name the person who harassed you. Do not name the person who only handed you a letter firing you.</li>\n</ol>\n<p>\n<strong>Email:</strong> Email is fastest. If possible, give an email address where we can send your complaint. Choose someone that you think has authority to respond to your complaint. For example, someone in the human resources, or legal department. </p><p>\n<strong>Please Note:</strong> The Tribunal cannot reject someone’s complaint because they don’t have an email address for the Respondent. They must have an address but it does not need to be an email.</p>",
           },
           {
             type: "paneldynamic",
@@ -46,6 +46,14 @@ export class HrtGroupRespondentContactInformationPageComponent
               {
                 type: "text",
                 name: "Relationship to group or class members",
+                title: "Relationship to group or class members (For example, employer)",
+                isRequired: true,
+              },
+              {
+                type: "text",
+                name: "Respondent Contact Email",
+                width: "40%",
+                title: "Email",
                 isRequired: true,
               },
               {
@@ -110,14 +118,9 @@ export class HrtGroupRespondentContactInformationPageComponent
                 startWithNewLine: false,
                 title: "Fax",
               },
-              {
-                type: "text",
-                name: "Respondent Contact Email",
-                width: "40%",
-                title: "Email",
-                isRequired: true,
-              },
             ],
+            panelAddText: "Add Respondent",
+            panelRemoveText: "Remove Respondent",
             panelCount: 1,
             minPanelCount: 1,
           },
