@@ -57,7 +57,7 @@ export class HrtRetaliationDetailsOfTheRetaliationPageComponent
                 name:
                   "Give details about this Respondent’s conduct that you say is retaliation.",
                 description:
-                  "<div><ul><li>Be specific</li><li><b>Example: </b>Do not say, “This person threatened me.” Write out their words and actions.</li><li>If you don’t know the exact date, give an approximate date. <b>Example: </b> 2020-02-01</li></ul></div>",
+                  "<div><ul><li>Be specific</li><li><b>Example: </b>Do not say, “This person threatened me.” Write out their words and actions.</li><li>Conduct can be what someone did or didn’t do. The legal term is “acts or omissions.”</li><li>If you don’t know the exact date, give an approximate date. <b>Example: </b> 2020-02-01</li></ul></div>",
                 columns: [
                   {
                     name: "Conduct",
@@ -83,7 +83,7 @@ export class HrtRetaliationDetailsOfTheRetaliationPageComponent
                 name:
                   "Explain why you think this conduct is retaliation for your role in a complaint",
                 description:
-                  "<div> <p> <b> Examples: </b> </p> <ul> <li> “I talked about discrimination at work. My boss said he’d never promote me if I made a complaint.” </li> <li> “I filed a discrimination complaint against my landlord. Two months later the landlord sued me in court. The lawsuit had no basis. It was just to smear my character.” </li> <li> “After I filed a complaint, my manager investigated me. My employer suspended me for 5 days for being late to work once. At most, this deserved a verbal warning.” </li> </ul> <p> Consider getting help if you are not sure. See the Resources Sheet at the end of the Form. </p> </div>",
+                  "<div> <p> <b> Examples: </b> </p> <ul> <li> “I talked about discrimination at work. My boss said he’d never promote me if I made a complaint.” </li> <li> “I filed a discrimination complaint against my landlord. Two months later the landlord sued me in court. The lawsuit had no basis. It was just to smear my character.” </li> <li> “After I filed a complaint, my manager investigated me. My employer suspended me for 5 days for being late to work once. At most, this deserved a verbal warning.” </li> </ul> <p> Consider getting help if you are not sure. See <a href='http://www.bchrt.bc.ca/resources/index.htm' target='_blank'>Who Can Help?</a> </p> </div>",
               },
             ],
             panelAddText: "Add Respondent",
