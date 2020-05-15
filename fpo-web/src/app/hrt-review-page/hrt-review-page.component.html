@@ -278,65 +278,61 @@
         <p style="margin-bottom: 20px;"><b>Date:</b> {{ event.Date }}</p>
       </ng-container>
     </div> -->
-      <div class="grey-box">
-        <ng-container
-          *ngFor="
-            let event of formData.detailsOfRetaliation[
-              'Details of the Discrimination for each Respondent'
+    <div class="grey-box">
+      <ng-container
+        *ngFor="
+          let event of formData.detailsOfRetaliation[
+            'Details of the Discrimination for each Respondent'
+          ]
+        "
+        style="margin-bottom: 10px;"
+      >
+        <p><b>Respondent:</b> {{ event.Respondent }}</p>
+        <p>
+          <b>Describe the harm you experienced in a few words:</b>
+          {{ event["Describe the harm you experienced in a few words"] }}
+        </p>
+        <p>
+          <b
+            >Explain how the harm relates to the grounds you have selected
+            before:</b
+          >
+          {{
+            event[
+              "Explain how the harm relates to the grounds you have selected before"
             ]
-          "
-          style="margin-bottom: 10px;"
-        >
-          <p><b>Respondent:</b> {{ event.Respondent }}</p>
-          <p>
-            <b
-              >Describe the harm you experienced in a few words:</b
-            >
-            {{
-              event[
-                "Describe the harm you experienced in a few words"
+          }}
+        </p>
+        <div>
+          <b
+            >Give details about this Respondent’s conduct that you say is
+            discrimination:</b
+          >
+          <ng-container
+            *ngFor="
+              let detail of event[
+                'Give details about this Respondent’s conduct that you say is discrimination'
               ]
-            }}
-          </p>
-          <p>
-            <b
-              >Explain how the harm relates to the grounds you have selected before:</b
-            >
-            {{
-              event[
-                "Explain how the harm relates to the grounds you have selected before"
-              ]
-            }}
-          </p>
-          <div>
-            <b
-              >Give details about this Respondent’s conduct that you say is discrimination:</b
-            >
-            <ng-container
-              *ngFor="
-                let detail of event[
-                  'Give details about this Respondent’s conduct that you say is discrimination'
-                ]
-              "
-            >
-              <p>
-                <b>
-                  Conduct:
-                </b>
-                {{ detail.Conduct }} <br />
-                <b>
-                  Date:
-                </b>
-                {{ detail.Date }}
-              </p>
-            </ng-container>
-          </div>
-          <div style="margin-top: 20px;"></div>
-        </ng-container>
-      </div>
+            "
+          >
+            <p>
+              <b>
+                Conduct:
+              </b>
+              {{ detail.Conduct }} <br />
+              <b>
+                Date:
+              </b>
+              {{ detail.Date }}
+            </p>
+          </ng-container>
+        </div>
+        <div style="margin-top: 20px;"></div>
+      </ng-container>
+    </div>
     <div style="margin-top: 30px;"></div>
     <h3>
-        Time limit to make Complaint
+      Time limit to make Complaint
     </h3>
     <div class="grey-box">
       <h4 style="margin: 20px 0; font-size: 18px;">
@@ -348,7 +344,7 @@
       <ng-container
         *ngFor="
           let respondent of formData.fileInTime[
-            'There is a one-year time limit for filing a complaint'
+            'There is a 1-year time limit for filing a complaint'
           ]
         "
         style="margin-bottom: 10px;"

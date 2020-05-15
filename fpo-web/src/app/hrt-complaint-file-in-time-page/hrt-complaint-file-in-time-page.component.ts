@@ -35,12 +35,12 @@ export class HrtComplaintFileInTimePageComponent implements OnInit, OnDestroy {
           },
           {
             type: "paneldynamic",
-            name: "There is a one-year time limit for filing a complaint",
+            name: "There is a 1-year time limit for filing a complaint",
             titleLocation: "hidden",
             description: "For each Respondent",
             isRequired: true,
-            "panelAddText": "Add Respondent",
-            "panelRemoveText": "Remove Respondent",
+            panelAddText: "Add Respondent",
+            panelRemoveText: "Remove Respondent",
             templateElements: [
               {
                 titleLocation: "top",
