@@ -36,7 +36,7 @@ export class HrtRetaliationRoleInComplaintPageComponent
           },
           {
             type: "radiogroup",
-            name: "Is the conduct that you say is retaliation about",
+            name: "Is the retaliation about",
             isRequired: true,
             choices: [
               "A complaint that someone filed with the BC Human Rights Tribunal",
@@ -52,9 +52,9 @@ export class HrtRetaliationRoleInComplaintPageComponent
             type: "html",
             name: "question2",
             visibleIf:
-              "{Is the conduct that you say is retaliation about} = 'A complaint that someone filed with the BC Human Rights Tribunal'",
+              "{Is the retaliation about} = 'A complaint that someone filed with the BC Human Rights Tribunal'",
             html:
-              "<h2>Retaliation About a Complaint that Someone Filed</h2>\n<p style='margin-bottom: 0;'>\n<b>If the retaliation is about a complaint that someone filed, answer these questions:</p>",
+              "<h2>Retaliation about a complaint that someone filed</h2>\n<p style='margin-bottom: 0;'>\n<b>If the retaliation is about a complaint that someone filed, answer these questions:</p>",
           },
           {
             type: "text",
@@ -90,11 +90,12 @@ export class HrtRetaliationRoleInComplaintPageComponent
             type: "text",
             name: "How did the Respondent(s) know about your role?",
             isRequired: true,
-            popupdescription: '<b>Example.</b> “The Tribunal sent the complaint to the Respondents.”'
+            popupdescription:
+              "<b>Example.</b> “The Tribunal sent the complaint to the Respondents.”",
           },
         ],
         visibleIf:
-          "{Is the conduct that you say is retaliation about} = 'A complaint that someone filed with the BC Human Rights Tribunal'",
+          "{Is the retaliation about} = 'A complaint that someone filed with the BC Human Rights Tribunal'",
       },
       {
         name: "page3",
@@ -103,7 +104,7 @@ export class HrtRetaliationRoleInComplaintPageComponent
             type: "html",
             name: "question3",
             html:
-              "<h2>Retaliation About a Complaint that Someone Might File</h2>\n<p style='margin-bottom: 0;'>\n<b>If the retaliation is about a complaint that someone might file, answer these questions:</b></p>",
+              "<h2>Retaliation about a complaint that someone might file</h2>\n<p style='margin-bottom: 0;'>\n<b>If the retaliation is about a complaint that someone might file, answer these questions:</b></p>",
           },
           {
             type: "radiogroup",
@@ -118,12 +119,13 @@ export class HrtRetaliationRoleInComplaintPageComponent
           {
             type: "text",
             name: "Why did the Respondent(s) think this?",
-            popupdescription: '<p><b>Example. </b>“I told my boss it was discrimination when I didn’t get the promotion. So my boss and employer knew I might file a complaint.”</p>',
+            popupdescription:
+              "<p><b>Example. </b>“I told my boss it was discrimination when I didn’t get the promotion. So my boss and employer knew I might file a complaint.”</p>",
             isRequired: true,
           },
         ],
         visibleIf:
-          "{Is the conduct that you say is retaliation about} = 'A complaint that someone might file with the BC Human Rights Tribunal'",
+          "{Is the retaliation about} = 'A complaint that someone might file with the BC Human Rights Tribunal'",
       },
     ],
   };
@@ -210,7 +212,7 @@ export class HrtRetaliationRoleInComplaintPageComponent
 
       //Return if there is no description to show in popup
       if (!options.question.popupdescription) return;
-      console.log("hi!123122"); 
+      console.log("hi!123122");
       //Add a button;
       var btn = document.createElement("button");
       btn.type = "button";
