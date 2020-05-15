@@ -45,11 +45,13 @@ class SurveySubmission(APIView):
         if not body:
             return HttpResponseBadRequest("Missing application results")
 
+        print body
+
         sSFDC_org = 'qa'
         sf_instance = SFDC(sSFDC_org)
         sfdc_result = sf_instance.submitForm(
             url = 'CaseManagement/v1',
-            payload = request
+            payload = body
         )
 
         return Response(
@@ -138,7 +140,7 @@ class SurveyResultView(APIView):
         sf_instance = SFDC(sSFDC_org)
         sfdc_result = sf_instance.submitForm(
             url = 'CaseManagement/v1',
-            payload = request
+            payload = body
         )
 
         return Response(
