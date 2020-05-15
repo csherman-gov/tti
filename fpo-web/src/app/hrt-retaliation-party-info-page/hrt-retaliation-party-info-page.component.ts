@@ -101,7 +101,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
   //           "type": "text",
   //           "name": "Address line 2",
   //           // "visible": false,
-  //           "title": "Address line 2:",
+  //           "title": "Address line 2",
   //           "titleLocation": "top",
   //           "visibleIf": "{Complainant type} notempty",
   //         },
@@ -278,7 +278,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
   //           "type": "text",
   //           "name": "Address line 2 2nd",
   //           "visibleIf": "{Add another complainant?} = \"Yes\"",
-  //           "title": "Address line 2:",
+  //           "title": "Address line 2",
   //           "titleLocation": "top"
   //         },
   //         {
@@ -499,7 +499,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             type: "html",
             name: "question1",
             html:
-            "<p><strong>Purpose of collecting contact information:</strong> The Tribunal and Respondents use your contact information to communicate with you about the complaint. For more information see the Privacy Notice at the end of this Form.</p><p>You must give an address where all parties can send you documents. Give the address of the person who will communicate with the Tribunal.</p><p>The Tribunal usually communicates by email. If possible, give an email address where all parties can reach you. If you have confidential contact information, do not put it on this form. Provide it separately by email, mail, fax, or in person.</p><p><strong>Important information: </strong>A document sent to an address below is considered to be received by the complainant. You must notify the Tribunal of any change to the address for delivery.</p>",
+              "<p><strong>Purpose of collecting contact information:</strong> The Tribunal and Respondents use your contact information to communicate with you about the complaint. For more information see the Privacy Notice at the end of this Form.</p><p>You must give an address where all parties can send you documents. Give the address of the person who will communicate with the Tribunal.</p><p>The Tribunal usually communicates by email. If possible, give an email address where all parties can reach you. If you have confidential contact information, do not put it on this form. Provide it separately by email, mail, fax, or in person.</p><p><strong>Important information: </strong>A document sent to an address below is considered to be received by the complainant. You must notify the Tribunal of any change to the address for delivery.</p>",
           },
           {
             type: "text",
@@ -583,7 +583,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             type: "html",
             name: "question5",
             html:
-            "<h4>\nImportant information about Respondents:\n</h4>\n<ol>\n<li>The Respondent is the person or organization you say retaliated against you. Usually, there is only one.\n</li>\n<li>Usually the Respondent is an organization such as: corporate employer, landlord, government body, service provider, business or union. Organizations are usually responsible for their employees’ actions. Make the organization Respondent #1.</li>\n<li>An individual can be a Respondent. Only name the person who you say retaliated against you. For example, you can name the person who made a decision that you think is retaliation. Do not name the person who only told you about the decision.</li>\n</ol>\n<p>\n<strong>Email:</strong> Email is fastest. If possible, give an email address where we can send your complaint. Choose someone that you think has authority to respond to your complaint. For example, someone in the human resources, or legal department. </p><p>\n<strong>Please Note:</strong> The Tribunal cannot reject someone’s complaint because they don’t have an email address for the Respondent. They must have an address but it does not need to be an email.</p>",
+              "<h4>\nImportant information about Respondents:\n</h4>\n<ol>\n<li>The Respondent is the person or organization you say retaliated against you. Usually, there is only one.\n</li>\n<li>Usually the Respondent is an organization such as: corporate employer, landlord, government body, service provider, business or union. Organizations are usually responsible for their employees’ actions. Make the organization Respondent #1.</li>\n<li>An individual can be a Respondent. Only name the person who you say retaliated against you. For example, you can name the person who made a decision that you think is retaliation. Do not name the person who only told you about the decision.</li>\n</ol>\n<p>\n<strong>Email:</strong> Email is fastest. If possible, give an email address where we can send your complaint. Choose someone that you think has authority to respond to your complaint. For example, someone in the human resources, or legal department. </p><p>\n<strong>Please Note:</strong> The Tribunal cannot reject someone’s complaint because they don’t have an email address for the Respondent. They must have an address but it does not need to be an email.</p>",
           },
           {
             type: "paneldynamic",
@@ -672,7 +672,6 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
                 startWithNewLine: false,
                 title: "Fax",
               },
-              
             ],
             panelCount: 1,
             minPanelCount: 1,

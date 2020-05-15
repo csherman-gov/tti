@@ -35,10 +35,110 @@ export class HrtRetaliationReviewPageComponent implements OnInit, OnDestroy {
   };
   details = [];
   newFormData = JSON.parse(
-    `{"home":{"form_timeout":"I am using a public computer (i.e. library, internet café, Service BC location)"},"partyInfo":{"Legal Name - First Name":"123","Legal Name - Last Name":"123","Preferred name - e.g. traditional name, nickname, alias":"123","Use my preferred name":["When talking to me"],"Title":"Mr.","Select only one option":"The complainant","Respondents Contact Information":[{"Name of the Respondent":"te te","Mailing address":"te","City":"te","Province":"British Columbia","Postal Code":"a3e 3e3","Respondent Contact Phone number":"1231231231","Respondent Contact Email":"dsa@da.com","Relationship to you":"123"}]},"roleInComplaint":{"Is the retaliation about":"A complaint that someone might file with the BC Human Rights Tribunal","What is the complaint name and case number?":"123", "What was your role?": "The Respondent(s) thought that I might make a complaint",
-    "Why did the Respondent(s) think this?": "123", "When was the complaint filed?":"2020-02-01","What is your role in the complaint?":"I made the complaint","How did the Respondent(s) know about your role?":"1231231231","What was your role?":"The Respondent(s) thought that I might make a complaint","Why did the Respondent(s) think this?":"312@boss.ca"},"otherProceedings":{"Do you have another proceeding about the same events?":"Yes","What kind of proceeding is it?":"312312312","What stage is that proceeding at?":"12312312","Do you want the Tribunal to wait to deal with your complaint?":"Yes","Explain why you want the Tribunal to wait to deal with your complaint":"12312312"}, "fileInTime": {
-        "There is a 1-year time limit for filing a complaint":[{"Respondent name":"asd","What is the date of the most recent conduct that you say is retaliation?":"2020-05-07","Did the most recent conduct happen in the last year?":"Yes"}],"Did all of the conduct happen in the last year for all Respondents?":"No","Is all of the conduct related or similar?":"Yes","Explain how the conduct is similar or related (a “continuing contravention”)":"31231231","Explain any gaps in time":"123123123","Why did you file late?":"312312312","How will accepting your complaint benefit the public?":"3123123","Why would the delay in filing not harm anyone else?":"12312312"
-    }, "remedies":{"Select the kinds of remedies you want":["Order to stop the discrimination","Compensation for injury to dignity, feelings, and self-respect"]}, "mediation": {"Do you want to attend a mediation?": "Yes"},"detailsOfRetaliation":{"Details of the Retaliation for each Respondent":[{"Respondent":"123","Describe in a few words the conduct that you say is retaliation":"Evicting - Expelling - Denying a right or benefit Firing - Intimidating or Coercing - Threatening to do one of these things Suspending - Penalizing - Other similar conduct Instructions. Give a short answer here. You will give details below. Your short answer helps us understand the details you give below. Examples. “This Respondent fired me.” “This Respondent threatened me.","Give details about this Respondent’s conduct that you say is retaliation":[{"Conduct":"123123 12","Date":"2008-02-09"}],"Explain why you think this conduct is retaliation for your role in a complaint":"I talked about discrimination at work. My boss said he’d never promote me if I made a complaint."}]},"statisticalInformation":{"Indigenous Identity":"First Nations","Racial Identity":"Indigenous","Immigration Status":"Canadian citizen","Primary Language":"English","Disability requiring accommodation in employment and services":"Yes - physical","Gender Identity":"Woman","Sexual Orientation":"LGBQ","Age":"Under 19","Household":"Single parent","Household Income After Tax":"Under $20,000"}}`
+    `{
+        "home": {
+          "form_timeout": "I am using a public computer (i.e. library, internet café, Service BC location)"
+        },
+        "partyInfo": {
+          "Legal Name - First Name": "123",
+          "Legal Name - Last Name": "123",
+          "Preferred name - e.g. traditional name, nickname, alias": "123",
+          "Use my preferred name": [
+            "When talking to me"
+          ],
+          "Title": "other",
+          "Pronoun": "other",
+          "Select only one option": "A lawyer",
+          "First name": "12312312",
+          "Last name": "312312123",
+          "Contact Preferred name - e.g. traditional name, nickname, alias": "123123123123",
+          "Contact Title": "other",
+          "Contact Pronoun": "other",
+          "Complainant Contact Mailing address": "123 asddsa",
+          "Complainant Contact City": "dasd",
+          "Complainant Contact Province": "Alberta",
+          "Complainant Contact Postal Code": "12312312",
+          "Complainant Contact Phone number": "1231231231",
+          "Complainant Contact Cell Phone number": "123@123.ca",
+          "Complainant Contact Fax": "123",
+          "Complainant Contact Email": "123",
+          "Respondents Contact Information": [
+            {
+              "Name of the Respondent": "r2",
+              "Respondent Contact Email": "312@boss.ca",
+              "Mailing address": "321 tesr st",
+              "City": "Vanvouver",
+              "Province": "Alberta",
+              "Postal Code": "e3e3e3",
+              "Respondent Contact Phone number": "1231231231",
+              "Relationship to you": "123123",
+              "Respondent Contact Cell Phone number": "123123",
+              "Respondent Contact Fax": "123123"
+            }
+          ],
+          "Title-Comment": "12312312312",
+          "Pronoun-Comment": "1231221312",
+          "Contact Title-Comment": "Other",
+          "Contact Pronoun-Comment": "Other"
+        },
+        "roleInComplaint": {
+          "Is the retaliation about": "A complaint that someone filed with the BC Human Rights Tribunal",
+          "What is the complaint name and case number?": "123",
+          "When was the complaint filed?": "2020-01-01",
+          "What is your role in the complaint?": "I made the complaint",
+          "How did the Respondent(s) know about your role?": "123123"
+        },
+        "detailsOfRetaliation": {
+          "Details of the Retaliation for each Respondent": [
+            {
+              "Respondent": "123123",
+              "Describe in a few words the conduct that you say is retaliation": "123",
+              "Give details about this Respondent’s conduct that you say is retaliation.": [
+                {
+                  "Conduct": "123",
+                  "Date": "2005-01-18"
+                }
+              ],
+              "Explain why you think this conduct is retaliation for your role in a complaint": "123"
+            }
+          ]
+        },
+        "fileInTime": {
+          "There is a 1-year time limit for filing a complaint": [
+            {
+              "Respondent name": "1231231231",
+              "What is the date of the most recent conduct that you say is retaliation?": "2005-01-01",
+              "Did the most recent conduct happen in the last year?": "Yes"
+            }
+          ],
+          "Did all of the conduct happen in the last year for all Respondents?": "No",
+          "Is all of the conduct related or similar?": "Yes",
+          "Explain how the conduct is similar or related (a “continuing contravention”)": "123",
+          "Explain any gaps in time": "123",
+          "Why did you file late?": "123",
+          "How will accepting your complaint benefit the public?": "123",
+          "Why would the delay in filing not harm anyone else?": "123"
+        },
+        "otherProceedings": {
+          "Do you have another proceeding about the same events?": "Yes",
+          "What kind of proceeding is it?": "12312",
+          "What stage is that proceeding at?": "3123123",
+          "Do you want the Tribunal to wait to deal with your complaint?": "Yes",
+          "Explain why you want the Tribunal to wait to deal with your complaint": "123123"
+        },
+        "remedies": {
+          "Select the kinds of remedies you want": [
+            "Order to stop the retaliation",
+            "Steps or programs to address the retaliation (examples: training, policy)",
+            "Compensation for lost wages or other expenses such as moving expenses, photocopying, costs of attending the hearing (keep receipts)",
+            "other"
+          ],
+          "Select the kinds of remedies you want-Comment": "asd"
+        },
+        "mediation": {
+          "Do you want to attend a mediation?": "Yes"
+        }
+      }`
   );
   show: boolean = false;
   constructor(

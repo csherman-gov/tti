@@ -37,8 +37,9 @@ export class HrtRetaliationRemediesPageComponent implements OnInit, OnDestroy {
               "Steps or programs to address the retaliation (examples: training, policy)",
               "Compensation for injury to dignity, feelings, and self-respect",
               "Compensation for lost wages or other expenses such as moving expenses, photocopying, costs of attending the hearing (keep receipts)",
-              "Something specific (example: job back)",
             ],
+            hasOther: true,
+            otherText: "Something specific (example: job back)",
           },
           {
             type: "comment",
