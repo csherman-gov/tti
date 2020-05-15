@@ -22,14 +22,14 @@
       <p
         *ngIf="
           formData.complainant[
-            'Preferred name - e g traditional name, nickname, alias'
+            'Preferred name - e.g. traditional name, nickname, alias'
           ] !== ''
         "
       >
         <b>Preferred name:</b>
         {{
           formData.complainant[
-            "Preferred name - e g traditional name, nickname, alias:"
+            "Preferred name - e.g. traditional name, nickname, alias"
           ]
         }}
       </p>
@@ -46,7 +46,7 @@
       </p>
       <p>
         <b>
-          Pronoun
+          Pronoun:
         </b>
         {{
           formData.complainant["Pronoun"]
@@ -57,14 +57,14 @@
         }}
       </p>
 
-      <p>
+      <!-- <p>
         <b>Other names:</b>
         {{
           formData.complainant["List other names you use or are known by"]
             ? formData.complainant["List other names you use or are known by"]
             : "N/A"
         }}
-      </p>
+      </p> -->
 
       <div style="margin-top: 30px;"></div>
       <div
@@ -84,27 +84,18 @@
           {{ formData.complainant["Contact Title"] }}
           {{ formData.complainant["First name"] }}
           {{ formData.complainant["Last name"] }}
-          {{
-            formData.complainant["Organization name"]
-              ? "Organization name = " +
-                formData.complainant["Organization name"]
-              : ""
-          }}
-          {{
-            formData.complainant[
-              "Contact Preferred name - e.g. traditional name, nickname, alias"
-            ]
-              ? "Pre name - " +
-                formData.complainant[
-                  "Contact Preferred name - e.g. traditional name, nickname, alias"
-                ]
-              : ""
-          }}
-          {{
-            formData.complainant["Contact Pronoun"]
-              ? " (" + formData.complainant["Contact Pronoun"] + ")"
-              : ""
-          }}
+          <ng-container *ngIf='formData.complainant["Organization name"]'>
+              <br>
+              Organization name: {{formData.complainant["Organization name"]}}
+          </ng-container>
+          <ng-container *ngIf='formData.complainant["Contact Preferred name - e.g. traditional name, nickname, alias"]'>
+                <br>
+                Contact Preferred name: {{formData.complainant["Contact Preferred name - e.g. traditional name, nickname, alias"]}}
+            </ng-container>
+            <ng-container *ngIf='formData.complainant["Contact Pronoun"]'>
+                <br>
+                Pronoun: {{formData.complainant["Contact Pronoun"]}}
+            </ng-container>
         </p>
         <p>
           <b>Address:</b>
@@ -158,7 +149,7 @@
         <p>
           <b>Mailing Address:</b><br />
           {{ respondent["Mailing address"] }},
-          {{ respondent["Address line 2"] + ", " || "" }}
+          {{ respondent["Address line 2"] ? respondent["Address line 2"] + ", " : "" }}
           {{ respondent["City"] + ", " || "" }}
           {{ respondent["Province"] + ", " || "" }}
           {{ respondent["Postal Code"] }}
@@ -281,7 +272,7 @@
     <div class="grey-box">
       <ng-container
         *ngFor="
-          let event of formData.detailsOfRetaliation[
+          let event of formData.detailsOfDiscrimination[
             'Details of the Discrimination for each Respondent'
           ]
         "
@@ -519,19 +510,17 @@
       <p>
         <b>Select the kinds of remedies you want:</b>
         {{
-          formData.remedies["Select the kinds of remedies you want"].join(", ")
+          formData.remedies["Select the kinds of remedies you want"].join(", ").replace(', other', '').replace('other', '')
         }}
       </p>
       <p
         *ngIf="
-          formData.remedies['Select the kinds of remedies you want'].includes(
-            'Detail - Something specific (job back, policy…)'
-          )
+          formData.remedies['Select the kinds of remedies you want-Comment']
         "
       >
         <b>Detail - Something specific (job back, policy…):</b>
         {{
-          formData.remedies["Detail - Something specific (job back, policy…)"]
+          formData.remedies["Select the kinds of remedies you want-Comment"]
         }}
       </p>
       <p
