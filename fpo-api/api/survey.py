@@ -45,7 +45,7 @@ class SurveySubmission(APIView):
         if not body:
             return HttpResponseBadRequest("Missing application results")
 
-        print body
+        print ("body: ",body)
 
         sSFDC_org = 'qa'
         sf_instance = SFDC(sSFDC_org)
