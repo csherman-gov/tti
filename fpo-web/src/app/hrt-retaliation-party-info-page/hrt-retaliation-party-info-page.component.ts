@@ -449,14 +449,6 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
               "Another person – You must file a Form 1.2 with this complaint",
             ],
           },
-          {
-            type: "html",
-            name: "question11",
-            visibleIf:
-              "{Select only one option} = 'Another person – You must file a Form 1.2 with this complaint'",
-            html: `<p style="margin-top: 20px;">The Tribunal may accept your complaint filed for another person if the person has legal capacity and consent, or you have legal authority to file the complaint for someone without legal capacity, such as a child.</p><p style="margin-bottom: 20px;">
-              In order to determine if your complaint on behalf of another person can be accepted, please complete an additional form "<a href="#">FORM 1.2 – REPRESENTATIVE AUTHORIZATION</a>". You will need to email us a copy of your completed authorization form at <a href="mailto:BCHumanRightsTribunal@gov.bc.ca">BCHumanRightsTribunal@gov.bc.ca</a>.</p>`,
-          },
         ],
         title: "Who will communicate with the Tribunal about this Complaint?",
       },
@@ -507,7 +499,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             type: "html",
             name: "question1",
             html:
-              "<p><strong>Purpose of collecting contact information: </strong> The Tribunal and Respondents use your contact information to communicate with you about the complaint. The Tribunal may also use it to conduct surveys to evaluate and improve its services.</p><p><strong>Mailing address: </strong> You must give a mailing address.</p><p><strong>Email: </strong>The Tribunal usually communicates via email. If possible, give an email address where all parties can reach you. If you have confidential contact information, do not put it on this form. Put it in your cover email or letter.\n</p><p><strong>Important information: </strong>A document sent to an address below is deemed to be received by the complainant. You must notify the Tribunal of any change to the address for delivery.\n</p>",
+            "<p><strong>Purpose of collecting contact information:</strong> The Tribunal and Respondents use your contact information to communicate with you about the complaint. For more information see the Privacy Notice at the end of this Form.</p><p>You must give an address where all parties can send you documents. Give the address of the person who will communicate with the Tribunal.</p><p>The Tribunal usually communicates by email. If possible, give an email address where all parties can reach you. If you have confidential contact information, do not put it on this form. Provide it separately by email, mail, fax, or in person.</p><p><strong>Important information: </strong>A document sent to an address below is considered to be received by the complainant. You must notify the Tribunal of any change to the address for delivery.</p>",
           },
           {
             type: "text",
@@ -591,11 +583,12 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             type: "html",
             name: "question5",
             html:
-              "<h4>\nImportant information about Respondents:\n</h4>\n<ol>\n<li>\nThe Respondent is the person or organization you say discriminated. Usually, there is only one.\n</li>\n<li>\nUsually the Respondent is your employer, landlord, service provider, union. They are usually responsible for their employees’ actions. Make them Respondent #1.\n</li>\n<li>\nAn individual can be a Respondent, but you need to say what they did that you think is discrimination. For example, name the person who harassed you. Do not name the person who only handed you a letter firing you.\n</li>\n</ol>\n<p>\n<strong>Email:</strong> The Tribunal sends your complaint to the Respondent’s email address that you give us. Please give email contact information for an official in the organization that you think has authority to respond to your complaint. For example, someone in the human resources, or legal department.\n</p>\n\n",
+            "<h4>\nImportant information about Respondents:\n</h4>\n<ol>\n<li>The Respondent is the person or organization you say retaliated against you. Usually, there is only one.\n</li>\n<li>Usually the Respondent is an organization such as: corporate employer, landlord, government body, service provider, business or union. Organizations are usually responsible for their employees’ actions. Make the organization Respondent #1.</li>\n<li>An individual can be a Respondent. Only name the person who you say retaliated against you. For example, you can name the person who made a decision that you think is retaliation. Do not name the person who only told you about the decision.</li>\n</ol>\n<p>\n<strong>Email:</strong> Email is fastest. If possible, give an email address where we can send your complaint. Choose someone that you think has authority to respond to your complaint. For example, someone in the human resources, or legal department. </p><p>\n<strong>Please Note:</strong> The Tribunal cannot reject someone’s complaint because they don’t have an email address for the Respondent. They must have an address but it does not need to be an email.</p>",
           },
           {
             type: "paneldynamic",
             panelAddText: "Add Respondent",
+            panelRemoveText: "Remove Respondent",
             name: "Respondents Contact Information",
             templateElements: [
               {
@@ -608,6 +601,13 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
                 name: "Relationship to you",
                 title:
                   "Relationship to you (For example: your employer, landlord, government body)",
+                isRequired: true,
+              },
+              {
+                type: "text",
+                name: "Respondent Contact Email",
+                width: "40%",
+                title: "Email",
                 isRequired: true,
               },
               {
@@ -672,13 +672,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
                 startWithNewLine: false,
                 title: "Fax",
               },
-              {
-                type: "text",
-                name: "Respondent Contact Email",
-                width: "40%",
-                title: "Email",
-                isRequired: true,
-              },
+              
             ],
             panelCount: 1,
             minPanelCount: 1,
