@@ -101,7 +101,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
   //           "type": "text",
   //           "name": "Address line 2",
   //           // "visible": false,
-  //           "title": "Address line 2:",
+  //           "title": "Address line 2",
   //           "titleLocation": "top",
   //           "visibleIf": "{Complainant type} notempty",
   //         },
@@ -278,7 +278,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
   //           "type": "text",
   //           "name": "Address line 2 2nd",
   //           "visibleIf": "{Add another complainant?} = \"Yes\"",
-  //           "title": "Address line 2:",
+  //           "title": "Address line 2",
   //           "titleLocation": "top"
   //         },
   //         {
@@ -627,7 +627,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
               },
               {
                 type: "text",
-                name: "Address line 2:",
+                name: "Address line 2",
               },
               {
                 type: "text",

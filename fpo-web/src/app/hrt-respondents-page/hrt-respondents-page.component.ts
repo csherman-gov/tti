@@ -1,17 +1,17 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from "@angular/core";
 
-import { MissionService } from '../mission.service';
-import { Subscription } from 'rxjs';
-import { Router } from '@angular/router'; 
+import { MissionService } from "../mission.service";
+import { Subscription } from "rxjs";
+import { Router } from "@angular/router";
 // Import Survey.js
-import * as Survey from 'survey-angular';
-import { addQuestionTypes } from '../survey/question-types';
+import * as Survey from "survey-angular";
+import { addQuestionTypes } from "../survey/question-types";
 // import * as $ from 'jquery';
-// import * as bootstrap from '@ng-bootstrap/ng-bootstrap'; 
+// import * as bootstrap from '@ng-bootstrap/ng-bootstrap';
 @Component({
-  selector: 'app-hrt-respondents-page',
-  templateUrl: './hrt-respondents-page.component.html',
-  styleUrls: ['./hrt-respondents-page.component.scss'],
+  selector: "app-hrt-respondents-page",
+  templateUrl: "./hrt-respondents-page.component.html",
+  styleUrls: ["./hrt-respondents-page.component.scss"],
 })
 export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
   subscription: Subscription;
@@ -26,229 +26,229 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
     step1: false,
     step2: false,
   };
-  showForm = '';
+  showForm = "";
   displayingProgressPage = false;
   myCss = {
     matrixdynamic: {
-      root: 'table testclass',
+      root: "table testclass",
     },
   };
   private json = {
     showNavigationButtons: false,
     pages: [
       {
-        name: 'page1',
+        name: "page1",
         elements: [
           {
-            type: 'paneldynamic',
-            name: 'Respondents',
+            type: "paneldynamic",
+            name: "Respondents",
             maxPanelCount: 10,
             // "hasTitle": false,
-            titleLocation: 'hidden',
+            titleLocation: "hidden",
             templateElements: [
               {
-                type: 'radiogroup',
-                name: 'What type of respondent do you want to add?',
-                titleLocation: 'top',
-                choices: ['Individual', 'Organization'],
+                type: "radiogroup",
+                name: "What type of respondent do you want to add?",
+                titleLocation: "top",
+                choices: ["Individual", "Organization"],
               },
               {
-                type: 'panel',
-                name: 'Respondent Detail',
+                type: "panel",
+                name: "Respondent Detail",
                 elements: [
                   {
-                    type: 'panel',
-                    name: 'Add Respondent',
+                    type: "panel",
+                    name: "Add Respondent",
                     elements: [
                       {
-                        type: 'html',
-                        name: 'question1',
+                        type: "html",
+                        name: "question1",
                         html:
-                          '<p>\nName each individual person, business or organization you believe is responsible for discrimination.\n</p>\n<p>\nAn individual Respondent might be a co-worker, boss, building manager, landlord, restaurant server, employee at a recreation facility, health care provider or government official.\n</p>\n<p>\nA business or organizational Respondent might be the company you worked for, a newspaper, a school board, a trade union, a society or a strata corporation.\n</p>\n<p>You will be able to add 10 respondents online. If you need to add more respondents, please contact the Human Rights Tribunal.</p>',
+                          "<p>\nName each individual person, business or organization you believe is responsible for discrimination.\n</p>\n<p>\nAn individual Respondent might be a co-worker, boss, building manager, landlord, restaurant server, employee at a recreation facility, health care provider or government official.\n</p>\n<p>\nA business or organizational Respondent might be the company you worked for, a newspaper, a school board, a trade union, a society or a strata corporation.\n</p>\n<p>You will be able to add 10 respondents online. If you need to add more respondents, please contact the Human Rights Tribunal.</p>",
                       },
                       {
-                        type: 'html',
-                        name: 'Complaints in the Workplace',
-                        popupdescription: 'workplace',
+                        type: "html",
+                        name: "Complaints in the Workplace",
+                        popupdescription: "workplace",
                         html:
-                          '<h5 style=\'margin-bottom:-30px;font-size: 18px;\'>Complaints in the Workplace <h5>',
+                          "<h5 style='margin-bottom:-30px;font-size: 18px;'>Complaints in the Workplace <h5>",
                       },
                       {
-                        type: 'html',
-                        name: 'Complaints About a Union or Association',
-                        popupdescription: 'association',
+                        type: "html",
+                        name: "Complaints About a Union or Association",
+                        popupdescription: "association",
                         html:
-                          '<h5 style=\'margin-bottom:-30px;font-size: 18px;\'>Complaints About a Union or Association <h5>',
+                          "<h5 style='margin-bottom:-30px;font-size: 18px;'>Complaints About a Union or Association <h5>",
                       },
                       {
-                        type: 'html',
+                        type: "html",
                         name:
-                          'Find Proper Names, Addresses and Phone Numbers for Businesses or Organizations',
-                        popupdescription: 'find',
+                          "Find Proper Names, Addresses and Phone Numbers for Businesses or Organizations",
+                        popupdescription: "find",
                         html:
-                          '<h5 style=\'margin-bottom:-30px;font-size: 18px;\'>Find Proper Names, Addresses and Phone Numbers for Businesses or Organizations <h5>',
+                          "<h5 style='margin-bottom:-30px;font-size: 18px;'>Find Proper Names, Addresses and Phone Numbers for Businesses or Organizations <h5>",
                       },
                       {
-                        type: 'html',
-                        name: 'State Your Relationship With Each Respondent',
-                        popupdescription: 'relationship',
+                        type: "html",
+                        name: "State Your Relationship With Each Respondent",
+                        popupdescription: "relationship",
                         html:
-                          '<h5 style=\'font-size: 18px;\'>State Your Relationship With Each Respondent <h5>',
+                          "<h5 style='font-size: 18px;'>State Your Relationship With Each Respondent <h5>",
                       },
 
                       {
-                        type: 'text',
-                        name: 'legal_first_name',
+                        type: "text",
+                        name: "legal_first_name",
                         visibleIf:
                           '{panel.What type of respondent do you want to add?} = "Individual"',
-                        title: 'Legal first name: ',
+                        title: "Legal first name: ",
                         isRequired: true,
-                        titleLocation: 'top',
+                        titleLocation: "top",
                       },
                       {
-                        type: 'text',
-                        name: 'legal_last_name',
+                        type: "text",
+                        name: "legal_last_name",
                         visibleIf:
                           '{panel.What type of respondent do you want to add?} = "Individual"',
                         startWithNewLine: false,
-                        title: 'Legal last name: ',
+                        title: "Legal last name: ",
                         isRequired: true,
-                        titleLocation: 'top',
+                        titleLocation: "top",
                       },
                       {
-                        type: 'text',
-                        name: 'legal_business_name',
+                        type: "text",
+                        name: "legal_business_name",
                         visibleIf:
                           '{panel.What type of respondent do you want to add?} = "Organization"',
-                        title: 'Legal business or organization name: ',
+                        title: "Legal business or organization name: ",
                         isRequired: true,
-                        titleLocation: 'top',
+                        titleLocation: "top",
                       },
                       {
-                        type: 'text',
-                        name: 'relation_to_you',
-                        title: 'Relationship to you: ',
+                        type: "text",
+                        name: "relation_to_you",
+                        title: "Relationship to you: ",
                         isRequired: true,
-                        titleLocation: 'top',
+                        titleLocation: "top",
                       },
                       {
-                        type: 'text',
-                        name: 'address_line_1',
-                        title: 'Address line 1: ',
+                        type: "text",
+                        name: "address_line_1",
+                        title: "Address line 1: ",
                         isRequired: true,
-                        titleLocation: 'top',
+                        titleLocation: "top",
                       },
                       {
-                        type: 'text',
-                        name: 'address_line_2',
+                        type: "text",
+                        name: "address_line_2",
                         // "visible": false,
-                        title: 'Address line 2:',
-                        titleLocation: 'top',
+                        title: "Address line 2",
+                        titleLocation: "top",
                       },
                       {
-                        type: 'text',
-                        name: 'city',
-                        title: 'City',
+                        type: "text",
+                        name: "city",
+                        title: "City",
                         isRequired: true,
-                        titleLocation: 'top',
+                        titleLocation: "top",
                       },
                       {
-                        type: 'dropdown',
-                        name: 'province',
-                        title: 'Province: ',
+                        type: "dropdown",
+                        name: "province",
+                        title: "Province: ",
                         startWithNewLine: false,
                         isRequired: true,
                         choices: [
-                          'Alberta',
-                          'British Columbia',
-                          'Manitoba',
-                          'New Brunswick',
-                          'Newfoundland',
-                          'Nova Scotia',
-                          'Ontario',
-                          'Prince Edward Island',
-                          'Quebec',
-                          'Saskatchewan',
-                          'Northwest Territories',
-                          'Nunavut',
-                          'Yukon',
+                          "Alberta",
+                          "British Columbia",
+                          "Manitoba",
+                          "New Brunswick",
+                          "Newfoundland",
+                          "Nova Scotia",
+                          "Ontario",
+                          "Prince Edward Island",
+                          "Quebec",
+                          "Saskatchewan",
+                          "Northwest Territories",
+                          "Nunavut",
+                          "Yukon",
                         ],
-                        titleLocation: 'top',
+                        titleLocation: "top",
                       },
                       {
-                        type: 'text',
-                        name: 'postal_code',
+                        type: "text",
+                        name: "postal_code",
                         startWithNewLine: false,
-                        title: 'Postal code: ',
+                        title: "Postal code: ",
                         isRequired: true,
-                        titleLocation: 'top',
+                        titleLocation: "top",
                       },
                       {
-                        type: 'text',
-                        name: 'phone_number',
-                        title: 'Phone: ',
+                        type: "text",
+                        name: "phone_number",
+                        title: "Phone: ",
                         isRequired: true,
-                        titleLocation: 'top',
+                        titleLocation: "top",
                       },
                       {
-                        type: 'text',
-                        name: 'other phone',
+                        type: "text",
+                        name: "other phone",
                         startWithNewLine: false,
-                        title: 'Other phone:',
-                        titleLocation: 'top',
+                        title: "Other phone:",
+                        titleLocation: "top",
                       },
                       {
-                        type: 'text',
-                        name: 'fax_number',
-                        title: 'Fax: ',
-                        titleLocation: 'top',
+                        type: "text",
+                        name: "fax_number",
+                        title: "Fax: ",
+                        titleLocation: "top",
                       },
                       {
-                        type: 'text',
-                        name: 'email_address',
+                        type: "text",
+                        name: "email_address",
                         startWithNewLine: false,
-                        title: 'Email: ',
+                        title: "Email: ",
                         isRequired: true,
-                        titleLocation: 'top',
+                        titleLocation: "top",
                       },
                       {
-                        type: 'text',
-                        name: 'individual_name_under_organization',
+                        type: "text",
+                        name: "individual_name_under_organization",
                         visibleIf:
                           '{panel.What type of respondent do you want to add?} = "Organization"',
                         title:
-                          'Individual you want to name under that Organization: ',
+                          "Individual you want to name under that Organization: ",
                         isRequired: false,
-                        titleLocation: 'top',
+                        titleLocation: "top",
                       },
                     ],
-                    title: 'Add Respondent',
+                    title: "Add Respondent",
                   },
                   {
-                    type: 'panel',
-                    name: 'Areas & Grounds of discrimination',
+                    type: "panel",
+                    name: "Areas & Grounds of discrimination",
                     elements: [
                       {
-                        type: 'html',
-                        name: 'Areas & Grounds of discrimination Info',
+                        type: "html",
+                        name: "Areas & Grounds of discrimination Info",
                         html:
-                          '<p>\nList the area(s) and ground(s) of discrimination that apply to your complaint:</p>\n<p>\nYour complaint must show that the Respondent’s conduct took place in an area of daily life protected under theBC Human Rights Code. These are called “areas of discrimination”.It must also show that you have a personal characteristic(s) protected under theCode. These are called “Grounds of discrimination”.\n</p>\n<p>\nThese protected personal characteristics may be:\n</p>\n<ul>\n<li>\nactual (for example, your ancestry or age), or\n</li>\n<li>\nperceived (for example, someone thinks that you have or may develop a disability in the future, or makes homophobic comments regardless of your sexual orientation).</li>\n</ul>\n<p>\n<b>Not all Grounds of discrimination apply to all areas of discrimination.</b>\n</p>\n',
+                          "<p>\nList the area(s) and ground(s) of discrimination that apply to your complaint:</p>\n<p>\nYour complaint must show that the Respondent’s conduct took place in an area of daily life protected under theBC Human Rights Code. These are called “areas of discrimination”.It must also show that you have a personal characteristic(s) protected under theCode. These are called “Grounds of discrimination”.\n</p>\n<p>\nThese protected personal characteristics may be:\n</p>\n<ul>\n<li>\nactual (for example, your ancestry or age), or\n</li>\n<li>\nperceived (for example, someone thinks that you have or may develop a disability in the future, or makes homophobic comments regardless of your sexual orientation).</li>\n</ul>\n<p>\n<b>Not all Grounds of discrimination apply to all areas of discrimination.</b>\n</p>\n",
                       },
                       {
-                        popupdescription: 'area',
-                        type: 'radiogroup',
-                        name: 'Area of discrimination',
-                        titleLocation: 'top',
+                        popupdescription: "area",
+                        type: "radiogroup",
+                        name: "Area of discrimination",
+                        titleLocation: "top",
                         isRequired: true,
                         choices: [
-                          'Accommodation, service or facility',
-                          'Employment',
-                          'Employment advertisement',
-                          'Publication',
-                          'Purchase of property',
-                          'Tenancy',
-                          'Unions and associations',
-                          'Wages',
+                          "Accommodation, service or facility",
+                          "Employment",
+                          "Employment advertisement",
+                          "Publication",
+                          "Purchase of property",
+                          "Tenancy",
+                          "Unions and associations",
+                          "Wages",
                         ],
                         colCount: 3,
                       },
@@ -261,86 +261,86 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                       //   "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere fuga commodi unde cumque provident est. Est rerum totam blanditiis! Dolorem similique possimus velit quae nihil delectus voluptas ipsa cupiditate ipsum?"
                       // },
                       {
-                        type: 'checkbox',
-                        name: 'Grounds of discrimination',
+                        type: "checkbox",
+                        name: "Grounds of discrimination",
                         isRequired: true,
-                        titleLocation: 'top',
-                        popupdescription: 'grounds',
+                        titleLocation: "top",
+                        popupdescription: "grounds",
                         // "valueName": "grounds",
                         choices: [
                           {
-                            value: 'Age',
+                            value: "Age",
                             visibleIf:
                               '{panel.Area of discrimination} = "Accommodation, service or facility"\n or {panel.Area of discrimination} = "Employment" or {panel.Area of discrimination} = "Publication" or {panel.Area of discrimination} = "Unions and Associations" or {panel.Area of discrimination} = "Tenancy" or {panel.Area of discrimination} = "Employment Advertisement"',
                           },
                           {
-                            value: 'Ancestry',
+                            value: "Ancestry",
                             visibleIf:
                               '{panel.Area of discrimination} <> "Wages"',
                           },
                           {
-                            value: 'Colour',
+                            value: "Colour",
                             visibleIf:
                               '{panel.Area of discrimination} <> "Wages"',
                           },
                           {
-                            value: 'Criminal Conviction',
+                            value: "Criminal Conviction",
                             visibleIf:
                               '{panel.Area of discrimination} = "Employment advertisement" or {panel.Area of discrimination} = "Unions and associations"',
                           },
                           {
-                            value: 'Family Status',
+                            value: "Family Status",
                             visibleIf:
                               '{panel.Area of discrimination} <> "Purchase of property"\n and {panel.Area of discrimination} <> "Wages"',
                           },
                           {
-                            value: 'Gender Identity or Expression',
+                            value: "Gender Identity or Expression",
                             visibleIf:
                               '{panel.Area of discrimination} <> "Wages"',
                           },
                           {
-                            value: 'Marital Status',
+                            value: "Marital Status",
                             visibleIf:
                               '{panel.Area of discrimination} <> "Wages"',
                           },
                           {
-                            value: 'Mental Disability',
+                            value: "Mental Disability",
                             visibleIf:
                               '{panel.Area of discrimination} <> "Wages"',
                           },
                           {
-                            value: 'Physical Disability',
+                            value: "Physical Disability",
                             visibleIf:
                               '{panel.Area of discrimination} <> "Wages"',
                           },
                           {
-                            value: 'Place of Origin',
+                            value: "Place of Origin",
                             visibleIf:
                               '{panel.Area of discrimination} <> "Wages"',
                           },
                           {
-                            value: 'Political Belief',
+                            value: "Political Belief",
                             visibleIf:
                               '{panel.Area of discrimination} = "Employment advertisement"\n or {panel.Area of discrimination} = "Employment advertisement" or {panel.Area of discrimination} = "Unions and associations"',
                           },
                           {
-                            value: 'Race',
+                            value: "Race",
                             visibleIf:
                               '{panel.Area of discrimination} <> "Wages"',
                           },
                           {
-                            value: 'Religion',
+                            value: "Religion",
                             visibleIf:
                               '{panel.Area of discrimination} <> "Wages"',
                           },
-                          'Sex',
+                          "Sex",
                           {
-                            value: 'Sexual Orientation',
+                            value: "Sexual Orientation",
                             visibleIf:
                               '{panel.Area of discrimination} <> "Wages"',
                           },
                           {
-                            value: 'Source of Income',
+                            value: "Source of Income",
                             visibleIf:
                               '{panel.Area of discrimination} = "Tenancy"',
                           },
@@ -348,133 +348,133 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                         colCount: 3,
                       },
                     ],
-                    title: 'Areas & Grounds of discrimination',
+                    title: "Areas & Grounds of discrimination",
                   },
 
                   {
-                    type: 'text',
-                    titleLocation: 'top',
-                    name: 'Details (Age)',
+                    type: "text",
+                    titleLocation: "top",
+                    name: "Details (Age)",
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Age"',
                     isRequired: true,
                   },
                   {
-                    type: 'text',
-                    titleLocation: 'top',
-                    name: 'Details (Ancestry)',
+                    type: "text",
+                    titleLocation: "top",
+                    name: "Details (Ancestry)",
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Ancestry"',
                     isRequired: true,
                   },
                   {
-                    type: 'text',
-                    titleLocation: 'top',
-                    name: 'Details (Colour)',
+                    type: "text",
+                    titleLocation: "top",
+                    name: "Details (Colour)",
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Colour"',
                     isRequired: true,
                   },
                   {
-                    type: 'text',
-                    titleLocation: 'top',
-                    name: 'Details (Family Status)',
+                    type: "text",
+                    titleLocation: "top",
+                    name: "Details (Family Status)",
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Family Status"',
                     isRequired: true,
                   },
                   {
-                    type: 'text',
-                    titleLocation: 'top',
-                    name: 'Details (Gender Identity or Expression)',
+                    type: "text",
+                    titleLocation: "top",
+                    name: "Details (Gender Identity or Expression)",
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Gender Identity or Expression"',
                     isRequired: true,
                   },
                   {
-                    type: 'text',
-                    titleLocation: 'top',
-                    name: 'Details (Marital Status)',
+                    type: "text",
+                    titleLocation: "top",
+                    name: "Details (Marital Status)",
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Marital Status"',
                     isRequired: true,
                   },
                   {
-                    type: 'text',
-                    titleLocation: 'top',
-                    name: 'Details (Mental Disability)',
+                    type: "text",
+                    titleLocation: "top",
+                    name: "Details (Mental Disability)",
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Mental Disability"',
                     isRequired: true,
                   },
                   {
-                    type: 'text',
-                    titleLocation: 'top',
-                    name: 'Details (Physical Disability)',
+                    type: "text",
+                    titleLocation: "top",
+                    name: "Details (Physical Disability)",
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Physical Disability"',
                     isRequired: true,
                   },
                   {
-                    type: 'text',
-                    titleLocation: 'top',
-                    name: 'Details (Place of Origin)',
+                    type: "text",
+                    titleLocation: "top",
+                    name: "Details (Place of Origin)",
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Place of Origin"',
                     isRequired: true,
                   },
                   {
-                    type: 'text',
-                    titleLocation: 'top',
-                    name: 'Details (Political Belief)',
+                    type: "text",
+                    titleLocation: "top",
+                    name: "Details (Political Belief)",
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Political Belief"',
                     isRequired: true,
                   },
                   {
-                    type: 'text',
-                    titleLocation: 'top',
-                    name: 'Details (Race)',
+                    type: "text",
+                    titleLocation: "top",
+                    name: "Details (Race)",
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Race"',
                     isRequired: true,
                   },
                   {
-                    type: 'text',
-                    titleLocation: 'top',
-                    name: 'Details (Religion)',
+                    type: "text",
+                    titleLocation: "top",
+                    name: "Details (Religion)",
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Religion"',
                     isRequired: true,
                   },
                   {
-                    type: 'text',
-                    titleLocation: 'top',
-                    name: 'Details (Sex)',
+                    type: "text",
+                    titleLocation: "top",
+                    name: "Details (Sex)",
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Sex"',
                     isRequired: true,
                   },
                   {
-                    type: 'text',
-                    titleLocation: 'top',
-                    name: 'Details (Sexual Orientation)',
+                    type: "text",
+                    titleLocation: "top",
+                    name: "Details (Sexual Orientation)",
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Sexual Orientation"',
                     isRequired: true,
                   },
                   {
-                    type: 'text',
-                    titleLocation: 'top',
-                    name: 'Details (Source of Income)',
+                    type: "text",
+                    titleLocation: "top",
+                    name: "Details (Source of Income)",
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Source of Income"',
                     isRequired: true,
                   },
                   {
-                    type: 'text',
-                    titleLocation: 'top',
-                    name: 'Details (Political Belief)',
+                    type: "text",
+                    titleLocation: "top",
+                    name: "Details (Political Belief)",
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Political Belief"',
                     isRequired: true,
@@ -499,129 +499,129 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                   // }
                 ],
                 visibleIf:
-                  '{panel.What type of respondent do you want to add?} notempty',
+                  "{panel.What type of respondent do you want to add?} notempty",
               },
               {
                 visibleIf:
-                  '{panel.What type of respondent do you want to add?} notempty',
-                type: 'panel',
-                name: 'Respondents’ Conduct',
-                titleLocation: 'top',
+                  "{panel.What type of respondent do you want to add?} notempty",
+                type: "panel",
+                name: "Respondents’ Conduct",
+                titleLocation: "top",
                 elements: [
                   {
-                    type: 'html',
-                    name: 'question3',
+                    type: "html",
+                    name: "question3",
                     html:
-                      '<p>Answer these questions to show that the Respondents’ conduct could be discrimination under the Human Rights Code</p>\n',
+                      "<p>Answer these questions to show that the Respondents’ conduct could be discrimination under the Human Rights Code</p>\n",
                   },
                   {
-                    type: 'matrixdynamic',
-                    popupdescription: 'respondent-action',
-                    name: 'What did the Respondent do?',
-                    title: 'What did the Respondent do?',
-                    titleLocation: 'top',
+                    type: "matrixdynamic",
+                    popupdescription: "respondent-action",
+                    name: "What did the Respondent do?",
+                    title: "What did the Respondent do?",
+                    titleLocation: "top",
                     isRequired: true,
                     columns: [
                       {
-                        name: 'Date',
-                        title: 'Date (YYYY MM DD): ',
-                        cellType: 'text',
+                        name: "Date",
+                        title: "Date (YYYY MM DD): ",
+                        cellType: "text",
                         isRequired: true,
                       },
                       {
-                        name: 'What Happened? ',
-                        title: 'What Happened? ',
-                        cellType: 'text',
+                        name: "What Happened? ",
+                        title: "What Happened? ",
+                        cellType: "text",
                         isRequired: true,
                       },
                     ],
                     choices: [1, 2, 3, 4, 5],
                     rowCount: 1,
                     minRowCount: 1,
-                    addRowLocation: 'bottom',
-                    addRowText: 'Add Event',
-                    removeRowText: 'Remove Event',
+                    addRowLocation: "bottom",
+                    addRowText: "Add Event",
+                    removeRowText: "Remove Event",
                   },
                   {
-                    type: 'comment',
-                    titleLocation: 'top',
-                    name: 'question3What is the adverse impact on you? ',
-                    title: 'What is the adverse impact on you? ',
-                    popupdescription: 'respondent-impact',
+                    type: "comment",
+                    titleLocation: "top",
+                    name: "question3What is the adverse impact on you? ",
+                    title: "What is the adverse impact on you? ",
+                    popupdescription: "respondent-impact",
 
                     isRequired: true,
                   },
                   {
-                    popupdescription: 'factor',
-                    type: 'comment',
+                    popupdescription: "factor",
+                    type: "comment",
                     name:
-                      'How was each ground of discrimination a factor in the adverse impact? ',
+                      "How was each ground of discrimination a factor in the adverse impact? ",
                     title:
-                      'How was each ground of discrimination a factor in the adverse impact? ',
-                    titleLocation: 'top',
+                      "How was each ground of discrimination a factor in the adverse impact? ",
+                    titleLocation: "top",
                     isRequired: true,
                   },
                 ],
-                title: 'Respondents’ Conduct',
+                title: "Respondents’ Conduct",
               },
               {
                 visibleIf:
-                  '{panel.What type of respondent do you want to add?} notempty',
-                type: 'panel',
-                name: 'Time Limit to file a complaint',
-                titleLocation: 'top',
+                  "{panel.What type of respondent do you want to add?} notempty",
+                type: "panel",
+                name: "Time Limit to file a complaint",
+                titleLocation: "top",
                 elements: [
                   {
-                    type: 'html',
-                    name: 'question3',
+                    type: "html",
+                    name: "question3",
                     html:
-                      '<p>To file your complaint on time, you must file it within one year of each Respondent\'s conduct (acts or omissions). If only some of the conduct happened in the last one year, your complaint may be filed in time if all of that Respondent\'s conduct is related or similar and close enough in time.</p>\n<p>Answer the first question to show whether your complaint is filed in time. If some or all of the complaint may be filed late, you will also complete more questions</p>\n',
+                      "<p>To file your complaint on time, you must file it within one year of each Respondent's conduct (acts or omissions). If only some of the conduct happened in the last one year, your complaint may be filed in time if all of that Respondent's conduct is related or similar and close enough in time.</p>\n<p>Answer the first question to show whether your complaint is filed in time. If some or all of the complaint may be filed late, you will also complete more questions</p>\n",
                   },
                   {
-                    type: 'radiogroup',
-                    popupdescription: 'when',
-                    titleLocation: 'top',
+                    type: "radiogroup",
+                    popupdescription: "when",
+                    titleLocation: "top",
                     name:
-                      'Did all the conduct you say is discrimination happen in the last one year?',
+                      "Did all the conduct you say is discrimination happen in the last one year?",
                     isRequired: true,
-                    choices: ['Yes', 'No'],
+                    choices: ["Yes", "No"],
                   },
                   {
-                    type: 'radiogroup',
+                    type: "radiogroup",
                     name:
-                      'Is all the conduct related or similar and, if so, how? ',
-                    titleLocation: 'top',
-                    popupdescription: 'related',
+                      "Is all the conduct related or similar and, if so, how? ",
+                    titleLocation: "top",
+                    popupdescription: "related",
                     visibleIf:
                       '{panel.Did all the conduct you say is discrimination happen in the last one year?} = "No"',
                     isRequired: true,
-                    choices: ['Yes', 'No'],
+                    choices: ["Yes", "No"],
                   },
                   {
-                    type: 'text',
-                    name: 'Explain why related or similar',
-                    titleLocation: 'top',
+                    type: "text",
+                    name: "Explain why related or similar",
+                    titleLocation: "top",
                     visibleIf:
                       '{panel.Is all the conduct related or similar and, if so, how? } = "Yes"',
                     isRequired: true,
                   },
                   {
-                    type: 'text',
-                    popupdescription: 'gap',
-                    titleLocation: 'top',
+                    type: "text",
+                    popupdescription: "gap",
+                    titleLocation: "top",
                     visibleIf:
                       '{panel.Did all the conduct you say is discrimination happen in the last one year?} = "No"',
                     name:
-                      'If there are gaps between the conduct, can you explain them?',
+                      "If there are gaps between the conduct, can you explain them?",
                     isRequired: true,
                   },
                 ],
-                title: 'Time Limit to file a complaint',
+                title: "Time Limit to file a complaint",
               },
             ],
             panelCount: 1,
             minPanelCount: 1,
-            panelAddText: 'Add another respondent',
+            panelAddText: "Add another respondent",
           },
         ],
       },
@@ -632,7 +632,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
   constructor(private missionService: MissionService, private router: Router) {
     this.subscription = missionService.missionAnnounced$.subscribe(
       (allFormData) => {
-        console.log('allFormData', allFormData);
+        console.log("allFormData", allFormData);
 
         if (allFormData.respondents) {
           this.formData = allFormData.respondents;
@@ -646,10 +646,10 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
   // -----------------------------------------------------------------------------------------End
 
   ngOnInit() {
-    Survey.JsonObject.metaData.addProperty('question', 'popupdescription:text');
+    Survey.JsonObject.metaData.addProperty("question", "popupdescription:text");
     // this.initSurvey();
 
-    Survey.SurveyNG.render('surveyElementHRT', {
+    Survey.SurveyNG.render("surveyElementHRT", {
       model: this.survey,
       css: this.myCss,
     });
@@ -662,26 +662,26 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
 
   initSurvey() {
     addQuestionTypes(Survey);
-    Survey.Survey.cssType = 'bootstrap';
-    Survey.defaultBootstrapCss.page.root = 'sv_page';
-    Survey.defaultBootstrapCss.pageDescription = 'sv_page_description';
-    Survey.defaultBootstrapCss.pageTitle = 'sv_page_title';
-    Survey.defaultBootstrapCss.navigationButton = 'btn btn-primary';
-    Survey.defaultBootstrapCss.question.title = 'sv_q_title';
-    Survey.defaultBootstrapCss.question.description = 'sv_q_description small';
-    Survey.defaultBootstrapCss.panel.title = 'sv_p_title';
-    Survey.defaultBootstrapCss.panel.container = 'sv_p_container';
-    Survey.defaultBootstrapCss.panel.description = 'sv_p_description';
-    Survey.defaultBootstrapCss.row = 'sv_row';
-    Survey.defaultBootstrapCss.matrixdynamic.button = 'btn btn-default';
-    Survey.defaultBootstrapCss.paneldynamic.button = 'btn btn-default';
-    Survey.defaultBootstrapCss.paneldynamic.root = 'sv_p_dynamic'; // not used?
-    Survey.defaultBootstrapCss.checkbox.item = 'sv-checkbox';
-    Survey.defaultBootstrapCss.checkbox.controlLabel = 'sv-checkbox-label';
-    Survey.defaultBootstrapCss.checkbox.materialDecorator = '';
-    Survey.defaultBootstrapCss.radiogroup.item = 'sv-radio';
-    Survey.defaultBootstrapCss.radiogroup.controlLabel = 'sv-checkbox-label';
-    Survey.defaultBootstrapCss.radiogroup.materialDecorator = '';
+    Survey.Survey.cssType = "bootstrap";
+    Survey.defaultBootstrapCss.page.root = "sv_page";
+    Survey.defaultBootstrapCss.pageDescription = "sv_page_description";
+    Survey.defaultBootstrapCss.pageTitle = "sv_page_title";
+    Survey.defaultBootstrapCss.navigationButton = "btn btn-primary";
+    Survey.defaultBootstrapCss.question.title = "sv_q_title";
+    Survey.defaultBootstrapCss.question.description = "sv_q_description small";
+    Survey.defaultBootstrapCss.panel.title = "sv_p_title";
+    Survey.defaultBootstrapCss.panel.container = "sv_p_container";
+    Survey.defaultBootstrapCss.panel.description = "sv_p_description";
+    Survey.defaultBootstrapCss.row = "sv_row";
+    Survey.defaultBootstrapCss.matrixdynamic.button = "btn btn-default";
+    Survey.defaultBootstrapCss.paneldynamic.button = "btn btn-default";
+    Survey.defaultBootstrapCss.paneldynamic.root = "sv_p_dynamic"; // not used?
+    Survey.defaultBootstrapCss.checkbox.item = "sv-checkbox";
+    Survey.defaultBootstrapCss.checkbox.controlLabel = "sv-checkbox-label";
+    Survey.defaultBootstrapCss.checkbox.materialDecorator = "";
+    Survey.defaultBootstrapCss.radiogroup.item = "sv-radio";
+    Survey.defaultBootstrapCss.radiogroup.controlLabel = "sv-checkbox-label";
+    Survey.defaultBootstrapCss.radiogroup.materialDecorator = "";
 
     // load data from sessionStorage if there is one
     this.survey = new Survey.Model(this.json);
@@ -692,30 +692,30 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
       //Return if there is no description to show in popup
       if (!options.question.popupdescription) return;
       //Add a button;
-      console.log('options: ', options);
+      console.log("options: ", options);
       var targetId = options.question.popupdescription;
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'btn btn-info btn-xs';
-      btn.innerHTML = 'More Info';
-      btn.style.backgroundColor = '#38598a';
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "btn btn-info btn-xs";
+      btn.innerHTML = "More Info";
+      btn.style.backgroundColor = "#38598a";
       // var question = options.question;
       btn.onclick = () => {
-        console.log('I got clicked!');
-        console.log('I got clicked!', document.getElementById(targetId));
+        console.log("I got clicked!");
+        console.log("I got clicked!", document.getElementById(targetId));
         var modal = document.getElementById(targetId);
-        modal.style.display = 'flex';
-        modal.addEventListener('click', (event) => {
+        modal.style.display = "flex";
+        modal.addEventListener("click", (event) => {
           let target = event.target as HTMLInputElement;
           console.dir(target.id);
           if (target.id === targetId) {
-            modal.style.display = 'none';
+            modal.style.display = "none";
           }
         });
       };
-      var header = options.htmlElement.querySelector('h5');
-      var span = document.createElement('span');
-      span.innerHTML = '  ';
+      var header = options.htmlElement.querySelector("h5");
+      var span = document.createElement("span");
+      span.innerHTML = "  ";
       header.appendChild(span);
       header.appendChild(btn);
     });
@@ -729,11 +729,11 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
       const validated = this.survey.completeLastPage();
       if (validated) {
         this.missionService.confirmMission({
-          name: 'respondents',
+          name: "respondents",
           data: this.survey.data,
           complete: true,
         });
-        this.router.navigateByUrl('hrt/progress');
+        this.router.navigateByUrl("hrt/progress");
       }
     } else {
       this.survey.nextPage();
