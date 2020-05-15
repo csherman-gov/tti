@@ -36,6 +36,7 @@ export class HrtRetaliationFileInTimePageComponent
           {
             type: "paneldynamic",
             panelAddText: "Add Respondent",
+            panelRemoveText: "Remove Respondent",
             name: "There is a 1-year time limit for filing a complaint",
             description: "For each Respondent",
             isRequired: true,
@@ -96,7 +97,7 @@ export class HrtRetaliationFileInTimePageComponent
             type: "comment",
             name: "Explain any gaps in time",
             popupdescription:
-              '<p>Gaps in time might mean there is no “continuing contravention”. The Tribunal will consider reasons for gaps. </p><p><b>Example. </b></p><ul><li>“My employer denied me three promotions. The job postings were three months apart.”</li><li>“My manager used racial slurs. He was on leave for four months.”</li>',
+              '<p>Gaps in time might mean there is no "continuing contravention". The Tribunal will consider reasons for gaps. </p><p><b>Example. </b>“My manager criticized me for filing the complaint. He was on leave for four months.”</p>',
             visibleIf: "{Is all of the conduct related or similar?} = 'Yes'",
             isRequired: true,
           },
@@ -125,21 +126,21 @@ export class HrtRetaliationFileInTimePageComponent
             name: "Why did you file late?",
             isRequired: true,
             popupdescription:
-              "<p><b>Examples the Tribunal will consider:</b></p><ul><li>The complainant has a disability that prevented them from filing on time. </li><li>The complainant faced trauma or a family or housing crisis that made it hard to file the complaint at the time of the events</li><li>The complainant recently found evidence of discrimination</li><li>The delay is very short and there is some reason for filing late</li></ul><p>You can submit any documents that support your reasons for filing your complaint late</p>",
+              "<p><b>Examples the Tribunal will consider:</b></p><ul><li>The complainant has a disability that prevented them from filing on time. </li><li>The complainant faced trauma or a family or housing crisis that made it hard to file the complaint at the time of the events</li><li>The complainant recently found evidence of discrimination</li><li>The delay is very short and there is some reason for filing late</li></ul><p>You can submit any documents that support your reasons for filing late (such as doctor’s note or a letter from a counsellor).</p>",
           },
           {
             type: "comment",
             name: "How will accepting your complaint benefit the public?",
             isRequired: true,
             popupdescription:
-              "<p><b>Example:</b></p><ul><li>A complaint is about a situation that the Tribunal has not addressed often</li><li>A complaint seeks a remedy that would help many people. </li></ul> ",
+              "<p><b>Example:</b> The complaint is about a situation that the Tribunal has not addressed often.</p> ",
           },
           {
             type: "comment",
             name: "Why would the delay in filing not harm anyone else?",
             isRequired: true,
             popupdescription:
-              "<p><b>Information:</b> The delay means the time after the 1-year time limit.</p><ul><li>“The complaint is two months late. Documents and witnesses should still be available.” </li><li>“The complaint is six months late. I know of no harm to the Respondents.”</li></ul>",
+              "<p><b>Information:</b> The delay means the time after the 1-year time limit.</p><ul><li>“The complaint is two months late. Documents and witnesses should still be available.”</li><li>“The complaint is six months late. I know of no harm to the Respondents.”</li></ul>",
           },
         ],
         visibleIf:
