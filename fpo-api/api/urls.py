@@ -54,6 +54,7 @@ urlpatterns = [
     path("accept-terms/", views.AcceptTermsView.as_view()),
     path("survey-result/<collection>/<type>", survey.SurveyResultView.as_view()),
     path("survey-result/<collection>/<type>/<id>", survey.SurveyResultView.as_view()),
+    path("survey-submit/<collection>/<type>", survey.SurveySubmission.as_view()),
     path("survey-print/<collection>/<type>", views.SurveyPdfView.as_view()),
     path("user-info/", views.UserStatusView.as_view()),
 ]

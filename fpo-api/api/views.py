@@ -57,7 +57,7 @@ class UserStatusView(APIView):
                 "Legal Name - Last Name": "Jin"
             }
         }
-        sSFDC_org = 'dev01'
+        sSFDC_org = 'qa'
         sf_instance = SFDC(sSFDC_org)
         sfdc_result = sf_instance.submitForm(
             url = 'CaseManagement/v1',
