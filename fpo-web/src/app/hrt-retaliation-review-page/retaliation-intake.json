@@ -1,0 +1,107 @@
+{
+    "home": {
+        "form_timeout": "I am using a public computer (i.e. library, internet café, Service BC location)"
+    },
+    "partyInfo": {
+        "Legal Name - First Name": "123",
+        "Legal Name - Last Name": "123",
+        "Preferred name - e.g. traditional name, nickname, alias": "123", // optional
+        "Use my preferred name": [
+            "In decision in addition to my legal name",
+            "When writing to me"
+        ], // optional
+        "Title": "other", // optional
+        "Pronoun": "other", // optional
+        "Select only one option": "A lawyer", // NOTE if there is no rep -> then the contact person info section is not required
+        "First name": "123",
+        "Last name": "123",
+        "Contact Preferred name - e.g. traditional name, nickname, alias": "123", // optional
+        "Contact Title": "other", // optional
+        "Contact Pronoun": "other", // optional
+        "Complainant Contact Mailing address": "123 asddsa",
+        "Complainant Contact City": "dasd",
+        "Complainant Contact Province": "Alberta",
+        "Complainant Contact Postal Code": "e3e3e3",
+        "Complainant Contact Phone number": "1231231231",
+        "Complainant Contact Cell Phone number": "1231231231", // optional
+        "Complainant Contact Fax": "1231231231", // optional
+        "Complainant Contact Email": "123@123.ca",
+        "Respondents Contact Information": [
+            {
+                "Name of the Respondent": "te te",
+                "Relationship to you": "Canada",
+                "Respondent Contact Email": "dsa@da.com",
+                "Mailing address": "te",
+                "City": "te",
+                "Province": "British Columbia",
+                "Postal Code": "a3e 3e3",
+                "Respondent Contact Phone number": "1231231231",
+                "Address line 2": "123 st", // optional
+                "Respondent Contact Cell Phone number": "123123123", // optional
+                "Respondent Contact Fax": "123123123" // optional
+            }
+        ],
+        "Title-Comment": "123", // optional
+        "Pronoun-Comment": "123", // optional
+        "Contact Title-Comment": "123", // optional
+        "Contact Pronoun-Comment": "123" // optional
+    },
+    "roleInComplaint": {
+        "Is the retaliation about": "A complaint that someone filed with the BC Human Rights Tribunal",
+        "What is the complaint name and case number?": "132",
+        "When was the complaint filed?": "2020-01-01",
+        "What is your role in the complaint?": "I made the complaint",
+        "How did the Respondent(s) know about your role?": "123"
+    },
+    "detailsOfRetaliation": {
+        "Details of the Retaliation for each Respondent": [
+            {
+                "Respondent": "John Doe",
+                "Describe in a few words the conduct that you say is retaliation": "123",
+                "Give details about this Respondent’s conduct that you say is retaliation.": [
+                    {
+                        "Conduct": "123",
+                        "Date": "2020-01-01"
+                    }
+                ],
+                "Explain why you think this conduct is retaliation for your role in a complaint": "123123123"
+            }
+        ]
+    },
+    "fileInTime": {
+        "There is a 1-year time limit for filing a complaint": [
+            {
+                "Respondent name": "John Doe",
+                "What is the date of the most recent conduct that you say is retaliation?": "2020-01-01",
+                "Did the most recent conduct happen in the last year?": "No"
+            }
+        ],
+        "Did all of the conduct happen in the last year for all Respondents?": "No",
+        "Is all of the conduct related or similar?": "Yes",
+        "Explain how the conduct is similar or related (a “continuing contravention”)": "123",
+        "Explain any gaps in time": "123",
+        "Why did you file late?": "123",
+        "How will accepting your complaint benefit the public?": "123",
+        "Why would the delay in filing not harm anyone else?": "123"
+    },
+    "otherProceedings": {
+        "Do you have another proceeding about the same events?": "Yes",
+        "What kind of proceeding is it?": "123",
+        "What stage is that proceeding at?": "123",
+        "Do you want the Tribunal to wait to deal with your complaint?": "Yes",
+        "Explain why you want the Tribunal to wait to deal with your complaint": "3123132312"
+    },
+    "remedies": {
+        "Select the kinds of remedies you want": [
+            "Compensation for injury to dignity, feelings, and self-respect",
+            "other"
+        ],
+        "Select the kinds of remedies you want-Comment": "123"
+    },
+    "mediation": {
+        "Do you want to attend a mediation?": "Yes"
+    },
+    "statisticalInformation": {
+        "Indigenous Identity": "Métis"
+    }
+}
