@@ -36,7 +36,7 @@ export class HrtGroupTimeLimitPageComponent implements OnInit, OnDestroy {
           },
           {
             type: "paneldynamic",
-            name: "There is a one-year time limit for filing a complaint",
+            name: "There is a 1-year time limit for filing a complaint",
             titleLocation: "hidden",
             description: "For each Respondent",
             panelAddText: "Add Respondent",
@@ -135,7 +135,7 @@ export class HrtGroupTimeLimitPageComponent implements OnInit, OnDestroy {
             name: "How will accepting your complaint benefit the public?",
             isRequired: true,
             popupdescription:
-            "<p><b>Example:</b></p><ul><li>A complaint is about a situation that the Tribunal has not addressed often</li><li>A complaint seeks a remedy that would help many people. </li></ul> ",
+              "<p><b>Example:</b></p><ul><li>A complaint is about a situation that the Tribunal has not addressed often</li><li>A complaint seeks a remedy that would help many people. </li></ul> ",
           },
           {
             type: "comment",
