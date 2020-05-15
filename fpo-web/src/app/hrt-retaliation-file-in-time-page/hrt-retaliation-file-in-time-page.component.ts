@@ -28,15 +28,24 @@ export class HrtRetaliationFileInTimePageComponent
         name: "Is the Complaint filed in Time?",
         elements: [
           {
+            type: "html",
+            name: "question2",
+            html:
+              "<h4>There is a 1-year time limit for filing a complaint</h4>\n<p>Please provide all dates in the following format: YYYY MM DD. If the date of the event of discrimination was February 3rd, 2020, you would write 2020-02-03<p>\n<p style='margin-bottom: -15px;'><b>For each Respondent, what is the date of the most recent conduct that you say is discrimination?</b></p>",
+          },
+          {
             type: "paneldynamic",
             panelAddText: "Add Respondent",
-            name: "There is a one-year time limit for filing a complaint",
+            panelRemoveText: "Remove Respondent",
+            name: "There is a 1-year time limit for filing a complaint",
             description: "For each Respondent",
             isRequired: true,
+            titleLocation: "hidden",
             templateElements: [
               {
                 type: "text",
                 name: "Respondent name",
+                titleLocation: "top",
               },
               {
                 type: "text",
@@ -45,12 +54,14 @@ export class HrtRetaliationFileInTimePageComponent
                 isRequired: true,
                 inputType: "date",
                 max: "2999-12-31",
+                titleLocation: "top",
               },
               {
                 type: "radiogroup",
-                name: "Did the most recent event happen in the last year?",
+                name: "Did the most recent conduct happen in the last year?",
                 isRequired: true,
                 choices: ["Yes", "No"],
+                titleLocation: "top",
               },
             ],
             panelCount: 1,
@@ -66,7 +77,8 @@ export class HrtRetaliationFileInTimePageComponent
           {
             type: "radiogroup",
             name: "Is all of the conduct related or similar?",
-            popupdescription: "<p>You must file a complaint within one year of the last conduct if the conduct is similar or related. The legal term is “continuing contravention”. </p>",
+            popupdescription:
+              "<p>You must file a complaint within one year of the last conduct if the conduct is similar or related. The legal term is “continuing contravention”. </p>",
             visibleIf:
               "{Did all of the conduct happen in the last year for all Respondents?} = 'No'",
             isRequired: true,
@@ -74,21 +86,23 @@ export class HrtRetaliationFileInTimePageComponent
           },
           {
             type: "comment",
-            popupdescription: "<p><b>Example. </b>“Each conduct is about a manager threatening me about the complaint.”</p>",
+            popupdescription:
+              "<p><b>Example. </b>“Each conduct is about a manager threatening me about the complaint.”</p>",
             name:
-              "Explain how the incidents are similar or related (a “continuing contravention”)",
+              "Explain how the conduct is similar or related (a “continuing contravention”)",
             visibleIf: "{Is all of the conduct related or similar?} = 'Yes'",
             isRequired: true,
           },
           {
             type: "comment",
-            name: "Explain any gaps between events",
-            popupdescription: "p>Gaps in time might mean there is no \"continuing contravention\". The Tribunal will consider reasons for gaps. </p><p><b>Example. </b>“My manager criticized me for filing the complaint. He was on leave for four months.</p>",
+            name: "Explain any gaps in time",
+            popupdescription:
+              '<p>Gaps in time might mean there is no "continuing contravention". The Tribunal will consider reasons for gaps. </p><p><b>Example. </b>“My manager criticized me for filing the complaint. He was on leave for four months.”</p>',
             visibleIf: "{Is all of the conduct related or similar?} = 'Yes'",
             isRequired: true,
           },
         ],
-        title: "Is the Complaint Filed in Time?"
+        title: "Is the Complaint Filed in Time?",
       },
       {
         name: "Ask Tribunal to accept late Complaint",
@@ -98,30 +112,35 @@ export class HrtRetaliationFileInTimePageComponent
             type: "html",
             name: "Information",
             html:
-              "<h4>\nInformation\n</h4>\n<p>\nThere must be a good reason to accept the late complaint. The legal term is that it must be in the “public interest”.\n</p>\n<p style='margin-bottom: 0;'>\nThere must be no real harm to anyone because of the delay in filing. The legal term is no “substantial prejudice”.\n</p>",
+              "<h4>\nInformation\n</h4>\n<ul><li>\nThere must be a good reason to accept the late complaint. The legal term is that it must be in the “public interest”.\n</li>\n<li style='margin-bottom: 0;'>\nThere must be no real harm to anyone because of the delay in filing. The legal term is no “substantial prejudice”.\n</li></ul>",
           },
           {
-              type: "html",
-              html: "<h5 class='sv_q_title'>Reasons to accept complaint</h5>",
-              popupdescription: '<p><b>Reasons</b> to accept a late complaint include:</p><ul><li>Why you filed late, and how late you filed</li><li>Any other reason why accepting the complaint would benefit the public </li></ul>',
+            type: "html",
+            html:
+              "<h5 class='sv_q_title'><b>Reasons to accept complaint</b></h5>",
+            popupdescription:
+              "<p><b>Reasons</b> to accept a late complaint include:</p><ul><li>Why you filed late, and how late you filed</li><li>Any other reason why accepting the complaint would benefit the public </li></ul>",
           },
           {
             type: "comment",
             name: "Why did you file late?",
             isRequired: true,
-            popupdescription: '<p><b>Examples the Tribunal will consider:</b></p><ul><li>The complainant has a disability that prevented them from filing on time. </li><li>The complainant faced trauma or a family or housing crisis that made it hard to file the complaint on time</li><li>The complainant recently found evidence of discrimination</li><li>The delay is very short and there is some reason for filing late</li></ul>',
+            popupdescription:
+              "<p><b>Examples the Tribunal will consider:</b></p><ul><li>The complainant has a disability that prevented them from filing on time. </li><li>The complainant faced trauma or a family or housing crisis that made it hard to file the complaint at the time of the events</li><li>The complainant recently found evidence of discrimination</li><li>The delay is very short and there is some reason for filing late</li></ul><p>You can submit any documents that support your reasons for filing late (such as doctor’s note or a letter from a counsellor).</p>",
           },
           {
             type: "comment",
             name: "How will accepting your complaint benefit the public?",
             isRequired: true,
-            popupdescription: '<p><b>Example:</b> The complaint is about a situation that the Tribunal has not addressed often. </p>',
+            popupdescription:
+              "<p><b>Example:</b> The complaint is about a situation that the Tribunal has not addressed often.</p> ",
           },
           {
             type: "comment",
             name: "Why would the delay in filing not harm anyone else?",
             isRequired: true,
-            popupdescription: '<p><b>Information:</b> The delay means the time after the 1-year time limit.</p><ul><li>“The complaint is two months late. Documents and witnesses should still be available.” </li><li>“The complaint is six months late. I know of no harm to the Respondents.”</li></ul>',
+            popupdescription:
+              "<p><b>Information:</b> The delay means the time after the 1-year time limit.</p><ul><li>“The complaint is two months late. Documents and witnesses should still be available.”</li><li>“The complaint is six months late. I know of no harm to the Respondents.”</li></ul>",
           },
         ],
         visibleIf:
@@ -199,7 +218,7 @@ export class HrtRetaliationFileInTimePageComponent
       var header = options.htmlElement.querySelector("h5");
       var span = document.createElement("span");
       span.innerHTML = "  ";
-      if(!header) return
+      if (!header) return;
       header.appendChild(span);
       header.appendChild(btn);
     });

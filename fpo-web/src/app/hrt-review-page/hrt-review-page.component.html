@@ -85,6 +85,22 @@
           {{ formData.complainant["First name"] }}
           {{ formData.complainant["Last name"] }}
           {{
+            formData.complainant["Organization name"]
+              ? "Organization name = " +
+                formData.complainant["Organization name"]
+              : ""
+          }}
+          {{
+            formData.complainant[
+              "Contact Preferred name - e.g. traditional name, nickname, alias"
+            ]
+              ? "Pre name - " +
+                formData.complainant[
+                  "Contact Preferred name - e.g. traditional name, nickname, alias"
+                ]
+              : ""
+          }}
+          {{
             formData.complainant["Contact Pronoun"]
               ? " (" + formData.complainant["Contact Pronoun"] + ")"
               : ""
@@ -142,10 +158,10 @@
         <p>
           <b>Mailing Address:</b><br />
           {{ respondent["Mailing address"] }},
-          {{ respondent["ADDRESS LINE 2"] + ", " || "" }}
+          {{ respondent["Address line 2"] + ", " || "" }}
           {{ respondent["City"] + ", " || "" }}
-          {{ respondent["PROVINCE"] + ", " || "" }}
-          {{ respondent["POSTAL CODE"] }}
+          {{ respondent["Province"] + ", " || "" }}
+          {{ respondent["Postal Code"] }}
         </p>
         <p>
           <b>Phone number:</b>
@@ -223,19 +239,13 @@
     <h3>
       Details of the Discrimination
     </h3>
-    <div class="grey-box">
+    <!-- <div class="grey-box">
       <p>
-        <b>Describe what your complaint is about in a few words:</b><br />
+        <b>Describe the harm you experienced in a few words:</b><br />
         {{
           formData.detailsOfDiscrimination[
-            "Describe what your complaint is about in a few words"
+            "Describe the harm you experienced in a few words"
           ]
-        }}
-      </p>
-      <p>
-        <b>Describe the harm in a few word:</b><br />
-        {{
-          formData.detailsOfDiscrimination["Describe the harm in a few word"]
         }}
       </p>
       <p>
@@ -264,14 +274,65 @@
         style="margin-bottom: 10px;"
       >
         <p><b>Respondent:</b> {{ event.Respondent }}</p>
-        <p><b>Event:</b> {{ event.Event }}</p>
+        <p><b>Conduct:</b> {{ event.Conduct }}</p>
         <p style="margin-bottom: 20px;"><b>Date:</b> {{ event.Date }}</p>
       </ng-container>
+    </div> -->
+    <div class="grey-box">
+      <ng-container
+        *ngFor="
+          let event of formData.detailsOfRetaliation[
+            'Details of the Discrimination for each Respondent'
+          ]
+        "
+        style="margin-bottom: 10px;"
+      >
+        <p><b>Respondent:</b> {{ event.Respondent }}</p>
+        <p>
+          <b>Describe the harm you experienced in a few words:</b>
+          {{ event["Describe the harm you experienced in a few words"] }}
+        </p>
+        <p>
+          <b
+            >Explain how the harm relates to the grounds you have selected
+            before:</b
+          >
+          {{
+            event[
+              "Explain how the harm relates to the grounds you have selected before"
+            ]
+          }}
+        </p>
+        <div>
+          <b
+            >Give details about this Respondent’s conduct that you say is
+            discrimination:</b
+          >
+          <ng-container
+            *ngFor="
+              let detail of event[
+                'Give details about this Respondent’s conduct that you say is discrimination'
+              ]
+            "
+          >
+            <p>
+              <b>
+                Conduct:
+              </b>
+              {{ detail.Conduct }} <br />
+              <b>
+                Date:
+              </b>
+              {{ detail.Date }}
+            </p>
+          </ng-container>
+        </div>
+        <div style="margin-top: 20px;"></div>
+      </ng-container>
     </div>
-
     <div style="margin-top: 30px;"></div>
     <h3>
-      Is the complaint filed in time?
+      Time limit to make Complaint
     </h3>
     <div class="grey-box">
       <h4 style="margin: 20px 0; font-size: 18px;">
@@ -283,7 +344,7 @@
       <ng-container
         *ngFor="
           let respondent of formData.fileInTime[
-            'There is a one-year time limit for filing a complaint'
+            'There is a 1-year time limit for filing a complaint'
           ]
         "
         style="margin-bottom: 10px;"
@@ -301,52 +362,57 @@
           }}
         </p>
         <p>
-          <b>Did the most recent event happen in the last year?</b>
-          {{ respondent["Did the most recent event happen in the last year?"] }}
+          <b>Did the most recent conduct happen in the last year?</b>
+          {{
+            respondent["Did the most recent conduct happen in the last year?"]
+          }}
         </p>
       </ng-container>
       <p>
-        <b>Did every event happen in the last year for all respondents?</b>
+        <b
+          >Did all of the conduct happen in the last year for all
+          Respondents?</b
+        >
         {{
           formData.fileInTime[
-            "Did every event happen in the last year for all respondents?"
+            "Did all of the conduct happen in the last year for all Respondents?"
           ]
         }}
       </p>
       <p
         *ngIf="
           formData.fileInTime[
-            'Did every event happen in the last year for all respondents?'
+            'Did all of the conduct happen in the last year for all Respondents?'
           ] === 'No'
         "
       >
-        <b>Are all the event Related or similar?</b>
-        {{ formData.fileInTime["Are all the event Related or similar?"] }}
+        <b>Is all of the conduct related or similar?</b>
+        {{ formData.fileInTime["Is all of the conduct related or similar?"] }}
       </p>
       <p
         *ngIf="
-          formData.fileInTime['Are all the event Related or similar?'] === 'Yes'
+          formData.fileInTime['Is all of the conduct related or similar?'] ===
+          'Yes'
         "
       >
-        <b>Explain how the incidents are similar or related</b><br />
+        <b>Explain how the conduct is similar or related</b><br />
         {{
-          formData.fileInTime[
-            "Explain how the incidents are similar or related"
-          ]
+          formData.fileInTime["Explain how the conduct is similar or related"]
         }}
       </p>
       <p
         *ngIf="
-          formData.fileInTime['Are all the event Related or similar?'] === 'Yes'
+          formData.fileInTime['Is all of the conduct related or similar?'] ===
+          'Yes'
         "
       >
-        <b>Explain any gaps between events</b><br />
-        {{ formData.fileInTime["Explain any gaps between events"] }}
+        <b>Explain any gaps in time</b><br />
+        {{ formData.fileInTime["Explain any gaps in time"] }}
       </p>
       <p
         *ngIf="
           formData.fileInTime[
-            'Did every event happen in the last year for all respondents?'
+            'Did all of the conduct happen in the last year for all Respondents?'
           ] === 'No'
         "
       >
@@ -356,7 +422,7 @@
       <p
         *ngIf="
           formData.fileInTime[
-            'Did every event happen in the last year for all respondents?'
+            'Did all of the conduct happen in the last year for all Respondents?'
           ] === 'No'
         "
       >
@@ -370,7 +436,7 @@
       <p
         *ngIf="
           formData.fileInTime[
-            'Did every event happen in the last year for all respondents?'
+            'Did all of the conduct happen in the last year for all Respondents?'
           ] === 'No'
         "
       >
@@ -492,7 +558,7 @@
     <div style="margin-top: 30px;"></div>
 
     <h3 *ngIf="formData.statisticalInformation">
-      Statistical Information
+      Demographic Information
     </h3>
     <div class="grey-box" *ngIf="formData.statisticalInformation">
       <p>
@@ -526,7 +592,7 @@
       </p>
       <p>
         <b>Language</b>
-        {{ formData.statisticalInformation["Language"] }}
+        {{ formData.statisticalInformation["Primary Language"] }}
         {{
           formData.statisticalInformation["Language-Comment"]
             ? " - " + formData.statisticalInformation["Language-Comment"]

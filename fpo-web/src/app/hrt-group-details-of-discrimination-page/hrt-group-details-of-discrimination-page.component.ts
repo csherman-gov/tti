@@ -22,84 +22,76 @@ export class HrtGroupDetailsOfDiscriminationPageComponent
     showNavigationButtons: false,
     completeText: "",
     showQuestionNumbers: "off",
-    pages: [
-      {
-        name: "Details of the Discrimination",
-        elements: [
+    "pages": [
+        {
+         "name": "page1",
+         "elements": [
           {
-            type: "html",
-            name: "question1",
-            html:
-              "<p>\nTo show possible discrimination under the Human Rights Code, you must show:\n</p>\n<ul>\n<li>The Respondent harmed the group or class members in the area you selected, such as employment. The legal term is “adverse effect” regarding the area. </li>\n<li>\nThe harm is based on grounds you selected. The legal term is that the grounds “are a factor in” or are “connected to” the harm.\n</li></ul>",
+           "type": "html",
+           "name": "question1",
+           "html": "<p>\nTo show possible discrimination under the Human Rights Code, you must show:\n</p>\n<ul>\n<li>The Respondent harmed the group or class members in the area you selected, such as employment. The legal term is “adverse effect” regarding the area. </li>\n<li>\nThe harm is based on grounds you selected. The legal term is that the grounds “are a factor in” or are “connected to” the harm.\n</li></ul>"
           },
           {
-            type: "comment",
-            name: "Describe what your complaint is about in a few words. ",
-            description:
-              "<b>Example:</b> This person fired group or class members based on race. You can give details below.\n",
-            isRequired: true,
-          },
-          {
-            type: "comment",
-            name: "Describe the harm in a few word",
-            description:
-              "<b>Example:</b> The class members lost their jobs and felt terrible. You can say what remedy you want below",
-            isRequired: true,
-          },
-          {
-            type: "comment",
-            name:
-              "Explain how the harm relates to the grounds you have selected before.",
-            description:
-              "<b>Examples:</b> The words the manager used are slurs about race; Security only followed members of the group or class around the store, not the other people who were not First Nations; The respondent fired group or class members one week after they learned they were pregnant; A white male colleague got the promotion. Group or class members are at least as qualified. They are Black women; The employer said group or class members have to work Saturdays. Their religion does not allow them to work Saturdays; The employer disciplined group or class members for shouting at someone. Their disability caused them to shout; This organization refused to provide an interpreter which group or class members need because they are Deaf. If you need help, you can contact the BC Human Rights Clinic or the Law Center",
-            isRequired: true,
-          },
-        ],
-      },
-      {
-        name: "page1",
-        elements: [
-          {
-            type: "matrixdynamic",
-            name:
-              "Describe what this Respondent did that harmed group or class members based on the grounds. ",
-            description:
-              "Be specific. Example. Do not say, “This person bullied group or class members.” Write out the words they used. Give the date for each event. If you don’t know the exact date, give an approximate date. Please provide the date in the format YYYY-MM-DD. Example: If the event occurred on February 3rd, 2020, please provide the date as 2020-02-03.",
-            isRequired: true,
-            columns: [
+           "type": "paneldynamic",
+           "name": "Details of the Discrimination for each Respondent",
+           "templateElements": [
+            {
+             "type": "text",
+             "name": "Respondent",
+             "titleLocation": "left"
+            },
+            {
+             "type": "comment",
+             "name": "Describe the harm the group or class members experienced in a few words",
+             "description": "<b>Example:</b> The class members lose their jobs and felt terrible.<br>The class members lose their jobs and felt terrible.",
+             "isRequired": true
+            },
+            {
+             "type": "comment",
+             "name": "Explain how the harm relates to the grounds you have selected before",
+             "description": "<div><b>Examples:</b> <ul><li>The words the co-worker used are slurs about Black men.</li><li>Security only followed members of the group or class around the store, not the other people who were not First Nations.</li><li>The respondent fired group or class members one week after they learned they were pregnant.</li><li>A white male colleague got the promotion. Group or class members are at least as qualified. They are Asian women.</li><li>The employer said group or class members have to work Saturdays. Their religion does not allow them to work Saturdays.</li><li>The employer disciplined group or class members for shouting at someone. Their disability caused them to shout.</li><li>This organization refused to provide an interpreter which group or class members need because they are Deaf.</li></ul><p>Consider getting help if you are not sure. See <a href='http://www.bchrt.bc.ca/resources/index.htm' target='_blank'>Who Can Help?</a> </p></div> ",
+             "isRequired": true
+            },
+            {
+             "type": "matrixdynamic",
+             "name": "Give details about this Respondent’s conduct that you say is discrimination",
+             title: "Describe what this Respondent did that harmed group or class members based on the grounds.",
+             "description": "<div><ul><li>Be specific</li><li><b>Example: </b>Do not say, “This person threatened me.” Write out their words and actions.</li><li>Conduct can be what someone did or didn’t do. The legal term is “acts or omissions.”</li><li>If you don’t know the exact date, give an approximate date. <b>Example: </b> 2020-02-01</li></ul></div>",
+             "columns": [
               {
-                name: "Respondent",
-                isRequired: true,
-                width: "20%",
+               "name": "Conduct",
+               "cellType": "comment",
+               "isRequired": true,
+               "rows": 1
               },
               {
-                name: "Event",
-                isRequired: true,
-                width: "50%",
-              },
-              {
-                name: "Date",
-                inputType: "date",
-                cellType: "text",
-                isRequired: true,
-                width: "20%",
-                // validators: [
-                //   {
-                //     type: "regex",
-                //     text: "Please enter the correct date",
-                //     regex:
-                //       "([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))",
-                //   },
-                // ],
-              },
-            ],
-            choices: [1, 2, 3, 4, 5],
-            cellType: "text",
-            rowCount: 1,
-          },
-        ],
-      },
-    ],
+               "name": "Date",
+               "cellType": "text",
+               "isRequired": true,
+               "inputType": "date",
+               "max": "2999-12-31"
+              }
+             ],
+             "choices": [
+              1,
+              2,
+              3,
+              4,
+              5
+             ],
+             "rowCount": 1,
+             "minRowCount": 1,
+             "addRowText": "Add Conduct"
+            },
+           ],
+           "panelCount": 1,
+           "minPanelCount": 1,
+           "maxPanelCount": 10,
+           "panelAddText": "Add Respondent"
+          }
+         ]
+        }
+       ],
   };
 
   survey: any;
@@ -123,7 +115,7 @@ export class HrtGroupDetailsOfDiscriminationPageComponent
   }
   ngOnInit() {
     // this.initSurvey();
-    console.log('Survey.StylesManager: ', Survey.StylesManager.applyTheme)
+    console.log("Survey.StylesManager: ", Survey.StylesManager.applyTheme);
     this.renderSurvey();
   }
   initSurvey() {

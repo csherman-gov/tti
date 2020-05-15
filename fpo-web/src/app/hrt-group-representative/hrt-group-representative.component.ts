@@ -28,7 +28,7 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
   currentPageTitle = "Who is representing the group or class (Representative)?";
   pageHelpText = {
     "Who is representing the group or class (Representative)?":
-      "<p>A Representative can be an organization or an individual. Complete either organization name or name of individual. If you are writing on behalf of an organization, give the organization name here, then give your name as the person who will communicate with the Tribunal (question 3).</p>",
+      "<p>A Representative can be an organization or an individual. Complete either organization name or name of individual. If you are writing on behalf of an organization, give the organization name here, then give your name as the person who will communicate with the Tribunal in the next question.</p>",
   };
 
   handlePopupClick() {
@@ -44,14 +44,24 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
     showPageTitles: false,
     pages: [
       {
-        name: "Who is representing the group or class (Representative)?",
+        name: "Who is representing the group or class?",
+        elements: [
+          {
+            type: "radiogroup",
+            name: "Is the representative:",
+            isRequired: true,
+            choices: ["An organization", "An individual"],
+          },
+        ],
         title: "Who is representing the group or class (Representative)?",
+      },
+      {
+        name: "Who is representing the group or class (Representative)?",
         elements: [
           {
             type: "text",
             name: "Organization Name",
-            // popupdescription:
-            //   '<div class="section"> <p> The Respondent could be harmed if: </p> <ul> <li>they don’t have the evidence about what happened because of the delay</li> <li>they lost contact with witnesses that could help their case</li> </ul> </div>',
+            visibleIf: "{Is the representative:} = 'An organization'",
           },
           {
             type: "text",
@@ -81,7 +91,7 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
             type: "radiogroup",
             name: "Title",
             hasOther: true,
-            choices: ["Mr.", "Ms."],
+            choices: ["Mr.", "Ms.", "Mx."],
             otherText: "Other",
           },
           {
@@ -92,10 +102,10 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
             otherText: "Other",
           },
         ],
+        title: "Who is representing the group or class (Representative)?",
       },
       {
         name: "Who will communicate with the Tribunal about this Complaint?",
-        title: "Who will communicate with the Tribunal about this Complaint?",
         elements: [
           {
             type: "radiogroup",
@@ -108,11 +118,10 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
             ],
           },
         ],
+        title: "Who will communicate with the Tribunal about this Complaint?",
       },
       {
         name:
-          "Name of the person who will communicate with the Tribunal, if different from the Representative",
-        title:
           "Name of the person who will communicate with the Tribunal, if different from the Representative",
         elements: [
           {
@@ -132,11 +141,16 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
             isRequired: true,
           },
           {
+            type: "text",
+            name: "Representative Organization Name",
+            title: "Organization Name (e.g. law firm, if applicable)",
+          },
+          {
             type: "radiogroup",
             name: "Representative Title",
             title: "Title",
             hasOther: true,
-            choices: ["Mr.", "Ms."],
+            choices: ["Mr.", "Ms.", "Mx."],
             otherText: "Other",
           },
           {
@@ -150,16 +164,17 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
         ],
         visibleIf:
           "{Select only one option:} <> 'The Representative of the group or class or, if the Representative is an organization, the individual speaking for the organization'",
+        title:
+          "Name of the person who will communicate with the Tribunal, if different from the Representative",
       },
       {
         name: "Representative’s address for Delivery",
-        title: "Representative’s address for Delivery",
         elements: [
           {
             type: "html",
             name: "question1",
             html:
-              "<p><b>Purpose of collecting contact information:</b> The Tribunal and Respondents use your contact information to communicate with you about the complaint. The Tribunal may also use it to conduct surveys to evaluate and improve its services.</p>\n<p><b>Mailing address: </b> You must give a mailing address where all parties can send you documents.</p>\n<p><b>Email: </b> The Tribunal usually communicates via email. If possible, give an email address where all parties can reach you. If you have confidential contact information, do not put it on this form. Provide it separately by email, mail, fax, or in person.</p> \n<p><b>Important information: </b> A document sent to an address below is deemed to be received by the complainant. You must notify the Tribunal of any change to the address for delivery.</p>",
+              "<p><b>Purpose of collecting contact information:</b> The Tribunal and Respondents use your contact information to communicate with you about the complaint. The Tribunal may also use it to conduct surveys to evaluate and improve its services.</p>\n<p>For more information see the Privacy Notice at the end of this Form.</p>\n<p>You must give an address where all parties can send you documents. Give the address of the person who will communicate with the Tribunal.</p> \n<p>The Tribunal usually communicates via email. If possible, give an email address where all parties can reach you. If you have confidential contact information, do not put it on this form. Provide it separately by email, mail, fax, or in person.</p><p><b>Important information: </b> A document sent to an address below is considered to be received by the complainant. You must notify the Tribunal of any change to the address for delivery.</p>",
           },
           {
             type: "text",
@@ -215,6 +230,7 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
             isRequired: true,
           },
         ],
+        title: "Representative’s address for Delivery",
       },
     ],
   };

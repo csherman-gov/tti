@@ -40,7 +40,7 @@ export class HrtProgressPageComponent implements OnInit, OnDestroy {
       short_name: 'detailsOfDiscrimination'
     },
     {
-      name: 'Is the Complaint filed in Time?',
+      name: 'Time limit to make complaint',
       intro: '',
       url: 'hrt/file-in-time',
       short_name: 'fileInTime'
@@ -64,7 +64,7 @@ export class HrtProgressPageComponent implements OnInit, OnDestroy {
       short_name: 'mediation'
     },
     {
-      name: 'Statistical Information',
+      name: 'Demographic Information',
       intro: 'This step is optional',
       url: 'hrt/statistical-information',
       short_name: 'statisticalInformation'

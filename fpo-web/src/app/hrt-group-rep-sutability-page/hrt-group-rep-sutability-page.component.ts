@@ -31,16 +31,21 @@ export class HrtGroupRepSutabilityPageComponent implements OnInit, OnDestroy {
             type: "html",
             name: "question11",
             html:
-              "<p><b>Purpose of collecting information: </b>The Tribunal needs to be satisfied that the Representative will represent the group’s or class’s interests.</p>",
+              "<p><b>Purpose of collecting information: </b>The Tribunal needs to be satisfied that you will represent the group’s or class’s interests.</p>",
           },
           {
-            type: "radiogroup",
-            name: "Are you a member of the group or class?",
-            popupdescription:
+            "type": "radiogroup",
+            "name": "Are you a member of the group or class?",
+            "popupdescription":
               "<p>You do not need to be a member of the group or class to make the complaint. </p>",
-            isRequired: true,
-            choices: ["Yes", "No"],
+            "isRequired": true,
+            "choices": ["Yes", "No"],
           },
+          {
+            "type": "comment",
+            "name": "If no, what is your relationship to the group or class, if any?",
+            "visibleIf": "{Are you a member of the group or class?} = 'No'"
+           },
           {
             type: "text",
             name: "Why are you filing the complaint?",
@@ -60,7 +65,7 @@ export class HrtGroupRepSutabilityPageComponent implements OnInit, OnDestroy {
             name:
               "If yes, explain the differences between your interests and the interests of the group or class members’ interests",
             popupdescription:
-              "<p>Interests can be different but there must be conflict of interest between your interests in this complaint and the interests of the group or class members.</p>",
+              "<p>Interests can be different but there must be no conflict of interest between your interests in this complaint and the interests of the group or class members.</p>",
             visibleIf:
               "{Are your interests in the complaint different from the group or class members’ interests?} = 'Yes'",
             isRequired: true,
@@ -90,7 +95,7 @@ export class HrtGroupRepSutabilityPageComponent implements OnInit, OnDestroy {
           },
           {
             type: "text",
-            name: "If yes, please explain how they have been notified.",
+            name: "If yes, please explain how you notified the group or class about the complaint.",
             visibleIf:
               "{Have you notified the group or class about the complaint?} = 'Yes'",
             isRequired: true,
@@ -99,7 +104,7 @@ export class HrtGroupRepSutabilityPageComponent implements OnInit, OnDestroy {
             type: "text",
             name: "How will you communicate with the group or class members?",
             popupdescription:
-              "<p>A Representative is responsible for communicating about group or class members about important steps in the complaint process. You must have plan.</p>",
+              "<p>A Representative is responsible for communicating with group or class members about important steps in the complaint process. You must have plan.</p>",
             isRequired: true,
           },
           {

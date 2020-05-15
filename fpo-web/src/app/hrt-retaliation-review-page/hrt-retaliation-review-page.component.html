@@ -161,20 +161,14 @@
     <div class="grey-box">
       <p>
         <b>
-          Is the conduct that you say is retaliation about:
+          Is the retaliation about:
         </b>
-        {{
-          formData.roleInComplaint[
-            "Is the conduct that you say is retaliation about"
-          ]
-        }}
+        {{ formData.roleInComplaint["Is the retaliation about"] }}
       </p>
 
       <ng-container
         *ngIf="
-          formData.roleInComplaint[
-            'Is the conduct that you say is retaliation about'
-          ] !==
+          formData.roleInComplaint['Is the retaliation about'] !==
           'A complaint that someone might file with the BC Human Rights Tribunal'
         "
       >
@@ -214,9 +208,7 @@
       </ng-container>
       <ng-container
         *ngIf="
-          formData.roleInComplaint[
-            'Is the conduct that you say is retaliation about'
-          ] ===
+          formData.roleInComplaint['Is the retaliation about'] ===
           'A complaint that someone might file with the BC Human Rights Tribunal'
         "
       >
@@ -239,7 +231,7 @@
 
     <div style="margin-top: 30px;"></div>
     <h3>
-      Details of the Discrimination
+      Details of the Retaliation
     </h3>
     <div class="grey-box">
       <ng-container
@@ -302,19 +294,19 @@
 
     <div style="margin-top: 30px;"></div>
     <h3>
-      Is the complaint filed in time?
+      Time Limit to Make Complaint
     </h3>
     <div class="grey-box">
       <h4 style="margin: 20px 0; font-size: 18px;">
         <b
-          >For each Respondent, what is the date of the most recent event that
-          you say is discrimination?</b
+          >For each Respondent, what is the date of the most recent conduct you
+          say is retaliation?</b
         >
       </h4>
       <ng-container
         *ngFor="
           let respondent of formData.fileInTime[
-            'There is a one-year time limit for filing a complaint'
+            'There is a 1-year time limit for filing a complaint'
           ]
         "
         style="margin-bottom: 10px;"
@@ -332,8 +324,10 @@
           }}
         </p>
         <p>
-          <b>Did the most recent event happen in the last year?</b>
-          {{ respondent["Did the most recent event happen in the last year?"] }}
+          <b>Did the most recent conduct happen in the last year?</b>
+          {{
+            respondent["Did the most recent conduct happen in the last year?"]
+          }}
         </p>
       </ng-container>
       <p>
@@ -364,12 +358,12 @@
         "
       >
         <b
-          >Explain how the incidents are similar or related (a “continuing
+          >Explain how the conduct is similar or related (a “continuing
           contravention”)</b
         ><br />
         {{
           formData.fileInTime[
-            "Explain how the incidents are similar or related (a “continuing contravention”)"
+            "Explain how the conduct is similar or related (a “continuing contravention”)"
           ]
         }}
       </p>
@@ -379,8 +373,8 @@
           'Yes'
         "
       >
-        <b>Explain any gaps between events</b><br />
-        {{ formData.fileInTime["Explain any gaps between events"] }}
+        <b>Explain any gaps in time</b><br />
+        {{ formData.fileInTime["Explain any gaps in time"] }}
       </p>
       <p
         *ngIf="
@@ -531,7 +525,7 @@
     <div style="margin-top: 30px;"></div>
 
     <h3 *ngIf="formData.statisticalInformation">
-      Statistical Information
+      Demographic Information
     </h3>
     <div class="grey-box" *ngIf="formData.statisticalInformation">
       <p>
@@ -565,7 +559,7 @@
       </p>
       <p>
         <b>Language</b>
-        {{ formData.statisticalInformation["Language"] }}
+        {{ formData.statisticalInformation["Primary Language"] }}
         {{
           formData.statisticalInformation["Language-Comment"]
             ? " - " + formData.statisticalInformation["Language-Comment"]
