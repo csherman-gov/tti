@@ -29,7 +29,7 @@
         <b>Preferred name:</b>
         {{
           formData.partyInfo[
-            "Preferred name - e g traditional name, nickname, alias:"
+            "Preferred name - e.g. traditional name, nickname, alias"
           ]
         }}
       </p>
@@ -42,15 +42,18 @@
         <b>How do you want to be addressed:</b>
         {{ formData.partyInfo["Title"] ? formData.partyInfo["Title"] : "N/A" }}
       </p>
-
       <p>
+        <b>Pronoun:</b>
+        {{ formData.partyInfo["Pronoun"] ? formData.partyInfo["Pronoun"] : "N/A" }}
+      </p>
+      <!-- <p>
         <b>Other names:</b>
         {{
           formData.partyInfo["List other names you use or are known by"]
             ? formData.partyInfo["List other names you use or are known by"]
             : "N/A"
         }}
-      </p>
+      </p> -->
 
       <div style="margin-top: 30px;"></div>
       <div
@@ -67,7 +70,6 @@
           }}
         </p>
         <p>
-          {{ formData.partyInfo["Contact Title"] }}
           {{ formData.partyInfo["First name"] }}
           {{ formData.partyInfo["Last name"] }}
           {{
@@ -75,6 +77,12 @@
               ? " (" + formData.partyInfo["Pronoun"] + ")"
               : ""
           }}
+        </p>
+        <p>
+            <b>
+                Title:
+            </b>
+            {{ formData.partyInfo["Contact Title"] }}
         </p>
         <p>
           <b>Address:</b>
@@ -98,7 +106,9 @@
           {{ formData.partyInfo["Complainant Contact Fax"] || "NA" }}
         </p>
         <p>
-          Email:
+          <b>
+            Email:
+          </b>
           {{ formData.partyInfo["Complainant Contact Email"] || "NA" }}
         </p>
       </div>
@@ -486,30 +496,18 @@
       <p>
         <b>Select the kinds of remedies you want:</b>
         {{
-          formData.remedies["Select the kinds of remedies you want"].join(", ")
+          formData.remedies["Select the kinds of remedies you want"].join(", ").replace(', other', '').replace('other', '')
         }}
       </p>
       <p
         *ngIf="
-          formData.remedies['Select the kinds of remedies you want'].includes(
-            'Detail - Something specific (example: job back)'
-          )
+          formData.remedies['Select the kinds of remedies you want-Comment']
         "
       >
         <b>Detail - Something specific (example: job back):</b>
         {{
-          formData.remedies["Detail - Something specific (example: job back)"]
+          formData.remedies["Select the kinds of remedies you want-Comment"]
         }}
-      </p>
-      <p
-        *ngIf="
-          formData.remedies['Select the kinds of remedies you want'].includes(
-            'Other'
-          )
-        "
-      >
-        <b>Detail - Other:</b>
-        {{ formData.remedies["Detail - Other"] }}
       </p>
     </div>
 

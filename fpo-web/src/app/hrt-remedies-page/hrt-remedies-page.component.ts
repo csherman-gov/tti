@@ -31,22 +31,23 @@ export class HrtRemediesPageComponent implements OnInit, OnDestroy {
             name: "Select the kinds of remedies you want",
             title: "Select the kinds of remedies you want that are available under s. 37 of the Human Rights Code:",
             isRequired: true,
+            hasOther: true,
+            otherText: "Something specific (job back, policy…)",
             choices: [
               "Order to stop the discrimination",
               "Declaration that the conduct is discrimination",
               "Steps or programs to address the discrimination (examples: training, policy)",
               "Compensation for injury to dignity, feelings, and self-respect",
               "Compensation for lost wages or other expenses such as moving expenses, photocopying, costs of attending the hearing (keep receipts)",
-              "Something specific (job back, policy…)",
             ],
           },
-          {
-            type: "comment",
-            name: "Detail - Something specific (job back, policy…)",
-            visibleIf:
-              "{Select the kinds of remedies you want} contains 'Something specific (job back, policy…)'",
-            isRequired: true,
-          },
+        //   {
+        //     type: "comment",
+        //     name: "Detail - Something specific (job back, policy…)",
+        //     visibleIf:
+        //       "{Select the kinds of remedies you want} contains 'Something specific (job back, policy…)'",
+        //     isRequired: true,
+        //   },
           {
             type: "comment",
             name: "Detail - Other",

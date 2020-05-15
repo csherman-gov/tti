@@ -14,7 +14,7 @@
       Representative and Group or Class
     </h3>
     <div class="grey-box">
-      <p>
+      <p *ngIf='formData.representative["Organization Name"]'>
         <b>Organization Name:</b>
         {{ formData.representative["Organization Name"] }}
       </p>
@@ -267,6 +267,10 @@
         }}
       </p>
     </div>
+    <div style="margin-top: 30px;"></div>
+    <h3>
+        Respondent Contact Information
+    </h3>
     <div class="grey-box">
       <div
         style="margin-bottom: 20px;"
@@ -286,7 +290,7 @@
         <p>
           <b>Mailing Address:</b><br />
           {{ respondent["Mailing address"] }},
-          {{ respondent["Address line 2"] + ", " || "" }}
+          {{ respondent["Address line 2"] ? respondent["Address line 2"] + ", " : "" }}
           {{ respondent["City"] + ", " || "" }}
           {{ respondent["Province"] + ", " || "" }}
           {{ respondent["Postal Code"] }}
@@ -369,7 +373,7 @@
     <div class="grey-box">
       <ng-container
         *ngFor="
-          let event of formData.detailsOfRetaliation[
+          let event of formData.detailsOfDiscrimination[
             'Details of the Discrimination for each Respondent'
           ]
         "
