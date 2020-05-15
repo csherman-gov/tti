@@ -32,6 +32,36 @@ class SurveySerializer(serializers.ModelSerializer):
             "user_id",
         ]
 
+class SurveySubmission(APIView):
+    def post(self, request, *args, **kwargs):
+        collection = kwargs.get("collection")
+        if not collection:
+            return HttpResponseBadRequest("Missing survey collection")
+        survey_type = kwargs.get("type")
+        if not survey_type:
+            return HttpResponseBadRequest("Missing survey type")
+        survey_type = survey_type[:32]
+        body = request.data
+        if not body:
+            return HttpResponseBadRequest("Missing application results")
+
+        sSFDC_org = 'qa'
+        sf_instance = SFDC(sSFDC_org)
+        sfdc_result = sf_instance.submitForm(
+            url = 'CaseManagement/v1',
+            payload = request
+        )
+
+        return Response(
+            {
+                "collection": collection,
+                "type": survey_type,
+                "status": "ok",
+                "result": sfdc_result
+            }
+        )
+
+
 
 # @method_decorator(csrf_exempt, name='dispatch')
 class SurveyResultView(APIView):
@@ -104,7 +134,7 @@ class SurveyResultView(APIView):
         result.result = body
         result.save()
 
-        sSFDC_org = 'dev01'
+        sSFDC_org = 'qa'
         sf_instance = SFDC(sSFDC_org)
         sfdc_result = sf_instance.submitForm(
             url = 'CaseManagement/v1',

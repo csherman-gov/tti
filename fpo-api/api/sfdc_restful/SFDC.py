@@ -7,11 +7,11 @@ class SFDC:
     def __init__(self, domain):
         """
             Constructor
-            :param domain: domain to get credentials for (currently, dev01/qa/staging)
+            :param domain: domain to get credentials for.
         """
         self.sfLogin(domain)
 
-    def sfLogin(self, domain = 'dev01'):
+    def sfLogin(self, domain = 'test'):
         """
             Logs into the requested salesforce org.
             :param domain: domain to get credentials for.
