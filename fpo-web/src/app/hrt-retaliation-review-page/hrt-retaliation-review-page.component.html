@@ -44,7 +44,9 @@
       </p>
       <p>
         <b>Pronoun:</b>
-        {{ formData.partyInfo["Pronoun"] ? formData.partyInfo["Pronoun"] : "N/A" }}
+        {{
+          formData.partyInfo["Pronoun"] ? formData.partyInfo["Pronoun"] : "N/A"
+        }}
       </p>
       <!-- <p>
         <b>Other names:</b>
@@ -79,10 +81,10 @@
           }}
         </p>
         <p>
-            <b>
-                Title:
-            </b>
-            {{ formData.partyInfo["Contact Title"] }}
+          <b>
+            Title:
+          </b>
+          {{ formData.partyInfo["Contact Title"] }}
         </p>
         <p>
           <b>Address:</b>
@@ -496,7 +498,10 @@
       <p>
         <b>Select the kinds of remedies you want:</b>
         {{
-          formData.remedies["Select the kinds of remedies you want"].join(", ").replace(', other', '').replace('other', '')
+          formData.remedies["Select the kinds of remedies you want"]
+            .join(", ")
+            .replace(", other", "")
+            .replace("other", "")
         }}
       </p>
       <p
@@ -505,9 +510,7 @@
         "
       >
         <b>Detail - Something specific (example: job back):</b>
-        {{
-          formData.remedies["Select the kinds of remedies you want-Comment"]
-        }}
+        {{ formData.remedies["Select the kinds of remedies you want-Comment"] }}
       </p>
     </div>
 
@@ -556,7 +559,7 @@
         }}
       </p>
       <p>
-        <b>Language</b>
+        <b>Primary Language</b>
         {{ formData.statisticalInformation["Primary Language"] }}
         {{
           formData.statisticalInformation["Language-Comment"]
@@ -565,7 +568,9 @@
         }}
       </p>
       <p>
-        Disability requiring accommodation in employment and services
+        <b>
+            Disability requiring accommodation in employment and services
+        </b>
         {{
           formData.statisticalInformation[
             "Disability requiring accommodation in employment and services"

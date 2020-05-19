@@ -84,18 +84,29 @@
           {{ formData.complainant["Contact Title"] }}
           {{ formData.complainant["First name"] }}
           {{ formData.complainant["Last name"] }}
-          <ng-container *ngIf='formData.complainant["Organization name"]'>
-              <br>
-              Organization name: {{formData.complainant["Organization name"]}}
+          <ng-container *ngIf="formData.complainant['Organization name']">
+            <br />
+            Organization name: {{ formData.complainant["Organization name"] }}
           </ng-container>
-          <ng-container *ngIf='formData.complainant["Contact Preferred name - e.g. traditional name, nickname, alias"]'>
-                <br>
-                Contact Preferred name: {{formData.complainant["Contact Preferred name - e.g. traditional name, nickname, alias"]}}
-            </ng-container>
-            <ng-container *ngIf='formData.complainant["Contact Pronoun"]'>
-                <br>
-                Pronoun: {{formData.complainant["Contact Pronoun"]}}
-            </ng-container>
+          <ng-container
+            *ngIf="
+              formData.complainant[
+                'Contact Preferred name - e.g. traditional name, nickname, alias'
+              ]
+            "
+          >
+            <br />
+            Contact Preferred name:
+            {{
+              formData.complainant[
+                "Contact Preferred name - e.g. traditional name, nickname, alias"
+              ]
+            }}
+          </ng-container>
+          <ng-container *ngIf="formData.complainant['Contact Pronoun']">
+            <br />
+            Pronoun: {{ formData.complainant["Contact Pronoun"] }}
+          </ng-container>
         </p>
         <p>
           <b>Address:</b>
@@ -149,7 +160,11 @@
         <p>
           <b>Mailing Address:</b><br />
           {{ respondent["Mailing address"] }},
-          {{ respondent["Address line 2"] ? respondent["Address line 2"] + ", " : "" }}
+          {{
+            respondent["Address line 2"]
+              ? respondent["Address line 2"] + ", "
+              : ""
+          }}
           {{ respondent["City"] + ", " || "" }}
           {{ respondent["Province"] + ", " || "" }}
           {{ respondent["Postal Code"] }}
@@ -510,7 +525,10 @@
       <p>
         <b>Select the kinds of remedies you want:</b>
         {{
-          formData.remedies["Select the kinds of remedies you want"].join(", ").replace(', other', '').replace('other', '')
+          formData.remedies["Select the kinds of remedies you want"]
+            .join(", ")
+            .replace(", other", "")
+            .replace("other", "")
         }}
       </p>
       <p
@@ -519,9 +537,7 @@
         "
       >
         <b>Detail - Something specific (job back, policy…):</b>
-        {{
-          formData.remedies["Select the kinds of remedies you want-Comment"]
-        }}
+        {{ formData.remedies["Select the kinds of remedies you want-Comment"] }}
       </p>
       <p
         *ngIf="
@@ -580,7 +596,7 @@
         }}
       </p>
       <p>
-        <b>Language</b>
+        <b>Primary Language</b>
         {{ formData.statisticalInformation["Primary Language"] }}
         {{
           formData.statisticalInformation["Language-Comment"]
@@ -589,7 +605,9 @@
         }}
       </p>
       <p>
-        Disability requiring accommodation in employment and services
+        <b>
+            Disability requiring accommodation in employment and services
+        </b>
         {{
           formData.statisticalInformation[
             "Disability requiring accommodation in employment and services"
