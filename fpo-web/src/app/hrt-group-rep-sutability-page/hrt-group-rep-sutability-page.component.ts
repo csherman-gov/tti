@@ -62,6 +62,7 @@ export class HrtGroupRepSutabilityPageComponent implements OnInit, OnDestroy {
           },
           {
             type: "text",
+            title: "If yes, explain the differences between your interests and interests of the group or class",
             name:
               "If yes, explain the differences between your interests and the interests of the group or class members’ interests",
             popupdescription:
