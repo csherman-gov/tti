@@ -32,7 +32,7 @@ export class HrtGroupComplaintSutabilityPageComponent
             type: "html",
             name: "question1",
             html:
-              "<p><b>Purpose of collecting information:</b> The Tribunal must be satisfied that:</p>\n<ul><li>the Representative has identified a group or class that is defined, or can be defined, by clear parameters or characteristics</li>\n<li>the alleged discrimination is similar for all group or class members so that there are common issues for all members\n</li></ul>\n<p>In some cases, it may be more suitable for an individual complaint to proceed which will seek a remedy that will make a difference for other group or class members.</p>",
+              "<p><b>Purpose of collecting information:</b> The Tribunal must be satisfied that:</p>\n<ul><li>the group or class is defined, or can be defined, by clear criteria</li>\n<li>the alleged discrimination is similar for all group or class members so that there are common issues for all members\n</li></ul>\n<p>In some cases, it may be more suitable for an individual complaint to proceed which will seek a remedy that will make a difference for other group or class members.</p>",
           },
           {
             type: "comment",
