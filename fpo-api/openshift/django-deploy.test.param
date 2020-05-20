@@ -11,7 +11,7 @@
 # DATABASE_ENGINE=postgresql
 # DATABASE_NAME=[a-zA-Z_][a-zA-Z0-9_]{10}
 # APP_CONFIG=
-# #DJANGO_SECRET_KEY=[\w]{50}
+# DJANGO_SECRET_KEY=[\w]{50}
 # DJANGO_DEBUG=False
 # PDF_SERVICE_URL=http://weasyprint:5001
 TAG_NAME=test
