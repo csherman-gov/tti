@@ -20,7 +20,6 @@ objects:
       description: |
         Allow the schema-spy service to talk to the db pod.
       source:
-      source:
         - - role=${ROLE}
           - app=${APP_NAME}
           - env=${TAG_NAME}
@@ -44,10 +43,10 @@ objects:
         description: Exposes and load balances the application pods
     spec:
       ports:
-      - name: 8080-tcp
-        protocol: TCP
-        port: 8080
-        targetPort: 8080
+        - name: 8080-tcp
+          protocol: TCP
+          port: 8080
+          targetPort: 8080
       selector:
         name: ${NAME}
 
@@ -90,16 +89,16 @@ objects:
           maxUnavailable: 25%
           maxSurge: 25%
       triggers:
-      - type: ConfigChange
-      - type: ImageChange
-        imageChangeParams:
-          automatic: true
-          containerNames:
-          - ${NAME}
-          from:
-            kind: ImageStreamTag
-            namespace: "${IMAGE_NAMESPACE}"
-            name: "${NAME}:${TAG_NAME}"
+        - type: ConfigChange
+        - type: ImageChange
+          imageChangeParams:
+            automatic: true
+            containerNames:
+              - ${NAME}
+            from:
+              kind: ImageStreamTag
+              namespace: "${IMAGE_NAMESPACE}"
+              name: "${NAME}:${TAG_NAME}"
       replicas: 1
       selector:
         name: ${NAME}
@@ -113,45 +112,45 @@ objects:
             env: ${TAG_NAME}
         spec:
           containers:
-          - name: ${NAME}
-            image: " "
-            ports:
-            - containerPort: 8080
-              protocol: TCP
-            env:
-            - name: DATABASE_SERVICE_NAME
-              value: "${DATABASE_SERVICE_NAME}"
-            - name: POSTGRESQL_DATABASE
-              value: "${DATABASE_NAME}"
-            - name: POSTGRESQL_USER
-              valueFrom:
-                secretKeyRef:
-                  name: "${DATABASE_DEPLOYMENT_NAME}"
-                  key: database-user
-            - name: POSTGRESQL_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: "${DATABASE_DEPLOYMENT_NAME}"
-                  key: database-password
-            readinessProbe:
-              initialDelaySeconds: 3
-              timeoutSeconds: 30
-              httpGet:
-                path: "/"
-                port: 8080
-            livenessProbe:
-              initialDelaySeconds: 300
-              timeoutSeconds: 30
-              httpGet:
-                path: "/"
-                port: 8080
-            resources:
-              requests:
-                cpu: "${CPU_REQUEST}"
-                memory: "${MEMORY_REQUEST}"
-              limits:
-                cpu: "${CPU_LIMIT}"
-                memory: "${MEMORY_LIMIT}"
+            - name: ${NAME}
+              image: " "
+              ports:
+                - containerPort: 8080
+                  protocol: TCP
+              env:
+                - name: DATABASE_SERVICE_NAME
+                  value: "${DATABASE_SERVICE_NAME}"
+                - name: POSTGRESQL_DATABASE
+                  value: "${DATABASE_NAME}"
+                - name: POSTGRESQL_USER
+                  valueFrom:
+                    secretKeyRef:
+                      name: "${DATABASE_DEPLOYMENT_NAME}"
+                      key: database-user
+                - name: POSTGRESQL_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: "${DATABASE_DEPLOYMENT_NAME}"
+                      key: database-password
+              readinessProbe:
+                initialDelaySeconds: 3
+                timeoutSeconds: 30
+                httpGet:
+                  path: "/"
+                  port: 8080
+              livenessProbe:
+                initialDelaySeconds: 300
+                timeoutSeconds: 30
+                httpGet:
+                  path: "/"
+                  port: 8080
+              resources:
+                requests:
+                  cpu: "${CPU_REQUEST}"
+                  memory: "${MEMORY_REQUEST}"
+                limits:
+                  cpu: "${CPU_LIMIT}"
+                  memory: "${MEMORY_LIMIT}"
 
 parameters:
   - name: NAME
@@ -187,7 +186,7 @@ parameters:
     displayName: Application Hostname
     description: The exposed hostname that will route to the Django service, if left
       blank a value will be defaulted.
-    value: hrt-schema-dev.pathfinder.gov.bc.ca
+    value: 'hrt-schema-dev.pathfinder.gov.bc.ca'
   - name: DATABASE_SERVICE_NAME
     displayName: Database Service Name
     required: true
@@ -195,7 +194,8 @@ parameters:
   - name: DATABASE_NAME
     displayName: Database Name
     required: true
-    description: Name of the deployed database (see environment variables in deployed database).
+    description: Name of the deployed database (see environment variables in deployed
+      database).
     value: [a-zA-Z_][a-zA-Z0-9_]{10}
   - name: TAG_NAME
     displayName: Environment TAG name
