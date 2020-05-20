@@ -260,3 +260,9 @@ parameters:
     description: The resources Memory limit (in Mi, Gi, etc) for this build.
     required: true
     value: 1Gi
+
+  - name: SFDC_USERNAME
+  - name: SFDC_SECRET
+  - name: SFDC_SECURITY
+  - name: SFDC_ORGID
+  - name: SFDC_DOMAIN
