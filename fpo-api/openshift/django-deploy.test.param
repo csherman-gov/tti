@@ -9,7 +9,7 @@
 # IMAGE_NAMESPACE=qjtfov-tools
 # DATABASE_SERVICE_NAME=postgresql
 # DATABASE_ENGINE=postgresql
-# DATABASE_NAME=[a-zA-Z_][a-zA-Z0-9_]{10}
+# DATABASE_NAME=HRT_Database
 # APP_CONFIG=
 # #DJANGO_SECRET_KEY=[\w]{50}
 # DJANGO_DEBUG=False

@@ -173,7 +173,6 @@ objects:
                   cpu: "${CPU_LIMIT}"
                   memory: "${MEMORY_LIMIT}"
 
-
 parameters:
   - name: NAME
     displayName: Name
@@ -211,7 +210,7 @@ parameters:
     displayName: Database Name
     required: true
     description: Name of the deployed dbase. See environment variables in deployed dbase.
-    value: [a-zA-Z_][a-zA-Z0-9_]{10}
+    value: HRT_Database
   - name: APP_CONFIG
     displayName: Application Configuration File Path
     description: Relative path to Gunicorn configuration file (optional).
@@ -261,9 +260,3 @@ parameters:
     description: The resources Memory limit (in Mi, Gi, etc) for this build.
     required: true
     value: 1Gi
-
-  - name: SFDC_USERNAME
-  - name: SFDC_SECRET
-  - name: SFDC_SECURITY
-  - name: SFDC_ORGID
-  - name: SFDC_DOMAIN

@@ -195,7 +195,7 @@ parameters:
     displayName: Database Name
     required: true
     description: Name of the deployed dbase.  See environment variables in deployed dbase.
-    value: [a-zA-Z_][a-zA-Z0-9_]{10}
+    value: HRT_Database
   - name: TAG_NAME
     displayName: Environment TAG name
     description: The TAG name for this environment, e.g., dev, test, prod
