@@ -1,0 +1,168 @@
+{
+    "home": {
+        "form_timeout": "I am using a public computer (i.e. library, internet café, Service BC location)"
+    },
+    "complainant": {
+        "Legal Name - First Name": "John",
+        "Legal Name - Last Name": "Doe",
+        "Preferred name - e.g. traditional name, nickname, alias": "Johny", // Optional
+        "Use my preferred name": [
+            "When talking to me",
+            "When writing to me"
+        ], // Optional
+        "Title": "other", // Optional
+        "Pronoun": "other", // Optional
+        "Select only one option": "A lawyer for the complainant", // **Note** if applicant dont have rep then all contact are optional
+        "First name": "fname",
+        "Last name": "lname",
+        "Organization name": "oname", // Optional
+        "Contact Preferred name - e.g. traditional name, nickname, alias": "pname", // Optional
+        "Contact Title": "other", // Optional
+        "Contact Pronoun": "other", // Optional
+        "Complainant Contact Mailing address": "321 test st",
+        "Complainant Contact City": "V8N 9C9",
+        "Complainant Contact Province": "British Columbia",
+        "Complainant Contact Postal Code": "e3e3e3",
+        "Complainant Contact Phone number": "1231231231",
+        "Complainant Contact Cell Phone number": "3213213211",// Optional
+        "Complainant Contact Fax": "1231231231", // Optional
+        "Complainant Contact Email": "123@12312.ca",
+        "Respondents Contact Information": [
+            {
+                "Name of the Respondent": "John Respondent ",
+                "Respondent Contact Email": "123@123.ca",
+                "Mailing address": "123 asddsa",
+                "City": "dasd",
+                "Province": "Alberta",
+                "Postal Code": "12312312",
+                "Respondent Contact Phone number": "1231231231",
+                "Relationship to you": "Boss",
+                "Address line 2": "321 312", // Optional
+                "Respondent Contact Cell Phone number": "1231231231", // Optional
+                "Respondent Contact Fax": "1231231231" // Optional
+            }
+        ],
+        "Title-Comment": "Other title", // Optional
+        "Pronoun-Comment": "OtherPronoun", // Optional
+        "Contact Title-Comment": "othert", // Optional
+        "Contact Pronoun-Comment": "Pronounp" // Optional
+    },
+    "areaAndGrounds": {
+        "areas": [
+            {
+                "What is the Area of Discrimination?": "Employment",
+                "If your complaint is about employment, check if it’s about": [
+                    "A job ad",
+                    "A job"
+                ], // Optional, only display when  "What is the Area of Discrimination?": "Employment",
+                "What are the Grounds of Discrimination?": [
+                    "Race",
+                    "Ancestry",
+                    "Colour",
+                    "Place of Origin",
+                    "Physical Disability",
+                    "Mental Disability",
+                    "Sex",
+                    "Gender Identity or Expression",
+                    "Sexual Orientation",
+                    "Age (19 or over)",
+                    "Family Status",
+                    "Marital Status",
+                    "Political Belief",
+                    "Religion",
+                    "Criminal Conviction"
+                ],
+                "Details - Age (19 or over)": "Details ",
+                "Details - Ancestry": "Details ",
+                "Details - Colour": "Details ",
+                "Details - Criminal Conviction": "Details ",
+                "Details - Family Status": "Details ",
+                "Details - Gender Identity or Expression": "Details ",
+                "Drtails - Marital Status": "Details ",
+                "Details - Mental Disability": "Details ",
+                "Details - Physical Disability": "Details ",
+                "Details - Place of Origin": "Details ",
+                "Details - Political Belief": "Details ",
+                "Details - Race": "Details ",
+                "Details - Religion": "Details ",
+                "Details - Sex": "Details ",
+                "Details - Sexual Orientation": "Details "
+                // All details -> dependes on if it is selected for "What are the Grounds of Discrimination?"
+            },
+            {
+                "What is the Area of Discrimination?": "Services ",
+                "What are the Grounds of Discrimination?": [
+                    "Place of Origin"
+                ],
+                "Details - Place of Origin": "123"
+            }
+        ]
+    },
+    "detailsOfDiscrimination": {
+        "Details of the Discrimination for each Respondent": [
+            {
+                "Respondent": "312",
+                "Describe the harm you experienced in a few words": " My landlord evicted me based on my race. My co-worker said things that made work very uncomfortable for me.",
+                "Explain how the harm relates to the grounds you have selected before": "The words my co-worker used are slurs about Black men.",
+                "Give details about this Respondent’s conduct that you say is discrimination": [
+                    {
+                        "Conduct": "Conduct1",
+                        "Date": "2020-01-01"
+                    }
+                ]
+            }
+        ]
+    },
+    "fileInTime": {
+        "There is a 1-year time limit for filing a complaint": [
+            {
+                "Respondent name": "312",
+                "Did the most recent conduct happen in the last year?": "No",
+                "What is the date of the most recent event that you say is discrimination?": "2020-02-01"
+            }
+        ],
+        "Did all of the conduct happen in the last year for all Respondents?": "No",
+        "Is all of the conduct related or similar?": "Yes", // Optional
+        "Explain how the conduct is similar or related": "Explain how the conduct is similar or related * ", // Optional
+        "Explain any gaps in time": "Explain any gaps in time * ", // Optional
+        "Why did you file late?": "Why did you file late?", // Optional
+        "How will accepting your complaint benefit the public?": "How will accepting your complaint benefit the public?", // Optional
+        "Why would the delay in filing not harm anyone else?": "Why would the delay in filing not harm anyone else? *" // Optional
+    },
+    "otherProceedings": {
+        "Do you have another proceeding about the same events?": "Yes", 
+        "What kind of proceeding is it?": "What kind of proceeding is it? *",// Optional
+        "What stage is that proceeding at?": "What stage is that proceeding at? * ",// Optional
+        "Do you want the Tribunal to wait to deal with your complaint?": "Yes",// Optional
+        "Explain why you want the Tribunal to wait to deal with your complaint": "Explain why you want the Tribunal to wait to deal with your complaint *"// Optional
+    },
+    "remedies": {
+        "Select the kinds of remedies you want": [
+            "other",
+            "Compensation for lost wages or other expenses such as moving expenses, photocopying, costs of attending the hearing (keep receipts)"
+        ],
+        "Select the kinds of remedies you want-Comment": "Something specific (job back, policy…)" // Optional
+    },
+    "mediation": {
+        "Do you want to attend a mediation?": "Yes"
+    },
+    "statisticalInformation": {
+        "Indigenous Identity": "other",
+        "Racial Identity": "other",
+        "Immigration Status": "other",
+        "Primary Language": "other",
+        "Disability requiring accommodation in employment and services": "Unknown",
+        "Gender Identity": "other",
+        "Sexual Orientation": "other",
+        "Age": "65 and over",
+        "Household": "other",
+        "Household Income After Tax": "$100,000 or more",
+        "Indigenous Identity-Comment": "123",
+        "Racial Identity-Comment": "123",
+        "Immigration Status-Comment": "123",
+        "Primary Language-Comment": "123",
+        "Gender Identity-Comment": "123",
+        "Sexual Orientation-Comment": "123",
+        "Household-Comment": "123"
+    } // Optional
+}

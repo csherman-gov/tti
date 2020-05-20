@@ -76,6 +76,9 @@ export class HrtStatisticalInformationPageComponent
             name: "Primary Language",
             hasOther: true,
             choices: [
+              "English",
+              "French",
+              "ASL",
               "Chinese Traditional",
               "Chinese Simplified",
               "Punjabi",
@@ -107,6 +110,7 @@ export class HrtStatisticalInformationPageComponent
             ],
             showClearButton: true,
             otherText: "Other",
+            hasOther: true
           },
           {
             type: "radiogroup",
