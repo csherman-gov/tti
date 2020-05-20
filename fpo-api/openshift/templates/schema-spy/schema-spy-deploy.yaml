@@ -194,8 +194,7 @@ parameters:
   - name: DATABASE_NAME
     displayName: Database Name
     required: true
-    description: Name of the deployed database (see environment variables in deployed
-      database).
+    description: Name of the deployed dbase.  See environment variables in deployed dbase.
     value: [a-zA-Z_][a-zA-Z0-9_]{10}
   - name: TAG_NAME
     displayName: Environment TAG name
@@ -204,8 +203,7 @@ parameters:
     required: true
   - name: DATABASE_DEPLOYMENT_NAME
     displayName: Database Deployment Name
-    description: The name associated to the database deployment resources.  In particular,
-      this is used to wrie up the credentials associated to the database.
+    description: The name associated to the database deployment resources.  In particular, this is used to wrie up the credentials associated to the database.
     required: true
     value: postgresql
   - name: CPU_REQUEST
