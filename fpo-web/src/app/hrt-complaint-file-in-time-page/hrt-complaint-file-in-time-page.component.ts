@@ -50,6 +50,7 @@ export class HrtComplaintFileInTimePageComponent implements OnInit, OnDestroy {
               {
                 titleLocation: "top",
                 type: "text",
+                title: 'What is the date of the most recent conduct that you say is discrimination?',
                 name:
                   "What is the date of the most recent event that you say is discrimination?",
                 isRequired: true,
