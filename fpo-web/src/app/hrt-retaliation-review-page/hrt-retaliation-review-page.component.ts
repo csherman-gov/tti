@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnDestroy } from "@angular/core";
-
+import { HttpClient } from "@angular/common/http";
 // import service
 import { MissionService } from "../mission.service";
 import { Subscription } from "rxjs";
@@ -23,6 +23,10 @@ export class HrtRetaliationReviewPageComponent implements OnInit, OnDestroy {
   complainants: any;
   subscription: Subscription;
   formData = {
+    home: {
+        case_type: 'Retaliation',
+        attachment_html: ''
+    },
     respondents: [],
     partyInfo: {},
     roleInComplaint: {},
@@ -144,6 +148,7 @@ export class HrtRetaliationReviewPageComponent implements OnInit, OnDestroy {
   constructor(
     private missionService: MissionService,
     private router: Router,
+    private http: HttpClient,
     private dataService: GeneralDataService
   ) {
     this.subscription = missionService.missionAnnounced$.subscribe(
@@ -262,8 +267,25 @@ export class HrtRetaliationReviewPageComponent implements OnInit, OnDestroy {
     if (this.checkbox) {
       console.log("Happy!");
 
-      this.error = false;
-      this.router.navigateByUrl("hrt-retaliation/thank-you");
+      const attachment_html = document.getElementById('pdf-container').innerHTML
+      console.log(attachment_html)
+      const case_type = 'Retaliation'
+      this.formData.home.case_type = case_type
+      this.formData.home.attachment_html = attachment_html
+      console.log(this.formData)
+      this.http
+        .post(
+          "https://django-qjtfov-dev.pathfinder.gov.bc.ca/api/v1/survey-submit/test_collection/test_key",
+          this.formData
+        )
+        .toPromise()
+        .then((res) => {
+          console.log(res);
+          this.error = false;
+          this.router.navigateByUrl("hrt-retaliation/thank-you");
+        }).catch(err => {
+            console.warn(err)
+        });
     } else {
       this.error = true;
     }

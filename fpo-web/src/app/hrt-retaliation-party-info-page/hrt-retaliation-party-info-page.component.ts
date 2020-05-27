@@ -465,6 +465,12 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
           },
           {
             type: "text",
+            name: "Organization name",
+            title: "Organization name (e.g. law firm, if applicable)",
+            isRequired: true,
+          },
+          {
+            type: "text",
             name:
               "Contact Preferred name - e.g. traditional name, nickname, alias",
             title: "Preferred name - e.g. traditional name, nickname, alias",
@@ -573,7 +579,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             isRequired: true,
           },
         ],
-        visibleIf: "{Select only one option} <> 'The complainant'",
+        // visibleIf: "{Select only one option} <> 'The complainant'",
       },
       {
         name: "Respondent Contact Information",
