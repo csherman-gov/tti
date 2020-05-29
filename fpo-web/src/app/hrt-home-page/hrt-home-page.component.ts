@@ -69,7 +69,7 @@ export class HrtHomePageComponent implements OnInit, OnDestroy {
   }
   handleLogin(user: UserInfo, navPath: string, reqTerms: boolean) {
     const extUri =
-      window.location.origin + '/hrt/progress?login_redirect=/hrt/progress'
+      window.location.origin + '/hrt/hrt/progress?login_redirect=/'
     //   this.location.prepareExternalUrl(
     //     "/prv/status?login_redirect=" + encodeURIComponent(navPath)
     //   );
