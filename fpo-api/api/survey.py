@@ -136,21 +136,13 @@ class SurveyResultView(APIView):
         result.result = body
         result.save()
 
-        sSFDC_org = 'qa'
-        sf_instance = SFDC(sSFDC_org)
-        sfdc_result = sf_instance.submitForm(
-            url = 'CaseManagement/v1',
-            payload = body
-        )
-
         return Response(
             {
                 "user_id": uid,
                 "collection": collection,
                 "type": survey_type,
                 "id": result.id,
-                "status": "ok",
-                "result": sfdc_result
+                "status": "ok"
             }
         )
 
