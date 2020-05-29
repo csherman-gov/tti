@@ -5,12 +5,15 @@ import { MissionService } from "../mission.service";
 import { Subscription } from "rxjs";
 
 import { Router } from "@angular/router";
+// data service
+import { GeneralDataService, UserInfo } from "../general-data.service";
 
 @Component({
   selector: "app-hrt-group-progress-page",
   templateUrl: "./hrt-group-progress-page.component.html",
   styleUrls: ["./hrt-group-progress-page.component.scss"],
 })
+
 export class HrtGroupProgressPageComponent implements OnInit, OnDestroy {
   result: boolean;
   get showLateComplaints() {
@@ -149,7 +152,8 @@ export class HrtGroupProgressPageComponent implements OnInit, OnDestroy {
       ? "btn btn-default"
       : "btn btn-inactive";
   }
-  constructor(private missionService: MissionService, private router: Router) {
+  user_id = "";
+  constructor(private missionService: MissionService, private router: Router, private dataService: GeneralDataService) {
     console.log(123131231312);
     this.subscription = missionService.missionAnnounced$.subscribe(
       (allFormData) => {
@@ -188,10 +192,52 @@ export class HrtGroupProgressPageComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     console.log(this.formData);
+    
+    
+    // load data
+    if (Object.keys(this.formData).length < 1) {
+        console.log('loadData')
+      this.dataService
+        .loadSurveyResultIndex("default", "individual", false)
+        .then((result) => {
+          console.log("loadSurveyResultIndex success");
+          console.log("result: ", result);
+          // this._surveyIndex = result.result || [];
+          this.user_id = result.result[0].user_id;
+          console.log(this.user_id);
+          console.log(result.result[0]);
+          if (result.result[0]) {
+            this.missionService.confirmMission(result.result[0].result);
+            // missionService.announceMission(this.allFormData);
+            this.formData = result.result[0].result;
+
+            // this.formData = allFormData
+            this.completedSteps = 0;
+            for (let key in this.formData) {
+              if (key == "home") {
+                continue;
+              }
+              this.completedSteps++;
+            }
+          }
+        })
+        .catch((err) => {
+          console.log("loadSurveyResultIndex fail");
+          // this._surveyIndex = [];
+        });
+    }
   }
   ngOnDestroy() {
     // prevent memory leak when component destroyed
     this.subscription.unsubscribe();
+  }
+  handleSave() {
+    this.dataService
+      .saveSurveyResult("default", "group", this.formData)
+      .then((res) => {
+        console.log("save ok");
+        console.log(res);
+      });
   }
   handleClickEvent(event) {
     console.log(event.target.dataset);

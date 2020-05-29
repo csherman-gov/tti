@@ -9,6 +9,9 @@ import { addQuestionTypes } from "../survey/question-types";
 import * as Survey from "survey-angular";
 // widgets.inputmask(Survey);
 
+// data service
+import { GeneralDataService, UserInfo } from "../general-data.service";
+
 @Component({
   selector: "app-hrt-group-home-page",
   templateUrl: "./hrt-group-home-page.component.html",
@@ -68,7 +71,7 @@ export class HrtGroupHomePageComponent implements OnInit, OnDestroy {
   };
 
   formData: object;
-  constructor(private missionService: MissionService, private router: Router) {
+  constructor(private missionService: MissionService, private router: Router, private dataService: GeneralDataService) {
       console.log('why??????')
     this.subscription = missionService.missionAnnounced$.subscribe(
       (allFormData) => {
@@ -80,6 +83,35 @@ export class HrtGroupHomePageComponent implements OnInit, OnDestroy {
         // this.subscription.unsubscribe();
       }
     );
+  }
+  clickTest() {
+    this.dataService.getUserInfo().then(res => {
+        console.log('res: ', res)
+        this.handleLogin(res, '', true)
+        // if (this.handleLogin(res, '', true)) {
+        //     this.confirm()
+        // }
+    })
+  }
+  handleLogin(user: UserInfo, navPath: string, reqTerms: boolean) {
+    const extUri =
+      window.location.origin + '/hrt/hrt-group/progress?login_redirect=/'
+    //   this.location.prepareExternalUrl(
+    //     "/prv/status?login_redirect=" + encodeURIComponent(navPath)
+    //   );
+    window.location.replace(
+        user.login_uri + "?next=" + encodeURIComponent(extUri)
+    );
+    // if (user && !user.user_id && user.login_uri) {
+    //     console.log(user.login_uri + "?next=" + encodeURIComponent(extUri))
+    //   window.location.replace(
+    //     user.login_uri + "?next=" + encodeURIComponent(extUri)
+    //   );
+    //   return false;
+    // } else if (user && reqTerms && !user.accepted_terms_at) {
+    // //   this.redirectStatus(navPath);
+    // }
+    // return true; 
   }
   confirm() {
     // this.confirmed = true;

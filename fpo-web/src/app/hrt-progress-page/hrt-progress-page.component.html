@@ -39,7 +39,7 @@
         </li>
       </ul>
       <div class="button-container">
-        <button (click)="handleSave()">Save Test</button>
+        <button *ngIf="user_id !== ''" (click)="handleSave()">Save for later</button>
         <button class="{{ buttonClass }}" (click)="handleReviewEvent($event)">
           Review & submit complaint
         </button>

@@ -75,16 +75,20 @@ export class HrtHomePageComponent implements OnInit, OnDestroy {
     //   this.location.prepareExternalUrl(
     //     "/prv/status?login_redirect=" + encodeURIComponent(navPath)
     //   );
-    if (user && !user.user_id && user.login_uri) {
-        console.log(user.login_uri + "?next=" + encodeURIComponent(extUri))
+    console.log(user.login_uri + "?next=" + encodeURIComponent(extUri))
       window.location.replace(
         user.login_uri + "?next=" + encodeURIComponent(extUri)
       );
-      return false;
-    } else if (user && reqTerms && !user.accepted_terms_at) {
-    //   this.redirectStatus(navPath);
-    }
-    return true;
+    // if (user && !user.user_id && user.login_uri) {
+    //     console.log(user.login_uri + "?next=" + encodeURIComponent(extUri))
+    //   window.location.replace(
+    //     user.login_uri + "?next=" + encodeURIComponent(extUri)
+    //   );
+    //   return false;
+    // } else if (user && reqTerms && !user.accepted_terms_at) {
+    // //   this.redirectStatus(navPath);
+    // }
+    // return true;
   }
   clickTest2() {
      this.dataService
