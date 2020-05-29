@@ -197,14 +197,18 @@ export class HrtGroupProgressPageComponent implements OnInit, OnDestroy {
     // load data
     if (Object.keys(this.formData).length < 1) {
         console.log('loadData')
+        this.dataService.getUserInfo().then(res => {
+            console.log('res: ', res)
+            this.user_id = res.user_id
+        })
       this.dataService
         .loadSurveyResultIndex("default", "individual", false)
         .then((result) => {
           console.log("loadSurveyResultIndex success");
           console.log("result: ", result);
           // this._surveyIndex = result.result || [];
-          this.user_id = result.result[0].user_id;
-          console.log(this.user_id);
+        //   this.user_id = result.result[0].user_id;
+        //   console.log(this.user_id);
           console.log(result.result[0]);
           if (result.result[0]) {
             this.missionService.confirmMission(result.result[0].result);
