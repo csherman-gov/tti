@@ -96,6 +96,8 @@ export class HrtProgressPageComponent implements OnInit, OnDestroy {
             this.subscription.unsubscribe();
           }
         });
+        console.log('this.formData: ', this.formData)
+        // if(this.formData.complainant) {}
     this.dataService
     .loadSurveyResultIndex("default", "primary", false)
     .then(result => {
@@ -106,7 +108,7 @@ export class HrtProgressPageComponent implements OnInit, OnDestroy {
       console.log(this.user_id)
       console.log(result.result[0])
       if (result.result[0]) {
-        this.missionService.confirmMission(result.result[0]);
+        this.missionService.confirmMission(result.result[0].result);
       }
     })
     .catch(err => {
