@@ -108,7 +108,8 @@ export class HrtProgressPageComponent implements OnInit, OnDestroy {
       console.log(this.user_id)
       console.log(result.result[0])
       if (result.result[0]) {
-        this.missionService.confirmMission(result.result[0].result);
+        // this.missionService.confirmMission();
+        missionService.announceMission(result.result[0].result);
       }
     })
     .catch(err => {
