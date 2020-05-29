@@ -93,7 +93,8 @@ export class HrtHomePageComponent implements OnInit, OnDestroy {
           console.log('loadSurveyResultIndex success')
           console.log('result: ', result)
         // this._surveyIndex = result.result || [];
-        this.user_id = result[0].user_id
+        this.user_id = result.result[0].user_id
+        console.log(this.user_id)
       })
       .catch(err => {
           console.log('loadSurveyResultIndex fail')
