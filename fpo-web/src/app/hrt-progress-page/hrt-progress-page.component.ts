@@ -111,7 +111,7 @@ export class HrtProgressPageComponent implements OnInit, OnDestroy {
     if (Object.keys(this.formData).length < 1) {
         console.log('loadData')
       this.dataService
-        .loadSurveyResultIndex("default", "primary", false)
+        .loadSurveyResultIndex("default", "individual", false)
         .then((result) => {
           console.log("loadSurveyResultIndex success");
           console.log("result: ", result);
@@ -147,7 +147,7 @@ export class HrtProgressPageComponent implements OnInit, OnDestroy {
 
   handleSave() {
     this.dataService
-      .saveSurveyResult("default", "primary", this.formData)
+      .saveSurveyResult("default", "individual", this.formData)
       .then((res) => {
         console.log("save ok");
         console.log(res);
