@@ -27,8 +27,8 @@ export class GeneralDataService {
   }
 
   getApiUrl(action: string): string {
-    // return this.getBaseHref() + "api/v1/" + action; 
-    return "https://angular-on-nginx-qjtfov-dev.pathfinder.gov.bc.ca/api/v1/" + action;
+    return this.getBaseHref() + "api/v1/" + action;
+    // return "https://angular-on-nginx-qjtfov-dev.pathfinder.gov.bc.ca/api/v1/" + action;
   }
 
   getBrowserUser() {
@@ -112,6 +112,7 @@ export class GeneralDataService {
       const url = this.getApiUrl("user-info/");
       return this.loadJson(url, { t: new Date().getTime() }, headers)
         .then(result => {
+            console.log('result', result)
           this.returnUserInfo(result);
           return result;
         })
@@ -178,8 +179,8 @@ export class GeneralDataService {
         .then(result => {
             console.log('back!!!!')
             console.log(result)
-            // this.loadUserInfo()
-            return this.loadUserInfo('joseph11@belmar.ca')
+            this.loadUserInfo()
+            // return this.loadUserInfo('joseph11@belmar.ca')
         });
     }
   }
@@ -239,15 +240,17 @@ export class GeneralDataService {
         encodeURIComponent(name)
     );
     return this.loadJson(url, { t: new Date().getTime() })
-      .then(result =>
-        this.returnSurveyResult(
-          collection,
-          name,
-          "index",
-          result,
-          null,
-          useLocal
-        )
+      .then(result => {
+        console.log('result+++', result)
+        return this.returnSurveyResult(
+            collection,
+            name,
+            "index",
+            result,
+            null,
+            useLocal
+          )
+      }
       )
       .catch(err =>
         this.returnSurveyResult(collection, name, "index", null, err, useLocal)

@@ -679,7 +679,7 @@
           </li>
           <li>
             See Who Can Help? on
-            <a href="https://www.bchrt.bc.gov.ca" target="_blank"
+            <a href="http://www.bchrt.bc.ca/" target="_blank"
               >the Tribunal’s website</a
             >.
           </li>
@@ -771,7 +771,7 @@
           You can ask the Tribunal to limit the information it makes public. You
           can also ask the Tribunal to order a publication ban. Use a Form 7.1
           General Application to apply. For more information, see
-          <a href="https://www.bchrt.bc.gov.ca" target="_blank"
+          <a href="http://www.bchrt.bc.ca/" target="_blank"
             >the Tribunal’s website</a
           >.
         </p>
@@ -860,7 +860,11 @@
             <b>
               Use my preferred name:
             </b>
-            {{ formData.partyInfo["Use my preferred name"] ? formData.partyInfo["Use my preferred name"].join(", ") : ''}}
+            {{
+              formData.partyInfo["Use my preferred name"]
+                ? formData.partyInfo["Use my preferred name"].join(", ")
+                : ""
+            }}
           </p>
           <p>
             <b>
@@ -1207,7 +1211,7 @@
           </p>
         </ng-container>
       </div>
-      
+
       <div class="section">
         <h2>
           Step 3 - Details of the Discrimination
@@ -1726,7 +1730,7 @@
       </div>
       <div class="section">
         <h2>
-          Step 6 - Remedies
+          Step 7 - Mediation
         </h2>
 
         <ul>
