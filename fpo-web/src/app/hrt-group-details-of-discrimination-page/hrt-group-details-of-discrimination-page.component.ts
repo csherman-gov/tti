@@ -43,7 +43,7 @@ export class HrtGroupDetailsOfDiscriminationPageComponent
             {
              "type": "comment",
              "name": "Describe the harm the group or class members experienced in a few words",
-             "description": "<b>Example:</b> The class members lose their jobs and felt terrible.<br>The class members lose their jobs and felt terrible.",
+             "description": "<b>Example:</b> The class members lose their jobs and felt terrible.<br>Give a short answer. Your short answer helps us understand the details you give below.",
              "isRequired": true
             },
             {
@@ -59,18 +59,18 @@ export class HrtGroupDetailsOfDiscriminationPageComponent
              "description": "<div><ul><li>Be specific</li><li><b>Example: </b>Do not say, “This person threatened me.” Write out their words and actions.</li><li>Conduct can be what someone did or didn’t do. The legal term is “acts or omissions.”</li><li>If you don’t know the exact date, give an approximate date. <b>Example: </b> 2020-02-01</li></ul></div>",
              "columns": [
               {
-               "name": "Conduct",
-               "cellType": "comment",
-               "isRequired": true,
-               "rows": 1
-              },
-              {
                "name": "Date",
                "cellType": "text",
                "isRequired": true,
                "inputType": "date",
                "max": "2999-12-31"
-              }
+              },
+              {
+                "name": "Conduct",
+                "cellType": "comment",
+                "isRequired": true,
+                "rows": 2
+               },
              ],
              "choices": [
               1,

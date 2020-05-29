@@ -86,6 +86,8 @@
           </b>
           {{ formData.partyInfo["Contact Title"] }}
         </p>
+      </div>
+      <div>
         <p>
           <b>Address:</b>
           {{ formData.partyInfo["Complainant Contact Mailing address"] }},
@@ -114,7 +116,6 @@
           {{ formData.partyInfo["Complainant Contact Email"] || "NA" }}
         </p>
       </div>
-
       <div style="margin-top: 30px;"></div>
       <h4 style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">
         Respondents:
@@ -569,7 +570,7 @@
       </p>
       <p>
         <b>
-            Disability requiring accommodation in employment and services
+          Disability requiring accommodation in employment and services
         </b>
         {{
           formData.statisticalInformation[
@@ -634,5 +635,1380 @@
 
     <button class="{{ buttonClass }}" (click)="handleSubmit()">Submit</button>
   </div>
-  <button (click)="saveData()">Test</button>
+
+  <div style="display: none;" id="pdf-container">
+    <div class="pdf-container">
+      <h2>
+        FORM 1.4 – RETALIATION COMPLAINT
+      </h2>
+      <p>
+        Use This Form to File a Complaint About Retaliation
+      </p>
+
+      <div class="section">
+        <h3>
+          How to use this form
+        </h3>
+
+        <ul>
+          <li>
+            Complete this form to file a retaliation complaint in BC for
+            yourself or another person
+          </li>
+          <li>
+            Do not attach evidence about your complaint, unless it is an
+            employment ad or publication you say is discriminatory. The Tribunal
+            will tell you when you need to submit evidence to support your
+            complaint.
+          </li>
+
+          <li>
+            Submit this form within 1 year of the retaliation, if possible.
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>
+          Do you need help?
+        </h3>
+        <ul>
+          <li>
+            We recommend you get legal advice about your complaint before
+            submitting it, if possible.
+          </li>
+          <li>
+            See Who Can Help? on
+            <a href="http://www.bchrt.bc.ca/" target="_blank"
+              >the Tribunal’s website</a
+            >.
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>
+          What will the Tribunal do with this form?
+        </h3>
+        <p>
+          The Tribunal will read the form to see if you set out possible
+          retaliation under the Human Rights Code.
+        </p>
+        <ul>
+          <li>
+            If not, the Tribunal will ask you for more information.
+          </li>
+          <li>
+            If so, the Tribunal will give a copy to the organization or person
+            you say discriminated [Respondents] so they can respond to your
+            complaint.
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>
+          Privacy Notice
+        </h3>
+        <p>
+          The Tribunal collects personal information to process human rights
+          complaints. The Tribunal may survey parties to improve its services.
+        </p>
+        <p>
+          The demographic information you give at the end of this form is
+          confidential.
+        </p>
+        <p>
+          The Tribunal will give a copy of the rest of the form to the other
+          parties.
+        </p>
+        <p>
+          The Tribunal must provide copies of complaints and responses to the
+          Office of the Human Rights Commissioner. The Tribunal may provide the
+          Commissioner with other records in a complaint file.
+        </p>
+        <p>
+          The Tribunal’s process is public. The Tribunal may disclose personal
+          information to the public as follows:
+        </p>
+
+        <ul>
+          <li>
+            The Tribunal publishes most decisions
+            <a
+              href="http://www.bchrt.bc.ca/law-library/guides-info-sheets/general-apps/index.htm"
+              >on its website</a
+            >.
+          </li>
+          <li>
+            The Tribunal publishes a hearing schedule.
+          </li>
+          <li>
+            Before a hearing, the public can see parts of the file. This does
+            not include contact information.
+          </li>
+          <li>
+            It does include:
+            <ul>
+              <li>
+                the complaint
+              </li>
+              <li>
+                the response to the complaint.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Hearings are open to the public.
+          </li>
+          <li>
+            The Freedom of Information and Protection of Privacy Act applies to
+            the Tribunal. Someone can apply to see information in the complaint
+            file.
+          </li>
+        </ul>
+        <p>
+          You can ask the Tribunal to limit the information it makes public. You
+          can also ask the Tribunal to order a publication ban. Use a Form 7.1
+          General Application to apply. For more information, see
+          <a href="http://www.bchrt.bc.ca/" target="_blank"
+            >the Tribunal’s website</a
+          >.
+        </p>
+        <p>
+          Other laws may restrict a party from going public with information in
+          this complaint.
+        </p>
+        <p>
+          For more information, see the
+          <a
+            href="http://www.bchrt.bc.ca/law-library/policies/privacy.htm"
+            target="_blank"
+            >Complaint Process Privacy Policy</a
+          >.
+        </p>
+      </div>
+
+      <div class="section">
+        <h3>
+          More Information
+        </h3>
+        <p>
+          There is more information at the end of this form about:
+        </p>
+        <ul>
+          <li>
+            Meeting people’s needs in the process so they can take part (The
+            legal term is “accommodation”)
+          </li>
+          <li>
+            What happens next
+          </li>
+          <li>
+            Protection from retaliation for making a complaint
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>
+          Case
+        </h3>
+        <p>
+          <b>
+            Case Number:
+          </b>
+        </p>
+        <p>
+          <b>
+            Date Received:
+          </b>
+        </p>
+      </div>
+      <div class="section">
+        <h2>
+          Step 1 - Party Information
+        </h2>
+        <div>
+          <h4>
+            Who experienced retaliation (Complainant)?
+          </h4>
+          <p>
+            <b>
+              Legal name – First name:
+            </b>
+            {{ formData.partyInfo["Legal Name - First Name"] }}
+          </p>
+
+          <p>
+            <b>
+              Legal name – Last name:
+            </b>
+            {{ formData.partyInfo["Legal Name - Last Name"] }}
+          </p>
+          <p>
+            <b>
+              Preferred name – e.g. traditional name, nickname, alias:
+            </b>
+            {{
+              formData.partyInfo[
+                "Preferred name - e.g. traditional name, nickname, alias"
+              ]
+            }}
+          </p>
+          <p>
+            <b>
+              Use my preferred name:
+            </b>
+            {{
+              formData.partyInfo["Use my preferred name"]
+                ? formData.partyInfo["Use my preferred name"].join(", ")
+                : ""
+            }}
+          </p>
+          <p>
+            <b>
+              Title:
+            </b>
+            {{
+              formData.partyInfo["Title"]
+                ? formData.partyInfo["Title"] === "other"
+                  ? formData.partyInfo["Title-Comment"]
+                  : formData.partyInfo["Title"]
+                : ""
+            }}
+          </p>
+          <p>
+            <b>
+              Pronoun:
+            </b>
+            {{
+              formData.partyInfo["Pronoun"]
+                ? formData.partyInfo["Pronoun"] === "other"
+                  ? formData.partyInfo["Pronoun-Comment"]
+                  : formData.partyInfo["Pronoun"]
+                : ""
+            }}
+          </p>
+        </div>
+        <ng-container
+          *ngIf="
+            formData.partyInfo['Select only one option'] !== 'The complainant'
+          "
+        >
+          <div>
+            <h4>
+              Who will communicate with the Tribunal about this Complaint?
+            </h4>
+            <p>
+              {{ formData.partyInfo["Select only one option"] }}
+            </p>
+          </div>
+          <div>
+            <h4>
+              Name of the Person who will communicate with the Tribunal (if
+              different from the Complainant)
+            </h4>
+            <p>
+              <b> First name: </b>
+              {{ formData.partyInfo["First name"] }}
+            </p>
+            <p><b> Last name: </b> {{ formData.partyInfo["Last name"] }}</p>
+            <p>
+              <b>
+                Preferred name – e.g. traditional name, nickname, alias:
+              </b>
+              {{
+                formData.partyInfo[
+                  "Contact Preferred name - e.g. traditional name, nickname, alias"
+                ]
+              }}
+            </p>
+            <p>
+              <b>
+                Organization name (e.g. law firm, if applicable):
+              </b>
+              {{
+                formData.partyInfo["Organization name"]
+                  ? formData.partyInfo["Organization name"]
+                  : ""
+              }}
+            </p>
+            <p>
+              <b> Title: </b>
+              {{
+                formData.partyInfo["Contact Title"]
+                  ? formData.partyInfo["Contact Title"] === "other"
+                    ? formData.partyInfo["Contact Title-Comment"]
+                    : formData.partyInfo["Contact Title"]
+                  : ""
+              }}
+            </p>
+            <p>
+              <b> Pronoun: </b>
+              {{
+                formData.partyInfo["Contact Pronoun"]
+                  ? formData.partyInfo["Contact Pronoun"] === "other"
+                    ? formData.partyInfo["Contact Pronoun-Comment"]
+                    : formData.partyInfo["Contact Pronoun"]
+                  : ""
+              }}
+            </p>
+          </div>
+        </ng-container>
+        <div>
+          <h4>
+            Complainant’s address for delivery
+          </h4>
+          <p>
+            <b>
+              Purpose of collecting contact information:
+            </b>
+            The Tribunal and Respondents use your contact information to
+            communicate with you about the complaint. The Tribunal may also use
+            it to conduct surveys to evaluate and improve its services. For more
+            information see the Privacy Notice at the end of this Form.
+          </p>
+          <p>
+            You must give an address where all parties can send you documents.
+            Give the address of the person who will communicate with the
+            Tribunal.
+          </p>
+          <p>
+            The Tribunal usually communicates by email. If possible, give an
+            email address where all parties can reach you. If you have
+            confidential contact information, do not put it on this form.
+            Provide it separately by email, mail, fax, or in person.
+          </p>
+          <p>
+            <b>
+              Important information:
+            </b>
+            A document sent to an address below is considered to be received by
+            the complainant. You must notify the Tribunal of any change to the
+            address for delivery.
+          </p>
+          <p>
+            <b>
+              Mailing address:
+            </b>
+            {{ formData.partyInfo["Complainant Contact Mailing address"] }},
+            {{ formData.partyInfo["Complainant Contact City"] }},
+            {{ formData.partyInfo["Complainant Contact Province"] }}
+            {{ formData.partyInfo["Complainant Contact Postal Code"] }}
+          </p>
+          <p>
+            <b>
+              Phone number:
+            </b>
+            {{
+              formData.partyInfo["Complainant Contact Phone number"] || "N/A"
+            }}
+          </p>
+          <p>
+            <b>
+              Cell:
+            </b>
+            {{
+              formData.partyInfo["Complainant Contact Cell Phone number"] ||
+                "N/A"
+            }}
+          </p>
+          <p>
+            <b>
+              Fax:
+            </b>
+            {{ formData.partyInfo["Complainant Contact Fax"] || "N/A" }}
+          </p>
+          <p>
+            <b>
+              Email:
+            </b>
+            {{ formData.partyInfo["Complainant Contact Email"] || "N/A" }}
+          </p>
+        </div>
+        <div>
+          <h4>
+            Respondent contact information
+          </h4>
+          <p>
+            <b>
+              Important information about Respondents:
+            </b>
+          </p>
+          <ol>
+            <li>
+              The Respondent is the person or organization you say
+              discriminated. Usually, there is only one.
+            </li>
+            <li>
+              Usually the Respondent is an organization such as: corporate
+              employer or landlord, government body, service provider, business
+              or union. Organizations are usually responsible for their
+              employees’ actions. Make the organization Respondent #1.
+            </li>
+            <li>
+              An individual can be a Respondent. Only name the person who you
+              say discriminated against you. For example, name the person who
+              harassed you. Do not name the person who only handed you a letter
+              firing you.
+            </li>
+          </ol>
+          <p>
+            <b>
+              Email:
+            </b>
+            Email is fastest. If possible, give an email address where we can
+            send your complaint. Choose someone that you think has authority to
+            respond to your complaint. For example, someone in the human
+            resources, or legal department.
+          </p>
+          <p>
+            <b>
+              Please note:
+            </b>
+            The Tribunal cannot reject someone’s complaint because they don’t
+            have an email address for the Respondent. They must have an address
+            but it does not need to be an email.
+          </p>
+
+          <div
+            style="margin-bottom: 20px;"
+            *ngFor="
+              let respondent of formData.partyInfo[
+                'Respondents Contact Information'
+              ]
+            "
+          >
+            <p>
+              <b>Name of the Respondent:</b>
+              {{ respondent["Name of the Respondent"] }}
+            </p>
+            <p>
+              <b>Relationship to you (For example, your employer):</b>
+              {{ respondent["Relationship to you"] }}
+            </p>
+            <p>
+              <b>Respondent Contact Email:</b>
+              {{ respondent["Respondent Contact Email"] || "N/A" }}
+            </p>
+            <p>
+              <b>Mailing Address:</b><br />
+              {{ respondent["Mailing address"] }},
+              {{
+                respondent["Address line 2"]
+                  ? respondent["Address line 2"] + ", "
+                  : ""
+              }}
+              {{ respondent["City"] + ", " || "" }}
+              {{ respondent["Province"] + ", " || "" }}
+              {{ respondent["Postal Code"] }}
+            </p>
+            <p>
+              <b>Phone:</b>
+              {{ respondent["Respondent Contact Phone number"] || "N/A" }}
+            </p>
+            <p>
+              <b>Cell:</b>
+              {{ respondent["Respondent Contact Cell Phone number"] || "N/A" }}
+            </p>
+            <p>
+              <b>Fax:</b>
+              {{ respondent["Respondent Contact Fax"] || "N/A" }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <h2>
+          Step 2 - Your Role in a Complaint
+        </h2>
+        <h3>
+          Retaliation about a complaint
+        </h3>
+        <p>
+          <b>
+            Information.
+          </b>
+          The Human Rights Code forbids retaliation. It says that no one can
+          retaliate against you for your role in a complaint to the BC Human
+          Rights Tribunal.
+        </p>
+        <p>
+          <b>
+            Is the retaliation about:
+          </b>
+          {{ formData.roleInComplaint["Is the retaliation about"] }}
+        </p>
+        <h3>
+          Retaliation about a complaint that someone filed
+        </h3>
+        <p>
+          If the retaliation is about a complaint that someone filed, answer
+          these questions.
+        </p>
+        <ng-container
+          *ngIf="
+            formData.roleInComplaint['Is the retaliation about'] !==
+            'A complaint that someone might file with the BC Human Rights Tribunal'
+          "
+        >
+          <p>
+            <b>
+              What is the complaint name and case number?
+            </b>
+            {{
+              formData.roleInComplaint[
+                "What is the complaint name and case number?"
+              ]
+            }}
+          </p>
+          <p>
+            <b>
+              When was the complaint filed?
+            </b>
+            {{ formData.roleInComplaint["When was the complaint filed?"] }}
+          </p>
+
+          <p>
+            <b>
+              What is your role in the complaint?
+            </b>
+            {{
+              formData.roleInComplaint["What is your role in the complaint?"]
+            }}
+          </p>
+          <p>
+            <b>
+              How did the Respondent(s) know about your role?
+            </b>
+            {{
+              formData.roleInComplaint[
+                "How did the Respondent(s) know about your role?"
+              ]
+            }}
+          </p>
+        </ng-container>
+        <ng-container
+          *ngIf="
+            formData.roleInComplaint['Is the retaliation about'] ===
+            'A complaint that someone might file with the BC Human Rights Tribunal'
+          "
+        >
+          <p>
+            <b>
+              What was your role?
+            </b>
+            {{ formData.roleInComplaint["What was your role?"] }}
+          </p>
+          <p>
+            <b>
+              Why did the Respondent(s) think this?
+            </b>
+            {{
+              formData.roleInComplaint["Why did the Respondent(s) think this?"]
+            }}
+          </p>
+        </ng-container>
+      </div>
+
+      <div class="section">
+        <h2>
+          Step 3 - Details of the Discrimination
+        </h2>
+        <p>
+          To show possible retaliation under the Human Rights Code, you must
+          show:
+        </p>
+        <ul>
+          <li>
+            The Respondent harmed or threatened to harm you, and
+          </li>
+          <li>
+            The Respondent did this to retaliate against you for your role in a
+            complaint
+          </li>
+        </ul>
+        <p>
+          Next, you will give details for each Respondent.
+        </p>
+
+        <div
+          *ngFor="
+            let event of formData.detailsOfRetaliation[
+              'Details of the Retaliation for each Respondent'
+            ]
+          "
+          style="margin-bottom: 10px;"
+        >
+          <p><b>Respondent:</b> {{ event.Respondent }}</p>
+          <p>
+            <b
+              >Describe in a few words the conduct that you say is
+              retaliation:</b
+            >
+          </p>
+          <div>
+            <p><b>Information: </b>Conduct that can be retaliation is:</p>
+            <ul>
+              <li style="display: flex;">
+                <span style="flex: 1;"> Evicting </span>
+                <span style="flex: 1;"> - Expelling </span>
+                <span style="flex: 1;"> - Denying a right or benefit </span>
+              </li>
+              <li style="display: flex;">
+                <span style="flex: 1;"> Firing </span>
+                <span style="flex: 1;"> - Intimidating or Coercing </span>
+                <span style="flex: 1;">
+                  - Threatening to do one of these things
+                </span>
+              </li>
+              <li style="display: flex;">
+                <span style="flex: 1;"> Suspending </span>
+                <span style="flex: 1;"> - Penalizing </span>
+                <span style="flex: 1;"> - Other similar conduct </span>
+              </li>
+            </ul>
+            <p>
+              <b>Instructions: </b> Give a short answer here. You will give
+              details below. Your short answer helps us understand the details
+              you give below.
+            </p>
+            <p>
+              <b>Examples: </b> “This Respondent fired me.” “This Respondent
+              threatened me.”
+            </p>
+          </div>
+          <p>
+            {{
+              event[
+                "Describe in a few words the conduct that you say is retaliation"
+              ]
+            }}
+          </p>
+          <div>
+            <p>
+              <b
+                >Give details about this Respondent’s conduct that you say is
+                retaliation:</b
+              >
+            </p>
+            <ul>
+              <li>
+                Be specific
+              </li>
+              <li>
+                <b>
+                  Example.
+                </b>
+                Do not say, “This person threatened me.” Write out their exact
+                words and actions
+              </li>
+              <li>
+                Conduct can be what someone did or didn’t do. The legal term is
+                “acts or omissions”.
+              </li>
+              <li>
+                If you don’t know the exact date, give an approximate date.
+                <b>Examples.</b> 2020 02 23 or 2020 02
+              </li>
+            </ul>
+
+            <ng-container
+              *ngFor="
+                let detail of event[
+                  'Give details about this Respondent’s conduct that you say is retaliation'
+                ]
+              "
+            >
+              <p>
+                <b>
+                  Conduct:
+                </b>
+                {{ detail.Conduct }} <br />
+                <b>
+                  Date:
+                </b>
+                {{ detail.Date }}
+              </p>
+            </ng-container>
+          </div>
+          <p>
+            <b>
+              Explain why you think this conduct is retaliation for your role in
+              a complaint:
+            </b>
+          </p>
+          <ul>
+            <li>
+              “I talked about discrimination at work. My boss said he’d never
+              promote me if I made a complaint.”
+            </li>
+            <li>
+              “I filed a discrimination complaint against my landlord. Two
+              months later the landlord sued me in court. The lawsuit had no
+              basis. It was just to smear my character.”
+            </li>
+            <li>
+              “After I filed a complaint, my manager investigated me. My
+              employer suspended me for 5 days for being late to work once. At
+              most, this deserved a verbal warning.”
+            </li>
+          </ul>
+          <p>
+            Consider getting help if you are not sure. See
+            <a href="http://www.bchrt.gov.bc.ca/resources/index.htm"
+              >Who Can Help?</a
+            >
+            on the Tribunal’s website.
+          </p>
+          <p>
+            {{
+              event[
+                "Explain why you think this conduct is retaliation for your role in a complaint"
+              ]
+            }}
+          </p>
+        </div>
+      </div>
+      <div class="section">
+        <h2>
+          Step 4 – Is the Complaint Filed in Time?
+        </h2>
+        <p>
+          There is a 1-year time limit for filing a complaint.
+        </p>
+        <p>
+          Please provide all dates in the following format: YYYY MM DD. If the
+          date of the event of discrimination was February 3rd, 2020, you would
+          write 2020 02 03.
+        </p>
+        <h3>
+          For each Respondent, what is the date of the most recent conduct that
+          you say is discrimination?
+        </h3>
+        <ng-container
+          *ngFor="
+            let respondent of formData.fileInTime[
+              'There is a 1-year time limit for filing a complaint'
+            ]
+          "
+          style="margin-bottom: 10px;"
+        >
+          <p><b>Respondent:</b> {{ respondent["Respondent name"] }}</p>
+          <p>
+            <b>Date of most recent conduct</b>
+            {{
+              respondent[
+                "What is the date of the most recent event that you say is discrimination?"
+              ]
+            }}
+          </p>
+          <p>
+            <b>Most recent conduct happened in the last year</b>
+            {{
+              respondent["Did the most recent conduct happen in the last year?"]
+            }}
+          </p>
+        </ng-container>
+        <p>
+          <b
+            >Did all of the conduct happen in the last year for all
+            Respondents?</b
+          >
+          {{
+            formData.fileInTime[
+              "Did all of the conduct happen in the last year for all Respondents?"
+            ]
+          }}
+        </p>
+        <ng-container
+          *ngIf="
+            formData.fileInTime[
+              'Did all of the conduct happen in the last year for all Respondents?'
+            ] === 'No'
+          "
+        >
+          <p>
+            <b>Is all of the conduct related or similar?</b>
+          </p>
+          <p>
+            You must file a complaint within one year of the last conduct if the
+            conduct is similar or related. The legal term is “continuing
+            contravention”.
+          </p>
+          <p>
+            {{
+              formData.fileInTime["Is all of the conduct related or similar?"]
+            }}
+          </p>
+        </ng-container>
+        <ng-container
+          *ngIf="
+            formData.fileInTime['Is all of the conduct related or similar?'] ===
+            'Yes'
+          "
+        >
+          <p>
+            <b>Explain how the conduct is similar or related</b>
+          </p>
+          <p>
+            <b>Examples.</b>
+          </p>
+          <ul>
+            <li>
+              Each event is about a co-worker using racial slurs.
+            </li>
+            <li>
+              Each event is about an employer not accommodating a disability.
+            </li>
+          </ul>
+          <p>
+            {{
+              formData.fileInTime[
+                "Explain how the conduct is similar or related"
+              ]
+            }}
+          </p>
+        </ng-container>
+        <ng-container
+          *ngIf="
+            formData.fileInTime['Is all of the conduct related or similar?'] ===
+            'Yes'
+          "
+        >
+          <p>
+            <b>Explain any gaps in time</b>
+          </p>
+          <p>
+            <b>Examples.</b>
+          </p>
+          <ul>
+            <li>
+              “My employer denied me three promotions. The job postings were
+              three months apart.”
+            </li>
+            <li>
+              “My manager used racial slurs. He was on leave for four months.”
+            </li>
+          </ul>
+          <p>
+            {{ formData.fileInTime["Explain any gaps in time"] }}
+          </p>
+        </ng-container>
+
+        <ng-container
+          *ngIf="
+            formData.fileInTime[
+              'Did all of the conduct happen in the last year for all Respondents?'
+            ] === 'No'
+          "
+        >
+          <h3>
+            Ask Tribunal to accept late complaints
+          </h3>
+          <p>
+            <b>
+              Information.
+            </b>
+          </p>
+          <ul>
+            <li>
+              There must be a good reason to accept the late complaint. The
+              legal term is that it must be in the “public interest”.
+            </li>
+            <li>
+              There must be no real harm to anyone because of the delay in
+              filing. The legal term is no “substantial prejudice”.
+            </li>
+          </ul>
+          <p>
+            <b>
+              Reasons to accept complaint:
+            </b>
+          </p>
+          <p>
+            Reasons to accept a late complaint include:
+          </p>
+          <ul>
+            <li>
+              Why you filed late, and how late you filed complaint
+            </li>
+            <li>
+              Any other reason why accepting the complaint would benefit the
+              public
+            </li>
+          </ul>
+          <p><b>Why did you file late?</b></p>
+          <p>
+            Examples the Tribunal will consider:
+          </p>
+          <ul>
+            <li>
+              The complainant has a disability that prevented them from filing
+              on time.
+            </li>
+            <li>
+              The complainant faced trauma or a family or housing crisis that
+              made it hard to file the complaint at the time of the events
+            </li>
+            <li>
+              The complainant recently found evidence of discrimination
+            </li>
+            <li>
+              The delay is very short and there is some reason for filing late
+            </li>
+            <li>
+              You can submit any documents that support your reasons for filing
+              your complaint late
+            </li>
+          </ul>
+
+          <p>{{ formData.fileInTime["Why did you file late?"] }}</p>
+
+          <p>
+            <b>How will accepting your complaint benefit the public?</b>
+          </p>
+          <p>
+            <b>
+              Examples.
+            </b>
+          </p>
+          <ul>
+            <li>
+              A complaint is about a situation that the Tribunal has not
+              addressed often
+            </li>
+            <li>
+              A complaint seeks a remedy that would help many people.
+            </li>
+          </ul>
+          <p>
+            {{
+              formData.fileInTime[
+                "How will accepting your complaint benefit the public?"
+              ]
+            }}
+          </p>
+
+          <p>
+            <b>Why would the delay in filing not harm anyone else?</b>
+          </p>
+          <p>
+            The delay means the time after the 1-year time limit.
+          </p>
+          <ul>
+            <li>
+              “The complaint is two months late. Documents and witnesses should
+              still be available.”
+            </li>
+            <li>
+              “The complaint is six months late. I know of no harm to the
+              Respondents.”
+            </li>
+          </ul>
+          <p>
+            {{
+              formData.fileInTime[
+                "Why would the delay in filing not harm anyone else?"
+              ]
+            }}
+          </p>
+        </ng-container>
+      </div>
+      <div class="section">
+        <h2>
+          Step 5 - Other Proceedings
+        </h2>
+        <p>
+          <b>
+            Information.
+          </b>
+          The Tribunal can defer your complaint (put it on hold) until another
+          proceeding is finished.
+        </p>
+        <p>
+          <b>Do you have another proceeding about the same events?</b>
+          {{
+            formData.otherProceedings[
+              "Do you have another proceeding about the same events?"
+            ]
+          }}
+        </p>
+        <ng-container
+          *ngIf="
+            formData.otherProceedings[
+              'Do you have another proceeding about the same events?'
+            ] === 'Yes'
+          "
+        >
+          <p>
+            <b>What kind of proceeding is it?</b>
+          </p>
+          <p><b>Examples.</b> Union grievance, court case, WorkSafeBC claim.</p>
+          <p>
+            {{ formData.otherProceedings["What kind of proceeding is it?"] }}
+          </p>
+
+          <p>
+            <b>What stage is that proceeding at?</b>
+          </p>
+          <p>
+            <b>Examples.</b> Has there been a hearing? When do you expect a
+            decision?
+          </p>
+          <p>
+            {{ formData.otherProceedings["What stage is that proceeding at?"] }}
+          </p>
+
+          <p>
+            <b>Do you want the Tribunal to wait to deal with your complaint?</b>
+          </p>
+          <p>
+            {{
+              formData.otherProceedings[
+                "Do you want the Tribunal to wait to deal with your complaint?"
+              ]
+            }}
+          </p>
+
+          <p
+            *ngIf="
+              formData.otherProceedings[
+                'Do you want the Tribunal to wait to deal with your complaint?'
+              ] === 'Yes'
+            "
+          >
+            <b
+              >Explain why you want the Tribunal to wait to deal with your
+              complaint</b
+            ><br />
+            {{
+              formData.otherProceedings[
+                "Explain why you want the Tribunal to wait to deal with your complaint"
+              ]
+            }}
+          </p>
+        </ng-container>
+      </div>
+      <div class="section">
+        <h2>
+          Step 6 - Remedies
+        </h2>
+        <p>
+          <b
+            >Select the kinds of remedies you want that are available under s.
+            37 of the Human Rights Code:</b
+          >
+          {{
+            formData.remedies["Select the kinds of remedies you want"]
+              .join(", ")
+              .replace(", other", "")
+              .replace("other", "")
+          }}
+        </p>
+        <p
+          *ngIf="
+            formData.remedies['Select the kinds of remedies you want-Comment']
+          "
+        >
+          <b>Detail - Something specific (job back, policy…):</b>
+          {{
+            formData.remedies["Select the kinds of remedies you want-Comment"]
+          }}
+        </p>
+        <p
+          *ngIf="
+            formData.remedies['Select the kinds of remedies you want'].includes(
+              'Other'
+            )
+          "
+        >
+          <b>Detail - Other:</b>
+          {{ formData.remedies["Detail - Other"] }}
+        </p>
+      </div>
+      <div class="section">
+        <h2>
+          Step 7 - Mediation
+        </h2>
+
+        <ul>
+          <li>
+            At a "mediation", a trained mediator works with you and the
+            respondent to find a solution to your complaint. Settlement is
+            voluntary. If you can’t agree, the process continues.
+          </li>
+          <li>
+            If you settle your complaint, the process if usually much faster. If
+            you don’t settle, there are
+            <a href="http://www.bchrt.bc.ca/complaint-process/steps.htm"
+              >steps</a
+            >
+            you must take before a hearing where you can prove your complaint.
+          </li>
+          <li>Mediation is free.</li>
+          <li>What you and the respondent say in mediation is confidential.</li>
+          <li>A mediator does not act for either party.</li>
+          <li>You can bring your representative or a support person</li>
+          <li>
+            You don’t have to be in the same room as a respondent to participant
+            in mediation. The mediator can speak to you and the respondent
+            separately.
+          </li>
+          <li>
+            For more information see
+            <a
+              href="http://www.bchrt.bc.ca/complaint-process/settle/index.htm"
+              target="_blank"
+              >the Tribunal’s website</a
+            >
+          </li>
+        </ul>
+        <p>
+          <b>Do you want to attend a mediation?</b>
+          {{ formData.mediation["Do you want to attend a mediation?"] }}
+        </p>
+      </div>
+      <div class="section">
+        <h2>
+          Next Steps
+        </h2>
+        <p>
+          You have successfully submitted your complaint.
+        </p>
+
+        <p>
+          If you are filing
+        </p>
+        <ul>
+          <li>
+            A form 1.2 Authorization to file a complaint for another person
+          </li>
+
+          <li>
+            Evidence to support a time limit request, such as a doctor’s note
+          </li>
+
+          <li>
+            A copy of an employment ad or publication if that is what the
+            complaint is about
+          </li>
+        </ul>
+        <p>
+          Email a PDF copy of the document(s) to
+          <a href="BCHumanRightsTribunal@gov.bc.ca"
+            >BCHumanRightsTribunal@gov.bc.ca</a
+          >.
+        </p>
+        <p>
+          In the subject line, put the complainant name and say “new complaints
+          documents”.
+        </p>
+        <h3>
+          What happens next?
+        </h3>
+
+        <p>
+          The Tribunal will review your complaint. Next, it will tell you one of
+          the following:
+        </p>
+        <ul>
+          <li>
+            the complaint form is complete and the complaint will proceed to the
+            next step. The Tribunal will send a copy to the Respondent(s)
+          </li>
+          <li>
+            the complaint form is incomplete and the Tribunal will ask you for
+            more information by a certain date
+          </li>
+          <li>
+            the complaint is on hold until the end of another proceedings
+          </li>
+          <li>
+            the complaint cannot be accepted for filing because:
+            <ul>
+              <li>
+                the complaint is not covered by the BC Human Rights Code
+              </li>
+              <li>
+                the complaint does not set out facts that could be
+                discrimination under the BC Human Rights Code
+              </li>
+              <li>
+                the complaint was filed late and the Tribunal has decided not to
+                accept it.
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <h3 style="margin-top: 30px;">
+          Protection from retaliation
+        </h3>
+        <p>
+          The Human Rights Code forbids retaliation:
+        </p>
+        <ul>
+          <li>
+            against someone who makes a complaint or might make a complaint
+          </li>
+          <li>
+            against someone who might get involved in a complaint. This includes
+            parties, witnesses, or anyone who might help with a complaint.
+          </li>
+          <li></li>
+        </ul>
+        <p>
+          Retaliation is conduct that punishes someone for their involvement in
+          a complaint. It includes:
+        </p>
+        <ul>
+          <li>
+            evicting
+          </li>
+          <li>
+            firing or suspending
+          </li>
+          <li>
+            expelling or kicking out
+          </li>
+          <li>
+            intimidating
+          </li>
+          <li>
+            penalizing
+          </li>
+          <li>
+            other similar kinds of harm
+          </li>
+        </ul>
+
+        <p>
+          For more information see the
+          <a
+            href="http://www.bchrt.bc.ca/human-rights-duties/retaliation.htm"
+            target="_blank"
+            >Tribunal’s website</a
+          >.
+        </p>
+
+        <p>
+          If you or someone else has been retaliated against, complete a
+          Retaliation Complaint Form available on our website.
+        </p>
+        <h3 style="margin-top: 30px;">
+          Accommodation
+        </h3>
+        <p>
+          The Tribunal wants to make sure its process is safe and accessible for
+          everyone.
+        </p>
+        <p>
+          You may need us to address your needs so can take part. (The legal
+          term is “accommodation”.)
+        </p>
+        <p>
+          If you need an accommodation, attach a page called “Accommodation
+          Request”.
+        </p>
+        <p>
+          <b>
+            Examples:
+          </b>
+        </p>
+        <ul>
+          <li>
+            “I am Deaf. I need an interpreter.”
+          </li>
+          <li>
+            “I am Indigenous. I would like access to smudging during a hearing.”
+          </li>
+        </ul>
+        <h3 style="margin-top: 30px;">
+          Help with your complaint
+        </h3>
+        <p>
+          See
+          <a href="http://www.bchrt.bc.ca/resources/index.htm">Who Can Help?</a>
+          on the Tribunal’s website.
+        </p>
+        <h3 style="margin-top: 30px;">
+          Privacy notice
+        </h3>
+        <p>
+          The Tribunal collects personal information to process human rights
+          complaints. The Tribunal may survey parties to improve its services.
+        </p>
+        <p>
+          The demographic information you give at the end of this form is
+          confidential.
+        </p>
+        <p>
+          The Tribunal will give a copy of the rest of the form to the other
+          parties.
+        </p>
+        <p>
+          The Tribunal must provide copies of complaints and responses to the
+          Office of the Human Rights Commissioner. The Tribunal may provide the
+          Commissioner with other records in a complaint file.
+        </p>
+        <p>
+          The Tribunal’s process is public. The Tribunal may disclose personal
+          information to the public as follows:
+        </p>
+        <ul>
+          <li>
+            The Tribunal publishes most decisions
+            <a
+              href="http://www.bchrt.bc.ca/law-library/guides-info-sheets/general-apps/index.htm"
+              >on its website</a
+            >.
+          </li>
+          <li>
+            The Tribunal publishes a hearing schedule.
+          </li>
+          <li>
+            Before a hearing, the public can see parts of the file. This does
+            not include contact information. It does include:
+            <ul>
+              <li>
+                the complaint
+              </li>
+              <li>
+                the response to the complaint
+              </li>
+            </ul>
+          </li>
+          <li>
+            Hearings are open to the public.
+          </li>
+          <li>
+            The Freedom of Information and Protection of Privacy Act applies to
+            the Tribunal. Someone can apply to see information in the complaint
+            file.
+          </li>
+        </ul>
+        <p>
+          You can ask the Tribunal to limit the information it makes public. You
+          can also ask the Tribunal to order a publication ban. Use a Form 7.1
+          General Application to apply. For more information, see
+          <a
+            href="http://www.bchrt.bc.ca/complaint-process/make-application/index.htm"
+            target="_blank"
+            >the Tribunal’s website</a
+          >.
+        </p>
+        <p>
+          Other laws may restrict a party from going public with information in
+          this complaint.
+        </p>
+        <p>
+          For more information, see the
+          <a href="http://www.bchrt.bc.ca/law-library/policies/privacy.htm"
+            >Complaint Process Privacy Policy</a
+          >.
+        </p>
+      </div>
+    </div>
+  </div>
 </div>

@@ -41,24 +41,61 @@ export class HrtHomePageComponent implements OnInit, OnDestroy {
   }
 
   clickTest() {
-      this.dataService.getUserInfo('joseph11@belmar.ca').then(res => {
-          console.dir('user ifo: ', res)
-          this.dataService.acceptTerms().then(response => {
-              console.log('response is: ', response)
-              this.dataService.saveSurveyResult('default', 'primary', {
-                  test: '123'
-              }).then(re => {
-                  console.log('re: ', re)
-              }).catch(e => {
-                  console.log('e: ', e)
-              })
-          });
-      })
+    //   this.dataService.getUserInfo('joseph11@belmar.ca').then(res => {
+    //       console.dir('user ifo: ', res)
+    //       this.dataService.acceptTerms().then(response => {
+    //           console.log('response is: ', response)
+    //           this.dataService.saveSurveyResult('default', 'primary', {
+    //               test: '123'
+    //           }).then(re => {
+    //               console.log('re: ', re)
+    //           }).catch(e => {
+    //               console.log('e: ', e)
+    //           })
+    //       });
+    //   })
+    
+    
+    
+    
+    this.dataService.getUserInfo().then(res => {
+        console.log('res: ', res)
+        this.handleLogin(res, '', true)
+    })
+    
+    
+    
+    // this.dataService.loadSurveyResultIndex('temp', 'data')
+  }
+  handleLogin(user: UserInfo, navPath: string, reqTerms: boolean) {
+    const extUri =
+      window.location.origin + '/hrt/progress?login_redirect=/hrt/progress'
+    //   this.location.prepareExternalUrl(
+    //     "/prv/status?login_redirect=" + encodeURIComponent(navPath)
+    //   );
+    if (user && !user.user_id && user.login_uri) {
+        console.log(user.login_uri + "?next=" + encodeURIComponent(extUri))
+      window.location.replace(
+        user.login_uri + "?next=" + encodeURIComponent(extUri)
+      );
+      return false;
+    } else if (user && reqTerms && !user.accepted_terms_at) {
+    //   this.redirectStatus(navPath);
+    }
+    return true;
   }
   clickTest2() {
-    this.dataService.loadSurveyResult('default', 'primary', '501').then(res => {
-        console.log("res: ", res)
-    })
+     this.dataService
+      .loadSurveyResultIndex("default", "primary", false)
+      .then(result => {
+          console.log('loadSurveyResultIndex success')
+          console.log('result: ', result)
+        // this._surveyIndex = result.result || [];
+      })
+      .catch(err => {
+          console.log('loadSurveyResultIndex fail')
+        // this._surveyIndex = [];
+      });
 }
   survey: any;
   completedSteps = {

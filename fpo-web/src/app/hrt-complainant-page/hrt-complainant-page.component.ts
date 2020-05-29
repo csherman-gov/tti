@@ -585,7 +585,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             isRequired: true,
           },
         ],
-        visibleIf: "{Select only one option} <> 'The complainant'",
+        // visibleIf: "{Select only one option} <> 'The complainant'",
         title: "Complainant’s address for Delivery",
       },
       {

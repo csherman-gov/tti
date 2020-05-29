@@ -50,6 +50,7 @@ export class HrtComplaintFileInTimePageComponent implements OnInit, OnDestroy {
               {
                 titleLocation: "top",
                 type: "text",
+                title: 'What is the date of the most recent conduct that you say is discrimination?',
                 name:
                   "What is the date of the most recent event that you say is discrimination?",
                 isRequired: true,
@@ -120,14 +121,14 @@ export class HrtComplaintFileInTimePageComponent implements OnInit, OnDestroy {
             name: "Why did you file late?",
             isRequired: true,
             popupdescription:
-              "<p><b>Examples the Tribunal will consider:</b></p><ul><li>The complainant has a disability that prevented them from filing on time. </li><li>The complainant faced trauma or a family or housing crisis that made it hard to file the complaint at the time of the events</li><li>The complainant recently found evidence of discrimination</li><li>The delay is very short and there is some reason for filing late</li></ul><p>You can submit any documents that support your reasons for filing your complaint late</p>",
+              "<p><b>Examples the Tribunal will consider:</b></p><ul><li>The complainant has a disability that prevented them from filing on time </li><li>The complainant faced trauma or a family or housing crisis that made it hard to file the complaint at the time of the events</li><li>The complainant recently found evidence of discrimination</li><li>The delay is very short and there is some reason for filing late</li></ul><p>You can submit any documents that support your reasons for filing your complaint late</p>",
           },
           {
             type: "comment",
             name: "How will accepting your complaint benefit the public?",
             isRequired: true,
             popupdescription:
-              "<p><b>Example:</b></p><ul><li>A complaint is about a situation that the Tribunal has not addressed often</li><li>A complaint seeks a remedy that would help many people. </li></ul> ",
+              "<p><b>Example:</b></p><ul><li>A complaint is about a situation that the Tribunal has not addressed often</li><li>A complaint seeks a remedy that would help many people </li></ul> ",
           },
           {
             type: "comment",
