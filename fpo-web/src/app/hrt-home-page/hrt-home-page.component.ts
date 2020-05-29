@@ -19,6 +19,7 @@ import { GeneralDataService, UserInfo } from "../general-data.service";
 })
 export class HrtHomePageComponent implements OnInit, OnDestroy {
   subscription: Subscription;
+  user_id = ''
   constructor(
     private missionService: MissionService,
     private router: Router,
@@ -35,6 +36,7 @@ export class HrtHomePageComponent implements OnInit, OnDestroy {
       }
     );
   }
+  
   ngOnDestroy() {
     // prevent memory leak when component destroyed
     this.subscription.unsubscribe();
@@ -91,11 +93,26 @@ export class HrtHomePageComponent implements OnInit, OnDestroy {
           console.log('loadSurveyResultIndex success')
           console.log('result: ', result)
         // this._surveyIndex = result.result || [];
+        this.user_id = result[0].user_id
       })
       .catch(err => {
           console.log('loadSurveyResultIndex fail')
         // this._surveyIndex = [];
       });
+}
+clickTest3() {
+    this.dataService.saveSurveyResult("default", "primary", {
+        test: 'This is a test from Joseph'
+    }, this.user_id).then(res => {
+        console.log('save ok')
+        console.log(res)
+    })
+}
+clickTest4() {
+    this.dataService.loadSurveyResult("default", "primary", this.user_id).then(res => {
+        console.log('retrieve ok')
+        console.log(res)
+    })
 }
   survey: any;
   completedSteps = {

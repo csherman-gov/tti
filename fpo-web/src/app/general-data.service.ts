@@ -242,14 +242,15 @@ export class GeneralDataService {
     return this.loadJson(url, { t: new Date().getTime() })
       .then(result => {
         console.log('result+++', result)
-        return this.returnSurveyResult(
-            collection,
-            name,
-            "index",
-            result,
-            null,
-            useLocal
-          )
+        // return this.returnSurveyResult(
+        //     collection,
+        //     name,
+        //     "index",
+        //     result,
+        //     null,
+        //     useLocal
+        //   )
+        return result
       }
       )
       .catch(err =>
