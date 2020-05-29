@@ -82,6 +82,20 @@ export class HrtProgressPageComponent implements OnInit, OnDestroy {
   }
   user_id = ''
   constructor(private missionService: MissionService, private router: Router, private dataService: GeneralDataService) {
+    this.subscription = missionService.missionAnnounced$.subscribe(
+        allFormData => {
+          console.log('allFormData', allFormData)
+          if (allFormData) {
+            this.formData = allFormData
+            for (let key in this.formData) {
+              if (key == 'home') {
+                continue;
+              }
+              this.completedSteps++
+            }
+            this.subscription.unsubscribe();
+          }
+        });
     this.dataService
     .loadSurveyResultIndex("default", "primary", false)
     .then(result => {
@@ -91,25 +105,16 @@ export class HrtProgressPageComponent implements OnInit, OnDestroy {
       this.user_id = result.result[0].user_id
       console.log(this.user_id)
       console.log(result.result[0])
+      this.missionService.confirmMission({
+        name: "remedies",
+        data: result.result[0],
+        complete: true,
+      });
     })
     .catch(err => {
         console.log('loadSurveyResultIndex fail')
       // this._surveyIndex = [];
     });
-    this.subscription = missionService.missionAnnounced$.subscribe(
-      allFormData => {
-        console.log('allFormData', allFormData)
-        if (allFormData) {
-          this.formData = allFormData
-          for (let key in this.formData) {
-            if (key == 'home') {
-              continue;
-            }
-            this.completedSteps++
-          }
-          this.subscription.unsubscribe();
-        }
-      });
   }
 
   ngOnInit() {
