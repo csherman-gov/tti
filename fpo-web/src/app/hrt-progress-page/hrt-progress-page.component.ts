@@ -5,6 +5,8 @@ import { MissionService } from '../mission.service';
 import { Subscription } from 'rxjs';
 
 import { Router } from '@angular/router';
+// data service
+import { GeneralDataService, UserInfo } from "../general-data.service";
 
 @Component({
   selector: 'app-hrt-progress-page',
@@ -12,7 +14,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./hrt-progress-page.component.scss']
 })
 export class HrtProgressPageComponent implements OnInit, OnDestroy {
-
+    
   result: boolean
   get showLateComplaints() {
     return this.result
@@ -78,34 +80,33 @@ export class HrtProgressPageComponent implements OnInit, OnDestroy {
       return acc && this.formData[step.short_name]
     }, true) ? 'btn btn-default' : 'btn btn-inactive'
   }
-  constructor(private missionService: MissionService, private router: Router) {
+  user_id = ''
+  constructor(private missionService: MissionService, private router: Router, private dataService: GeneralDataService) {
+    this.dataService
+    .loadSurveyResultIndex("default", "primary", false)
+    .then(result => {
+        console.log('loadSurveyResultIndex success')
+        console.log('result: ', result)
+      // this._surveyIndex = result.result || [];
+      this.user_id = result.result[0].user_id
+      console.log(this.user_id)
+      console.log(result.result[0])
+    })
+    .catch(err => {
+        console.log('loadSurveyResultIndex fail')
+      // this._surveyIndex = [];
+    });
     this.subscription = missionService.missionAnnounced$.subscribe(
       allFormData => {
         console.log('allFormData', allFormData)
-
         if (allFormData) {
           this.formData = allFormData
           for (let key in this.formData) {
             if (key == 'home') {
               continue;
             }
-            if (key === 'respondents') {
-              console.log(allFormData.respondents)
-              let respondents = allFormData.respondents.Respondents
-              let result = respondents.reduce((acc, current) => {
-                return current['Did all the conduct you say is discrimination happen in the last one year?'] === 'No' && acc
-              }, true)
-              console.log(result)
-              this.result = result
-            }
             this.completedSteps++
           }
-          if (!this.result) {
-            this.steps = this.steps.filter(e => e.name !== 'Late complaints')
-          }
-
-        
-        
           this.subscription.unsubscribe();
         }
       });
@@ -117,6 +118,13 @@ export class HrtProgressPageComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     // prevent memory leak when component destroyed
     this.subscription.unsubscribe();
+  }
+
+  handleSave() {
+    this.dataService.saveSurveyResult("default", "primary", this.formData).then(res => {
+        console.log('save ok')
+        console.log(res)
+    })
   }
   handleClickEvent(event) {
     console.log(event.target.dataset)
