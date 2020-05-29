@@ -105,11 +105,9 @@ export class HrtProgressPageComponent implements OnInit, OnDestroy {
       this.user_id = result.result[0].user_id
       console.log(this.user_id)
       console.log(result.result[0])
-      this.missionService.confirmMission({
-        name: "remedies",
-        data: result.result[0],
-        complete: true,
-      });
+      if (result.result[0]) {
+        this.missionService.confirmMission(result.result[0]);
+      }
     })
     .catch(err => {
         console.log('loadSurveyResultIndex fail')
