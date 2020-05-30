@@ -9,6 +9,9 @@ import { addQuestionTypes } from "../survey/question-types";
 import * as Survey from "survey-angular";
 // widgets.inputmask(Survey);
 
+// data service
+import { GeneralDataService, UserInfo } from "../general-data.service";
+
 @Component({
   selector: "app-hrt-retaliation-home-page",
   templateUrl: "./hrt-retaliation-home-page.component.html",
@@ -16,12 +19,6 @@ import * as Survey from "survey-angular";
 })
 export class HrtRetaliationHomePageComponent implements OnInit, OnDestroy {
   subscription: Subscription;
-
-  ngOnDestroy() {
-    // prevent memory leak when component destroyed
-    this.subscription.unsubscribe();
-  }
-
   survey: any;
   completedSteps = {
     step1: false,
@@ -68,7 +65,11 @@ export class HrtRetaliationHomePageComponent implements OnInit, OnDestroy {
   };
 
   formData: object;
-  constructor(private missionService: MissionService, private router: Router) {
+  constructor(
+    private missionService: MissionService,
+    private router: Router,
+    private dataService: GeneralDataService
+  ) {
     this.subscription = missionService.missionAnnounced$.subscribe(
       (allFormData) => {
         console.log("allFormData", allFormData);
@@ -80,8 +81,26 @@ export class HrtRetaliationHomePageComponent implements OnInit, OnDestroy {
       }
     );
   }
+  ngOnDestroy() {
+    // prevent memory leak when component destroyed
+    this.subscription.unsubscribe();
+  }
+
+  clickTest() {
+    this.dataService.getUserInfo().then((res) => {
+      console.log("res: ", res);
+      this.handleLogin(res, "", true);
+    });
+  }
+  handleLogin(user: UserInfo, navPath: string, reqTerms: boolean) {
+    const extUri =
+      window.location.origin + "/hrt/hrt-retaliation/progress?login_redirect=/";
+    console.log(user.login_uri + "?next=" + encodeURIComponent(extUri));
+    window.location.replace(
+      user.login_uri + "?next=" + encodeURIComponent(extUri)
+    );
+  }
   confirm() {
-    // this.confirmed = true;
     if (this.survey.completeLastPage()) {
       this.missionService.confirmMission({
         name: "home",

@@ -270,8 +270,10 @@ export class HrtRetaliationReviewPageComponent implements OnInit, OnDestroy {
       const attachment_html = document.getElementById('pdf-container').innerHTML
       console.log(attachment_html)
       const case_type = 'Retaliation'
-      this.formData.home.case_type = case_type
-      this.formData.home.attachment_html = attachment_html
+      this.formData.home = {
+        case_type: case_type,
+        attachment_html: attachment_html
+      }
       console.log(this.formData)
       this.http
         .post(

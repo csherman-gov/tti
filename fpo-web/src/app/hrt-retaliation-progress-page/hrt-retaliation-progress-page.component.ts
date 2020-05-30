@@ -5,6 +5,8 @@ import { MissionService } from "../mission.service";
 import { Subscription } from "rxjs";
 
 import { Router } from "@angular/router";
+// data service
+import { GeneralDataService, UserInfo } from "../general-data.service";
 
 @Component({
   selector: "app-hrt-retaliation-progress-page",
@@ -79,7 +81,7 @@ export class HrtRetaliationProgressPageComponent implements OnInit, OnDestroy {
       ? "btn btn-default"
       : "btn btn-inactive";
   }
-  constructor(private missionService: MissionService, private router: Router) {
+  constructor(private missionService: MissionService, private router: Router, private dataService: GeneralDataService) {
     this.subscription = missionService.missionAnnounced$.subscribe(
       (allFormData) => {
         console.log("allFormData", allFormData);
@@ -117,6 +119,53 @@ export class HrtRetaliationProgressPageComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     console.log(this.formData);
+    
+    
+    this.dataService.getUserInfo().then(res => {
+        console.log('res: ', res)
+        this.user_id = res.user_id
+    }).catch(err => {
+        console.warn(err)
+    })
+    if (Object.keys(this.formData).length < 1) {
+        console.log('loadData')
+      this.dataService
+        .loadSurveyResultIndex("default", "retaliation", false)
+        .then((result) => {
+          console.log("loadSurveyResultIndex success");
+          console.log("result: ", result);
+          // this._surveyIndex = result.result || [];
+        //   this.user_id = result.result[0].user_id;
+        //   console.log(this.user_id);
+          console.log(result.result[0]);
+          if (result.result[0]) {
+            this.missionService.confirmMission(result.result[0].result);
+            // missionService.announceMission(this.allFormData);
+            this.formData = result.result[0].result;
+
+            // this.formData = allFormData
+            this.completedSteps = 0;
+            for (let key in this.formData) {
+              if (key == "home") {
+                continue;
+              }
+              this.completedSteps++;
+            }
+          }
+        })
+        .catch((err) => {
+          console.log("loadSurveyResultIndex fail");
+          // this._surveyIndex = [];
+        });
+    }
+  }
+  handleSave() {
+    this.dataService
+      .saveSurveyResult("default", "retaliation", this.formData)
+      .then((res) => {
+        console.log("save ok");
+        console.log(res);
+      });
   }
   ngOnDestroy() {
     // prevent memory leak when component destroyed

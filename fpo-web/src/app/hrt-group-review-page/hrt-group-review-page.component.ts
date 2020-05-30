@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnDestroy } from "@angular/core";
-
+import { HttpClient } from "@angular/common/http";
 // import service
 import { MissionService } from "../mission.service";
 import { Subscription } from "rxjs";
@@ -22,6 +22,10 @@ export class HrtGroupReviewPageComponent implements OnInit, OnDestroy {
   complainants: any;
   subscription: Subscription;
   formData = {
+      home: {
+        case_type: '',
+        attachment_html: ''
+      },
     respondents: [],
     representative: {},
     repSutability: {},
@@ -138,13 +142,13 @@ export class HrtGroupReviewPageComponent implements OnInit, OnDestroy {
       },"otherProceedings":{"Does the group or class have another proceeding about the same events?":"Yes","What kind of proceeding is it?":"3333","What stage is that proceeding at?":"1213123312312123","Do you want the Tribunal to wait to deal with the complaint?":"Yes","Explain why you want the Tribunal to wait to deal with the complaint":"312312312312"},"remedies":{"Select the kinds of remedies you want":["Declaration that the conduct is discrimination","Steps or programs to address the discrimination (examples: training, policy)","Compensation for lost waged or expenses or other expenses such as moving expenses, photocopying, costs of attending the hearing (keep receipts)"]},"mediation":{"Do you want to attend a mediation?":"Yes"},"statisticalInformation":{"Indigenous Identity":"First Nations","Racial Identity":"Indigenous","Immigration Status":"Canadian citizen","Primary Language":"English","Disability requiring accommodation in employment and services":"Yes - physical","Gender Identity":"Woman","Sexual Orientation":"LGBQ","Age":"Under 19","Household":"Single parent","Household Income After Tax":"Under $20,000"}}`
   );
   show: boolean = false;
-  constructor(private missionService: MissionService, private router: Router) {
+  constructor(private missionService: MissionService, private router: Router, private http: HttpClient,) {
     this.subscription = missionService.missionAnnounced$.subscribe(
       (allFormData) => {
         console.log("allFormData", allFormData);
         if (allFormData) {
           this.formData = allFormData;
-            // this.formData = this.newFormData;
+          // this.formData = this.newFormData;
           console.log(this.formData);
           for (let key in this.formData) {
             if (key == "home") {
@@ -224,8 +228,29 @@ export class HrtGroupReviewPageComponent implements OnInit, OnDestroy {
     if (this.checkbox) {
       console.log("Happy!");
 
-      this.error = false;
-      this.router.navigateByUrl("hrt-group/thank-you");
+      const attachment_html = document.getElementById("pdf-container")
+        .innerHTML;
+      console.log(attachment_html);
+      const case_type = "Group";
+      this.formData.home = {
+        case_type: case_type,
+        attachment_html: attachment_html
+      }
+      console.log(this.formData);
+      this.http
+        .post(
+          "https://django-qjtfov-dev.pathfinder.gov.bc.ca/api/v1/survey-submit/test_collection/test_key",
+          this.formData
+        )
+        .toPromise()
+        .then((res) => {
+          console.log(res);
+          this.error = false;
+          this.router.navigateByUrl("hrt/thank-you");
+        })
+        .catch((err) => {
+          console.warn(err);
+        });
     } else {
       this.error = true;
     }

@@ -192,17 +192,18 @@ export class HrtGroupProgressPageComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     console.log(this.formData);
-    
+    this.dataService.getUserInfo().then(res => {
+        console.log('res: ', res)
+        this.user_id = res.user_id
+    }).catch(err => {
+        console.warn(err)
+    })
     
     // load data
     if (Object.keys(this.formData).length < 1) {
         console.log('loadData')
-        this.dataService.getUserInfo().then(res => {
-            console.log('res: ', res)
-            this.user_id = res.user_id
-        })
       this.dataService
-        .loadSurveyResultIndex("default", "individual", false)
+        .loadSurveyResultIndex("default", "group", false)
         .then((result) => {
           console.log("loadSurveyResultIndex success");
           console.log("result: ", result);
