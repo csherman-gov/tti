@@ -15,6 +15,7 @@ import { GeneralDataService, UserInfo } from "../general-data.service";
 })
 export class HrtRetaliationProgressPageComponent implements OnInit, OnDestroy {
   result: boolean;
+  user_id = ''
   get showLateComplaints() {
     return this.result;
   }
