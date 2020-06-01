@@ -72,7 +72,7 @@
         </li>
       </ul>
       <div class="button-container">
-        <button *ngIf="user_id !== ''" (click)="handleSave()">Save for later</button>
+        <button style="margin-right: 20px;" *ngIf="user_id !== ''" (click)="handleSave()" class="btn btn-default">Save for later</button>
         <button class="{{ buttonClass }}" (click)="handleReviewEvent($event)">
           Review & submit complaint
         </button>

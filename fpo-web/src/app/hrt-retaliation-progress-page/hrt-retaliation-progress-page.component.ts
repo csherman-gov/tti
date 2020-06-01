@@ -124,7 +124,7 @@ export class HrtRetaliationProgressPageComponent implements OnInit, OnDestroy {
     
     this.dataService.getUserInfo().then(res => {
         console.log('res: ', res)
-        this.user_id = res.user_id
+        this.user_id = res.user_id ? res.user_id : ''
     }).catch(err => {
         console.warn(err)
     })
