@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, OnDestroy } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { PlatformLocation } from "@angular/common";
+
 // import service
 import { MissionService } from "../mission.service";
 import { Subscription } from "rxjs";
@@ -142,7 +144,12 @@ export class HrtGroupReviewPageComponent implements OnInit, OnDestroy {
       },"otherProceedings":{"Does the group or class have another proceeding about the same events?":"Yes","What kind of proceeding is it?":"3333","What stage is that proceeding at?":"1213123312312123","Do you want the Tribunal to wait to deal with the complaint?":"Yes","Explain why you want the Tribunal to wait to deal with the complaint":"312312312312"},"remedies":{"Select the kinds of remedies you want":["Declaration that the conduct is discrimination","Steps or programs to address the discrimination (examples: training, policy)","Compensation for lost waged or expenses or other expenses such as moving expenses, photocopying, costs of attending the hearing (keep receipts)"]},"mediation":{"Do you want to attend a mediation?":"Yes"},"statisticalInformation":{"Indigenous Identity":"First Nations","Racial Identity":"Indigenous","Immigration Status":"Canadian citizen","Primary Language":"English","Disability requiring accommodation in employment and services":"Yes - physical","Gender Identity":"Woman","Sexual Orientation":"LGBQ","Age":"Under 19","Household":"Single parent","Household Income After Tax":"Under $20,000"}}`
   );
   show: boolean = false;
-  constructor(private missionService: MissionService, private router: Router, private http: HttpClient,) {
+  constructor(
+      private missionService: MissionService,
+      private router: Router,
+      private http: HttpClient,
+      private platformLocation: PlatformLocation
+      ) {
     this.subscription = missionService.missionAnnounced$.subscribe(
       (allFormData) => {
         console.log("allFormData", allFormData);
@@ -239,7 +246,7 @@ export class HrtGroupReviewPageComponent implements OnInit, OnDestroy {
       console.log(this.formData);
       this.http
         .post(
-          "https://django-qjtfov-dev.pathfinder.gov.bc.ca/api/v1/survey-submit/test_collection/test_key",
+            this.platformLocation.getBaseHrefFromDOM() + "/api/v1/survey-submit/test_collection/test_key",
           this.formData
         )
         .toPromise()

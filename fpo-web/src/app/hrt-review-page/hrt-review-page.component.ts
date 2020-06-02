@@ -6,6 +6,7 @@ import { MissionService } from "../mission.service";
 import { Subscription } from "rxjs";
 
 import { Router } from "@angular/router";
+import { PlatformLocation } from "@angular/common";
 
 @Component({
   selector: "app-hrt-review-page",
@@ -49,8 +50,9 @@ export class HrtReviewPageComponent implements OnInit, OnDestroy {
   show: boolean = false;
   constructor(
     private missionService: MissionService,
+    private router: Router,
     private http: HttpClient,
-    private router: Router
+    private platformLocation: PlatformLocation
   ) {
     this.subscription = missionService.missionAnnounced$.subscribe(
       (allFormData) => {
@@ -145,8 +147,8 @@ export class HrtReviewPageComponent implements OnInit, OnDestroy {
       console.log(this.formData)
       this.http
         .post(
-          "https://django-qjtfov-dev.pathfinder.gov.bc.ca/api/v1/survey-submit/test_collection/test_key",
-          this.formData
+            this.platformLocation.getBaseHrefFromDOM() + "/api/v1/survey-submit/test_collection/test_key",
+            this.formData
         )
         .toPromise()
         .then((res) => {

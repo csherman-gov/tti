@@ -7,6 +7,8 @@ import { Subscription } from "rxjs";
 import { Router } from "@angular/router";
 import { GeneralDataService } from "../general-data.service";
 
+import { PlatformLocation } from "@angular/common";
+
 @Component({
   selector: "app-hrt-retaliation-review-page",
   templateUrl: "./hrt-retaliation-review-page.component.html",
@@ -149,7 +151,8 @@ export class HrtRetaliationReviewPageComponent implements OnInit, OnDestroy {
     private missionService: MissionService,
     private router: Router,
     private http: HttpClient,
-    private dataService: GeneralDataService
+    private dataService: GeneralDataService,
+    private platformLocation: PlatformLocation
   ) {
     this.subscription = missionService.missionAnnounced$.subscribe(
       (allFormData) => {
@@ -277,7 +280,7 @@ export class HrtRetaliationReviewPageComponent implements OnInit, OnDestroy {
       console.log(this.formData)
       this.http
         .post(
-          "https://django-qjtfov-dev.pathfinder.gov.bc.ca/api/v1/survey-submit/test_collection/test_key",
+            this.platformLocation.getBaseHrefFromDOM() + "/api/v1/survey-submit/test_collection/test_key",
           this.formData
         )
         .toPromise()
