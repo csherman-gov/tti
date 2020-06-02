@@ -144,7 +144,8 @@ export class HrtReviewPageComponent implements OnInit, OnDestroy {
         attachment_html: attachment_html
       }
       
-      console.log(this.formData)
+    //   console.log(this.formData)
+      console.log(this.platformLocation.getBaseHrefFromDOM() + "/api/v1/survey-submit/test_collection/test_key")
       this.http
         .post(
             this.platformLocation.getBaseHrefFromDOM() + "/api/v1/survey-submit/test_collection/test_key",
