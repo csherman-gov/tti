@@ -280,7 +280,7 @@ export class HrtRetaliationReviewPageComponent implements OnInit, OnDestroy {
       console.log(this.formData)
       this.http
         .post(
-            this.platformLocation.getBaseHrefFromDOM() + "/api/v1/survey-submit/test_collection/test_key",
+            this.platformLocation.getBaseHrefFromDOM() + "api/v1/survey-submit/test_collection/test_key",
           this.formData
         )
         .toPromise()
