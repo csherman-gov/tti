@@ -97,11 +97,12 @@ export class AppComponent implements AfterViewInit, DoCheck, OnInit {
     });
 
     if (environment.matomoUrl && environment.matomoSiteId) {
+        return
       this.matomoInjector.init({
         url: environment.matomoUrl,
         id: environment.matomoSiteId,
       });
-      matomoEnabled = true;
+      matomoEnabled = false;
     }
 
     this.router.events.subscribe((event) => {
