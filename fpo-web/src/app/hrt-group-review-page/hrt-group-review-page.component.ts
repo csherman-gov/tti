@@ -253,7 +253,7 @@ export class HrtGroupReviewPageComponent implements OnInit, OnDestroy {
         .then((res) => {
           console.log(res);
           this.error = false;
-          this.router.navigateByUrl("hrt/thank-you");
+          this.router.navigateByUrl("hrt-group/thank-you");
         })
         .catch((err) => {
           console.warn(err);
