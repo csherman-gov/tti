@@ -78,6 +78,9 @@ import { HrtRetaliationMediationPageComponent } from './hrt-retaliation-mediatio
 import { HrtRetaliationStatisticalInformationPageComponent } from './hrt-retaliation-statistical-information-page/hrt-retaliation-statistical-information-page.component';
 import { HrtRetaliationThankYouPageComponent } from './hrt-retaliation-thank-you-page/hrt-retaliation-thank-you-page.component';
 import { HrtRetaliationReviewPageComponent } from './hrt-retaliation-review-page/hrt-retaliation-review-page.component';
+import { HrtIndigenousPageComponent } from './hrt-indigenous-page/hrt-indigenous-page.component';
+import { HrtGroupIndigenousPageComponent } from './hrt-group-indigenous-page/hrt-group-indigenous-page.component';
+import { HrtRetaliationIndigenousPageComponent } from './hrt-retaliation-indigenous-page/hrt-retaliation-indigenous-page.component';
 
 @NgModule({
   declarations: [
@@ -140,6 +143,9 @@ import { HrtRetaliationReviewPageComponent } from './hrt-retaliation-review-page
     HrtRetaliationStatisticalInformationPageComponent,
     HrtRetaliationThankYouPageComponent,
     HrtRetaliationReviewPageComponent,
+    HrtIndigenousPageComponent,
+    HrtGroupIndigenousPageComponent,
+    HrtRetaliationIndigenousPageComponent,
   ],
   imports: [
     BrowserModule,

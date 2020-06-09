@@ -107,7 +107,8 @@ export class HrtRetaliationHomePageComponent implements OnInit, OnDestroy {
         data: this.survey.data,
       });
       console.log(this.survey);
-      this.router.navigateByUrl("hrt-retaliation/progress");
+    //   this.router.navigateByUrl("hrt-retaliation/progress");
+        window.location.assign(window.location.origin + window.location.pathname + '/progress')
     }
   }
 

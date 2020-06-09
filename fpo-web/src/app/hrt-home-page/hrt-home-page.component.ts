@@ -43,22 +43,7 @@ export class HrtHomePageComponent implements OnInit, OnDestroy {
   }
 
   clickTest() {
-    //   this.dataService.getUserInfo('joseph11@belmar.ca').then(res => {
-    //       console.dir('user ifo: ', res)
-    //       this.dataService.acceptTerms().then(response => {
-    //           console.log('response is: ', response)
-    //           this.dataService.saveSurveyResult('default', 'primary', {
-    //               test: '123'
-    //           }).then(re => {
-    //               console.log('re: ', re)
-    //           }).catch(e => {
-    //               console.log('e: ', e)
-    //           })
-    //       });
-    //   })
-    
-    
-    
+
     
     this.dataService.getUserInfo().then(res => {
         console.log('res: ', res)
@@ -174,7 +159,8 @@ clickTest4() {
         data: this.survey.data,
       });
       console.log(this.survey);
-      this.router.navigateByUrl("hrt/progress");
+    //   this.router.navigateByUrl("hrt/progress");
+    window.location.assign(window.location.origin + window.location.pathname + '/progress')
     }
   }
 

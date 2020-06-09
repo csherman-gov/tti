@@ -66,6 +66,12 @@ export class HrtRetaliationProgressPageComponent implements OnInit, OnDestroy {
       short_name: "mediation",
     },
     {
+        name: "Indigenous Peoples",
+        intro: "",
+        url: "hrt/indigenous",
+        short_name: "indigenous",
+    },
+    {
       name: "Demographic Information",
       intro: "This step is optional",
       url: "hrt-retaliation/statistical-information",
@@ -74,7 +80,7 @@ export class HrtRetaliationProgressPageComponent implements OnInit, OnDestroy {
   ];
   get buttonClass() {
     return this.steps.reduce((acc, step) => {
-      if (step.short_name === "statisticalInformation") {
+      if (step.short_name === "statisticalInformation" || step.short_name === "indigenous") {
         return acc && true;
       }
       return acc && this.formData[step.short_name];
@@ -184,7 +190,7 @@ export class HrtRetaliationProgressPageComponent implements OnInit, OnDestroy {
 
     if (
       this.steps.reduce((acc, step) => {
-        if (step.short_name === "statisticalInformation") {
+        if (step.short_name === "statisticalInformation" || step.short_name === "indigenous") {
           return acc && true;
         }
         return acc && this.formData[step.short_name];

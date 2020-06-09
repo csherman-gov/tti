@@ -538,8 +538,18 @@
         {{ formData.mediation["Do you want to attend a mediation?"] }}
       </p>
     </div>
-
     <div style="margin-top: 30px;"></div>
+    
+    <ng-container *ngIf="formData.indigenous">
+        <h3>Indigenous Peoples</h3>
+        <div class="grey-box">
+        <p>
+            I am Indigenous and I want the Tribunal to contact me about the process.
+        </p>
+        </div>
+        <div style="margin-top: 30px;"></div>
+    </ng-container>
+   
 
     <h3 *ngIf="formData.statisticalInformation">
       Demographic Information
@@ -2023,6 +2033,16 @@
           {{ formData.mediation["Do you want to attend a mediation?"] }}
         </p>
       </div>
+      <ng-container *ngIf="formData.indigenous">
+        <div class="section">
+            <h2>
+                Step 8 - Indigenous Peoples
+            </h2>
+            <p>
+                I am Indigenous and I want the Tribunal to contact me about the process.
+            </p>
+          </div>
+        </ng-container>
       <div class="section">
         <h2>
           Next Steps

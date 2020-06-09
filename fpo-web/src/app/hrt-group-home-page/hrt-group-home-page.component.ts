@@ -121,7 +121,8 @@ export class HrtGroupHomePageComponent implements OnInit, OnDestroy {
         data: this.survey.data,
       });
       console.log(this.survey);
-      this.router.navigateByUrl("hrt-group/progress");
+    //   this.router.navigateByUrl("hrt-group/progress");
+    window.location.assign(window.location.origin + window.location.pathname + '/progress')
     }
   }
 
