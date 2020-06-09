@@ -16,6 +16,7 @@ import { PlatformLocation } from "@angular/common";
 })
 export class HrtRetaliationReviewPageComponent implements OnInit, OnDestroy {
   result: boolean;
+  loading = false
   get showLateComplaints() {
     return this.result;
   }
@@ -278,6 +279,7 @@ export class HrtRetaliationReviewPageComponent implements OnInit, OnDestroy {
         attachment_html: attachment_html
       }
       console.log(this.formData)
+      this.loading = true
       this.http
         .post(
             this.platformLocation.getBaseHrefFromDOM() + "api/v1/survey-submit/test_collection/test_key",
@@ -289,6 +291,7 @@ export class HrtRetaliationReviewPageComponent implements OnInit, OnDestroy {
           this.error = false;
           this.router.navigateByUrl("hrt-retaliation/thank-you");
         }).catch(err => {
+            this.loading = false
             console.warn(err)
         });
     } else {

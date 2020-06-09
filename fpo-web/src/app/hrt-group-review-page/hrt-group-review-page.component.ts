@@ -15,6 +15,7 @@ import { Router } from "@angular/router";
 })
 export class HrtGroupReviewPageComponent implements OnInit, OnDestroy {
   result: boolean;
+  loading = false
   get showLateComplaints() {
     return this.result;
   }
@@ -197,23 +198,6 @@ export class HrtGroupReviewPageComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     console.log(this.formData);
-
-    // for (let key in this.formData) {
-    //   if (key == 'home') {
-    //     continue;
-    //   }
-    //   if (key === 'respondents') {
-    //     // console.log(allFormData.respondents)
-    //     let respondents = this.formData.respondents ? this.formData.respondents.Respondents : []
-    //     let result = respondents.reduce((acc, current) => {
-    //       return current['Did all the conduct you say is discrimination happen in the last one year?'] === 'No' && acc
-    //     }, true)
-    //     console.log(result)
-    //     this.result = result
-    //   }
-    // }
-    // this.complainants = Object.keys(this.formData.complainant)
-    // this.show = true
   }
   ngOnDestroy() {
     // prevent memory leak when component destroyed
@@ -244,6 +228,8 @@ export class HrtGroupReviewPageComponent implements OnInit, OnDestroy {
         attachment_html: attachment_html
       }
       console.log(this.formData);
+      
+      this.loading = true
       this.http
         .post(
             this.platformLocation.getBaseHrefFromDOM() + "api/v1/survey-submit/test_collection/test_key",
@@ -257,6 +243,7 @@ export class HrtGroupReviewPageComponent implements OnInit, OnDestroy {
         })
         .catch((err) => {
           console.warn(err);
+          this.loading = false
         });
     } else {
       this.error = true;
