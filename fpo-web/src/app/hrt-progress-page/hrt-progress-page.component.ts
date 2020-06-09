@@ -20,7 +20,9 @@ export class HrtProgressPageComponent implements OnInit, OnDestroy {
   }
   subscription: Subscription;
   formData: object = {};
-  completedSteps: number = 0;
+  completedSteps = 0;
+  loading = false;
+  showPopup = false;
   steps = [
     {
       name: "Party information",
@@ -65,11 +67,11 @@ export class HrtProgressPageComponent implements OnInit, OnDestroy {
       short_name: "mediation",
     },
     {
-        name: "Indigenous Peoples",
-        intro: "",
-        url: "hrt/indigenous",
-        short_name: "indigenous",
-      },
+      name: "Indigenous Peoples",
+      intro: "",
+      url: "hrt/indigenous",
+      short_name: "indigenous",
+    },
     {
       name: "Demographic Information",
       intro: "This step is optional",
@@ -79,7 +81,10 @@ export class HrtProgressPageComponent implements OnInit, OnDestroy {
   ];
   get buttonClass() {
     return this.steps.reduce((acc, step) => {
-      if (step.short_name === "statisticalInformation" || step.short_name === "indigenous") {
+      if (
+        step.short_name === "statisticalInformation" ||
+        step.short_name === "indigenous"
+      ) {
         return acc && true;
       }
       return acc && this.formData[step.short_name];
@@ -113,32 +118,29 @@ export class HrtProgressPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.dataService.getUserInfo().then(res => {
-        console.log('res: ', res)
-        this.user_id = res.user_id ? res.user_id : ''
-    }).catch(err => {
-        console.warn(err)
-    })
+    this.loading = true;
+    this.dataService
+      .getUserInfo()
+      .then((res) => {
+        this.loading = false;
+        this.user_id = res.user_id ? res.user_id : "";
+      })
+      .catch((err) => {
+        this.loading = false;
+        console.warn(err);
+      });
     if (Object.keys(this.formData).length < 1) {
-        console.log('loadData')
+      this.loading = true;
       this.dataService
         .loadSurveyResultIndex("default", "individual", false)
         .then((result) => {
-          console.log("loadSurveyResultIndex success");
-          console.log("result: ", result);
-          // this._surveyIndex = result.result || [];
-        //   this.user_id = result.result[0].user_id;
-        //   console.log(this.user_id);
-          console.log(result.result[0]);
+          this.loading = false;
           if (result.result[0]) {
             this.missionService.confirmMission(result.result[0].result);
-            // missionService.announceMission(this.allFormData);
             this.formData = result.result[0].result;
-
-            // this.formData = allFormData
             this.completedSteps = 0;
-            for (let key in this.formData) {
-              if (key == "home") {
+            for (const key in this.formData) {
+              if (key === "home") {
                 continue;
               }
               this.completedSteps++;
@@ -146,6 +148,7 @@ export class HrtProgressPageComponent implements OnInit, OnDestroy {
           }
         })
         .catch((err) => {
+          this.loading = false;
           console.log("loadSurveyResultIndex fail");
         });
     }
@@ -154,13 +157,24 @@ export class HrtProgressPageComponent implements OnInit, OnDestroy {
     // prevent memory leak when component destroyed
     this.subscription.unsubscribe();
   }
-
+  openConfirmationPopup() {
+    this.showPopup = true;
+  }
+  closePopup() {
+    this.showPopup = false;
+  }
   handleSave() {
+    this.showPopup = false
+    this.loading = true
     this.dataService
       .saveSurveyResult("default", "individual", this.formData)
       .then((res) => {
-        console.log("save ok");
+        this.loading = false
+        window.alert('Your complaint has been saved. You may close the tab now.')
         console.log(res);
+      }).catch(err => {
+          this.loading = false
+          alert('Something went wrong.')
       });
   }
   handleClickEvent(event) {
@@ -175,7 +189,10 @@ export class HrtProgressPageComponent implements OnInit, OnDestroy {
 
     if (
       this.steps.reduce((acc, step) => {
-        if (step.short_name === "statisticalInformation" || step.short_name === "indigenous") {
+        if (
+          step.short_name === "statisticalInformation" ||
+          step.short_name === "indigenous"
+        ) {
           return acc && true;
         }
         return acc && this.formData[step.short_name];
