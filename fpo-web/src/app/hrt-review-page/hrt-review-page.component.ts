@@ -22,6 +22,7 @@ export class HrtReviewPageComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   loading = false
   formData = {
+    indigenous: false,
     home: {
         case_type: 'Individual',
         attachment_html: ''

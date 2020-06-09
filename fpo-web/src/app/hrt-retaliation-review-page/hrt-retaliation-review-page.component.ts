@@ -26,6 +26,7 @@ export class HrtRetaliationReviewPageComponent implements OnInit, OnDestroy {
   complainants: any;
   subscription: Subscription;
   formData = {
+    indigenous: false,
     home: {
         case_type: 'Retaliation',
         attachment_html: ''
