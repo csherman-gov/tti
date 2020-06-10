@@ -22,76 +22,83 @@ export class HrtGroupDetailsOfDiscriminationPageComponent
     showNavigationButtons: false,
     completeText: "",
     showQuestionNumbers: "off",
-    "pages": [
-        {
-         "name": "page1",
-         "elements": [
+    pages: [
+      {
+        name: "page1",
+        elements: [
           {
-           "type": "html",
-           "name": "question1",
-           "html": "<p>\nTo show possible discrimination under the Human Rights Code, you must show:\n</p>\n<ul>\n<li>The Respondent harmed the group or class members in the area you selected, such as employment. The legal term is “adverse effect” regarding the area. </li>\n<li>\nThe harm is based on grounds you selected. The legal term is that the grounds “are a factor in” or are “connected to” the harm.\n</li></ul>"
+            type: "html",
+            name: "question1",
+            html:
+              "<p>\nTo show possible discrimination under the Human Rights Code, you must show:\n</p>\n<ul>\n<li>The Respondent harmed the group or class members in the area you selected, such as employment. The legal term is “adverse effect” regarding the area. </li>\n<li>\nThe harm is based on grounds you selected. The legal term is that the grounds “are a factor in” or are “connected to” the harm.\n</li></ul>",
           },
           {
-           "type": "paneldynamic",
-           "name": "Details of the Discrimination for each Respondent",
-           "templateElements": [
-            {
-             "type": "text",
-             "name": "Respondent",
-             "titleLocation": "left"
-            },
-            {
-             "type": "comment",
-             "name": "Describe the harm the group or class members experienced in a few words",
-             "description": "<b>Example:</b> The class members lose their jobs and felt terrible.<br>Give a short answer. Your short answer helps us understand the details you give below.",
-             "isRequired": true
-            },
-            {
-             "type": "comment",
-             "name": "Explain how the harm relates to the grounds you have selected before",
-             "description": "<div><b>Examples:</b> <ul><li>The words the co-worker used are slurs about Black men.</li><li>Security only followed members of the group or class around the store, not the other people who were not First Nations.</li><li>The respondent fired group or class members one week after they learned they were pregnant.</li><li>A white male colleague got the promotion. Group or class members are at least as qualified. They are Asian women.</li><li>The employer said group or class members have to work Saturdays. Their religion does not allow them to work Saturdays.</li><li>The employer disciplined group or class members for shouting at someone. Their disability caused them to shout.</li><li>This organization refused to provide an interpreter which group or class members need because they are Deaf.</li></ul><p>Consider getting help if you are not sure. See <a href='http://www.bchrt.bc.ca/resources/index.htm' target='_blank'>Who Can Help?</a> </p></div> ",
-             "isRequired": true
-            },
-            {
-             "type": "matrixdynamic",
-             "name": "Give details about this Respondent’s conduct that you say is discrimination",
-             title: "Describe what this Respondent did that harmed group or class members based on the grounds.",
-             "description": "<div><ul><li>Be specific</li><li><b>Example: </b>Do not say, “This person threatened me.” Write out their words and actions.</li><li>Conduct can be what someone did or didn’t do. The legal term is “acts or omissions.”</li><li>If you don’t know the exact date, give an approximate date. <b>Example: </b> 2020-02-01</li></ul></div>",
-             "columns": [
+            type: "paneldynamic",
+            name: "Details of the Discrimination for each Respondent",
+            description:
+              "Complete this section for each Respondent you named in the previous step. Click “Add Details for Another Named Respondent”.",
+            templateElements: [
               {
-               "name": "Date",
-               "cellType": "text",
-               "isRequired": true,
-               "inputType": "date",
-               "max": "2999-12-31"
+                type: "text",
+                name: "Respondent",
+                title: "Respondent Name",
+                titleLocation: "left",
               },
               {
-                "name": "Conduct",
-                "cellType": "comment",
-                "isRequired": true,
-                "rows": 2
-               },
-             ],
-             "choices": [
-              1,
-              2,
-              3,
-              4,
-              5
-             ],
-             "rowCount": 1,
-             "minRowCount": 1,
-             "addRowText": "Add Conduct"
-            },
-           ],
-           "panelCount": 1,
-           "minPanelCount": 1,
-           "maxPanelCount": 10,
-           "panelAddText": "Add Respondent"
-          }
-         ]
-        }
-       ],
+                type: "comment",
+                name:
+                  "Describe the harm the group or class members experienced in a few words",
+                description:
+                  "<b>Example:</b> Do not say, “This person harassed group members.” Write out their words and actions. <br>Give a short answer. Your short answer helps us understand the details you give below.",
+                isRequired: true,
+              },
+              {
+                type: "comment",
+                name:
+                  "Explain how the harm relates to the grounds you have selected before",
+                description:
+                  "<div><b>Examples:</b> <ul><li>The words the Respondent uses are slurs about Black men.</li><li>Security follow Indigenous people in the store, not other people.</li><li>This organization refuses to provide interpreters so Deaf people can participate.</li></ul><p>Consider getting help if you are not sure. See <a href='http://www.bchrt.bc.ca/resources/index.htm' target='_blank'>Who Can Help?</a> </p></div> ",
+                isRequired: true,
+              },
+              {
+                type: "matrixdynamic",
+                name:
+                  "Give details about this Respondent’s conduct that you say is discrimination",
+                title:
+                  "Describe what this Respondent did that harmed the group or class.",
+                description:
+                  "<div><ul><li>Be specific</li><li><b>Example: </b>Do not say, “This person threatened me.” Write out their words and actions.</li><li>Conduct can be what someone did or didn’t do. The legal term is “acts or omissions.”</li><li>If you don’t know the exact date, give an approximate date. Use the 1st day of the month if you do not know the exact day.<b>Example: </b> February 1, 2019.</li></ul></div>",
+                columns: [
+                  {
+                    name: "Date",
+                    cellType: "text",
+                    isRequired: true,
+                    inputType: "date",
+                    max: "2999-12-31",
+                  },
+                  {
+                    name: "Conduct",
+                    cellType: "comment",
+                    isRequired: true,
+                    rows: 2,
+                  },
+                ],
+                choices: [1, 2, 3, 4, 5],
+                rowCount: 1,
+                minRowCount: 1,
+                addRowText: "Add Conduct",
+                removeRowText: "Remove Conduct",
+              },
+            ],
+            panelCount: 1,
+            minPanelCount: 1,
+            maxPanelCount: 10,
+            panelAddText: "Add Details for Another Named Respondent",
+            panelRemoveText: "Remove Above Respondent",
+          },
+        ],
+      },
+    ],
   };
 
   survey: any;

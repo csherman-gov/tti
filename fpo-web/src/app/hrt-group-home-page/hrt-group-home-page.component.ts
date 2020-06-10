@@ -115,15 +115,15 @@ export class HrtGroupHomePageComponent implements OnInit, OnDestroy {
   }
   confirm() {
     // this.confirmed = true;
-    if (this.survey.completeLastPage()) {
-      this.missionService.confirmMission({
-        name: "home",
-        data: this.survey.data,
-      });
-      console.log(this.survey);
+    // if (this.survey.completeLastPage()) {
+    //   this.missionService.confirmMission({
+    //     name: "home",
+    //     data: this.survey.data,
+    //   });
+    //   console.log(this.survey);
     //   this.router.navigateByUrl("hrt-group/progress");
     window.location.assign(window.location.origin + window.location.pathname + '/progress')
-    }
+    // }
   }
 
   ngOnInit() {
@@ -132,11 +132,11 @@ export class HrtGroupHomePageComponent implements OnInit, OnDestroy {
     // load data from sessionStorage if there is one
     this.survey.data = this.formData;
 
-    Survey.SurveyNG.render("surveyElementHRT", { model: this.survey });
-    this.survey.onComplete.add(function (result) {
-      document.querySelector("#surveyResult").textContent =
-        "Result JSON:\n" + JSON.stringify(result.data, null, 3);
-    });
+    // Survey.SurveyNG.render("surveyElementHRT", { model: this.survey });
+    // this.survey.onComplete.add(function (result) {
+    //   document.querySelector("#surveyResult").textContent =
+    //     "Result JSON:\n" + JSON.stringify(result.data, null, 3);
+    // });
   }
 
   initSurvey() {

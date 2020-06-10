@@ -32,7 +32,7 @@ export class HrtGroupTimeLimitPageComponent implements OnInit, OnDestroy {
             type: "html",
             name: "question2",
             html:
-              "<h4>There is a 1-year time limit for filing a complaint</h4>\n<p>Please provide all dates in the following format: YYYY MM DD. If the date of the event of discrimination was February 3rd, 2020, you would write 2020-02-03<p>\n<p style='margin-bottom: -15px;'><b>For each Respondent, what is the date of the most recent conduct that you say is discrimination?</b></p>",
+              "<h4>There is a 1-year time limit for filing a complaint</h4>\n<p>Complete this section for each Respondent you named in your complaint. Click “Add Details for Another Named Respondent”.<p>\n<p style='margin-bottom: -15px;'><b>What is the date of the most recent conduct that you listed as discrimination in the previous step?</b></p>",
           },
           {
             type: "paneldynamic",
@@ -129,7 +129,7 @@ export class HrtGroupTimeLimitPageComponent implements OnInit, OnDestroy {
             name: "Why did you file late?",
             isRequired: true,
             popupdescription:
-              "<p><b>Examples the Tribunal will consider:</b></p><ul><li>The complainant has a disability that prevented them from filing on time. </li><li>The complainant faced trauma or a family or housing crisis that made it hard to file the complaint at the time of the events</li><li>The complainant recently found evidence of discrimination</li><li>The delay is very short and there is some reason for filing late</li></ul><p>You can submit any documents that support your reasons for filing your complaint late</p>",
+              "<p><b>Examples the Tribunal will consider:</b></p><ul><li>The complainant has a disability that prevented them from filing on time. </li><li>The complainant faced trauma or a family or housing crisis that made it hard to file the complaint at the time of the events</li><li>The complainant recently found evidence of discrimination</li><li>The delay is very short and there is some reason for filing late</li></ul><p>Attach any documents that support you reasons for filing late. <b>Examples:</b> doctor’s note, or letter from a counsellor.</p>",
           },
           {
             type: "comment",
@@ -143,7 +143,7 @@ export class HrtGroupTimeLimitPageComponent implements OnInit, OnDestroy {
             name: "Why would the delay in filing not harm anyone else?",
             isRequired: true,
             popupdescription:
-              '<div class="section"> <p> The Respondent could be harmed if: </p> <ul> <li>they don’t have the evidence about what happened because of the delay</li> <li>they lost contact with witnesses that could help their case</li> </ul> </div>',
+              '<div class="section"> <p> The delay means the time after the 1-year time limit: </p> <ul> <li>“The complaint is two months late. Documents and witnesses should still be available.”</li> <li>“The complaint is six months late. I know of no harm to the Respondents.”</li> </ul> </div>',
           },
         ],
         visibleIf:

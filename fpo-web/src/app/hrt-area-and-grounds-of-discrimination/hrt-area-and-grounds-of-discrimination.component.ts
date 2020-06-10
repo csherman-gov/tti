@@ -115,7 +115,8 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
               {
                 type: "text",
                 name: "Details - Age (19 or over)",
-                description: '<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>',
+                description:
+                  "<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>",
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Age (19 or over)'",
                 isRequired: true,
@@ -123,7 +124,8 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
               {
                 type: "text",
                 name: "Details - Ancestry",
-                description: '<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>',
+                description:
+                  "<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>",
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Ancestry'",
                 isRequired: true,
@@ -131,7 +133,8 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
               {
                 type: "text",
                 name: "Details - Colour",
-                description: '<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>',
+                description:
+                  "<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>",
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Colour'",
                 isRequired: true,
@@ -139,7 +142,8 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
               {
                 type: "text",
                 name: "Details - Criminal Conviction",
-                description: '<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>',
+                description:
+                  "<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>",
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Criminal Conviction'",
                 isRequired: true,
@@ -151,7 +155,8 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
               {
                 type: "text",
                 name: "Details - Family Status",
-                description: '<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>',
+                description:
+                  "<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>",
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Family Status'",
                 isRequired: true,
@@ -159,15 +164,17 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
               {
                 type: "text",
                 name: "Details - Gender Identity or Expression",
-                description: '<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>',
+                description:
+                  "<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>",
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Gender Identity or Expression'",
                 isRequired: true,
               },
               {
                 type: "text",
-                name: "Drtails - Marital Status",
-                description: '<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>',
+                name: "Details - Marital Status",
+                description:
+                  "<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>",
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Marital Status'",
                 isRequired: true,
@@ -175,7 +182,8 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
               {
                 type: "text",
                 name: "Details - Mental Disability",
-                description: '<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>',
+                description:
+                  "<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>",
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Mental Disability'",
                 isRequired: true,
@@ -183,7 +191,8 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
               {
                 type: "text",
                 name: "Details - Physical Disability",
-                description: '<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>',
+                description:
+                  "<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>",
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Physical Disability'",
                 isRequired: true,
@@ -191,7 +200,8 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
               {
                 type: "text",
                 name: "Details - Place of Origin",
-                description: '<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>',
+                description:
+                  "<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>",
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Place of Origin'",
                 isRequired: true,
@@ -199,7 +209,8 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
               {
                 type: "text",
                 name: "Details - Political Belief",
-                description: '<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>',
+                description:
+                  "<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>",
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Political Belief'",
                 isRequired: true,
@@ -207,7 +218,8 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
               {
                 type: "text",
                 name: "Details - Race",
-                description: '<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>',
+                description:
+                  "<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>",
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Race'",
                 isRequired: true,
@@ -215,7 +227,8 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
               {
                 type: "text",
                 name: "Details - Religion",
-                description: '<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>',
+                description:
+                  "<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>",
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Religion'",
                 isRequired: true,
@@ -223,7 +236,8 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
               {
                 type: "text",
                 name: "Details - Sex",
-                description: '<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>',
+                description:
+                  "<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>",
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Sex'",
                 isRequired: true,
@@ -231,7 +245,8 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
               {
                 type: "text",
                 name: "Details - Sexual Orientation",
-                description: '<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>',
+                description:
+                  "<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>",
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Sexual Orientation'",
                 isRequired: true,
@@ -239,7 +254,8 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
               {
                 type: "text",
                 name: "Details - Lawful source of income",
-                description: '<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>',
+                description:
+                  "<p><b>Examples:</b> Disability – I have a learning disability. Disability – Respondent thinks I have a heart condition. Age – I am 67. Race – I am Métis.</p>",
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Lawful source of income'",
                 isRequired: true,
@@ -282,14 +298,14 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
 
     this.renderSurvey();
     this.survey.onAfterRenderQuestion.add(function (survey, options) {
-        console.log(options);
-        // Return if there is no description to show in popup
-        if (!options.question.description) return;
-        // Add a button;
-        console.log("options: ", options.question.description);
-        const desc = options.htmlElement.querySelector(".sv_q_description");
-        desc.innerHTML = options.question.description;
-      });
+      console.log(options);
+      // Return if there is no description to show in popup
+      if (!options.question.description) return;
+      // Add a button;
+      console.log("options: ", options.question.description);
+      const desc = options.htmlElement.querySelector(".sv_q_description");
+      desc.innerHTML = options.question.description;
+    });
   }
 
   initSurvey() {

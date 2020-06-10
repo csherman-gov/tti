@@ -47,7 +47,7 @@ export class HrtGroupComplaintSutabilityPageComponent
               "Explain how the alleged discrimination is similar for all group or class members.",
             isRequired: true,
             popupdescription:
-              "<p>You will give details about the alleged discrimination below.</p><p><b>Instructions</b></p><ul><li>Explain how the alleged discrimination is similar for all group or class members</li><li>Identify any differences</li><li>Identify the common issues</li></ul>",
+              "<p>You will give details about the alleged discrimination below.</p><p><b>Here you need to:</b></p><ul><li>Explain how the alleged discrimination is similar for all group or class members</li><li>Identify any differences</li><li>Identify the common issues</li></ul>",
           },
         ],
       },

@@ -25,9 +25,9 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
     "Name of the person who will communicate with the Tribunal, if different from the Representative",
     "Representative’s address for Delivery",
   ];
-  currentPageTitle = "Who is representing the group or class (Representative)?";
+  currentPageTitle = "";
   pageHelpText = {
-    "Who is representing the group or class (Representative)?":
+    "Who is representing the group or class (Representative)?a":
       "<p>A Representative can be an organization or an individual. Complete either organization name or name of individual. If you are writing on behalf of an organization, give the organization name here, then give your name as the person who will communicate with the Tribunal in the next question.</p>",
   };
 
@@ -62,16 +62,17 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
             type: "text",
             name: "Organization Name",
             visibleIf: "{Is the representative:} = 'An organization'",
+            isRequired: true,
           },
           {
             type: "text",
             name: "Individual Legal name – First name",
-            isRequired: true,
+            "requiredIf": "{Is the representative:} = 'An individual'",
           },
           {
             type: "text",
             name: "Individual Legal Name – Last name",
-            isRequired: true,
+            "requiredIf": "{Is the representative:} = 'An individual'",
           },
           {
             type: "text",
@@ -138,7 +139,6 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
             type: "text",
             name: "Representative Preferred name",
             title: "Preferred name – e.g. traditional name, nickname, alias",
-            isRequired: true,
           },
           {
             type: "text",
@@ -165,7 +165,7 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
         visibleIf:
           "{Select only one option:} <> 'The Representative of the group or class or, if the Representative is an organization, the individual speaking for the organization'",
         title:
-          "Name of the person who will communicate with the Tribunal, if different from the Representative",
+          "Name of the person who will communicate with the Tribunal",
       },
       {
         name: "Representative’s address for Delivery",
@@ -174,7 +174,7 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
             type: "html",
             name: "question1",
             html:
-              "<p><b>Purpose of collecting contact information:</b> The Tribunal and Respondents use your contact information to communicate with you about the complaint. The Tribunal may also use it to conduct surveys to evaluate and improve its services.</p>\n<p>For more information see the Privacy Notice at the end of this Form.</p>\n<p>You must give an address where all parties can send you documents. Give the address of the person who will communicate with the Tribunal.</p> \n<p>The Tribunal usually communicates via email. If possible, give an email address where all parties can reach you. If you have confidential contact information, do not put it on this form. Provide it separately by email, mail, fax, or in person.</p><p><b>Important information: </b> A document sent to an address below is considered to be received by the complainant. You must notify the Tribunal of any change to the address for delivery.</p>",
+              "<p><b>Purpose of collecting contact information:</b> The Tribunal and Respondents use your contact information to communicate with you about the complaint See <a href='http://www.bchrt.bc.ca/law-library/policies/privacy.htm' target='_blank'>Complaint Process Privacy Policy</a>.</p>\n<p>You must give an address where all parties can send you documents. Give the address of the person who will communicate with the Tribunal.</p> \n<p>The Tribunal usually communicates via email. If possible, give an email address where all parties can reach you. If you have confidential contact information, do not put it on this form. Provide it separately by email, mail, fax, or in person.</p><p><b>Important information: </b> A document sent to an address below is considered to be received by the complainant. You must notify the Tribunal of any change to the address for delivery.</p>",
           },
           {
             type: "text",
@@ -230,7 +230,7 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
             isRequired: true,
           },
         ],
-        title: "Representative’s address for Delivery",
+        title: "Representative’s address for delivery",
       },
     ],
   };

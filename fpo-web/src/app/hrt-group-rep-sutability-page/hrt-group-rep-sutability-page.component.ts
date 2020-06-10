@@ -105,7 +105,7 @@ export class HrtGroupRepSutabilityPageComponent implements OnInit, OnDestroy {
             type: "text",
             name: "How will you communicate with the group or class members?",
             popupdescription:
-              "<p>A Representative is responsible for communicating with group or class members about important steps in the complaint process. You must have plan.</p>",
+              "<p>A Representative is responsible for communicating with group or class members about important steps in the complaint process. You must have a plan.</p>",
             isRequired: true,
           },
           {
@@ -130,7 +130,7 @@ export class HrtGroupRepSutabilityPageComponent implements OnInit, OnDestroy {
               "will keep the group or class members up-to-date about what steps I have taken, what stage we are at, and what to expect next;",
               "will be available to the group or class members to answer their questions;",
               "will tell the group or class members my plan for how they may take part in the process;  ",
-              "will do the jobs of a Representative, including: ",
+              "will do the job of a Representative, including: ",
               "learn about the complaint process;",
               "ask the Tribunal to accommodate the needs of group or class members so they can take part in the process;",
               "gather evidence to support the complaint and put forward the best possible case to the Tribunal; and",

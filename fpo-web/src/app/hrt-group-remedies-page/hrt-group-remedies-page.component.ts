@@ -33,6 +33,7 @@ export class HrtGroupRemediesPageComponent implements OnInit, OnDestroy {
             isRequired: true,
             hasOther: true,
             otherText: "Something specific (job back, policy…)",
+            "otherErrorText": "Please describe the specific thing you want.",
             choices: [
               "Order to stop the discrimination",
               "Declaration that the conduct is discrimination",
