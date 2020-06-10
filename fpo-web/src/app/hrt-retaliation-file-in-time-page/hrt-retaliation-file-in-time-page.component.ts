@@ -31,12 +31,12 @@ export class HrtRetaliationFileInTimePageComponent
             type: "html",
             name: "question2",
             html:
-              "<h4>There is a 1-year time limit for filing a complaint</h4>\n<p>Please provide all dates in the following format: YYYY MM DD. If the date of the event of discrimination was February 3rd, 2020, you would write 2020-02-03<p>\n<p style='margin-bottom: -15px;'><b>For each Respondent, what is the date of the most recent conduct that you say is discrimination?</b></p>",
+              "<h4>There is a 1-year time limit for filing a complaint</h4>\n<p>Complete this section for each Respondent you named in your complaint. Click “Add Details for Another Named Respondent”.<p>\n<p style='margin-bottom: -15px;'><b>What is the date of the most recent conduct that you listed as retaliation in the previous step?</b></p>",
           },
           {
             type: "paneldynamic",
-            panelAddText: "Add Respondent",
-            panelRemoveText: "Remove Respondent",
+            panelAddText: "Add Details for Another Named Respondent",
+            panelRemoveText: "Remove Above Respondent",
             name: "There is a 1-year time limit for filing a complaint",
             description: "For each Respondent",
             isRequired: true,

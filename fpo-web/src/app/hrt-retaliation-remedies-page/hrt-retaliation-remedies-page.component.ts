@@ -30,6 +30,7 @@ export class HrtRetaliationRemediesPageComponent implements OnInit, OnDestroy {
             type: "checkbox",
             name: "Select the kinds of remedies you want",
             title: "Select the kinds of remedies you want that are available under s. 37 of the Human Rights Code",
+            "otherErrorText": "Please describe the specific thing you want.",
             isRequired: true,
             choices: [
               "Order to stop the retaliation",
