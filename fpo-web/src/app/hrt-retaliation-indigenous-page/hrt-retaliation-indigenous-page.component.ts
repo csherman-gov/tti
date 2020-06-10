@@ -11,11 +11,12 @@ import * as Survey from "survey-angular";
 // import { addQuestionTypes } from '../survey/question-types';
 // widgets.inputmask(Survey);
 @Component({
-  selector: 'app-hrt-retaliation-indigenous-page',
-  templateUrl: './hrt-retaliation-indigenous-page.component.html',
-  styleUrls: ['./hrt-retaliation-indigenous-page.component.scss']
+  selector: "app-hrt-retaliation-indigenous-page",
+  templateUrl: "./hrt-retaliation-indigenous-page.component.html",
+  styleUrls: ["./hrt-retaliation-indigenous-page.component.scss"],
 })
-export class HrtRetaliationIndigenousPageComponent implements OnInit, OnDestroy {
+export class HrtRetaliationIndigenousPageComponent
+  implements OnInit, OnDestroy {
   subscription: Subscription;
   private json = {
     showNavigationButtons: false,
@@ -37,7 +38,7 @@ export class HrtRetaliationIndigenousPageComponent implements OnInit, OnDestroy 
             hideNumber: true,
             titleLocation: "hidden",
             choices: [
-              "I am Indigenous and I want the Tribunal to contact me about the process",
+              "Check here if you are Indigenous and want the Tribunal to contact you to talk about the process",
             ],
           },
         ],
