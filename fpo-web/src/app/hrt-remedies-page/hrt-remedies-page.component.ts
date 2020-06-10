@@ -32,6 +32,7 @@ export class HrtRemediesPageComponent implements OnInit, OnDestroy {
             title: "Select the kinds of remedies you want that are available under s. 37 of the Human Rights Code:",
             isRequired: true,
             hasOther: true,
+            "otherErrorText": "Please describe the specific thing you want.",
             otherText: "Something specific (job back, policy…)",
             choices: [
               "Order to stop the discrimination",

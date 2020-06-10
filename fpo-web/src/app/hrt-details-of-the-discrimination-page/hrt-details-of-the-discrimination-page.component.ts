@@ -35,10 +35,12 @@ export class HrtDetailsOfTheDiscriminationPageComponent
           {
             type: "paneldynamic",
             name: "Details of the Discrimination for each Respondent",
+            description: "Complete this section for each Respondent you named in the previous step. Click “Add Details for Another Named Respondent”.",
             templateElements: [
               {
                 type: "text",
                 name: "Respondent",
+                title: "Respondent Name",
                 titleLocation: "left",
               },
               {
@@ -60,9 +62,9 @@ export class HrtDetailsOfTheDiscriminationPageComponent
                 type: "matrixdynamic",
                 name:
                   "Give details about this Respondent’s conduct that you say is discrimination",
-                  title: "Describe what this Respondent did that harmed group or class members based on the grounds.",
+                  title: "Describe what this Respondent did that harmed you.",
                 description:
-                  "<div><ul><li>Be specific</li><li><b>Example: </b>Do not say, “This person threatened me.” Write out their words and actions.</li><li>Conduct can be what someone did or didn’t do. The legal term is “acts or omissions.”</li><li>If you don’t know the exact date, give an approximate date. <b>Example: </b> 2020-02-01</li></ul></div>",
+                  "<div><ul><li>Be specific</li><li><b>Example: </b>Do not say, “This person threatened me.” Write out their words and actions.</li><li>Conduct can be what someone did or didn’t do. The legal term is “acts or omissions.”</li><li>If you don’t know the exact date, give an approximate date. Use the 1st day of the month if you do not know the exact day. <b>Example: </b>February 1, 2019</li></ul></div>",
                 columns: [
                   {
                     name: "Date",
@@ -82,12 +84,14 @@ export class HrtDetailsOfTheDiscriminationPageComponent
                 rowCount: 1,
                 minRowCount: 1,
                 addRowText: "Add Conduct",
+                removeRowText: "Remove Conduct",
               },
             ],
             panelCount: 1,
             minPanelCount: 1,
             maxPanelCount: 10,
-            panelAddText: "Add Respondent",
+            panelAddText: "Add Details for Another Named Respondent",
+            panelRemoveText: "Remove Above Respondent",
           },
         ],
       },

@@ -124,25 +124,25 @@ clickTest4() {
       {
         name: "Start",
         elements: [
-          {
-            type: "radiogroup",
-            name: "form_timeout",
-            title: "Are you using a public computer?",
-            isRequired: true,
-            colCount: 1,
-            choices: [
-              {
-                text:
-                  "I am using a public computer (i.e. library, internet café, Service BC location)",
-                value:
-                  "I am using a public computer (i.e. library, internet café, Service BC location)",
-              },
-              {
-                text: "I am using a private computer",
-                value: "I am using a private computer",
-              },
-            ],
-          },
+        //   {
+        //     type: "radiogroup",
+        //     name: "form_timeout",
+        //     title: "Are you using a public computer?",
+        //     isRequired: true,
+        //     colCount: 1,
+        //     choices: [
+        //       {
+        //         text:
+        //           "I am using a public computer (i.e. library, internet café, Service BC location)",
+        //         value:
+        //           "I am using a public computer (i.e. library, internet café, Service BC location)",
+        //       },
+        //       {
+        //         text: "I am using a private computer",
+        //         value: "I am using a private computer",
+        //       },
+        //     ],
+        //   },
         ],
       },
     ],
@@ -153,28 +153,29 @@ clickTest4() {
 
   confirm() {
     // this.confirmed = true;
-    if (this.survey.completeLastPage()) {
-      this.missionService.confirmMission({
-        name: "home",
-        data: this.survey.data,
-      });
-      console.log(this.survey);
-    //   this.router.navigateByUrl("hrt/progress");
+    // if (this.survey.completeLastPage()) {
+    //   this.missionService.confirmMission({
+    //     name: "home",
+    //     data: this.survey.data,
+    //   });
+    //   console.log(this.survey);
+    // //   this.router.navigateByUrl("hrt/progress");
+    // }
     window.location.assign(window.location.origin + window.location.pathname + '/progress')
-    }
+    
   }
 
   ngOnInit() {
     this.initSurvey();
     this.survey = new Survey.Model(this.json);
     // load data from sessionStorage if there is one
-    this.survey.data = this.formData;
+    this.survey.data = this.formData; 
     // this.survey.showQuestionNumbers = "off"
-    Survey.SurveyNG.render("surveyElementHRT", { model: this.survey });
-    this.survey.onComplete.add(function (result) {
-      document.querySelector("#surveyResult").textContent =
-        "Result JSON:\n" + JSON.stringify(result.data, null, 3);
-    });
+    // Survey.SurveyNG.render("surveyElementHRT", { model: this.survey });
+    // this.survey.onComplete.add(function (result) {
+    //   document.querySelector("#surveyResult").textContent =
+    //     "Result JSON:\n" + JSON.stringify(result.data, null, 3);
+    // });
   }
 
   initSurvey() {
