@@ -116,7 +116,7 @@ export class HrtGroupRepSutabilityPageComponent implements OnInit, OnDestroy {
             validators: [
               {
                 type: "answercount",
-                minCount: 14,
+                minCount: 10,
                 text: "You must select all declarations.",
               },
             ],
