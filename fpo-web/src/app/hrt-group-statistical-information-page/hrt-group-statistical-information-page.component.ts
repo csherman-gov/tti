@@ -48,7 +48,6 @@ export class HrtGroupStatisticalInformationPageComponent
             choices: [
               "Indigenous",
               "Black",
-              "Asian",
               "East Asian",
               "South Asian",
               "Latinx",

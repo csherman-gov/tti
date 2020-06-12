@@ -161,7 +161,7 @@ clickTest4() {
     //   console.log(this.survey);
     // //   this.router.navigateByUrl("hrt/progress");
     // }
-    window.location.assign(window.location.origin + window.location.pathname + '/progress')
+    window.location.assign(window.location.origin + window.location.pathname + 'hrt/progress')
     
   }
 

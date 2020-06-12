@@ -99,7 +99,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
         name:
           "Name of the person who will communicate with the Tribunal, if different from the Complainant",
         title:
-          "Name of the person who will communicate with the Tribunal, if different from the Complainant",
+          "Name of the person who will communicate with the Tribunal",
         elements: [
           {
             type: "text",
@@ -225,7 +225,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
           },
         ],
         // visibleIf: "{Select only one option} <> 'The complainant'",
-        title: "Complainant’s address for Delivery",
+        title: "Complainant’s address for delivery",
       },
       {
         name: "Respondent Contact Information",
@@ -234,7 +234,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             type: "html",
             name: "question5",
             html:
-              "<h4>\nImportant information about Respondents:\n</h4>\n<ol>\n<li>\nThe Respondent is the person or organization you say discriminated. Usually, there is only one.\n</li>\n<li>Usually the Respondent is an organization such as: corporate employer, landlord, government body, service provider, business or union. Organizations are usually responsible for their employees’ actions. Make the organization Respondent #1.</li>\n<li>An individual can be a Respondent. Only name the person who you say discriminated against you. For example, name the person who harassed you. Do not name the person who only handed you a letter firing you.</li>\n</ol>\n<p>\n<strong>Email:</strong> Email is fastest. If possible, give an email address where we can send your complaint. Choose someone that you think has authority to respond to your complaint. For example, someone in the human resources, or legal department. </p><p>\n<strong>Please Note:</strong> The Tribunal cannot reject someone’s complaint because they don’t have an email address for the Respondent. They must have an address but it does not need to be an email.</p>",
+              "<h4>\nImportant information about Respondents:\n</h4>\n<ol>\n<li>\nThe Respondent is the person or organization you say discriminated. Usually, there is only one.\n</li>\n<li>Usually the Respondent is an organization such as: corporate employer, landlord, government body, service provider, business or union. Organizations are usually responsible for their employees’ actions. Make the organization Respondent #1.</li>\n<li>An individual can be a Respondent. Only name the person who you say discriminated against you. For example, name the person who harassed you. Do not name the person who only handed you a letter firing you.</li>\n</ol>\n<p>\n<strong>Email:</strong> Email is fastest. If possible, give an email address where we can send your complaint. Choose someone that you think has authority to respond to your complaint. For example, someone in the human resources, or legal department. </p>",
           },
           {
             type: "paneldynamic",

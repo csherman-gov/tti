@@ -647,7 +647,7 @@
           [value]="checkbox"
           (click)="handleCheckboxChange($event)"
         />
-        <span
+        <span style="margin-left: 10px;"
           >I confirm that the information in this complaint form is true and
           accurate to the best of my knowledge and belief</span
         ></label
@@ -660,7 +660,7 @@
     <button class="{{ buttonClass }}" (click)="handleSubmit()">Submit</button>
   </div>
 
-  <div style="display: block;" id="pdf-container">
+  <div style="display: none;" id="pdf-container">
     <div class="pdf-container">
       <h2>
         FORM 1.1 – INDIVIDUAL COMPLAINT

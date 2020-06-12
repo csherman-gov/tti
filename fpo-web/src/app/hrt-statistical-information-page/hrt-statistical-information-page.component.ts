@@ -48,7 +48,6 @@ export class HrtStatisticalInformationPageComponent
             choices: [
               "Indigenous",
               "Black",
-              "Asian",
               "East Asian",
               "South Asian",
               "Latinx",
@@ -111,7 +110,7 @@ export class HrtStatisticalInformationPageComponent
             ],
             showClearButton: true,
             otherText: "Other",
-            hasOther: true
+            hasOther: true,
           },
           {
             type: "radiogroup",

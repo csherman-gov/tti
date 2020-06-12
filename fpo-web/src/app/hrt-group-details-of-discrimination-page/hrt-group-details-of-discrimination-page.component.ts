@@ -57,7 +57,7 @@ export class HrtGroupDetailsOfDiscriminationPageComponent
                 name:
                   "Explain how the harm relates to the grounds you have selected before",
                 description:
-                  "<div><b>Examples:</b> <ul><li>The words the Respondent uses are slurs about Black men.</li><li>Security follow Indigenous people in the store, not other people.</li><li>This organization refuses to provide interpreters so Deaf people can participate.</li></ul><p>Consider getting help if you are not sure. See <a href='http://www.bchrt.bc.ca/resources/index.htm' target='_blank'>Who Can Help?</a> </p></div> ",
+                  "<div><b>Examples:</b> <ul><li>The words the Respondent uses are slurs about Black men.</li><li>Security follow Indigenous people in the store, not other people.</li><li>This organization refuses to provide interpreters so Deaf people can participate.</li></ul><p>Consider getting help if you are not sure. See <a href='http://www.bchrt.bc.ca/whocanhelp/index.htm' target='_blank'>Who Can Help?</a> </p></div> ",
                 isRequired: true,
               },
               {
