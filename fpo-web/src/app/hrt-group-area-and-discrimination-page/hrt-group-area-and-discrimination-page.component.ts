@@ -296,16 +296,6 @@ export class HrtGroupAreaAndDiscriminationPageComponent
     Survey.JsonObject.metaData.addProperty("question", "popupdescription:text");
     Survey.JsonObject.metaData.addProperty("page", "popupdescription:text");
     this.renderSurvey();
-    
-    this.survey.onAfterRenderQuestion.add(function (survey, options) {
-        console.log(options);
-        // Return if there is no description to show in popup
-        if (!options.question.description) return;
-        // Add a button;
-        console.log("options: ", options.question.description);
-        const desc = options.htmlElement.querySelector(".sv_q_description");
-        desc.innerHTML = options.question.description;
-      });
   }
   initSurvey() {
     addQuestionTypes(Survey);
@@ -329,35 +319,7 @@ export class HrtGroupAreaAndDiscriminationPageComponent
     Survey.defaultBootstrapCss.radiogroup.materialDecorator = "";
     Survey.StylesManager.applyTheme("bootstrap");
   }
-  //   initSurvey() {
-  //     addQuestionTypes(Survey);
-  //     // console.log("Survey.Survey.cssType", Survey.Survey.cssType);
-  //     // Survey.Survey.cssType = "bootstrap";
-  //     Survey.defaultBootstrapCss.page.root = "sv_page";
-  //     Survey.defaultBootstrapCss.pageDescription = "sv_page_description";
-  //     Survey.defaultBootstrapCss.pageTitle = "sv_page_title";
-  //     Survey.defaultBootstrapCss.navigationButton = "btn btn-primary";
-  //     Survey.defaultBootstrapCss.question.title = "sv_q_title";
-  //     Survey.defaultBootstrapCss.question.description = "sv_q_description small";
-  //     Survey.defaultBootstrapCss.panel.title = "sv_p_title";
-  //     Survey.defaultBootstrapCss.panel.container = "sv_p_container";
-  //     Survey.defaultBootstrapCss.panel.description = "sv_p_description";
-  //     Survey.defaultBootstrapCss.row = "sv_row";
-  //     Survey.defaultBootstrapCss.matrixdynamic.button = "btn btn-default";
-  //     Survey.defaultBootstrapCss.paneldynamic.button = "btn btn-default";
-  //     Survey.defaultBootstrapCss.paneldynamic.root = "sv_p_dynamic"; // not used?
-  //     Survey.defaultBootstrapCss.checkbox.item = "sv-checkbox";
-  //     Survey.defaultBootstrapCss.checkbox.controlLabel = "sv-checkbox-label";
-  //     Survey.defaultBootstrapCss.checkbox.materialDecorator = "";
-  //     Survey.defaultBootstrapCss.radiogroup.item = "sv-radio";
-  //     Survey.defaultBootstrapCss.radiogroup.controlLabel = "sv-checkbox-label";
-  //     Survey.defaultBootstrapCss.radiogroup.materialDecorator = "";
-  //     //Add a property a text property into all questions types and into page
-  //     Survey.JsonObject.metaData.addProperty("question", "popupdescription:text");
-  //     Survey.JsonObject.metaData.addProperty("page", "popupdescription:text");
-  //     // console.log(Survey.JsonObject.metaData.addProperty)
-  //     Survey.StylesManager.applyTheme("bootstrap");
-  //   }
+
   showDescription(element) {
     document.querySelector(".popup-body").innerHTML = element.popupdescription;
     // $("#questionDescriptionPopup").modal();
@@ -403,6 +365,15 @@ export class HrtGroupAreaAndDiscriminationPageComponent
       header.appendChild(span);
       header.appendChild(btn);
     });
+    this.survey.onAfterRenderQuestion.add(function (survey, options) {
+        console.log(options);
+        // Return if there is no description to show in popup
+        if (!options.question.description) return;
+        // Add a button;
+        console.log("options: ", options.question.description);
+        const desc = options.htmlElement.querySelector(".sv_q_description");
+        desc.innerHTML = options.question.description;
+      });
 
     Survey.SurveyNG.render("surveyElementHRT", { model: this.survey });
     console.log("hi!3");

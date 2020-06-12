@@ -297,15 +297,7 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
     Survey.JsonObject.metaData.addProperty("page", "popupdescription:text");
 
     this.renderSurvey();
-    this.survey.onAfterRenderQuestion.add(function (survey, options) {
-      console.log(options);
-      // Return if there is no description to show in popup
-      if (!options.question.description) return;
-      // Add a button;
-      console.log("options: ", options.question.description);
-      const desc = options.htmlElement.querySelector(".sv_q_description");
-      desc.innerHTML = options.question.description;
-    });
+    
   }
 
   initSurvey() {
@@ -382,6 +374,16 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
       header.appendChild(span);
       header.appendChild(btn);
     });
+
+    this.survey.onAfterRenderQuestion.add(function (survey, options) {
+        console.log(options);
+        // Return if there is no description to show in popup
+        if (!options.question.description) return;
+        // Add a button;
+        console.log("options: ", options.question.description);
+        const desc = options.htmlElement.querySelector(".sv_q_description");
+        desc.innerHTML = options.question.description;
+      });
 
     Survey.SurveyNG.render("surveyElementHRT", { model: this.survey });
     console.log("hi!3");
