@@ -1,3 +1,25 @@
+<div class="popup" *ngIf="showPopup">
+    <div class="content">
+        <div>
+            <p>
+                We have saved your information. You can close your form.
+            </p>
+        </div>
+        <div>
+            <button class="btn btn-default" (click)="closePopup()">
+                Save & Exit
+            </button>
+            <button style="margin-left: 20px;" class="btn btn-inactive"
+              (click)="closePopup()"
+            >Cancel</button>
+        </div>
+    </div>
+</div>
+<div class="submitting" *ngIf="loading">
+    <span>
+        Loading...
+    </span>
+</div>
 <div class="row">
   <link
     rel="stylesheet"

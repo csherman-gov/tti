@@ -22,6 +22,8 @@ export class HrtGroupProgressPageComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   formData: object = {};
   completedSteps: number = 0;
+  showPopup = false
+  loading = false
   steps = [
     {
       name: "Party information",
@@ -242,12 +244,23 @@ export class HrtGroupProgressPageComponent implements OnInit, OnDestroy {
     // prevent memory leak when component destroyed
     this.subscription.unsubscribe();
   }
+  closePopup() {
+    this.showPopup = false;
+  }
   handleSave() {
+    this.showPopup = false
+    this.loading = true
     this.dataService
       .saveSurveyResult("default", "group", this.formData)
       .then((res) => {
-        console.log("save ok");
+        this.loading = false
+        // window.alert('Your complaint has been saved. You may close the tab now.')
+        // this.confirmed = true
+        this.showPopup = true
         console.log(res);
+      }).catch(err => {
+          this.loading = false
+          alert('Something went wrong.')
       });
   }
   handleClickEvent(event) {
