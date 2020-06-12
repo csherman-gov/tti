@@ -34,7 +34,7 @@ export class HrtRetaliationDetailsOfTheRetaliationPageComponent
             type: "html",
             name: "question2",
             html:
-              "<p>\nTo show possible retaliation, you must show:\n</p>\n<ul><li>\nThe Respondent harmed or threatened to harm you, and \n</li><li>\nThe Respondent did this to retaliate against you for your role in a complaint\n\n</li></ul>\n<p>\nYou will be asked to give details for each Respondent.\n</p>",
+              "<p>\nTo show possible retaliation, you must show:\n</p>\n<ul><li>\nThe Respondent harmed or threatened to harm you, and \n</li><li>\nThe Respondent did this to retaliate against you for your role in a complaint\n\n</li></ul>",
           },
           {
             type: "paneldynamic",
@@ -56,6 +56,7 @@ export class HrtRetaliationDetailsOfTheRetaliationPageComponent
               },
               {
                 type: "matrixdynamic",
+                title: "Describe what this Respondent did to retaliate.",
                 name:
                   "Give details about this Respondent’s conduct that you say is retaliation.",
                 description:

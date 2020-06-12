@@ -70,7 +70,7 @@ export class HrtRetaliationProgressPageComponent implements OnInit, OnDestroy {
     {
         name: "Indigenous Peoples",
         intro: "",
-        url: "hrt/indigenous",
+        url: "hrt-retaliation/indigenous",
         short_name: "indigenous",
     },
     {

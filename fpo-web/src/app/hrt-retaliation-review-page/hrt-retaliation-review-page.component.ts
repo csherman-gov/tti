@@ -149,6 +149,16 @@ export class HrtRetaliationReviewPageComponent implements OnInit, OnDestroy {
       }`
   );
   show: boolean = false;
+  getCurrentDate() {
+    const today = new Date();
+    const date =
+      today.getFullYear() +
+      "-" +
+      ((today.getMonth() + 1) < 10 ? '0' + (today.getMonth() + 1) : (today.getMonth() + 1)) +
+      "-" +
+      ((today.getDate() + 1) < 10 ? '0' + (today.getDate() + 1) : (today.getDate() + 1));
+    return date;
+  }
   constructor(
     private missionService: MissionService,
     private router: Router,
