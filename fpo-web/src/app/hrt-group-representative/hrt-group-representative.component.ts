@@ -174,7 +174,7 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
             type: "html",
             name: "question1",
             html:
-              "<p><b>Purpose of collecting contact information:</b> The Tribunal and Respondents use your contact information to communicate with you about the complaint See <a href='http://www.bchrt.bc.ca/law-library/policies/privacy.htm' target='_blank'>Complaint Process Privacy Policy</a>.</p>\n<p>You must give an address where all parties can send you documents. Give the address of the person who will communicate with the Tribunal.</p> \n<p>The Tribunal usually communicates via email. If possible, give an email address where all parties can reach you. If you have confidential contact information, do not put it on this form. Provide it separately by email, mail, fax, or in person.</p><p><b>Important information: </b> A document sent to an address below is considered to be received by the complainant. You must notify the Tribunal of any change to the address for delivery.</p>",
+              "<p><b>Purpose of collecting contact information:</b> The Tribunal and Respondents use your contact information to communicate with you about the complaint. See <a href='http://www.bchrt.bc.ca/law-library/policies/privacy.htm' target='_blank'>Complaint Process Privacy Policy</a>.</p>\n<p>You must give an address where all parties can send you documents. Give the address of the person who will communicate with the Tribunal.</p> \n<p>The Tribunal usually communicates via email. If possible, give an email address where all parties can reach you. If you have confidential contact information, do not put it on this form. Provide it separately by email, mail, fax, or in person.</p><p><b>Important information: </b> A document sent to an address below is considered to be received by the complainant. You must notify the Tribunal of any change to the address for delivery.</p>",
           },
           {
             type: "text",
@@ -184,14 +184,14 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
           {
             type: "text",
             name: "City",
-            isRequired: true,
+            // isRequired: true,
           },
           {
             type: "dropdown",
             name: "Province",
             startWithNewLine: false,
             title: "Province",
-            isRequired: true,
+            // isRequired: true,
             choices: [
               "Alberta",
               "British Columbia",
@@ -212,12 +212,12 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
             type: "text",
             name: "Postal Code",
             startWithNewLine: false,
-            isRequired: true,
+            // isRequired: true,
           },
           {
             type: "text",
             name: "Phone number",
-            isRequired: true,
+            // isRequired: true,
           },
           {
             type: "text",
@@ -227,7 +227,7 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
           {
             type: "text",
             name: "Email",
-            isRequired: true,
+            // isRequired: true,
           },
         ],
         title: "Representative’s address for delivery",

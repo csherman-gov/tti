@@ -62,6 +62,7 @@ const routes: Routes = [
   {
     path: "",
     // children: []
+    pathMatch: 'full',
     redirectTo: "hrt",
     // component: HrtHomePageComponent, // This is the original line here, replaced with HRT path below to make FPO pages inaccessible.
     // component: HrtHomePageComponent,

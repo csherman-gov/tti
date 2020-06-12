@@ -31,7 +31,7 @@ export class HrtComplaintFileInTimePageComponent implements OnInit, OnDestroy {
             type: "html",
             name: "question2",
             html:
-              "<h4>There is a 1-year time limit for filing a complaint</h4>\n<p>Complete this section for each Respondent you named in your complaint. Click “Add Details for Another Named Respondent”.<p>\n<p style='margin-bottom: -15px;'><b>What is the date of the most recent conduct that you listed as discrimination in the previous step?</b></p>",
+              "<h4>There is a 1-year time limit for filing a complaint</h4>\n<p>Complete this section for each Respondent you named in your complaint.<p>\n<p style='margin-bottom: -15px;'><b>What is the date of the most recent conduct that you listed as discrimination in the previous step?</b></p>",
           },
           {
             type: "paneldynamic",

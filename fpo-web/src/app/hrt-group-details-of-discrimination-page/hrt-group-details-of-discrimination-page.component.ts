@@ -67,7 +67,7 @@ export class HrtGroupDetailsOfDiscriminationPageComponent
                 title:
                   "Describe what this Respondent did that harmed the group or class.",
                 description:
-                  "<div><ul><li>Be specific</li><li><b>Example: </b>Do not say, “This person threatened me.” Write out their words and actions.</li><li>Conduct can be what someone did or didn’t do. The legal term is “acts or omissions.”</li><li>If you don’t know the exact date, give an approximate date. Use the 1st day of the month if you do not know the exact day.<b>Example: </b> February 1, 2019.</li></ul></div>",
+                  "<div><ul><li>Be specific</li><li><b>Example: </b>Do not say, “This person threatened me.” Write out their words and actions.</li><li>Conduct can be what someone did or didn’t do. The legal term is “acts or omissions.”</li><li>If you don’t know the exact date, give an approximate date. Use the 1st day of the month if you do not know the exact day. <b>Example: </b> February 1, 2019.</li></ul></div>",
                 columns: [
                   {
                     name: "Date",
