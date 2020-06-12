@@ -714,17 +714,14 @@
               }}
             </b>
           </p>
-          <p>
-            <b>
+          <p *ngIf="formData.complainant['Use my preferred name']">
               Use my preferred name:
-
               {{ formData.complainant["Use my preferred name"].join(", ") }}
             </b>
           </p>
           <p>
             <b>
               Title:
-
               {{
                 formData.complainant["Title"]
                   ? formData.complainant["Title"] === "other"
