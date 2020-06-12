@@ -146,6 +146,16 @@ export class HrtGroupReviewPageComponent implements OnInit, OnDestroy {
       },"otherProceedings":{"Does the group or class have another proceeding about the same events?":"Yes","What kind of proceeding is it?":"3333","What stage is that proceeding at?":"1213123312312123","Do you want the Tribunal to wait to deal with the complaint?":"Yes","Explain why you want the Tribunal to wait to deal with the complaint":"312312312312"},"remedies":{"Select the kinds of remedies you want":["Declaration that the conduct is discrimination","Steps or programs to address the discrimination (examples: training, policy)","Compensation for lost waged or expenses or other expenses such as moving expenses, photocopying, costs of attending the hearing (keep receipts)"]},"mediation":{"Do you want to attend a mediation?":"Yes"},"statisticalInformation":{"Indigenous Identity":"First Nations","Racial Identity":"Indigenous","Immigration Status":"Canadian citizen","Primary Language":"English","Disability requiring accommodation in employment and services":"Yes - physical","Gender Identity":"Woman","Sexual Orientation":"LGBQ","Age":"Under 19","Household":"Single parent","Household Income After Tax":"Under $20,000"}}`
   );
   show: boolean = false;
+  getCurrentDate() {
+    const today = new Date();
+    const date =
+      today.getFullYear() +
+      "-" +
+      ((today.getMonth() + 1) < 10 ? '0' + (today.getMonth() + 1) : (today.getMonth() + 1)) +
+      "-" +
+      ((today.getDate() + 1) < 10 ? '0' + (today.getDate() + 1) : (today.getDate() + 1));
+    return date;
+  }
   constructor(
       private missionService: MissionService,
       private router: Router,

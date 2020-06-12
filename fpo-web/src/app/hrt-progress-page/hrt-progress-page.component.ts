@@ -170,7 +170,9 @@ export class HrtProgressPageComponent implements OnInit, OnDestroy {
       .saveSurveyResult("default", "individual", this.formData)
       .then((res) => {
         this.loading = false
-        window.alert('Your complaint has been saved. You may close the tab now.')
+        // window.alert('Your complaint has been saved. You may close the tab now.')
+        // this.confirmed = true
+        this.showPopup = true
         console.log(res);
       }).catch(err => {
           this.loading = false
