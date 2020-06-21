@@ -7,6 +7,8 @@ import { Subscription } from "rxjs";
 import { Router } from "@angular/router";
 import { GeneralDataService } from "../general-data.service";
 
+import { PlatformLocation } from "@angular/common";
+
 @Component({
   selector: "app-hrt-retaliation-review-page",
   templateUrl: "./hrt-retaliation-review-page.component.html",
@@ -14,6 +16,7 @@ import { GeneralDataService } from "../general-data.service";
 })
 export class HrtRetaliationReviewPageComponent implements OnInit, OnDestroy {
   result: boolean;
+  loading = false
   get showLateComplaints() {
     return this.result;
   }
@@ -23,6 +26,7 @@ export class HrtRetaliationReviewPageComponent implements OnInit, OnDestroy {
   complainants: any;
   subscription: Subscription;
   formData = {
+    indigenous: false,
     home: {
         case_type: 'Retaliation',
         attachment_html: ''
@@ -145,11 +149,22 @@ export class HrtRetaliationReviewPageComponent implements OnInit, OnDestroy {
       }`
   );
   show: boolean = false;
+  getCurrentDate() {
+    const today = new Date();
+    const date =
+      today.getFullYear() +
+      "-" +
+      ((today.getMonth() + 1) < 10 ? '0' + (today.getMonth() + 1) : (today.getMonth() + 1)) +
+      "-" +
+      ((today.getDate() + 1) < 10 ? '0' + (today.getDate() + 1) : (today.getDate() + 1));
+    return date;
+  }
   constructor(
     private missionService: MissionService,
     private router: Router,
     private http: HttpClient,
-    private dataService: GeneralDataService
+    private dataService: GeneralDataService,
+    private platformLocation: PlatformLocation
   ) {
     this.subscription = missionService.missionAnnounced$.subscribe(
       (allFormData) => {
@@ -270,12 +285,15 @@ export class HrtRetaliationReviewPageComponent implements OnInit, OnDestroy {
       const attachment_html = document.getElementById('pdf-container').innerHTML
       console.log(attachment_html)
       const case_type = 'Retaliation'
-      this.formData.home.case_type = case_type
-      this.formData.home.attachment_html = attachment_html
+      this.formData.home = {
+        case_type: case_type,
+        attachment_html: attachment_html
+      }
       console.log(this.formData)
+      this.loading = true
       this.http
         .post(
-          "https://django-qjtfov-dev.pathfinder.gov.bc.ca/api/v1/survey-submit/test_collection/test_key",
+            this.platformLocation.getBaseHrefFromDOM() + "api/v1/survey-submit/test_collection/test_key",
           this.formData
         )
         .toPromise()
@@ -284,6 +302,7 @@ export class HrtRetaliationReviewPageComponent implements OnInit, OnDestroy {
           this.error = false;
           this.router.navigateByUrl("hrt-retaliation/thank-you");
         }).catch(err => {
+            this.loading = false
             console.warn(err)
         });
     } else {

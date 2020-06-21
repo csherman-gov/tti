@@ -458,16 +458,17 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
           {
             type: "text",
             name: "First name",
+            isRequired: true,
           },
           {
             type: "text",
             name: "Last name",
+            isRequired: true,
           },
           {
             type: "text",
             name: "Organization name",
             title: "Organization name (e.g. law firm, if applicable)",
-            isRequired: true,
           },
           {
             type: "text",
@@ -495,37 +496,37 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
         visibleIf:
           "{Select only one option} = 'A lawyer' or {Select only one option} = 'A legal advocate (Example: A person who works for a law clinic)' or {Select only one option} = 'Another person – You must file a Form 1.2 with this complaint'",
         title:
-          "Name of the person who will communicate with the Tribunal, if different from the Complainant",
+          "Name of the person who will communicate with the Tribunal",
       },
       {
         name: "Complainant’s address for Delivery",
-        title: "Complainant’s address for Delivery",
+        title: "Complainant’s address for delivery",
         elements: [
           {
             type: "html",
             name: "question1",
             html:
-              "<p><strong>Purpose of collecting contact information:</strong> The Tribunal and Respondents use your contact information to communicate with you about the complaint. For more information see the Privacy Notice at the end of this Form.</p><p>You must give an address where all parties can send you documents. Give the address of the person who will communicate with the Tribunal.</p><p>The Tribunal usually communicates by email. If possible, give an email address where all parties can reach you. If you have confidential contact information, do not put it on this form. Provide it separately by email, mail, fax, or in person.</p><p><strong>Important information: </strong>A document sent to an address below is considered to be received by the complainant. You must notify the Tribunal of any change to the address for delivery.</p>",
+              "<p><strong>Purpose of collecting contact information:</strong> The Tribunal and Respondents use your contact information to communicate with you about the complaint. See <a href='http://www.bchrt.bc.ca/law-library/policies/privacy.htm' target='_blank'>Complaint Process Privacy Policy</a>.</p><p>You must give an address where all parties can send you documents. Give the address of the person who will communicate with the Tribunal.</p><p>The Tribunal usually communicates by email. If possible, give an email address where all parties can reach you. If you have confidential contact information, do not put it on this form. Provide it separately by email, mail, fax, or in person.</p><p><strong>Important information: </strong>A document sent to an address below is considered to be received by the complainant. You must notify the Tribunal of any change to the address for delivery.</p>",
           },
           {
             type: "text",
             name: "Complainant Contact Mailing address",
             title: "Mailing address",
-            isRequired: true,
+            // isRequired: true,
           },
           {
             type: "text",
             name: "Complainant Contact City",
             width: "30%",
             title: "City ",
-            isRequired: true,
+            // isRequired: true,
           },
           {
             type: "dropdown",
             name: "Complainant Contact Province",
             startWithNewLine: false,
             title: "Province",
-            isRequired: true,
+            // isRequired: true,
             choices: [
               "Alberta",
               "British Columbia",
@@ -548,14 +549,14 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             width: "30%",
             startWithNewLine: false,
             title: "Postal Code",
-            isRequired: true,
+            // isRequired: true,
           },
           {
             type: "text",
             name: "Complainant Contact Phone number",
             width: "30%",
             title: "Phone number  ",
-            isRequired: true,
+            // isRequired: true,
           },
           {
             type: "text",
@@ -576,7 +577,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             name: "Complainant Contact Email",
             width: "40%",
             title: "Email",
-            isRequired: true,
+            // isRequired: true,
           },
         ],
         // visibleIf: "{Select only one option} <> 'The complainant'",
@@ -589,12 +590,12 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             type: "html",
             name: "question5",
             html:
-              "<h4>\nImportant information about Respondents:\n</h4>\n<ol>\n<li>The Respondent is the person or organization you say retaliated against you. Usually, there is only one.\n</li>\n<li>Usually the Respondent is an organization such as: corporate employer, landlord, government body, service provider, business or union. Organizations are usually responsible for their employees’ actions. Make the organization Respondent #1.</li>\n<li>An individual can be a Respondent. Only name the person who you say retaliated against you. For example, you can name the person who made a decision that you think is retaliation. Do not name the person who only told you about the decision.</li>\n</ol>\n<p>\n<strong>Email:</strong> Email is fastest. If possible, give an email address where we can send your complaint. Choose someone that you think has authority to respond to your complaint. For example, someone in the human resources, or legal department. </p><p>\n<strong>Please Note:</strong> The Tribunal cannot reject someone’s complaint because they don’t have an email address for the Respondent. They must have an address but it does not need to be an email.</p>",
+              "<h4>\nImportant information about Respondents:\n</h4>\n<ol>\n<li>The Respondent is the person or organization you say retaliated against you. Usually, there is only one.\n</li>\n<li>Usually the Respondent is an organization such as: corporate employer, landlord, government body, service provider, business or union. Organizations are usually responsible for their employees’ actions. Make the organization Respondent #1.</li>\n<li>An individual can be a Respondent. Only name the person who you say retaliated against you. For example, you can name the person who made a decision that you think is retaliation. Do not name the person who only told you about the decision.</li>\n</ol>\n<p>\n<strong>Email:</strong> Email is fastest. If possible, give an email address where we can send your complaint. Choose someone that you think has authority to respond to your complaint. For example, someone in the human resources, or legal department. </p>",
           },
           {
             type: "paneldynamic",
-            panelAddText: "Add Respondent",
-            panelRemoveText: "Remove Respondent",
+            panelAddText: "ADD Another Respondent",
+            panelRemoveText: "REMOVE Above Respondent",
             name: "Respondents Contact Information",
             templateElements: [
               {
@@ -614,7 +615,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
                 name: "Respondent Contact Email",
                 width: "40%",
                 title: "Email",
-                isRequired: true,
+                // isRequired: true,
               },
               {
                 type: "text",
@@ -655,14 +656,14 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
                 type: "text",
                 name: "Postal Code",
                 startWithNewLine: false,
-                isRequired: true,
+                // isRequired: true,
               },
               {
                 type: "text",
                 name: "Respondent Contact Phone number",
                 width: "30%",
                 title: "Phone number  ",
-                isRequired: true,
+                // isRequired: true,
               },
               {
                 type: "text",

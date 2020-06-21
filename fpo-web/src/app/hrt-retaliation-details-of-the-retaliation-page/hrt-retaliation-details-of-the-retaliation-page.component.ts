@@ -34,15 +34,17 @@ export class HrtRetaliationDetailsOfTheRetaliationPageComponent
             type: "html",
             name: "question2",
             html:
-              "<p>\nTo show possible retaliation, you must show:\n</p>\n<ul><li>\nThe Respondent harmed or threatened to harm you, and \n</li><li>\nThe Respondent did this to retaliate against you for your role in a complaint\n\n</li></ul>\n<p>\nYou will be asked to give details for each Respondent.\n</p>",
+              "<p>\nTo show possible retaliation, you must show:\n</p>\n<ul><li>\nThe Respondent harmed or threatened to harm you, and \n</li><li>\nThe Respondent did this to retaliate against you for your role in a complaint\n\n</li></ul>",
           },
           {
             type: "paneldynamic",
             name: "Details of the Retaliation for each Respondent",
+            description: "Complete this section for each Respondent you named in the previous step. Click “Add Details for Another Named Respondent”.",
             templateElements: [
               {
                 type: "text",
                 name: "Respondent",
+                title: "Respondent Name",
                 titleLocation: "left",
               },
               {
@@ -54,17 +56,12 @@ export class HrtRetaliationDetailsOfTheRetaliationPageComponent
               },
               {
                 type: "matrixdynamic",
+                title: "Describe what this Respondent did to retaliate.",
                 name:
                   "Give details about this Respondent’s conduct that you say is retaliation.",
                 description:
-                  "<div><ul><li>Be specific</li><li><b>Example: </b>Do not say, “This person threatened me.” Write out their words and actions.</li><li>Conduct can be what someone did or didn’t do. The legal term is “acts or omissions.”</li><li>If you don’t know the exact date, give an approximate date. <b>Example: </b> 2020-02-01</li></ul></div>",
+                  "<div><ul><li>Be specific</li><li><b>Example: </b>Do not say, “This person threatened me.” Write out their words and actions.</li><li>Conduct can be what someone did or didn’t do. The legal term is “acts or omissions.”</li><li>If you don’t know the exact date, give an approximate date. Use the 1st day of the month if you do not know the exact day. <b>Example: </b> February 1, 2019.</li></ul></div>",
                 columns: [
-                  {
-                    name: "Conduct",
-                    cellType: "comment",
-                    isRequired: true,
-                    rows: 1,
-                  },
                   {
                     name: "Date",
                     cellType: "text",
@@ -72,8 +69,15 @@ export class HrtRetaliationDetailsOfTheRetaliationPageComponent
                     inputType: "date",
                     max: "2999-12-31",
                   },
+                  {
+                    name: "Conduct",
+                    cellType: "comment",
+                    isRequired: true,
+                    rows: 2,
+                  },
                 ],
                 addRowText: "Add Conduct",
+                removeRowText: "Remove Conduct",
                 choices: [1, 2, 3, 4, 5],
                 rowCount: 1,
                 minRowCount: 1,
@@ -83,10 +87,11 @@ export class HrtRetaliationDetailsOfTheRetaliationPageComponent
                 name:
                   "Explain why you think this conduct is retaliation for your role in a complaint",
                 description:
-                  "<div> <p> <b> Examples: </b> </p> <ul> <li> “I talked about discrimination at work. My boss said he’d never promote me if I made a complaint.” </li> <li> “I filed a discrimination complaint against my landlord. Two months later the landlord sued me in court. The lawsuit had no basis. It was just to smear my character.” </li> <li> “After I filed a complaint, my manager investigated me. My employer suspended me for 5 days for being late to work once. At most, this deserved a verbal warning.” </li> </ul> <p> Consider getting help if you are not sure. See <a href='http://www.bchrt.bc.ca/resources/index.htm' target='_blank'>Who Can Help?</a> </p> </div>",
+                  "<div> <p> <b> Examples: </b> </p> <ul> <li> “I talked about discrimination at work. My boss said he’d never promote me if I made a complaint.” </li> <li> “I filed a discrimination complaint against my landlord. Two months later the landlord sued me in court. The lawsuit had no basis. It was just to smear my character.” </li> <li> “After I filed a complaint, my manager investigated me. My employer suspended me for 5 days for being late to work once. At most, this deserved a verbal warning.” </li> </ul> <p> Consider getting help if you are not sure. See  <a href='http://www.bchrt.bc.ca/whocanhelp/index.htm' target='_blank'>Who Can Help?</a>. </p> </div>",
               },
             ],
-            panelAddText: "Add Respondent",
+            panelAddText: "Add Details for Another Named Respondent",
+            panelRemoveText: "Remove Above Respondent",
             panelCount: 1,
             minPanelCount: 1,
             maxPanelCount: 10,

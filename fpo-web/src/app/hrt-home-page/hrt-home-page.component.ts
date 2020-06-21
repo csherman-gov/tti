@@ -19,6 +19,7 @@ import { GeneralDataService, UserInfo } from "../general-data.service";
 })
 export class HrtHomePageComponent implements OnInit, OnDestroy {
   subscription: Subscription;
+  user_id = ''
   constructor(
     private missionService: MissionService,
     private router: Router,
@@ -35,28 +36,14 @@ export class HrtHomePageComponent implements OnInit, OnDestroy {
       }
     );
   }
+  
   ngOnDestroy() {
     // prevent memory leak when component destroyed
     this.subscription.unsubscribe();
   }
 
   clickTest() {
-    //   this.dataService.getUserInfo('joseph11@belmar.ca').then(res => {
-    //       console.dir('user ifo: ', res)
-    //       this.dataService.acceptTerms().then(response => {
-    //           console.log('response is: ', response)
-    //           this.dataService.saveSurveyResult('default', 'primary', {
-    //               test: '123'
-    //           }).then(re => {
-    //               console.log('re: ', re)
-    //           }).catch(e => {
-    //               console.log('e: ', e)
-    //           })
-    //       });
-    //   })
-    
-    
-    
+
     
     this.dataService.getUserInfo().then(res => {
         console.log('res: ', res)
@@ -69,20 +56,24 @@ export class HrtHomePageComponent implements OnInit, OnDestroy {
   }
   handleLogin(user: UserInfo, navPath: string, reqTerms: boolean) {
     const extUri =
-      window.location.origin + '/hrt/progress?login_redirect=/hrt/progress'
+      window.location.origin + '/hrt/hrt/progress?login_redirect=/'
     //   this.location.prepareExternalUrl(
     //     "/prv/status?login_redirect=" + encodeURIComponent(navPath)
     //   );
-    if (user && !user.user_id && user.login_uri) {
-        console.log(user.login_uri + "?next=" + encodeURIComponent(extUri))
+    console.log(user.login_uri + "?next=" + encodeURIComponent(extUri))
       window.location.replace(
         user.login_uri + "?next=" + encodeURIComponent(extUri)
       );
-      return false;
-    } else if (user && reqTerms && !user.accepted_terms_at) {
-    //   this.redirectStatus(navPath);
-    }
-    return true;
+    // if (user && !user.user_id && user.login_uri) {
+    //     console.log(user.login_uri + "?next=" + encodeURIComponent(extUri))
+    //   window.location.replace(
+    //     user.login_uri + "?next=" + encodeURIComponent(extUri)
+    //   );
+    //   return false;
+    // } else if (user && reqTerms && !user.accepted_terms_at) {
+    // //   this.redirectStatus(navPath);
+    // }
+    // return true;
   }
   clickTest2() {
      this.dataService
@@ -91,11 +82,27 @@ export class HrtHomePageComponent implements OnInit, OnDestroy {
           console.log('loadSurveyResultIndex success')
           console.log('result: ', result)
         // this._surveyIndex = result.result || [];
+        this.user_id = result.result[0].user_id
+        console.log(this.user_id)
       })
       .catch(err => {
           console.log('loadSurveyResultIndex fail')
         // this._surveyIndex = [];
       });
+}
+clickTest3() {
+    this.dataService.saveSurveyResult("default", "primary", {
+        test: 'This is a test from Joseph'
+    }, this.user_id).then(res => {
+        console.log('save ok')
+        console.log(res)
+    })
+}
+clickTest4() {
+    this.dataService.loadSurveyResult("default", "primary", this.user_id).then(res => {
+        console.log('retrieve ok')
+        console.log(res)
+    })
 }
   survey: any;
   completedSteps = {
@@ -117,25 +124,25 @@ export class HrtHomePageComponent implements OnInit, OnDestroy {
       {
         name: "Start",
         elements: [
-          {
-            type: "radiogroup",
-            name: "form_timeout",
-            title: "Are you using a public computer?",
-            isRequired: true,
-            colCount: 1,
-            choices: [
-              {
-                text:
-                  "I am using a public computer (i.e. library, internet café, Service BC location)",
-                value:
-                  "I am using a public computer (i.e. library, internet café, Service BC location)",
-              },
-              {
-                text: "I am using a private computer",
-                value: "I am using a private computer",
-              },
-            ],
-          },
+        //   {
+        //     type: "radiogroup",
+        //     name: "form_timeout",
+        //     title: "Are you using a public computer?",
+        //     isRequired: true,
+        //     colCount: 1,
+        //     choices: [
+        //       {
+        //         text:
+        //           "I am using a public computer (i.e. library, internet café, Service BC location)",
+        //         value:
+        //           "I am using a public computer (i.e. library, internet café, Service BC location)",
+        //       },
+        //       {
+        //         text: "I am using a private computer",
+        //         value: "I am using a private computer",
+        //       },
+        //     ],
+        //   },
         ],
       },
     ],
@@ -146,27 +153,29 @@ export class HrtHomePageComponent implements OnInit, OnDestroy {
 
   confirm() {
     // this.confirmed = true;
-    if (this.survey.completeLastPage()) {
-      this.missionService.confirmMission({
-        name: "home",
-        data: this.survey.data,
-      });
-      console.log(this.survey);
-      this.router.navigateByUrl("hrt/progress");
-    }
+    // if (this.survey.completeLastPage()) {
+    //   this.missionService.confirmMission({
+    //     name: "home",
+    //     data: this.survey.data,
+    //   });
+    //   console.log(this.survey);
+    // //   this.router.navigateByUrl("hrt/progress");
+    // }
+    window.location.assign(window.location.origin + window.location.pathname + '/progress')
+    
   }
 
   ngOnInit() {
     this.initSurvey();
     this.survey = new Survey.Model(this.json);
     // load data from sessionStorage if there is one
-    this.survey.data = this.formData;
+    this.survey.data = this.formData; 
     // this.survey.showQuestionNumbers = "off"
-    Survey.SurveyNG.render("surveyElementHRT", { model: this.survey });
-    this.survey.onComplete.add(function (result) {
-      document.querySelector("#surveyResult").textContent =
-        "Result JSON:\n" + JSON.stringify(result.data, null, 3);
-    });
+    // Survey.SurveyNG.render("surveyElementHRT", { model: this.survey });
+    // this.survey.onComplete.add(function (result) {
+    //   document.querySelector("#surveyResult").textContent =
+    //     "Result JSON:\n" + JSON.stringify(result.data, null, 3);
+    // });
   }
 
   initSurvey() {

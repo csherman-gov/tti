@@ -31,6 +31,11 @@ export class AppComponent implements AfterViewInit, DoCheck, OnInit {
     // subscribe
     missionService.missionConfirmed$.subscribe((formData) => {
       console.log("Event Captured on App Component! ", formData);
+      if (!formData.data) {
+        this.allFormData = formData
+        missionService.announceMission(this.allFormData)
+        return
+      }
       let { name, data } = formData;
       this.allFormData[name] = data;
       console.log(this.allFormData);
@@ -92,11 +97,12 @@ export class AppComponent implements AfterViewInit, DoCheck, OnInit {
     });
 
     if (environment.matomoUrl && environment.matomoSiteId) {
+        return
       this.matomoInjector.init({
         url: environment.matomoUrl,
         id: environment.matomoSiteId,
       });
-      matomoEnabled = true;
+      matomoEnabled = false;
     }
 
     this.router.events.subscribe((event) => {

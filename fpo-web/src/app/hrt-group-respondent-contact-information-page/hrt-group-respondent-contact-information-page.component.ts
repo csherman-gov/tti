@@ -32,7 +32,7 @@ export class HrtGroupRespondentContactInformationPageComponent
             type: "html",
             name: "question5",
             html:
-              "<h4>\nImportant information about Respondents:\n</h4>\n<ol>\n<li>\nThe Respondent is the person or organization you say discriminated. Usually, there is only one.\n</li>\n<li>Usually the Respondent is an organization such as: corporate employer, landlord, government body, service provider, business or union. Organizations are usually responsible for their employees’ actions. Make the organization Respondent #1.</li>\n<li>An individual can be a Respondent. Only name the person who you say discriminated against you. For example, name the person who harassed you. Do not name the person who only handed you a letter firing you.</li>\n</ol>\n<p>\n<strong>Email:</strong> Email is fastest. If possible, give an email address where we can send your complaint. Choose someone that you think has authority to respond to your complaint. For example, someone in the human resources, or legal department. </p><p>\n<strong>Please Note:</strong> The Tribunal cannot reject someone’s complaint because they don’t have an email address for the Respondent. They must have an address but it does not need to be an email.</p>",
+              "<h4>\nImportant information about Respondents:\n</h4>\n<ol>\n<li>\nThe Respondent is the person or organization you say discriminated. Usually, there is only one.\n</li>\n<li>Usually the Respondent is an organization such as: corporate employer, landlord, government body, service provider, business or union. Organizations are usually responsible for their employees’ actions. Make the organization Respondent #1.</li>\n<li>An individual can be a Respondent. Only name the person who you say discriminated against you. For example, name the person who harassed you. Do not name the person who only handed you a letter firing you.</li>\n</ol>\n<p>\n<strong>Email:</strong> Email is fastest. If possible, give an email address where we can send your complaint. Choose someone that you think has authority to respond to your complaint. For example, someone in the human resources, or legal department. </p>",
           },
           {
             type: "paneldynamic",
@@ -55,7 +55,7 @@ export class HrtGroupRespondentContactInformationPageComponent
                 name: "Respondent Contact Email",
                 width: "40%",
                 title: "Email",
-                isRequired: true,
+                // isRequired: true,
               },
               {
                 type: "text",
@@ -96,14 +96,14 @@ export class HrtGroupRespondentContactInformationPageComponent
                 type: "text",
                 name: "Postal Code",
                 startWithNewLine: false,
-                isRequired: true,
+                // isRequired: true,
               },
               {
                 type: "text",
                 name: "Respondent Contact Phone number",
                 width: "33%",
                 title: "Phone number  ",
-                isRequired: true,
+                // isRequired: true,
               },
               {
                 type: "text",
@@ -120,8 +120,8 @@ export class HrtGroupRespondentContactInformationPageComponent
                 title: "Fax",
               },
             ],
-            panelAddText: "Add Respondent",
-            panelRemoveText: "Remove Respondent",
+            panelAddText: "ADD Another Respondent",
+            panelRemoveText: "REMOVE Above Respondent",
             panelCount: 1,
             minPanelCount: 1,
           },

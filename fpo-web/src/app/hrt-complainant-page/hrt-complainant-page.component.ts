@@ -17,361 +17,6 @@ import * as Survey from "survey-angular";
 })
 export class HrtComplainantPageComponent implements OnInit, OnDestroy {
   subscription: Subscription;
-  // private json = {
-  //   "showNavigationButtons": false,
-  //   "completeText": "",
-  //   "pages": [
-  //     {
-  //       "name": "Complainant Type",
-  //       "elements": [
-  //         {
-  //           type: "radiogroup",
-  //           name: "Complainant type",
-  //           title: "Which of the following are you?",
-  //           isRequired: true,
-  //           colCount: 1,
-  //           choices: [
-  //             {
-  //               text: "Individual",
-  //               value: "Individual"
-  //             },
-  //             {
-  //               text: "Organization",
-  //               value: "Organization"
-  //             }
-  //           ]
-  //         },
-  //         {
-  //           visibleIf: "{Complainant type} == 'Individual'",
-  //           name: "Legal first name",
-  //           type: "text",
-  //           title: "Legal first name",
-  //           placeHolder: "Please enter your legal first name:",
-  //           isRequired: true,
-  //           width: "30%",
-  //         },
-  //         {
-  //           visibleIf: "{Complainant type} == 'Individual'",
-  //           name: "Legal last name",
-  //           type: "text",
-  //           title: "Legal last name",
-  //           placeHolder: "Please enter your legal last name",
-  //           isRequired: true,
-  //           width: "30%",
-  //         },
-  //         {
-  //           visibleIf: "{Complainant type} == 'Organization'",
-  //           name: "Legal organization name",
-  //           type: "text",
-  //           title: "Legal organization name",
-  //           placeHolder: "Please enter the legal organization name",
-  //           isRequired: true,
-  //           width: "30%",
-  //         },
-  //         {
-  //           visibleIf: "{Complainant type} == 'Individual'",
-  //           "type": "dropdown",
-  //           "name": "How do you want to be addressed?",
-  //           "choices": [
-  //            "She/Her/Hers",
-  //            "He/Him/His",
-  //            "They/Them"
-  //           ]
-  //          },
-  //          {
-  //           "type": "text",
-  //           "visibleIf": "{Complainant type} notempty",
-  //           "name": "List other names you use or are known by"
-  //          },
-  //         // {
-  //         //   type: "text",
-  //         //   name: "mailing_address",
-  //         //   title: "Mailing address",
-  //         //   isRequired: true,
-  //         // },
-  //         {
-  //           "type": "text",
-  //           "name": "Address line 1",
-  //           "title": "Address line 1:",
-  //           "isRequired": true,
-  //           "titleLocation": "top",
-  //           "visibleIf": "{Complainant type} notempty",
-  //         },
-  //         {
-  //           "type": "text",
-  //           "name": "Address line 2",
-  //           // "visible": false,
-  //           "title": "Address line 2",
-  //           "titleLocation": "top",
-  //           "visibleIf": "{Complainant type} notempty",
-  //         },
-  //         {
-  //           type: "text",
-  //           name: "City",
-  //           title: "City",
-  //           isRequired: true,
-  //           width: "30%",
-  //           "visibleIf": "{Complainant type} notempty",
-  //         },
-  //         {
-  //           "type": "dropdown",
-  //           "name": "Province",
-  //           "title": "Province: ",
-  //           "startWithNewLine": false,
-  //           "isRequired": true,
-  //           "width": "30%",
-  //           "visibleIf": "{Complainant type} notempty",
-  //           "choices": [
-  //             "Alberta",
-  //             "British Columbia",
-  //             "Manitoba",
-  //             "New Brunswick",
-  //             "Newfoundland",
-  //             "Nova Scotia",
-  //             "Ontario",
-  //             "Prince Edward Island",
-  //             "Quebec",
-  //             "Saskatchewan",
-  //             "Northwest Territories",
-  //             "Nunavut",
-  //             "Yukon"
-  //           ]
-  //         },
-  //         {
-  //           type: "text",
-  //           name: "Postal code",
-  //           title: "Postal code",
-  //           isRequired: true,
-  //           startWithNewLine: false,
-  //           width: "30%",
-  //           "visibleIf": "{Complainant type} notempty",
-  //         },
-  //         {
-  //           type: "text",
-  //           name: "Phone number",
-  //           "inputMask": "phoneNA",
-  //           title: "Phone number",
-  //           isRequired: true,
-  //           width: "30%",
-  //           "visibleIf": "{Complainant type} notempty",
-  //         },
-  //         {
-  //           type: "text",
-  //           name: "Other phone number",
-  //           title: "Other phone number",
-  //           // isRequired: true,
-  //           startWithNewLine: false,
-  //           "visibleIf": "{Complainant type} notempty",
-  //           width: "30%",
-  //         },
-  //         {
-  //           type: "text",
-  //           name: "Fax",
-  //           title: "Fax",
-  //           "visibleIf": "{Complainant type} notempty",
-  //           // isRequired: true,
-  //           width: "30%",
-  //         },
-  //         {
-  //           type: "text",
-  //           name: "Email",
-  //           "visibleIf": "{Complainant type} notempty",
-  //           title: "Email",
-  //           isRequired: true,
-  //           startWithNewLine: false,
-  //           width: "30%",
-  //         },
-  //         {
-  //           type: "checkbox",
-  //           name: "Consent",
-  //           "visibleIf": "{Complainant type} notempty",
-  //           title: "The Tribunal uses your contact information to process the complaint and conduct surveys to evaluate and improve its services. The Tribunal will give your mailing address to the other parties for the exchange of information and other documents. Your additional contact information will only be given to the other parties if you agree.",
-  //           description: "",
-  //           "choices": [
-  //             {
-  //               "value": "confirmed",
-  //               "text": " I do not want the Tribunal to disclose my phone numbers, fax and email to the respondent"
-  //             }
-  //           ]
-  //         },
-  //         {
-  //           "type": "radiogroup",
-  //           "name": "Add another complainant?",
-  //           "isRequired": true,
-  //           "visibleIf": "{Complainant type} == 'Individual'",
-  //           "choices": [
-  //             "Yes",
-  //             "No"
-  //           ]
-  //         },
-  //         {
-  //           type: "radiogroup",
-  //           name: "Complainant type 2",
-  //           title: "Which of the following are you?",
-  //           "visibleIf": "{Add another complainant?} = \"Yes\"",
-  //           isRequired: true,
-  //           colCount: 1,
-  //           choices: [
-  //             {
-  //               text: "Individual",
-  //               value: "Individual"
-  //             },
-  //             {
-  //               text: "Organization",
-  //               value: "Organization"
-  //             }
-  //           ]
-  //         },
-  //         {
-  //           "type": "text",
-  //           "name": "Legal first name 2nd",
-  //           "visibleIf": "{Complainant type 2} = \"Individual\"",
-  //           "width": "30%",
-  //           "title": "Legal first name",
-  //           "isRequired": true,
-  //           "placeHolder": "Please enter your legal first name:"
-  //         },
-  //         {
-  //           "type": "text",
-  //           "name": "Legal last name 2nd",
-  //           "visibleIf": "{Complainant type 2} = \"Individual\"",
-  //           "width": "30%",
-  //           "title": "Legal last name",
-  //           "isRequired": true,
-  //           "placeHolder": "Please enter your legal last name"
-  //         },
-  //         {
-  //           "type": "text",
-  //           "name": "Legal organization name 2nd",
-  //           "visibleIf": "{Complainant type 2} = \"Organization\"",
-  //           "width": "30%",
-  //           "title": "Legal orgnization name",
-  //           "isRequired": true,
-  //           "placeHolder": "Please enter your legal orgnazation name"
-  //         },
-  //         {
-  //           "type": "dropdown",
-  //           "name": "How do you want to be addressed? 2nd",
-  //           "title": "How do you want to be addressed?",
-  //           "visibleIf": "{Complainant type 2} = \"Individual\"",
-  //           "choices": [
-  //            "She/Her/Hers",
-  //            "He/Him/His",
-  //            "They/Them"
-  //           ]
-  //          },
-  //          {
-  //           "type": "text",
-  //           "visibleIf": "{Add another complainant?} = \"Yes\"",
-  //           "name": "List other names you use or are known by 2nd",
-  //           "title": "List other names you use or are known by:"
-  //          },
-  //         {
-  //           "type": "text",
-  //           "name": "Address line 1 2nd",
-  //           "visibleIf": "{Add another complainant?} = \"Yes\"",
-  //           "title": "Address line 1:",
-  //           "isRequired": true,
-  //           "titleLocation": "top"
-  //         },
-  //         {
-  //           "type": "text",
-  //           "name": "Address line 2 2nd",
-  //           "visibleIf": "{Add another complainant?} = \"Yes\"",
-  //           "title": "Address line 2",
-  //           "titleLocation": "top"
-  //         },
-  //         {
-  //           "type": "text",
-  //           "name": "City 2nd",
-  //           "visibleIf": "{Add another complainant?} = \"Yes\"",
-  //           "width": "30%",
-  //           "title": "City",
-  //           "isRequired": true
-  //         },
-  //         {
-  //           "type": "dropdown",
-  //           "name": "Province 2nd",
-  //           "visibleIf": "{Add another complainant?} = \"Yes\"",
-  //           "width": "30%",
-  //           "startWithNewLine": false,
-  //           "title": "Province: ",
-  //           "isRequired": true,
-  //           "choices": [
-  //             "Alberta",
-  //             "British Columbia",
-  //             "Manitoba",
-  //             "New Brunswick",
-  //             "Newfoundland",
-  //             "Nova Scotia",
-  //             "Ontario",
-  //             "Prince Edward Island",
-  //             "Quebec",
-  //             "Saskatchewan",
-  //             "Northwest Territories",
-  //             "Nunavut",
-  //             "Yukon"
-  //           ]
-  //         },
-  //         {
-  //           "type": "text",
-  //           "name": "Postal code 2nd",
-  //           "visibleIf": "{Add another complainant?} = \"Yes\"",
-  //           "width": "30%",
-  //           "startWithNewLine": false,
-  //           "title": "Postal code",
-  //           "isRequired": true
-  //         },
-  //         {
-  //           "type": "text",
-  //           "name": "Phone number 2nd",
-  //           "visibleIf": "{Add another complainant?} = \"Yes\"",
-  //           "width": "30%",
-  //           "title": "Phone number",
-  //           "isRequired": true
-  //         },
-  //         {
-  //           "type": "text",
-  //           "name": "Other phone number 2nd",
-  //           "visibleIf": "{Add another complainant?} = \"Yes\"",
-  //           "width": "30%",
-  //           "startWithNewLine": false,
-  //           "title": "Other phone number"
-  //         },
-  //         {
-  //           "type": "text",
-  //           "name": "Fax 2nd",
-  //           "visibleIf": "{Add another complainant?} = \"Yes\"",
-  //           "width": "30%",
-  //           "title": "Fax"
-  //         },
-  //         {
-  //           "type": "text",
-  //           "name": "Email 2nd",
-  //           "visibleIf": "{Add another complainant?} = \"Yes\"",
-  //           "width": "30%",
-  //           "startWithNewLine": false,
-  //           "title": "Email",
-  //           "isRequired": true
-  //         },
-  //         {
-  //           "type": "checkbox",
-  //           "name": "Consent 2nd",
-  //           "visibleIf": "{Add another complainant?} = \"Yes\"",
-  //           "title": "The Tribunal uses your contact information to process the complaint and conduct surveys to evaluate and improve its services. The Tribunal will give your mailing address to the other parties for the exchange of information and other documents. Your additional contact information will only be given to the other parties if you agree.",
-  //           "choices": [
-  //             {
-  //               "value": "confirmed",
-  //               "text": " I do not want the Tribunal to disclose my phone numbers, fax and email to the respondent"
-  //             }
-  //           ]
-  //         }
-
-  //       ]
-  //     }
-  //   ],
-  //   "showQuestionNumbers": "off"
-  // };
 
   private json = {
     showNavigationButtons: false,
@@ -443,16 +88,10 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
                 text: "The complainant",
               },
               "A lawyer for the complainant",
-              "A person in a legal clinic acting for the complainant",
+              "A legal advocate (Example: a person who works for a law clinic)",
               "Another person – You must file a Form 1.2 with this complaint.",
             ],
           },
-          //   {
-          //     type: "html",
-          //     name: "question6",
-          //     html:
-          //       '<p style="margin-top: 20px;">The Tribunal may accept your complaint filed for another person if the person has legal capacity and consent, or you have legal authority to file the complaint for someone without legal capacity, such as a child.</p><p style="margin-bottom: 20px;">\n              In order to determine if your complaint on behalf of another person can be accepted, please complete an additional form "<a href="#">FORM 1.2 – REPRESENTATIVE AUTHORIZATION</a>". You will need to email us a copy of your completed authorization form at <a href="mailto:BCHumanRightsTribunal@gov.bc.ca">BCHumanRightsTribunal@gov.bc.ca</a>.</p>',
-          //   },
         ],
         title: "Who will communicate with the Tribunal about this Complaint?",
       },
@@ -460,7 +99,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
         name:
           "Name of the person who will communicate with the Tribunal, if different from the Complainant",
         title:
-          "Name of the person who will communicate with the Tribunal, if different from the Complainant",
+          "Name of the person who will communicate with the Tribunal",
         elements: [
           {
             type: "text",
@@ -476,7 +115,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             type: "text",
             name: "Organization name",
             title: "Organization name (e.g. law firm, if applicable)",
-            isRequired: true,
+            // isRequired: true,
           },
           {
             type: "text",
@@ -502,7 +141,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
           },
         ],
         visibleIf:
-          "{Select only one option} = 'A lawyer for the complainant' or {Select only one option} = 'A person in a legal clinic acting for the complainant' or {Select only one option} = 'Another person – You must file a Form 1.2 with this complaint.'",
+          "{Select only one option} = 'A lawyer for the complainant' or {Select only one option} = 'A legal advocate (Example: a person who works for a law clinic)' or {Select only one option} = 'Another person – You must file a Form 1.2 with this complaint.'",
       },
       {
         name: "Complainant’s address for Delivery",
@@ -511,27 +150,27 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             type: "html",
             name: "question1",
             html:
-              "<p><strong>Purpose of collecting contact information:</strong> The Tribunal and Respondents use your contact information to communicate with you about the complaint. For more information see the Privacy Notice at the end of this Form.</p><p>You must give an address where all parties can send you documents. Give the address of the person who will communicate with the Tribunal.</p><p>The Tribunal usually communicates by email. If possible, give an email address where all parties can reach you. If you have confidential contact information, do not put it on this form. Provide it separately by email, mail, fax, or in person.</p><p><strong>Important information: </strong>A document sent to an address below is considered to be received by the complainant. You must notify the Tribunal of any change to the address for delivery.</p>",
+              "<p><strong>Purpose of collecting contact information:</strong> The Tribunal and Respondents use your contact information to communicate with you about the complaint. See <a href='http://www.bchrt.bc.ca/law-library/policies/privacy.htm' target='_blank'>Complaint Process Privacy Policy</a>.</p><p>You must give an address where all parties can send you documents. Give the address of the person who will communicate with the Tribunal.</p><p>The Tribunal usually communicates by email. If possible, give an email address where all parties can reach you. If you have confidential contact information, do not put it on this form. Provide it separately by email, mail, fax, or in person.</p><p><strong>Important information: </strong>A document sent to an address below is considered to be received by the complainant. You must notify the Tribunal of any change to the address for delivery.</p>",
           },
           {
             type: "text",
             name: "Complainant Contact Mailing address",
             title: "Mailing address",
-            isRequired: true,
+            // isRequired: true,
           },
           {
             type: "text",
             name: "Complainant Contact City",
             width: "30%",
             title: "City ",
-            isRequired: true,
+            // isRequired: true,
           },
           {
             type: "dropdown",
             name: "Complainant Contact Province",
             startWithNewLine: false,
             title: "Province",
-            isRequired: true,
+            // isRequired: true,
             choices: [
               "Alberta",
               "British Columbia",
@@ -554,14 +193,14 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             width: "30%",
             startWithNewLine: false,
             title: "Postal Code",
-            isRequired: true,
+            // isRequired: true,
           },
           {
             type: "text",
             name: "Complainant Contact Phone number",
             width: "30%",
             title: "Phone number  ",
-            isRequired: true,
+            // isRequired: true,
           },
           {
             type: "text",
@@ -582,11 +221,11 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             name: "Complainant Contact Email",
             width: "40%",
             title: "Email",
-            isRequired: true,
+            // isRequired: true,
           },
         ],
         // visibleIf: "{Select only one option} <> 'The complainant'",
-        title: "Complainant’s address for Delivery",
+        title: "Complainant’s address for delivery",
       },
       {
         name: "Respondent Contact Information",
@@ -595,7 +234,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             type: "html",
             name: "question5",
             html:
-              "<h4>\nImportant information about Respondents:\n</h4>\n<ol>\n<li>\nThe Respondent is the person or organization you say discriminated. Usually, there is only one.\n</li>\n<li>Usually the Respondent is an organization such as: corporate employer, landlord, government body, service provider, business or union. Organizations are usually responsible for their employees’ actions. Make the organization Respondent #1.</li>\n<li>An individual can be a Respondent. Only name the person who you say discriminated against you. For example, name the person who harassed you. Do not name the person who only handed you a letter firing you.</li>\n</ol>\n<p>\n<strong>Email:</strong> Email is fastest. If possible, give an email address where we can send your complaint. Choose someone that you think has authority to respond to your complaint. For example, someone in the human resources, or legal department. </p><p>\n<strong>Please Note:</strong> The Tribunal cannot reject someone’s complaint because they don’t have an email address for the Respondent. They must have an address but it does not need to be an email.</p>",
+              "<h4>\nImportant information about Respondents:\n</h4>\n<ol>\n<li>\nThe Respondent is the person or organization you say discriminated. Usually, there is only one.\n</li>\n<li>Usually the Respondent is an organization such as: corporate employer, landlord, government body, service provider, business or union. Organizations are usually responsible for their employees’ actions. Make the organization Respondent #1.</li>\n<li>An individual can be a Respondent. Only name the person who you say discriminated against you. For example, name the person who harassed you. Do not name the person who only handed you a letter firing you.</li>\n</ol>\n<p>\n<strong>Email:</strong> Email is fastest. If possible, give an email address where we can send your complaint. Choose someone that you think has authority to respond to your complaint. For example, someone in the human resources, or legal department. </p>",
           },
           {
             type: "paneldynamic",
@@ -618,7 +257,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
                 name: "Respondent Contact Email",
                 width: "40%",
                 title: "Email",
-                isRequired: true,
+                // isRequired: true,
               },
               {
                 type: "text",
@@ -659,14 +298,14 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
                 type: "text",
                 name: "Postal Code",
                 startWithNewLine: false,
-                isRequired: true,
+                // isRequired: true,
               },
               {
                 type: "text",
                 name: "Respondent Contact Phone number",
                 width: "33%",
                 title: "Phone number  ",
-                isRequired: true,
+                // isRequired: true,
               },
               {
                 type: "text",
@@ -685,8 +324,8 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             ],
             panelCount: 1,
             minPanelCount: 1,
-            panelAddText: "Add Respondent",
-            panelRemoveText: "Remove Respondent",
+            panelAddText: "ADD Another Respondent",
+            panelRemoveText: "REMOVE Above Respondent",
           },
         ],
         title: "Respondent Contact Information",

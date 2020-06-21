@@ -105,7 +105,7 @@ export class HrtGroupRepSutabilityPageComponent implements OnInit, OnDestroy {
             type: "text",
             name: "How will you communicate with the group or class members?",
             popupdescription:
-              "<p>A Representative is responsible for communicating with group or class members about important steps in the complaint process. You must have plan.</p>",
+              "<p>A Representative is responsible for communicating with group or class members about important steps in the complaint process. You must have a plan.</p>",
             isRequired: true,
           },
           {
@@ -116,7 +116,7 @@ export class HrtGroupRepSutabilityPageComponent implements OnInit, OnDestroy {
             validators: [
               {
                 type: "answercount",
-                minCount: 14,
+                minCount: 10,
                 text: "You must select all declarations.",
               },
             ],
@@ -130,13 +130,14 @@ export class HrtGroupRepSutabilityPageComponent implements OnInit, OnDestroy {
               "will keep the group or class members up-to-date about what steps I have taken, what stage we are at, and what to expect next;",
               "will be available to the group or class members to answer their questions;",
               "will tell the group or class members my plan for how they may take part in the process;  ",
-              "will do the jobs of a Representative, including: ",
-              "learn about the complaint process;",
-              "ask the Tribunal to accommodate the needs of group or class members so they can take part in the process;",
-              "gather evidence to support the complaint and put forward the best possible case to the Tribunal; and",
-              "decide whether to hire a lawyer or legal advocate and instruct that person.",
+              "will do the job of a Representative, including: ",
             ],
           },
+          {
+            "type": "html",
+            "name": "question1",
+            "html": "<ul style='padding-left: 50px;'>\n<li>\nlearn about the complaint process\n</li>\n<li>\nask the Tribunal to accommodate the needs of group or class members so they can take part in the process;</li>\n<li>\ngather evidence to support the complaint and put forward the best possible case to the Tribunal; and</li>\n<li>\ndecide whether to hire a lawyer or legal advocate and instruct that person.</li>\n</ul>"
+           }
         ],
       },
     ],

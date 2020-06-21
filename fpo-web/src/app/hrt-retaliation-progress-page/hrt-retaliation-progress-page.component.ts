@@ -5,6 +5,8 @@ import { MissionService } from "../mission.service";
 import { Subscription } from "rxjs";
 
 import { Router } from "@angular/router";
+// data service
+import { GeneralDataService, UserInfo } from "../general-data.service";
 
 @Component({
   selector: "app-hrt-retaliation-progress-page",
@@ -13,12 +15,15 @@ import { Router } from "@angular/router";
 })
 export class HrtRetaliationProgressPageComponent implements OnInit, OnDestroy {
   result: boolean;
+  user_id = ''
   get showLateComplaints() {
     return this.result;
   }
   subscription: Subscription;
   formData: object = {};
   completedSteps: number = 0;
+  loading = false;
+  showPopup = false;
   steps = [
     {
       name: "Party information",
@@ -63,6 +68,12 @@ export class HrtRetaliationProgressPageComponent implements OnInit, OnDestroy {
       short_name: "mediation",
     },
     {
+        name: "Indigenous Peoples",
+        intro: "",
+        url: "hrt-retaliation/indigenous",
+        short_name: "indigenous",
+    },
+    {
       name: "Demographic Information",
       intro: "This step is optional",
       url: "hrt-retaliation/statistical-information",
@@ -71,7 +82,7 @@ export class HrtRetaliationProgressPageComponent implements OnInit, OnDestroy {
   ];
   get buttonClass() {
     return this.steps.reduce((acc, step) => {
-      if (step.short_name === "statisticalInformation") {
+      if (step.short_name === "statisticalInformation" || step.short_name === "indigenous") {
         return acc && true;
       }
       return acc && this.formData[step.short_name];
@@ -79,7 +90,7 @@ export class HrtRetaliationProgressPageComponent implements OnInit, OnDestroy {
       ? "btn btn-default"
       : "btn btn-inactive";
   }
-  constructor(private missionService: MissionService, private router: Router) {
+  constructor(private missionService: MissionService, private router: Router, private dataService: GeneralDataService) {
     this.subscription = missionService.missionAnnounced$.subscribe(
       (allFormData) => {
         console.log("allFormData", allFormData);
@@ -117,6 +128,64 @@ export class HrtRetaliationProgressPageComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     console.log(this.formData);
+    
+    
+    this.dataService.getUserInfo().then(res => {
+        console.log('res: ', res)
+        this.user_id = res.user_id ? res.user_id : ''
+    }).catch(err => {
+        console.warn(err)
+    })
+    if (Object.keys(this.formData).length < 1) {
+        console.log('loadData')
+      this.dataService
+        .loadSurveyResultIndex("default", "retaliation", false)
+        .then((result) => {
+          console.log("loadSurveyResultIndex success");
+          console.log("result: ", result);
+          // this._surveyIndex = result.result || [];
+        //   this.user_id = result.result[0].user_id;
+        //   console.log(this.user_id);
+          console.log(result.result[0]);
+          if (result.result[0]) {
+            this.missionService.confirmMission(result.result[0].result);
+            // missionService.announceMission(this.allFormData);
+            this.formData = result.result[0].result;
+
+            // this.formData = allFormData
+            this.completedSteps = 0;
+            for (let key in this.formData) {
+              if (key == "home") {
+                continue;
+              }
+              this.completedSteps++;
+            }
+          }
+        })
+        .catch((err) => {
+          console.log("loadSurveyResultIndex fail");
+          // this._surveyIndex = [];
+        });
+    }
+  }
+  closePopup() {
+    this.showPopup = false;
+  }
+  handleSave() {
+    this.showPopup = false
+    this.loading = true
+    this.dataService
+      .saveSurveyResult("default", "retaliation", this.formData)
+      .then((res) => {
+        this.loading = false
+        // window.alert('Your complaint has been saved. You may close the tab now.')
+        // this.confirmed = true
+        this.showPopup = true
+        console.log(res);
+      }).catch(err => {
+          this.loading = false
+          alert('Something went wrong.')
+      });
   }
   ngOnDestroy() {
     // prevent memory leak when component destroyed
@@ -134,7 +203,7 @@ export class HrtRetaliationProgressPageComponent implements OnInit, OnDestroy {
 
     if (
       this.steps.reduce((acc, step) => {
-        if (step.short_name === "statisticalInformation") {
+        if (step.short_name === "statisticalInformation" || step.short_name === "indigenous") {
           return acc && true;
         }
         return acc && this.formData[step.short_name];

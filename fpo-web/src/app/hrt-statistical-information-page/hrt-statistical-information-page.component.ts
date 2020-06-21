@@ -48,7 +48,7 @@ export class HrtStatisticalInformationPageComponent
             choices: [
               "Indigenous",
               "Black",
-              "Asian",
+              "East Asian",
               "South Asian",
               "Latinx",
               "Middle Eastern",
@@ -105,12 +105,12 @@ export class HrtStatisticalInformationPageComponent
               "Cognitive",
               "Memory",
               "Learning",
-              "Development",
+              "Developmental",
               "Unknown",
             ],
             showClearButton: true,
             otherText: "Other",
-            hasOther: true
+            hasOther: true,
           },
           {
             type: "radiogroup",
@@ -147,7 +147,7 @@ export class HrtStatisticalInformationPageComponent
             name: "Household",
             hasOther: true,
             choices: [
-              "Single parent",
+              "Single parent family",
               "Two parent family",
               "Single adult",
               "Two adults",

@@ -48,7 +48,7 @@ export class HrtRetaliationStatisticalInformationPageComponent
             choices: [
               "Indigenous",
               "Black",
-              "Asian",
+              "East Asian",
               "South Asian",
               "Latinx",
               "Middle Eastern",
@@ -105,7 +105,7 @@ export class HrtRetaliationStatisticalInformationPageComponent
               "Cognitive",
               "Memory",
               "Learning",
-              "Development",
+              "Developmental",
               "Unknown",
             ],
             showClearButton: true,
@@ -147,7 +147,7 @@ export class HrtRetaliationStatisticalInformationPageComponent
             name: "Household",
             hasOther: true,
             choices: [
-              "Single parent",
+              "Single parent family",
               "Two parent family",
               "Single adult",
               "Two adults",

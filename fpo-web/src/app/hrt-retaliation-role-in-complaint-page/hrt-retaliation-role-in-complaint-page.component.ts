@@ -64,7 +64,7 @@ export class HrtRetaliationRoleInComplaintPageComponent
           {
             type: "text",
             name: "When was the complaint filed?",
-            isRequired: true,
+            // isRequired: true,
             inputType: "date",
             max: "2999-12-31",
           },

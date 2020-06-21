@@ -11,17 +11,16 @@ import * as Survey from "survey-angular";
 // import { addQuestionTypes } from '../survey/question-types';
 // widgets.inputmask(Survey);
 @Component({
-  selector: "app-hrt-retaliation-mediation-page",
-  templateUrl: "./hrt-retaliation-mediation-page.component.html",
-  styleUrls: ["./hrt-retaliation-mediation-page.component.scss"],
+  selector: "app-hrt-indigenous-page",
+  templateUrl: "./hrt-indigenous-page.component.html",
+  styleUrls: ["./hrt-indigenous-page.component.scss"],
 })
-export class HrtRetaliationMediationPageComponent implements OnInit, OnDestroy {
+export class HrtIndigenousPageComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   private json = {
     showNavigationButtons: false,
     completeText: "",
     showQuestionNumbers: "off",
-
     pages: [
       {
         name: "Mediation",
@@ -30,13 +29,16 @@ export class HrtRetaliationMediationPageComponent implements OnInit, OnDestroy {
             type: "html",
             name: "question1",
             html:
-              '<h4>Information</h4><ul> <li> At a "mediation", a trained mediator works with you and the respondent to find a solution to your complaint. Settlement is voluntary. If you can’t agree, the process continues. </li> <li> If you settle your complaint, the process if usually much faster. If you don’t settle, there are <a href="http://www.bchrt.bc.ca/complaint-process/steps.htm" target="_blank">steps</a> you must take before a hearing where you can prove your complaint. </li> <li> Mediation is free. </li> <li>  What you and the respondent say in mediation is confidential.</li> <li>  A mediator does not act for either party.</li> <li> You can bring your representative or a support person </li> <li> You don’t have to be in the same room as a respondent to participant in mediation. The mediator can speak to you and the respondent separately. </li> <li> For more information see the <a href="http://www.bchrt.bc.ca/complaint-process/settle/index.htm" target="_blank">Tribunal’s website</a> </li> </ul><p>The Tribunal will ask the Respondent if they want to attend a mediation. If you both agree, the Tribunal will contact you to schedule a date for the mediation.</p>',
+              '<p>The Tribunal is committed to Truth and Reconciliation. This includes incorporating Indigenous protocols or ways of resolving disputes in its process.</p><p>Anyone can ask the Tribunal about:</p><ul style="margin-bottom: 0;"><li>help to understand the Tribunal process</li> <li>process options</li> <li>incorporating Indigenous protocols</li> </ul>',
           },
           {
-            type: "radiogroup",
-            name: "Do you want to attend a mediation?",
-            isRequired: true,
-            choices: ["Yes", "No"],
+            type: "checkbox",
+            name: "question1",
+            hideNumber: true,
+            titleLocation: "hidden",
+            choices: [
+              "Check here if you are Indigenous and want the Tribunal to contact you to talk about the process",
+            ],
           },
         ],
       },
@@ -50,8 +52,8 @@ export class HrtRetaliationMediationPageComponent implements OnInit, OnDestroy {
       (allFormData) => {
         console.log("allFormData", allFormData);
 
-        if (allFormData.mediation) {
-          this.formData = allFormData.mediation;
+        if (allFormData.indigenous) {
+          this.formData = allFormData.indigenous;
           console.log("hi!");
         }
         this.subscription.unsubscribe();
@@ -86,11 +88,11 @@ export class HrtRetaliationMediationPageComponent implements OnInit, OnDestroy {
       const validated = this.survey.completeLastPage();
       if (validated) {
         this.missionService.confirmMission({
-          name: "mediation",
+          name: "indigenous",
           data: this.survey.data,
           complete: true,
         });
-        this.router.navigateByUrl("hrt-retaliation/progress");
+        this.router.navigateByUrl("hrt/progress");
       }
     } else {
       this.survey.nextPage();

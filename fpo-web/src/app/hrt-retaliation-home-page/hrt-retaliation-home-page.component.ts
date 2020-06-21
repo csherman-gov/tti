@@ -9,6 +9,9 @@ import { addQuestionTypes } from "../survey/question-types";
 import * as Survey from "survey-angular";
 // widgets.inputmask(Survey);
 
+// data service
+import { GeneralDataService, UserInfo } from "../general-data.service";
+
 @Component({
   selector: "app-hrt-retaliation-home-page",
   templateUrl: "./hrt-retaliation-home-page.component.html",
@@ -16,12 +19,6 @@ import * as Survey from "survey-angular";
 })
 export class HrtRetaliationHomePageComponent implements OnInit, OnDestroy {
   subscription: Subscription;
-
-  ngOnDestroy() {
-    // prevent memory leak when component destroyed
-    this.subscription.unsubscribe();
-  }
-
   survey: any;
   completedSteps = {
     step1: false,
@@ -68,7 +65,11 @@ export class HrtRetaliationHomePageComponent implements OnInit, OnDestroy {
   };
 
   formData: object;
-  constructor(private missionService: MissionService, private router: Router) {
+  constructor(
+    private missionService: MissionService,
+    private router: Router,
+    private dataService: GeneralDataService
+  ) {
     this.subscription = missionService.missionAnnounced$.subscribe(
       (allFormData) => {
         console.log("allFormData", allFormData);
@@ -80,16 +81,35 @@ export class HrtRetaliationHomePageComponent implements OnInit, OnDestroy {
       }
     );
   }
+  ngOnDestroy() {
+    // prevent memory leak when component destroyed
+    this.subscription.unsubscribe();
+  }
+
+  clickTest() {
+    this.dataService.getUserInfo().then((res) => {
+      console.log("res: ", res);
+      this.handleLogin(res, "", true);
+    });
+  }
+  handleLogin(user: UserInfo, navPath: string, reqTerms: boolean) {
+    const extUri =
+      window.location.origin + "/hrt/hrt-retaliation/progress?login_redirect=/";
+    console.log(user.login_uri + "?next=" + encodeURIComponent(extUri));
+    window.location.replace(
+      user.login_uri + "?next=" + encodeURIComponent(extUri)
+    );
+  }
   confirm() {
-    // this.confirmed = true;
-    if (this.survey.completeLastPage()) {
-      this.missionService.confirmMission({
-        name: "home",
-        data: this.survey.data,
-      });
-      console.log(this.survey);
-      this.router.navigateByUrl("hrt-retaliation/progress");
-    }
+    // if (this.survey.completeLastPage()) {
+    //   this.missionService.confirmMission({
+    //     name: "home",
+    //     data: this.survey.data,
+    //   });
+    //   console.log(this.survey);
+    //   this.router.navigateByUrl("hrt-retaliation/progress");
+        window.location.assign(window.location.origin + window.location.pathname + '/progress')
+    // }
   }
 
   ngOnInit() {
@@ -98,11 +118,11 @@ export class HrtRetaliationHomePageComponent implements OnInit, OnDestroy {
     // load data from sessionStorage if there is one
     this.survey.data = this.formData;
 
-    Survey.SurveyNG.render("surveyElementHRT", { model: this.survey });
-    this.survey.onComplete.add(function (result) {
-      document.querySelector("#surveyResult").textContent =
-        "Result JSON:\n" + JSON.stringify(result.data, null, 3);
-    });
+    // Survey.SurveyNG.render("surveyElementHRT", { model: this.survey });
+    // this.survey.onComplete.add(function (result) {
+    //   document.querySelector("#surveyResult").textContent =
+    //     "Result JSON:\n" + JSON.stringify(result.data, null, 3);
+    // });
   }
 
   initSurvey() {
