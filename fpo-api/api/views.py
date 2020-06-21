@@ -57,15 +57,7 @@ class UserStatusView(APIView):
                 "Legal Name - Last Name": "Jin"
             }
         }
-        sSFDC_org = 'qa'
-        sf_instance = SFDC(sSFDC_org)
-        sfdc_result = sf_instance.submitForm(
-            url = 'CaseManagement/v1',
-            payload =  result
-
-        )
         info = {
-            "url_test": 'Test: ' + sfdc_result,
             "accepted_terms_at": logged_in and request.user.accepted_terms_at or None,
             "user_id": logged_in and request.user.authorization_id or None,
             "email": logged_in and request.user.email or None,
