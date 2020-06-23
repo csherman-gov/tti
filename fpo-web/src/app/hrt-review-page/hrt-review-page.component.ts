@@ -22,7 +22,7 @@ export class HrtReviewPageComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   loading = false;
   formData = {
-    indigenous: {},
+    indigenous: { question1: false },
     home: {
       case_type: "Individual",
       attachment_html: "",
@@ -50,9 +50,13 @@ export class HrtReviewPageComponent implements OnInit, OnDestroy {
     const date =
       today.getFullYear() +
       "-" +
-      ((today.getMonth() + 1) < 10 ? '0' + (today.getMonth() + 1) : (today.getMonth() + 1)) +
+      (today.getMonth() + 1 < 10
+        ? "0" + (today.getMonth() + 1)
+        : today.getMonth() + 1) +
       "-" +
-      ((today.getDate() + 1) < 10 ? '0' + (today.getDate() + 1) : (today.getDate() + 1));
+      (today.getDate() + 1 < 10
+        ? "0" + (today.getDate() + 1)
+        : today.getDate() + 1);
     return date;
   }
   constructor(
@@ -66,7 +70,7 @@ export class HrtReviewPageComponent implements OnInit, OnDestroy {
         console.log("allFormData", allFormData);
         if (allFormData) {
           this.formData = allFormData;
-        //   this.formData = this.newFormData
+          //   this.formData = this.newFormData
           //   console.log(this.formData);
           for (const key in this.formData) {
             if (key === "home") {

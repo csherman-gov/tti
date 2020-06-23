@@ -25,7 +25,7 @@ export class HrtGroupReviewPageComponent implements OnInit, OnDestroy {
   complainants: any;
   subscription: Subscription;
   formData = {
-    indigenous: {},
+    indigenous: { question1: false },
     home: {
       case_type: "",
       attachment_html: "",
