@@ -15,7 +15,7 @@ import { Router } from "@angular/router";
 })
 export class HrtGroupReviewPageComponent implements OnInit, OnDestroy {
   result: boolean;
-  loading = false
+  loading = false;
   get showLateComplaints() {
     return this.result;
   }
@@ -25,11 +25,11 @@ export class HrtGroupReviewPageComponent implements OnInit, OnDestroy {
   complainants: any;
   subscription: Subscription;
   formData = {
-      indigenous: false,
-      home: {
-        case_type: '',
-        attachment_html: ''
-      },
+    indigenous: {},
+    home: {
+      case_type: "",
+      attachment_html: "",
+    },
     respondents: [],
     representative: {},
     repSutability: {},
@@ -151,17 +151,21 @@ export class HrtGroupReviewPageComponent implements OnInit, OnDestroy {
     const date =
       today.getFullYear() +
       "-" +
-      ((today.getMonth() + 1) < 10 ? '0' + (today.getMonth() + 1) : (today.getMonth() + 1)) +
+      (today.getMonth() + 1 < 10
+        ? "0" + (today.getMonth() + 1)
+        : today.getMonth() + 1) +
       "-" +
-      ((today.getDate() + 1) < 10 ? '0' + (today.getDate() + 1) : (today.getDate() + 1));
+      (today.getDate() + 1 < 10
+        ? "0" + (today.getDate() + 1)
+        : today.getDate() + 1);
     return date;
   }
   constructor(
-      private missionService: MissionService,
-      private router: Router,
-      private http: HttpClient,
-      private platformLocation: PlatformLocation
-      ) {
+    private missionService: MissionService,
+    private router: Router,
+    private http: HttpClient,
+    private platformLocation: PlatformLocation
+  ) {
     this.subscription = missionService.missionAnnounced$.subscribe(
       (allFormData) => {
         console.log("allFormData", allFormData);
@@ -236,14 +240,15 @@ export class HrtGroupReviewPageComponent implements OnInit, OnDestroy {
       const case_type = "Group";
       this.formData.home = {
         case_type: case_type,
-        attachment_html: attachment_html
-      }
+        attachment_html: attachment_html,
+      };
       console.log(this.formData);
-      
-      this.loading = true
+
+      this.loading = true;
       this.http
         .post(
-            this.platformLocation.getBaseHrefFromDOM() + "api/v1/survey-submit/test_collection/test_key",
+          this.platformLocation.getBaseHrefFromDOM() +
+            "api/v1/survey-submit/test_collection/test_key",
           this.formData
         )
         .toPromise()
@@ -254,7 +259,7 @@ export class HrtGroupReviewPageComponent implements OnInit, OnDestroy {
         })
         .catch((err) => {
           console.warn(err);
-          this.loading = false
+          this.loading = false;
         });
     } else {
       this.error = true;
