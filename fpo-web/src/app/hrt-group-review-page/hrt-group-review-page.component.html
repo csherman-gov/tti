@@ -672,7 +672,7 @@
       </p>
     </div>
 
-    <ng-container *ngIf="formData.indigenous.question1">
+    <ng-container *ngIf="formData.indigenous && formData.indigenous.question1">
       <h3>Indigenous Peoples</h3>
       <div class="grey-box">
         <p>
@@ -1646,7 +1646,7 @@
         </p>
       </div>
 
-      <ng-container *ngIf="formData.indigenous.question1">
+      <ng-container *ngIf="formData.indigenous && formData.indigenous.question1">
         <div class="section">
           <h2>
             Step 11 - Indigenous Peoples
