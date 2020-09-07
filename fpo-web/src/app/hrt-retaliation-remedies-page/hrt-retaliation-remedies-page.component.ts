@@ -40,6 +40,7 @@ export class HrtRetaliationRemediesPageComponent implements OnInit, OnDestroy {
               "Compensation for lost wages or other expenses such as moving expenses, photocopying, costs of attending the hearing (keep receipts)",
             ],
             hasOther: true,
+            validators: [ { type: "expression", text: "max 255 characters.", expression: "{Select the kinds of remedies you want-Comment}.size >= 255" } ],
             otherText: "Something specific (example: job back)",
           },
           {
@@ -47,6 +48,7 @@ export class HrtRetaliationRemediesPageComponent implements OnInit, OnDestroy {
             name: "Detail - Something specific (example: job back)",
             visibleIf:
               "{Select the kinds of remedies you want} contains 'Something specific (example: job back)'",
+            maxLength: 32768,
             isRequired: true,
           },
           {
@@ -54,6 +56,7 @@ export class HrtRetaliationRemediesPageComponent implements OnInit, OnDestroy {
             name: "Detail - Other",
             visibleIf:
               "{Select the kinds of remedies you want} contains 'Other'",
+	          maxLength: 32768,
             isRequired: true,
           },
         ],

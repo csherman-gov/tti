@@ -63,16 +63,19 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
             name: "Organization Name",
             visibleIf: "{Is the representative:} = 'An organization'",
             isRequired: true,
+		        maxLength: 255,
           },
           {
             type: "text",
             name: "Individual Legal name – First name",
             "requiredIf": "{Is the representative:} = 'An individual'",
+		        maxLength: 40,
           },
           {
             type: "text",
             name: "Individual Legal Name – Last name",
             "requiredIf": "{Is the representative:} = 'An individual'",
+		        maxLength: 40,
           },
           {
             type: "text",
@@ -94,6 +97,7 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
             hasOther: true,
             choices: ["Mr.", "Ms.", "Mx."],
             otherText: "Other",
+		        validators: [ { type: "expression", text: "max 255 characters.", expression: "{Title-Comment}.size >= 255" } ],
           },
           {
             type: "radiogroup",
@@ -101,6 +105,7 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
             hasOther: true,
             choices: ["She", "He", "They"],
             otherText: "Other",
+		        validators: [ { type: "expression", text: "max 255 characters.", expression: "{Pronoun-Comment}.size >= 255" } ],
           },
         ],
         title: "Who is representing the group or class (Representative)?",
@@ -129,21 +134,25 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
             type: "text",
             name: "First name",
             isRequired: true,
+		        maxLength: 40,
           },
           {
             type: "text",
             name: "Last name",
             isRequired: true,
+		        maxLength: 40,
           },
           {
             type: "text",
             name: "Representative Preferred name",
             title: "Preferred name – e.g. traditional name, nickname, alias",
+		        maxLength: 255,
           },
           {
             type: "text",
             name: "Representative Organization Name",
             title: "Organization Name (e.g. law firm, if applicable)",
+		        maxLength: 255,
           },
           {
             type: "radiogroup",
@@ -152,6 +161,7 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
             hasOther: true,
             choices: ["Mr.", "Ms.", "Mx."],
             otherText: "Other",
+		        validators: [ { type: "expression", text: "max 255 characters.", expression: "{Representative Title-Comment}.size >= 255" } ],
           },
           {
             type: "radiogroup",
@@ -160,6 +170,7 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
             hasOther: true,
             choices: ["She", "He", "They"],
             otherText: "Other",
+		        validators: [ { type: "expression", text: "max 255 characters.", expression: "{Representative Pronoun-Comment}.size >= 255" } ],
           },
         ],
         visibleIf:
@@ -180,10 +191,12 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
             type: "text",
             name: "Mailing address",
             title: "Mailing address",
+		        maxLength: 255,
           },
           {
             type: "text",
             name: "City",
+		        maxLength: 255,
             // isRequired: true,
           },
           {
@@ -211,22 +224,26 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
           {
             type: "text",
             name: "Postal Code",
+		        maxLength: 10,
             startWithNewLine: false,
             // isRequired: true,
           },
           {
             type: "text",
             name: "Phone number",
+		        maxLength: 255,
             // isRequired: true,
           },
           {
             type: "text",
             name: "Fax",
+		        maxLength: 255,
             startWithNewLine: false,
           },
           {
             type: "text",
             name: "Email",
+		        maxLength: 255,
             // isRequired: true,
           },
         ],

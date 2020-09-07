@@ -104,6 +104,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                         title: "Legal first name: ",
                         isRequired: true,
                         titleLocation: "top",
+		                    maxLength: 40,
                       },
                       {
                         type: "text",
@@ -114,6 +115,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                         title: "Legal last name: ",
                         isRequired: true,
                         titleLocation: "top",
+		                    maxLength: 40,
                       },
                       {
                         type: "text",
@@ -123,6 +125,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                         title: "Legal business or organization name: ",
                         isRequired: true,
                         titleLocation: "top",
+		                    maxLength: 255,
                       },
                       {
                         type: "text",
@@ -130,12 +133,14 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                         title: "Relationship to you: ",
                         isRequired: true,
                         titleLocation: "top",
+		                    maxLength: 255,
                       },
                       {
                         type: "text",
                         name: "address_line_1",
                         title: "Address line 1: ",
                         isRequired: true,
+		                    maxLength: 255,
                         titleLocation: "top",
                       },
                       {
@@ -143,6 +148,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                         name: "address_line_2",
                         // "visible": false,
                         title: "Address line 2",
+		                    maxLength: 255,
                         titleLocation: "top",
                       },
                       {
@@ -150,6 +156,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                         name: "city",
                         title: "City",
                         isRequired: true,
+		                    maxLength: 255,
                         titleLocation: "top",
                       },
                       {
@@ -181,6 +188,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                         startWithNewLine: false,
                         title: "Postal code: ",
                         isRequired: true,
+		                    maxLength: 10,
                         titleLocation: "top",
                       },
                       {
@@ -188,6 +196,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                         name: "phone_number",
                         title: "Phone: ",
                         isRequired: true,
+		                    maxLength: 255,
                         titleLocation: "top",
                       },
                       {
@@ -195,12 +204,14 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                         name: "other phone",
                         startWithNewLine: false,
                         title: "Other phone:",
+		                    maxLength: 255,
                         titleLocation: "top",
                       },
                       {
                         type: "text",
                         name: "fax_number",
                         title: "Fax: ",
+		                    maxLength: 255,
                         titleLocation: "top",
                       },
                       {
@@ -209,6 +220,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                         startWithNewLine: false,
                         title: "Email: ",
                         isRequired: true,
+		                    maxLength: 255,
                         titleLocation: "top",
                       },
                       {
@@ -219,6 +231,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                         title:
                           "Individual you want to name under that Organization: ",
                         isRequired: false,
+		                    maxLength: 255,
                         titleLocation: "top",
                       },
                     ],
@@ -358,6 +371,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Age"',
                     isRequired: true,
+                    maxLength: 10000,
                   },
                   {
                     type: "text",
@@ -366,6 +380,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Ancestry"',
                     isRequired: true,
+                    maxLength: 10000,
                   },
                   {
                     type: "text",
@@ -374,6 +389,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Colour"',
                     isRequired: true,
+                    maxLength: 10000,
                   },
                   {
                     type: "text",
@@ -382,6 +398,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Family Status"',
                     isRequired: true,
+                    maxLength: 10000,
                   },
                   {
                     type: "text",
@@ -390,6 +407,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Gender Identity or Expression"',
                     isRequired: true,
+                    maxLength: 10000,
                   },
                   {
                     type: "text",
@@ -398,6 +416,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Marital Status"',
                     isRequired: true,
+                    maxLength: 10000,
                   },
                   {
                     type: "text",
@@ -406,6 +425,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Mental Disability"',
                     isRequired: true,
+                    maxLength: 10000,
                   },
                   {
                     type: "text",
@@ -414,6 +434,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Physical Disability"',
                     isRequired: true,
+                    maxLength: 10000,
                   },
                   {
                     type: "text",
@@ -422,6 +443,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Place of Origin"',
                     isRequired: true,
+                    maxLength: 10000,
                   },
                   {
                     type: "text",
@@ -430,6 +452,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Political Belief"',
                     isRequired: true,
+                    maxLength: 10000,
                   },
                   {
                     type: "text",
@@ -438,6 +461,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Race"',
                     isRequired: true,
+                    maxLength: 10000,
                   },
                   {
                     type: "text",
@@ -446,6 +470,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Religion"',
                     isRequired: true,
+                    maxLength: 10000,
                   },
                   {
                     type: "text",
@@ -454,6 +479,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Sex"',
                     isRequired: true,
+                    maxLength: 10000,
                   },
                   {
                     type: "text",
@@ -462,6 +488,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Sexual Orientation"',
                     isRequired: true,
+                    maxLength: 10000,
                   },
                   {
                     type: "text",
@@ -470,6 +497,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Source of Income"',
                     isRequired: true,
+                    maxLength: 10000,
                   },
                   {
                     type: "text",
@@ -478,6 +506,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                     visibleIf:
                       '{panel.Grounds of discrimination} contains "Political Belief"',
                     isRequired: true,
+                    maxLength: 10000,
                   },
 
                   // {
@@ -532,6 +561,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                         name: "What Happened? ",
                         title: "What Happened? ",
                         cellType: "text",
+                        maxLength: 10000,
                         isRequired: true,
                       },
                     ],
@@ -547,6 +577,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                     titleLocation: "top",
                     name: "question3What is the adverse impact on you? ",
                     title: "What is the adverse impact on you? ",
+                    maxLength: 10000,
                     popupdescription: "respondent-impact",
 
                     isRequired: true,
@@ -559,6 +590,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                     title:
                       "How was each ground of discrimination a factor in the adverse impact? ",
                     titleLocation: "top",
+                    maxLength: 10000,
                     isRequired: true,
                   },
                 ],
@@ -604,6 +636,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                     visibleIf:
                       '{panel.Is all the conduct related or similar and, if so, how? } = "Yes"',
                     isRequired: true,
+                    maxLength: 5000,
                   },
                   {
                     type: "text",
@@ -614,6 +647,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                     name:
                       "If there are gaps between the conduct, can you explain them?",
                     isRequired: true,
+                    maxLength: 5000,
                   },
                 ],
                 title: "Time Limit to file a complaint",

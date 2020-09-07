@@ -33,6 +33,7 @@ export class HrtGroupRemediesPageComponent implements OnInit, OnDestroy {
             isRequired: true,
             hasOther: true,
             otherText: "Something specific (job back, policy…)",
+            validators: [ { type: "expression", text: "max 255 characters.", expression: "{Select the kinds of remedies you want-Comment}.size >= 255" } ],
             "otherErrorText": "Please describe the specific thing you want.",
             choices: [
               "Order to stop the discrimination",
@@ -48,6 +49,7 @@ export class HrtGroupRemediesPageComponent implements OnInit, OnDestroy {
             visibleIf:
               "{Select the kinds of remedies you want} contains 'Something specific (job back, policy…)'",
             isRequired: true,
+            maxLength: 32768,
           },
           {
             type: "comment",
@@ -55,6 +57,7 @@ export class HrtGroupRemediesPageComponent implements OnInit, OnDestroy {
             visibleIf:
               "{Select the kinds of remedies you want} contains 'Other'",
             isRequired: true,
+            maxLength: 32768,
           },
         ],
       },

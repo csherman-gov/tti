@@ -38,26 +38,31 @@ export class HrtOtherRelatedProceedingsPageComponent implements OnInit, OnDestro
           {
             "type": "text",
             "name": "What is the other proceeding and when did it start?",
+		        "maxLength": 255,
             "visibleIf": "{Is there another proceeding?} = \"Yes\""
           },
           {
             "type": "text",
             "name": "What dates have been set?",
+		        "maxLength": 255,
             "visibleIf": "{Is there another proceeding?} = \"Yes\""
           },
           {
             "type": "text",
             "name": "What remedies have you sought?",
+		        "maxLength": 255,
             "visibleIf": "{Is there another proceeding?} = \"Yes\""
           },
           {
             "type": "text",
             "name": "Has there been a decision?",
+		        "maxLength": 255,
             "visibleIf": "{Is there another proceeding?} = \"Yes\""
           },
           {
             "type": "text",
             "name": "Anything else the Tribunal needs to know?",
+		        "maxLength": 255,
             "visibleIf": "{Is there another proceeding?} = \"Yes\""
           },
           {
@@ -72,6 +77,7 @@ export class HrtOtherRelatedProceedingsPageComponent implements OnInit, OnDestro
           {
             "type": "text",
             "name": "Explain why",
+		        "maxLength": 255,
             "visibleIf": "{Is there another proceeding?} = \"Yes\""
           }
         ]

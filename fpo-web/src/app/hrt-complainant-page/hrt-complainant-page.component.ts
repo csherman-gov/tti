@@ -29,15 +29,18 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             type: "text",
             name: "Legal Name - First Name",
             isRequired: true,
+            maxLength: 255,
           },
           {
             type: "text",
             name: "Legal Name - Last Name",
             isRequired: true,
+            maxLength: 255,
           },
           {
             type: "text",
             name: "Preferred name - e.g. traditional name, nickname, alias",
+            maxLength: 255,
           },
           {
             type: "checkbox",
@@ -64,6 +67,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             hasOther: true,
             choices: ["Mr.", "Ms.", "Mx."],
             otherText: "Other",
+            validators: [ { type: "expression", text: "max 255 characters.", expression: "{Title-Comment}.size >= 255" } ],
           },
           {
             type: "radiogroup",
@@ -71,6 +75,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             hasOther: true,
             choices: ["She", "He", "They"],
             otherText: "Other",
+            validators: [ { type: "expression", text: "max 255 characters.", expression: "{Pronoun-Comment}.size >= 255" } ],
           },
         ],
         title: "Who experienced discrimination (Complainant)?",
@@ -104,22 +109,26 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
           {
             type: "text",
             name: "First name",
+            maxLength: 255,
             isRequired: true,
           },
           {
             type: "text",
             name: "Last name",
+            maxLength: 255,
             isRequired: true,
           },
           {
             type: "text",
             name: "Organization name",
+            maxLength: 255,
             title: "Organization name (e.g. law firm, if applicable)",
             // isRequired: true,
           },
           {
             type: "text",
             title: "Preferred name - e.g. traditional name, nickname, alias",
+            maxLength: 255,
             name:
               "Contact Preferred name - e.g. traditional name, nickname, alias",
           },
@@ -130,6 +139,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             hasOther: true,
             choices: ["Mr.", "Ms.", "Mx."],
             otherText: "Other",
+            validators: [ { type: "expression", text: "max 255 characters.", expression: "{Title-Comment}.size >= 255" } ],
           },
           {
             type: "radiogroup",
@@ -138,6 +148,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             hasOther: true,
             choices: ["She", "He", "They"],
             otherText: "Other",
+            validators: [ { type: "expression", text: "max 255 characters.", expression: "{Pronoun-Comment}.size >= 255" } ],
           },
         ],
         visibleIf:
@@ -156,6 +167,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             type: "text",
             name: "Complainant Contact Mailing address",
             title: "Mailing address",
+            maxLength: 255,
             // isRequired: true,
           },
           {
@@ -163,6 +175,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             name: "Complainant Contact City",
             width: "30%",
             title: "City ",
+            maxLength: 255,
             // isRequired: true,
           },
           {
@@ -192,6 +205,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             name: "Complainant Contact Postal Code",
             width: "30%",
             startWithNewLine: false,
+            maxLength: 10,
             title: "Postal Code",
             // isRequired: true,
           },
@@ -199,6 +213,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             type: "text",
             name: "Complainant Contact Phone number",
             width: "30%",
+            maxLength: 255,
             title: "Phone number  ",
             // isRequired: true,
           },
@@ -206,6 +221,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             type: "text",
             name: "Complainant Contact Cell Phone number",
             width: "30%",
+            maxLength: 255,
             startWithNewLine: false,
             title: "Cell phone number",
           },
@@ -213,6 +229,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             type: "text",
             name: "Complainant Contact Fax",
             width: "30%",
+            maxLength: 255,
             startWithNewLine: false,
             title: "Fax",
           },
@@ -220,6 +237,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             type: "text",
             name: "Complainant Contact Email",
             width: "40%",
+            maxLength: 255,
             title: "Email",
             // isRequired: true,
           },
@@ -243,6 +261,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
               {
                 type: "text",
                 name: "Name of the Respondent",
+                maxLength: 255,
                 isRequired: true,
               },
               {
@@ -251,27 +270,32 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
                 title:
                   "Relationship to you (For example: your employer, landlord, government body)",
                 isRequired: true,
+                maxLength: 255,
               },
               {
                 type: "text",
                 name: "Respondent Contact Email",
                 width: "40%",
                 title: "Email",
+                maxLength: 255,
                 // isRequired: true,
               },
               {
                 type: "text",
                 name: "Mailing address",
                 isRequired: true,
+                maxLength: 255,
               },
               {
                 type: "text",
                 name: "Address line 2",
+                maxLength: 255,
               },
               {
                 type: "text",
                 name: "City",
                 isRequired: true,
+                maxLength: 255,
               },
               {
                 type: "dropdown",
@@ -298,6 +322,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
                 type: "text",
                 name: "Postal Code",
                 startWithNewLine: false,
+                maxLength: 10,
                 // isRequired: true,
               },
               {
@@ -305,6 +330,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
                 name: "Respondent Contact Phone number",
                 width: "33%",
                 title: "Phone number  ",
+                maxLength: 255,
                 // isRequired: true,
               },
               {
@@ -313,6 +339,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
                 width: "30%",
                 startWithNewLine: false,
                 title: "Cell phone number",
+                maxLength: 255,
               },
               {
                 type: "text",
@@ -320,6 +347,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
                 width: "33%",
                 startWithNewLine: false,
                 title: "Fax",
+                maxLength: 255,
               },
             ],
             panelCount: 1,

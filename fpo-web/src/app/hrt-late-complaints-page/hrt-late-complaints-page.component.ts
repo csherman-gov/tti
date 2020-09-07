@@ -30,18 +30,21 @@ export class HrtLateComplaintsPageComponent implements OnInit, OnDestroy {
             "type": "comment",
             "name": "Why did you wait to file your complaint?",
             "isRequired": true,
+            "maxLength": 32768,
             "rows": 3
           },
           {
             "type": "comment",
             "name": "Why should the tribunal accept your complaint?",
             "isRequired": true,
+            "maxLength": 32768,
             "rows": 3
           },
           {
             "type": "comment",
             "name": "Why would the delay in filing not cause substantial prejudice to any other person?",
             "isRequired": true,
+            "maxLength": 32768,
             "rows": 3
           }
         ]

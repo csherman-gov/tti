@@ -40,12 +40,14 @@ export class HrtGroupComplaintSutabilityPageComponent
             popupdescription:
               "<p>A “group” of people could be identified by name. For example, all women who work for one employer. Someone could name all of the women in the group. </p><p>A “class” of people could be identified by their shared characteristics. For example, residents of Vancouver who have a visual impairment.</p><p><b>Instructions</b></p><ul><li>Describe the group or class so that its members can be identified. Set out the criteria that would be used to identify the members. Name the members if you can.</li><li>Make sure the group or class is no broader than needed to capture those with an interest in the issue raised in the complaint.</li></ul>",
             isRequired: true,
+            maxLength: 255,
           },
           {
             type: "comment",
             name:
               "Explain how the alleged discrimination is similar for all group or class members.",
             isRequired: true,
+            maxLength: 32768,
             popupdescription:
               "<p>You will give details about the alleged discrimination below.</p><p><b>Here you need to:</b></p><ul><li>Explain how the alleged discrimination is similar for all group or class members</li><li>Identify any differences</li><li>Identify the common issues</li></ul>",
           },

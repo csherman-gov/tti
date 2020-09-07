@@ -41,6 +41,7 @@ export class HrtGroupRespondentContactInformationPageComponent
               {
                 type: "text",
                 name: "Name of the Respondent",
+		            maxLength: 255,
                 isRequired: true,
               },
               {
@@ -49,26 +50,31 @@ export class HrtGroupRespondentContactInformationPageComponent
                 title:
                   "Relationship to group or class members (For example, employer)",
                 isRequired: true,
+		            maxLength: 255,
               },
               {
                 type: "text",
                 name: "Respondent Contact Email",
                 width: "40%",
                 title: "Email",
+		            maxLength: 255,
                 // isRequired: true,
               },
               {
                 type: "text",
                 name: "Mailing address",
+		            maxLength: 255,
                 isRequired: true,
               },
               {
                 type: "text",
                 name: "Address line 2",
+		            maxLength: 255,
               },
               {
                 type: "text",
                 name: "City",
+		            maxLength: 255,
                 isRequired: true,
               },
               {
@@ -95,6 +101,7 @@ export class HrtGroupRespondentContactInformationPageComponent
               {
                 type: "text",
                 name: "Postal Code",
+		            maxLength: 10,
                 startWithNewLine: false,
                 // isRequired: true,
               },
@@ -103,12 +110,14 @@ export class HrtGroupRespondentContactInformationPageComponent
                 name: "Respondent Contact Phone number",
                 width: "33%",
                 title: "Phone number  ",
+		            maxLength: 255,
                 // isRequired: true,
               },
               {
                 type: "text",
                 name: "Respondent Contact Cell Phone number",
                 width: "30%",
+		            maxLength: 255,
                 startWithNewLine: false,
                 title: "Cell phone number",
               },
@@ -116,6 +125,7 @@ export class HrtGroupRespondentContactInformationPageComponent
                 type: "text",
                 name: "Respondent Contact Fax",
                 width: "33%",
+		            maxLength: 255,
                 startWithNewLine: false,
                 title: "Fax",
               },

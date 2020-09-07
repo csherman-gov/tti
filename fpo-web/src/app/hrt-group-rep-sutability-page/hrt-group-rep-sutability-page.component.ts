@@ -44,11 +44,13 @@ export class HrtGroupRepSutabilityPageComponent implements OnInit, OnDestroy {
           {
             "type": "comment",
             "name": "If no, what is your relationship to the group or class, if any?",
+		        maxLength: 255,
             "visibleIf": "{Are you a member of the group or class?} = 'No'"
            },
           {
             type: "text",
             name: "Why are you filing the complaint?",
+		        maxLength: 5000,
             isRequired: true,
           },
           {
@@ -70,6 +72,7 @@ export class HrtGroupRepSutabilityPageComponent implements OnInit, OnDestroy {
             visibleIf:
               "{Are your interests in the complaint different from the group or class members’ interests?} = 'Yes'",
             isRequired: true,
+		        maxLength: 32768,
           },
           {
             type: "radiogroup",
@@ -83,7 +86,7 @@ export class HrtGroupRepSutabilityPageComponent implements OnInit, OnDestroy {
           {
             type: "text",
             name: "If yes, explain. ",
-
+		        maxLength: 5000,
             visibleIf:
               "{Do you have reason to believe that group or class members may not want you to make this complaint on their behalf?} = 'Yes'",
             isRequired: true,
@@ -100,6 +103,7 @@ export class HrtGroupRepSutabilityPageComponent implements OnInit, OnDestroy {
             visibleIf:
               "{Have you notified the group or class about the complaint?} = 'Yes'",
             isRequired: true,
+		        maxLength: 5000,
           },
           {
             type: "text",
@@ -107,6 +111,7 @@ export class HrtGroupRepSutabilityPageComponent implements OnInit, OnDestroy {
             popupdescription:
               "<p>A Representative is responsible for communicating with group or class members about important steps in the complaint process. You must have a plan.</p>",
             isRequired: true,
+		        maxLength: 255,
           },
           {
             type: "checkbox",

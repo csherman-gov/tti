@@ -41,6 +41,7 @@ export class HrtDetailsOfTheDiscriminationPageComponent
                 type: "text",
                 name: "Respondent",
                 title: "Respondent Name",
+                maxLength: 255,
                 titleLocation: "left",
               },
               {
@@ -48,6 +49,7 @@ export class HrtDetailsOfTheDiscriminationPageComponent
                 name: "Describe the harm you experienced in a few words",
                 description:
                   "<b>Example.</b> My landlord evicted me based on my race. My co-worker said things that made work very uncomfortable for me. <br>Give a short answer. Your short answer helps us understand the details you give below.",
+                maxLength: 10000,
                 isRequired: true,
               },
               {
@@ -57,6 +59,7 @@ export class HrtDetailsOfTheDiscriminationPageComponent
                 description:
                   "<div><b>Examples:</b> <ul><li>The words my co-worker used are slurs about Black men.</li><li>Security only followed me around the store, not the other people who were not First Nations.</li><li>The respondent fired me one week after they learned I was pregnant.</li><li>A white male colleague got the promotion. I am at least as qualified. I am an Asian woman.</li><li>My employer said I have to work Saturdays. My religion does not allow me to work Saturdays.</li><li>My employer disciplined me for shouting at someone. My disability caused me to shout.</li><li>This organization refused to provide an interpreter which I need because I am Deaf.</li></ul><p>Consider getting help if you are not sure. See <a href='http://www.bchrt.bc.ca/whocanhelp/index.htm' target='_blank'>Who Can Help?</a> </p></div> ",
                 isRequired: true,
+                maxLength: 32768,
               },
               {
                 type: "matrixdynamic",
@@ -77,6 +80,7 @@ export class HrtDetailsOfTheDiscriminationPageComponent
                     name: "Conduct",
                     cellType: "comment",
                     isRequired: true,
+                    maxLength: 10000,
                     rows: 2,
                   }
                 ],

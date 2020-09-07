@@ -386,15 +386,18 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             type: "text",
             name: "Legal Name - First Name",
             isRequired: true,
+            maxLength: 40,
           },
           {
             type: "text",
             name: "Legal Name - Last Name",
             isRequired: true,
+            maxLength: 40,
           },
           {
             type: "text",
             name: "Preferred name - e.g. traditional name, nickname, alias",
+            maxLength: 255,
           },
           {
             type: "checkbox",
@@ -421,6 +424,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             hasOther: true,
             choices: ["Mr.", "Ms.", "Mx."],
             otherText: "Other",
+		        validators: [ { type: "expression", text: "max 255 characters.", expression: "{Title-Comment}.size >= 255" } ],
           },
           {
             type: "radiogroup",
@@ -428,6 +432,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             hasOther: true,
             choices: ["She", "He", "They"],
             otherText: "Other",
+		        validators: [ { type: "expression", text: "max 255 characters.", expression: "{Pronoun-Comment}.size >= 255" } ],
           },
         ],
         title: "Who experienced retaliation (Complainant)?",
@@ -459,22 +464,26 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             type: "text",
             name: "First name",
             isRequired: true,
+	          maxLength: 40,
           },
           {
             type: "text",
             name: "Last name",
             isRequired: true,
+	          maxLength: 40,
           },
           {
             type: "text",
             name: "Organization name",
             title: "Organization name (e.g. law firm, if applicable)",
+	          maxLength: 255,
           },
           {
             type: "text",
             name:
               "Contact Preferred name - e.g. traditional name, nickname, alias",
             title: "Preferred name - e.g. traditional name, nickname, alias",
+	          maxLength: 255,
           },
           {
             type: "radiogroup",
@@ -483,6 +492,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             hasOther: true,
             choices: ["Mr.", "Ms.", "Mx."],
             otherText: "Other",
+            validators: [ { type: "expression", text: "max 255 characters.", expression: "{Contact Title-Comment}.size >= 255" } ],
           },
           {
             type: "radiogroup",
@@ -491,6 +501,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             hasOther: true,
             choices: ["She", "He", "They"],
             otherText: "Other",
+		        validators: [ { type: "expression", text: "max 255 characters.", expression: "{Contact Pronoun-Comment}.size >= 255" } ],
           },
         ],
         visibleIf:
@@ -512,6 +523,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             type: "text",
             name: "Complainant Contact Mailing address",
             title: "Mailing address",
+	          maxLength: 255,
             // isRequired: true,
           },
           {
@@ -519,6 +531,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             name: "Complainant Contact City",
             width: "30%",
             title: "City ",
+	          maxLength: 255,
             // isRequired: true,
           },
           {
@@ -549,6 +562,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             width: "30%",
             startWithNewLine: false,
             title: "Postal Code",
+	          maxLength: 10,
             // isRequired: true,
           },
           {
@@ -556,6 +570,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             name: "Complainant Contact Phone number",
             width: "30%",
             title: "Phone number  ",
+	          maxLength: 255,
             // isRequired: true,
           },
           {
@@ -564,6 +579,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             width: "30%",
             startWithNewLine: false,
             title: "Cell phone number",
+	          maxLength: 255,
           },
           {
             type: "text",
@@ -571,12 +587,14 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             width: "30%",
             startWithNewLine: false,
             title: "Fax",
+	          maxLength: 255,
           },
           {
             type: "text",
             name: "Complainant Contact Email",
             width: "40%",
             title: "Email",
+	          maxLength: 255,
             // isRequired: true,
           },
         ],
@@ -601,11 +619,13 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
               {
                 type: "text",
                 name: "Name of the Respondent",
+	              maxLength: 255,
                 isRequired: true,
               },
               {
                 type: "text",
                 name: "Relationship to you",
+	              maxLength: 255,
                 title:
                   "Relationship to you (For example: your employer, landlord, government body)",
                 isRequired: true,
@@ -613,6 +633,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
               {
                 type: "text",
                 name: "Respondent Contact Email",
+	              maxLength: 255,
                 width: "40%",
                 title: "Email",
                 // isRequired: true,
@@ -620,16 +641,19 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
               {
                 type: "text",
                 name: "Mailing address",
+	              maxLength: 255,
                 isRequired: true,
               },
               {
                 type: "text",
                 name: "Address line 2",
+	              maxLength: 255,
               },
               {
                 type: "text",
                 name: "City",
                 isRequired: true,
+	              maxLength: 255,
               },
               {
                 type: "dropdown",
@@ -656,6 +680,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
                 type: "text",
                 name: "Postal Code",
                 startWithNewLine: false,
+	              maxLength: 10,
                 // isRequired: true,
               },
               {
@@ -663,6 +688,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
                 name: "Respondent Contact Phone number",
                 width: "30%",
                 title: "Phone number  ",
+	              maxLength: 255,
                 // isRequired: true,
               },
               {
@@ -671,12 +697,14 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
                 width: "30%",
                 startWithNewLine: false,
                 title: "Cell phone number",
+	              maxLength: 255,
               },
               {
                 type: "text",
                 name: "Respondent Contact Fax",
                 width: "30%",
                 startWithNewLine: false,
+	              maxLength: 255,
                 title: "Fax",
               },
             ],

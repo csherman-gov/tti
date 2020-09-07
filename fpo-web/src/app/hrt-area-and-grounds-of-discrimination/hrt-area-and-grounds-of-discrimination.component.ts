@@ -120,6 +120,7 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Age (19 or over)'",
                 isRequired: true,
+                maxLength: 10000,
               },
               {
                 type: "text",
@@ -129,6 +130,7 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Ancestry'",
                 isRequired: true,
+                maxLength: 10000,
               },
               {
                 type: "text",
@@ -138,6 +140,7 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Colour'",
                 isRequired: true,
+                maxLength: 10000,
               },
               {
                 type: "text",
@@ -147,6 +150,7 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Criminal Conviction'",
                 isRequired: true,
+                maxLength: 10000,
               },
               {
                 type: "panel",
@@ -160,6 +164,7 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Family Status'",
                 isRequired: true,
+                maxLength: 10000,
               },
               {
                 type: "text",
@@ -169,6 +174,7 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Gender Identity or Expression'",
                 isRequired: true,
+                maxLength: 10000,
               },
               {
                 type: "text",
@@ -178,6 +184,7 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Marital Status'",
                 isRequired: true,
+                maxLength: 10000,
               },
               {
                 type: "text",
@@ -187,6 +194,7 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Mental Disability'",
                 isRequired: true,
+                maxLength: 10000,
               },
               {
                 type: "text",
@@ -196,6 +204,7 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Physical Disability'",
                 isRequired: true,
+                maxLength: 10000,
               },
               {
                 type: "text",
@@ -205,6 +214,7 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Place of Origin'",
                 isRequired: true,
+                maxLength: 10000,
               },
               {
                 type: "text",
@@ -214,6 +224,7 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Political Belief'",
                 isRequired: true,
+                maxLength: 10000,
               },
               {
                 type: "text",
@@ -223,6 +234,7 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Race'",
                 isRequired: true,
+                maxLength: 10000,
               },
               {
                 type: "text",
@@ -232,6 +244,7 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Religion'",
                 isRequired: true,
+                maxLength: 10000,
               },
               {
                 type: "text",
@@ -241,6 +254,7 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Sex'",
                 isRequired: true,
+                maxLength: 10000,
               },
               {
                 type: "text",
@@ -250,6 +264,7 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Sexual Orientation'",
                 isRequired: true,
+                maxLength: 10000,
               },
               {
                 type: "text",
@@ -259,6 +274,7 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
                 visibleIf:
                   "{panel.What are the Grounds of Discrimination?} contains 'Lawful source of income'",
                 isRequired: true,
+                maxLength: 10000,
               },
             ],
             panelCount: 1,
@@ -297,7 +313,7 @@ export class HrtAreaAndGroundsOfDiscriminationComponent
     Survey.JsonObject.metaData.addProperty("page", "popupdescription:text");
 
     this.renderSurvey();
-    
+
   }
 
   initSurvey() {

@@ -64,6 +64,7 @@ export class HrtRepresentativePageComponent implements OnInit, OnDestroy {
             type: "text",
             title: "Name of lawyer or other person who represents you in this complaint: ",
             isRequired: true,
+		        maxLength: 255,
             width: "50%",
           },
         ]

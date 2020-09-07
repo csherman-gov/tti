@@ -92,6 +92,7 @@ export class HrtRetaliationFileInTimePageComponent
               "Explain how the conduct is similar or related (a “continuing contravention”)",
             visibleIf: "{Is all of the conduct related or similar?} = 'Yes'",
             isRequired: true,
+            maxLength: 5000,
           },
           {
             type: "comment",
@@ -100,6 +101,7 @@ export class HrtRetaliationFileInTimePageComponent
               '<p>Gaps in time might mean there is no "continuing contravention". The Tribunal will consider reasons for gaps. </p><p><b>Example. </b>“My manager criticized me for filing the complaint. He was on leave for four months.”</p>',
             visibleIf: "{Is all of the conduct related or similar?} = 'Yes'",
             isRequired: true,
+            maxLength: 5000,
           },
         ],
         title: "Is the Complaint Filed in Time?",
@@ -125,6 +127,7 @@ export class HrtRetaliationFileInTimePageComponent
             type: "comment",
             name: "Why did you file late?",
             isRequired: true,
+            maxLength: 32768,
             popupdescription:
               "<p><b>Examples the Tribunal will consider:</b></p><ul><li>The complainant has a disability that prevented them from filing on time. </li><li>The complainant faced trauma or a family or housing crisis that made it hard to file the complaint at the time of the events</li><li>The complainant recently found evidence of discrimination</li><li>The delay is very short and there is some reason for filing late</li></ul><p>You can submit any documents that support your reasons for filing late (such as doctor’s note or a letter from a counsellor).</p>",
           },
@@ -132,6 +135,7 @@ export class HrtRetaliationFileInTimePageComponent
             type: "comment",
             name: "How will accepting your complaint benefit the public?",
             isRequired: true,
+            maxLength: 32768,
             popupdescription:
               "<p><b>Example:</b> The complaint is about a situation that the Tribunal has not addressed often.</p> ",
           },
@@ -139,6 +143,7 @@ export class HrtRetaliationFileInTimePageComponent
             type: "comment",
             name: "Why would the delay in filing not harm anyone else?",
             isRequired: true,
+            maxLength: 32768,
             popupdescription:
               "<p><b>Information:</b> The delay means the time after the 1-year time limit.</p><ul><li>“The complaint is two months late. Documents and witnesses should still be available.”</li><li>“The complaint is six months late. I know of no harm to the Respondents.”</li></ul>",
           },

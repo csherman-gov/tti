@@ -59,6 +59,7 @@ export class HrtRetaliationRoleInComplaintPageComponent
           {
             type: "text",
             name: "What is the complaint name and case number?",
+		        maxLength: 255,
             isRequired: true,
           },
           {
@@ -82,6 +83,7 @@ export class HrtRetaliationRoleInComplaintPageComponent
           {
             type: "text",
             name: "If you helped with the complaint, how did you help?",
+		        maxLength: 255,
             visibleIf:
               "{What is your role in the complaint?} = 'I helped with the complaint '",
             isRequired: true,
@@ -89,6 +91,7 @@ export class HrtRetaliationRoleInComplaintPageComponent
           {
             type: "text",
             name: "How did the Respondent(s) know about your role?",
+		        maxLength: 255,
             isRequired: true,
             popupdescription:
               "<b>Example.</b> “The Tribunal sent the complaint to the Respondents.”",
@@ -119,6 +122,7 @@ export class HrtRetaliationRoleInComplaintPageComponent
           {
             type: "text",
             name: "Why did the Respondent(s) think this?",
+		        maxLength: 32768,
             popupdescription:
               "<p><b>Example. </b>“I told my boss it was discrimination when I didn’t get the promotion. So my boss and employer knew I might file a complaint.”</p>",
             isRequired: true,
