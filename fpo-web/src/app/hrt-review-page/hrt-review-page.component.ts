@@ -22,7 +22,7 @@ export class HrtReviewPageComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   loading = false;
   formData = {
-    indigenous: false,
+    indigenous: { question1: false },
     home: {
       case_type: "Individual",
       attachment_html: "",
@@ -70,7 +70,7 @@ export class HrtReviewPageComponent implements OnInit, OnDestroy {
         console.log("allFormData", allFormData);
         if (allFormData) {
           this.formData = allFormData;
-        //   this.formData = this.newFormData
+          //   this.formData = this.newFormData
           //   console.log(this.formData);
           for (const key in this.formData) {
             if (key === "home") {

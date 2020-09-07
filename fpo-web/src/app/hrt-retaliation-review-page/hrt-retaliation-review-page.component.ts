@@ -16,7 +16,7 @@ import { PlatformLocation } from "@angular/common";
 })
 export class HrtRetaliationReviewPageComponent implements OnInit, OnDestroy {
   result: boolean;
-  loading = false
+  loading = false;
   get showLateComplaints() {
     return this.result;
   }
@@ -26,10 +26,10 @@ export class HrtRetaliationReviewPageComponent implements OnInit, OnDestroy {
   complainants: any;
   subscription: Subscription;
   formData = {
-    indigenous: false,
+    indigenous: { question1: false },
     home: {
-        case_type: 'Retaliation',
-        attachment_html: ''
+      case_type: "Retaliation",
+      attachment_html: "",
     },
     respondents: [],
     partyInfo: {},
@@ -175,7 +175,7 @@ export class HrtRetaliationReviewPageComponent implements OnInit, OnDestroy {
         console.log("allFormData", allFormData);
         if (allFormData) {
           this.formData = allFormData;
-        //   this.formData = this.newFormData;
+          //   this.formData = this.newFormData;
           console.log(this.formData);
           for (let key in this.formData) {
             if (key == "home") {
@@ -286,18 +286,20 @@ export class HrtRetaliationReviewPageComponent implements OnInit, OnDestroy {
     if (this.checkbox) {
       console.log("Happy!");
 
-      const attachment_html = document.getElementById('pdf-container').innerHTML
-      console.log(attachment_html)
-      const case_type = 'Retaliation'
+      const attachment_html = document.getElementById("pdf-container")
+        .innerHTML;
+      console.log(attachment_html);
+      const case_type = "Retaliation";
       this.formData.home = {
         case_type: case_type,
-        attachment_html: attachment_html
-      }
-      console.log(this.formData)
-      this.loading = true
+        attachment_html: attachment_html,
+      };
+      console.log(this.formData);
+      this.loading = true;
       this.http
         .post(
-            this.platformLocation.getBaseHrefFromDOM() + "api/v1/survey-submit/test_collection/test_key",
+          this.platformLocation.getBaseHrefFromDOM() +
+            "api/v1/survey-submit/test_collection/test_key",
           this.formData
         )
         .toPromise()
@@ -305,9 +307,10 @@ export class HrtRetaliationReviewPageComponent implements OnInit, OnDestroy {
           console.log(res);
           this.error = false;
           this.router.navigateByUrl("hrt-retaliation/thank-you");
-        }).catch(err => {
-            this.loading = false
-            console.warn(err)
+        })
+        .catch((err) => {
+          this.loading = false;
+          console.warn(err);
         });
     } else {
       this.error = true;
