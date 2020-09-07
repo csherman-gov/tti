@@ -45,16 +45,20 @@ export class HrtReviewPageComponent implements OnInit, OnDestroy {
   );
 
   show = false;
+
+  padDate(dateValue) {
+      var dateVar = '' + dateValue;
+      var pad = '00';
+      return pad.substring(0, pad.length - dateVar.length) + dateVar;
+    }
+
   getCurrentDate() {
     const today = new Date();
-    const date =
-      today.getFullYear() +
-      "-" +
-      ((today.getMonth() + 1) < 10 ? '0' + (today.getMonth() + 1) : (today.getMonth() + 1)) +
-      "-" +
-      ((today.getDate() + 1) < 10 ? '0' + (today.getDate() + 1) : (today.getDate() + 1));
+    const date  =
+      today.getFullYear() + "-" + this.padDate((today.getMonth() + 1)) + "-" + this.padDate(today.getDate());
     return date;
   }
+
   constructor(
     private missionService: MissionService,
     private router: Router,
