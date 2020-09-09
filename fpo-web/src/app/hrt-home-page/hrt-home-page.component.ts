@@ -36,7 +36,7 @@ export class HrtHomePageComponent implements OnInit, OnDestroy {
       }
     );
   }
-  
+
   ngOnDestroy() {
     // prevent memory leak when component destroyed
     this.subscription.unsubscribe();
@@ -44,14 +44,14 @@ export class HrtHomePageComponent implements OnInit, OnDestroy {
 
   clickTest() {
 
-    
+
     this.dataService.getUserInfo().then(res => {
         console.log('res: ', res)
         this.handleLogin(res, '', true)
     })
-    
-    
-    
+
+
+
     // this.dataService.loadSurveyResultIndex('temp', 'data')
   }
   handleLogin(user: UserInfo, navPath: string, reqTerms: boolean) {
@@ -162,14 +162,15 @@ clickTest4() {
     // //   this.router.navigateByUrl("hrt/progress");
     // }
     window.location.assign(window.location.origin + window.location.pathname + '/progress')
-    
+
   }
 
   ngOnInit() {
     this.initSurvey();
     this.survey = new Survey.Model(this.json);
+    this.survey.maxOthersLength = 255;
     // load data from sessionStorage if there is one
-    this.survey.data = this.formData; 
+    this.survey.data = this.formData;
     // this.survey.showQuestionNumbers = "off"
     // Survey.SurveyNG.render("surveyElementHRT", { model: this.survey });
     // this.survey.onComplete.add(function (result) {

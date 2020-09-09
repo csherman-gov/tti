@@ -161,6 +161,7 @@ export class HrtDetailsOfTheDiscriminationPageComponent
     console.log("hi!1");
     // let surveyModel =
     this.survey = new Survey.Model(this.json);
+    this.survey.maxOthersLength = 255;
 
     this.survey.onAfterRenderQuestion.add(function (survey, options) {
       console.log(options);

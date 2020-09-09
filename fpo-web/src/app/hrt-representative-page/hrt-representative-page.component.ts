@@ -95,6 +95,7 @@ export class HrtRepresentativePageComponent implements OnInit, OnDestroy {
   ngOnInit() {
 
     this.survey = new Survey.Model(this.json);
+    this.survey.maxOthersLength = 255;
     this.initSurvey()
     Survey
       .SurveyNG

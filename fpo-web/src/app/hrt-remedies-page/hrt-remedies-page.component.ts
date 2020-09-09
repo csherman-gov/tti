@@ -34,7 +34,6 @@ export class HrtRemediesPageComponent implements OnInit, OnDestroy {
             hasOther: true,
             "otherErrorText": "Please describe the specific thing you want.",
             otherText: "Something specific (job back, policy…)",
-		        validators: [ { type: "expression", text: "max 255 characters.", expression: "{Select the kinds of remedies you want-Comment}.size >= 255" } ],
             choices: [
               "Order to stop the discrimination",
               "Declaration that the conduct is discrimination",
@@ -118,6 +117,7 @@ export class HrtRemediesPageComponent implements OnInit, OnDestroy {
     console.log("hi!1");
     // let surveyModel =
     this.survey = new Survey.Model(this.json);
+    this.survey.maxOthersLength = 255;
     if (this.formData) {
       console.log("hi122!");
       this.survey.data = this.formData;

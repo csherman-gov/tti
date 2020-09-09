@@ -40,7 +40,6 @@ export class HrtStatisticalInformationPageComponent
             choices: ["First Nations", "Métis", "Inuit"],
             showClearButton: true,
             otherText: "Other",
-		        validators: [ { type: "expression", text: "max 255 characters.", expression: "{Indigenous Identity-Comment}.size >= 255" } ],
           },
           {
             type: "radiogroup",
@@ -58,7 +57,6 @@ export class HrtStatisticalInformationPageComponent
             ],
             showClearButton: true,
             otherText: "Other",
-		        validators: [ { type: "expression", text: "max 255 characters.", expression: "{Racial Identity-Comment}.size >= 255" } ],
           },
           {
             type: "radiogroup",
@@ -72,7 +70,6 @@ export class HrtStatisticalInformationPageComponent
             ],
             showClearButton: true,
             otherText: "Other",
-		        validators: [ { type: "expression", text: "max 255 characters.", expression: "{Immigration Status-Comment}.size >= 255" } ],
           },
           {
             type: "radiogroup",
@@ -91,7 +88,6 @@ export class HrtStatisticalInformationPageComponent
             ],
             showClearButton: true,
             otherText: "Other",
-		        validators: [ { type: "expression", text: "max 255 characters.", expression: "{Primary Language-Comment}.size >= 255" } ],
           },
           {
             type: "radiogroup",
@@ -114,7 +110,6 @@ export class HrtStatisticalInformationPageComponent
             ],
             showClearButton: true,
             otherText: "Other",
-		        validators: [ { type: "expression", text: "max 255 characters.", expression: "{Disability requiring accommodation in employment and services-Comment}.size >= 255" } ],
             hasOther: true,
           },
           {
@@ -131,7 +126,6 @@ export class HrtStatisticalInformationPageComponent
             ],
             showClearButton: true,
             otherText: "Other",
-		        validators: [ { type: "expression", text: "max 255 characters.", expression: "{Gender Identity-Comment}.size >= 255" } ],
           },
           {
             type: "radiogroup",
@@ -140,7 +134,6 @@ export class HrtStatisticalInformationPageComponent
             choices: ["LGBQ", "Heterosexual"],
             showClearButton: true,
             otherText: "Other",
-		        validators: [ { type: "expression", text: "max 255 characters.", expression: "{Sexual Orientation-Comment}.size >= 255" } ],
           },
           {
             type: "radiogroup",
@@ -148,7 +141,6 @@ export class HrtStatisticalInformationPageComponent
             choices: ["Under 19", "20-34", "35-49", "50-64", "65 and over"],
             showClearButton: true,
             otherText: "Other",
-		        validators: [ { type: "expression", text: "max 255 characters.", expression: "{Age-Comment}.size >= 255" } ],
           },
           {
             type: "radiogroup",
@@ -162,7 +154,6 @@ export class HrtStatisticalInformationPageComponent
             ],
             showClearButton: true,
             otherText: "Other",
-		        validators: [ { type: "expression", text: "max 255 characters.", expression: "{Household-Comment}.size >= 255" } ],
           },
           {
             type: "radiogroup",
@@ -177,7 +168,6 @@ export class HrtStatisticalInformationPageComponent
             ],
             showClearButton: true,
             otherText: "Other",
-		        validators: [ { type: "expression", text: "max 255 characters.", expression: "{Household Income After Tax-Comment}.size >= 255" } ],
           },
         ],
       },
@@ -213,6 +203,7 @@ export class HrtStatisticalInformationPageComponent
     console.log("hi!1");
     // let surveyModel =
     this.survey = new Survey.Model(this.json);
+    this.survey.maxOthersLength = 255;
     if (this.formData) {
       console.log("hi122!");
       this.survey.data = this.formData;

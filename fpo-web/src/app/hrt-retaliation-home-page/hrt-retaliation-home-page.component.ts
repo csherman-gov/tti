@@ -115,6 +115,7 @@ export class HrtRetaliationHomePageComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.initSurvey();
     this.survey = new Survey.Model(this.json);
+    this.survey.maxOthersLength = 255;
     // load data from sessionStorage if there is one
     this.survey.data = this.formData;
 

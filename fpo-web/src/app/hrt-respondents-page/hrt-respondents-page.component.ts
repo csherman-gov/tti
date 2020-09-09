@@ -719,6 +719,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
 
     // load data from sessionStorage if there is one
     this.survey = new Survey.Model(this.json);
+    this.survey.maxOthersLength = 255;
     this.survey.data = this.formData;
 
     this.survey.onAfterRenderQuestion.add(function (survey, options) {

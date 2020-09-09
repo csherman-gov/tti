@@ -97,7 +97,6 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
             hasOther: true,
             choices: ["Mr.", "Ms.", "Mx."],
             otherText: "Other",
-		        validators: [ { type: "expression", text: "max 255 characters.", expression: "{Title-Comment}.size >= 255" } ],
           },
           {
             type: "radiogroup",
@@ -105,7 +104,6 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
             hasOther: true,
             choices: ["She", "He", "They"],
             otherText: "Other",
-		        validators: [ { type: "expression", text: "max 255 characters.", expression: "{Pronoun-Comment}.size >= 255" } ],
           },
         ],
         title: "Who is representing the group or class (Representative)?",
@@ -161,7 +159,6 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
             hasOther: true,
             choices: ["Mr.", "Ms.", "Mx."],
             otherText: "Other",
-		        validators: [ { type: "expression", text: "max 255 characters.", expression: "{Representative Title-Comment}.size >= 255" } ],
           },
           {
             type: "radiogroup",
@@ -170,7 +167,6 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
             hasOther: true,
             choices: ["She", "He", "They"],
             otherText: "Other",
-		        validators: [ { type: "expression", text: "max 255 characters.", expression: "{Representative Pronoun-Comment}.size >= 255" } ],
           },
         ],
         visibleIf:
@@ -325,6 +321,7 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
     console.log("hi!1");
     // let surveyModel =
     this.survey = new Survey.Model(this.json);
+    this.survey.maxOthersLength = 255;
     if (this.formData) {
       console.log("hi122!");
       this.survey.data = this.formData;

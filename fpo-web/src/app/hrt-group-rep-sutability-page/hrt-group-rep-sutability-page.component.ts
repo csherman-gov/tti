@@ -217,6 +217,7 @@ export class HrtGroupRepSutabilityPageComponent implements OnInit, OnDestroy {
     console.log("hi!1");
     // let surveyModel =
     this.survey = new Survey.Model(this.json);
+    this.survey.maxOthersLength = 255;
     if (this.formData) {
       console.log("hi122!");
       this.survey.data = this.formData;

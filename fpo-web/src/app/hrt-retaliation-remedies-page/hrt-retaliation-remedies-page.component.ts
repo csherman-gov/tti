@@ -40,7 +40,6 @@ export class HrtRetaliationRemediesPageComponent implements OnInit, OnDestroy {
               "Compensation for lost wages or other expenses such as moving expenses, photocopying, costs of attending the hearing (keep receipts)",
             ],
             hasOther: true,
-            validators: [ { type: "expression", text: "max 255 characters.", expression: "{Select the kinds of remedies you want-Comment}.size >= 255" } ],
             otherText: "Something specific (example: job back)",
           },
           {
@@ -94,6 +93,7 @@ export class HrtRetaliationRemediesPageComponent implements OnInit, OnDestroy {
     console.log("hi!1");
     // let surveyModel =
     this.survey = new Survey.Model(this.json);
+    this.survey.maxOthersLength = 255;
     if (this.formData) {
       console.log("hi122!");
       this.survey.data = this.formData;

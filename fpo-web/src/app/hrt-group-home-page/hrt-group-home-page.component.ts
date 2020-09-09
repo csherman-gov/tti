@@ -111,7 +111,7 @@ export class HrtGroupHomePageComponent implements OnInit, OnDestroy {
     // } else if (user && reqTerms && !user.accepted_terms_at) {
     // //   this.redirectStatus(navPath);
     // }
-    // return true; 
+    // return true;
   }
   confirm() {
     // this.confirmed = true;
@@ -129,6 +129,7 @@ export class HrtGroupHomePageComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.initSurvey()
     this.survey = new Survey.Model(this.json);
+    this.survey.maxOthersLength = 255;
     // load data from sessionStorage if there is one
     this.survey.data = this.formData;
 
