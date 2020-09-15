@@ -591,6 +591,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             width: "40%",
             title: "Email",
 	          maxLength: 255,
+            validators: [ { type: "email" } ],
             // isRequired: true,
           },
         ],
@@ -632,6 +633,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
 	              maxLength: 255,
                 width: "40%",
                 title: "Email",
+                validators: [ { type: "email" } ],
                 // isRequired: true,
               },
               {

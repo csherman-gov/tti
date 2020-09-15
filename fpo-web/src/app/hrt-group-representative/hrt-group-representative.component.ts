@@ -240,6 +240,7 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
             type: "text",
             name: "Email",
 		        maxLength: 255,
+            validators: [ { type: "email" } ],
             // isRequired: true,
           },
         ],

@@ -58,6 +58,7 @@ export class HrtGroupRespondentContactInformationPageComponent
                 width: "40%",
                 title: "Email",
 		            maxLength: 255,
+                validators: [ { type: "email" } ],
                 // isRequired: true,
               },
               {

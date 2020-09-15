@@ -235,6 +235,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             width: "40%",
             maxLength: 255,
             title: "Email",
+            validators: [ { type: "email" } ],
             // isRequired: true,
           },
         ],
@@ -274,6 +275,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
                 width: "40%",
                 title: "Email",
                 maxLength: 255,
+                validators: [ { type: "email" } ],
                 // isRequired: true,
               },
               {

@@ -222,6 +222,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                         isRequired: true,
 		                    maxLength: 255,
                         titleLocation: "top",
+                        validators: [ { type: "email" } ],
                       },
                       {
                         type: "text",
