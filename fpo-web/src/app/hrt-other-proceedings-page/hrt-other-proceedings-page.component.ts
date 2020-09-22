@@ -44,7 +44,7 @@ export class HrtOtherProceedingsPageComponent implements OnInit, OnDestroy {
             visibleIf:
               "{Do you have another proceeding about the same events?} = 'Yes'",
             isRequired: true,
-            maxLength: 32768,
+            maxLength: 32000,
             popupdescription:
               '<div class="section"> <p> <b>Examples:</b> union grievance, court case, WorkSafeBC claim </p> </div>',
           },
@@ -54,7 +54,7 @@ export class HrtOtherProceedingsPageComponent implements OnInit, OnDestroy {
             visibleIf:
               "{Do you have another proceeding about the same events?} = 'Yes'",
             isRequired: true,
-            maxLength: 32768,
+            maxLength: 32000,
             popupdescription:
               '<div class="section"> <p> <b>Examples:</b> Has there been a hearing? When do you expect a decision? </p> </div>',
           },
@@ -74,7 +74,7 @@ export class HrtOtherProceedingsPageComponent implements OnInit, OnDestroy {
             visibleIf:
               "{Do you want the Tribunal to wait to deal with your complaint?} = 'Yes'",
             isRequired: true,
-            maxLength: 32768,
+            maxLength: 32000,
           },
         ],
       },

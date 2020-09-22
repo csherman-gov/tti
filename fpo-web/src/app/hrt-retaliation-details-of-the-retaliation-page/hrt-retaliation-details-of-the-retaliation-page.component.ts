@@ -87,7 +87,7 @@ export class HrtRetaliationDetailsOfTheRetaliationPageComponent
               },
               {
                 type: "comment",
-                maxLength: 32768,
+                maxLength: 32000,
                 name:
                   "Explain why you think this conduct is retaliation for your role in a complaint",
                 description:

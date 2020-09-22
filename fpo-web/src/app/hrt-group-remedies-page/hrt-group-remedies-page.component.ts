@@ -48,7 +48,7 @@ export class HrtGroupRemediesPageComponent implements OnInit, OnDestroy {
             visibleIf:
               "{Select the kinds of remedies you want} contains 'Something specific (job back, policy…)'",
             isRequired: true,
-            maxLength: 32768,
+            maxLength: 32000,
           },
           {
             type: "comment",
@@ -56,7 +56,7 @@ export class HrtGroupRemediesPageComponent implements OnInit, OnDestroy {
             visibleIf:
               "{Select the kinds of remedies you want} contains 'Other'",
             isRequired: true,
-            maxLength: 32768,
+            maxLength: 32000,
           },
         ],
       },

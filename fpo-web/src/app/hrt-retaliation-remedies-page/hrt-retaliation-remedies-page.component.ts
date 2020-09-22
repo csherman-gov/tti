@@ -47,7 +47,7 @@ export class HrtRetaliationRemediesPageComponent implements OnInit, OnDestroy {
             name: "Detail - Something specific (example: job back)",
             visibleIf:
               "{Select the kinds of remedies you want} contains 'Something specific (example: job back)'",
-            maxLength: 32768,
+            maxLength: 32000,
             isRequired: true,
           },
           {
@@ -55,7 +55,7 @@ export class HrtRetaliationRemediesPageComponent implements OnInit, OnDestroy {
             name: "Detail - Other",
             visibleIf:
               "{Select the kinds of remedies you want} contains 'Other'",
-	          maxLength: 32768,
+	          maxLength: 32000,
             isRequired: true,
           },
         ],

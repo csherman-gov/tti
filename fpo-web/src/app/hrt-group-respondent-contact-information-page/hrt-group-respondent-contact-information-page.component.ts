@@ -41,7 +41,7 @@ export class HrtGroupRespondentContactInformationPageComponent
               {
                 type: "text",
                 name: "Name of the Respondent",
-		            maxLength: 255,
+		            maxLength: 80,
                 isRequired: true,
               },
               {

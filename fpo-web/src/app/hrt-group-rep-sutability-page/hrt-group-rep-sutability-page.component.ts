@@ -72,7 +72,7 @@ export class HrtGroupRepSutabilityPageComponent implements OnInit, OnDestroy {
             visibleIf:
               "{Are your interests in the complaint different from the group or class members’ interests?} = 'Yes'",
             isRequired: true,
-		        maxLength: 32768,
+		        maxLength: 32000,
           },
           {
             type: "radiogroup",

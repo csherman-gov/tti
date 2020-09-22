@@ -616,7 +616,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
               {
                 type: "text",
                 name: "Name of the Respondent",
-	              maxLength: 255,
+	              maxLength: 80,
                 isRequired: true,
               },
               {

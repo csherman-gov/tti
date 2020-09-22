@@ -122,7 +122,7 @@ export class HrtRetaliationRoleInComplaintPageComponent
           {
             type: "text",
             name: "Why did the Respondent(s) think this?",
-		        maxLength: 32768,
+		        maxLength: 32000,
             popupdescription:
               "<p><b>Example. </b>“I told my boss it was discrimination when I didn’t get the promotion. So my boss and employer knew I might file a complaint.”</p>",
             isRequired: true,
