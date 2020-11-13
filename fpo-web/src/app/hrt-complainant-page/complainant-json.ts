@@ -7,11 +7,13 @@ export default {
           type: "text",
           name: "Legal Name - First Name",
           isRequired: true,
+          maxLength: 125,
         },
         {
           type: "text",
           name: "Legal Name - Last Name",
           isRequired: true,
+          maxLength: 125,
         },
         {
           type: "text",

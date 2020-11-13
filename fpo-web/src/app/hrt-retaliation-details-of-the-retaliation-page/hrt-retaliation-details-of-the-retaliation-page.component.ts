@@ -52,7 +52,7 @@ export class HrtRetaliationDetailsOfTheRetaliationPageComponent
                 type: "comment",
                 name:
                   "Describe in a few words the conduct that you say is retaliation",
-                maxLength: 10000,
+                maxLength: 2000,
                 description:
                   "<div><p><b>Information: </b>Conduct that can be retaliation is: </p><ul> <li style='display: flex;'> <span style='flex: 1;'> Evicting </span> <span style='flex: 1;'> -  Expelling </span> <span style='flex: 1;'> -   Denying a right or benefit </span> </li> <li style='display: flex;'> <span style='flex: 1;'> Firing </span> <span style='flex: 1;'> -  Intimidating or Coercing </span> <span style='flex: 1;'> -  Threatening to do one of these things </span> </li> <li style='display: flex;'> <span style='flex: 1;'> Suspending </span> <span style='flex: 1;'> -  Penalizing </span> <span style='flex: 1;'> -   Other similar conduct </span> </li> </ul><b>Instructions: </b> Give a short answer here. You will give details below. Your short answer helps us understand the details you give below. </p><p><b>Examples: </b> “This Respondent fired me.” “This Respondent threatened me.”</p></div>",
               },
@@ -75,7 +75,7 @@ export class HrtRetaliationDetailsOfTheRetaliationPageComponent
                     name: "Conduct",
                     cellType: "comment",
                     isRequired: true,
-                    maxLength: 5000,
+                    maxLength: 1500,
                     rows: 2,
                   },
                 ],
@@ -84,10 +84,11 @@ export class HrtRetaliationDetailsOfTheRetaliationPageComponent
                 choices: [1, 2, 3, 4, 5],
                 rowCount: 1,
                 minRowCount: 1,
+                maxRowCount: 10,
               },
               {
                 type: "comment",
-                maxLength: 32000,
+                maxLength: 2000,
                 name:
                   "Explain why you think this conduct is retaliation for your role in a complaint",
                 description:

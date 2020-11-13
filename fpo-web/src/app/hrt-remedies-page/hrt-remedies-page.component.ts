@@ -55,7 +55,7 @@ export class HrtRemediesPageComponent implements OnInit, OnDestroy {
             visibleIf:
               "{Select the kinds of remedies you want} contains 'Other'",
             isRequired: true,
-            maxLength: 32000,
+            maxLength: 2000,
           },
         ],
       },

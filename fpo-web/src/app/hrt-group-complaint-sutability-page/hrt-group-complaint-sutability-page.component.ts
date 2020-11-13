@@ -47,7 +47,7 @@ export class HrtGroupComplaintSutabilityPageComponent
             name:
               "Explain how the alleged discrimination is similar for all group or class members.",
             isRequired: true,
-            maxLength: 32000,
+            maxLength: 2000,
             popupdescription:
               "<p>You will give details about the alleged discrimination below.</p><p><b>Here you need to:</b></p><ul><li>Explain how the alleged discrimination is similar for all group or class members</li><li>Identify any differences</li><li>Identify the common issues</li></ul>",
           },

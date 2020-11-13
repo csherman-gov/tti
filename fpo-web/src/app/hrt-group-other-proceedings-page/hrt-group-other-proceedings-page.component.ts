@@ -46,7 +46,7 @@ export class HrtGroupOtherProceedingsPageComponent
             visibleIf:
               "{Does the group or class have another proceeding about the same events?} = 'Yes'",
             isRequired: true,
-            maxLength: 32000,
+            maxLength: 2000,
             popupdescription:
               '<div class="section"> <p> <b>Examples:</b> union grievance, court case, WorkSafeBC claim </p> </div>',
           },
@@ -56,7 +56,7 @@ export class HrtGroupOtherProceedingsPageComponent
             visibleIf:
               "{Does the group or class have another proceeding about the same events?} = 'Yes'",
             isRequired: true,
-            maxLength: 32000,
+            maxLength: 2000,
             popupdescription:
               '<div class="section"> <p> <b>Examples:</b> Has there been a hearing? When do you expect a decision? </p> </div>',
           },
@@ -76,7 +76,7 @@ export class HrtGroupOtherProceedingsPageComponent
             visibleIf:
               "{Do you want the Tribunal to wait to deal with the complaint?} = 'Yes'",
             isRequired: true,
-            maxLength: 32000,
+            maxLength: 2000,
           },
         ],
       },

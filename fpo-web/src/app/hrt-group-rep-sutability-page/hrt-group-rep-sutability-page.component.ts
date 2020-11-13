@@ -50,7 +50,7 @@ export class HrtGroupRepSutabilityPageComponent implements OnInit, OnDestroy {
           {
             type: "text",
             name: "Why are you filing the complaint?",
-		        maxLength: 5000,
+		        maxLength: 2000,
             isRequired: true,
           },
           {
@@ -72,7 +72,7 @@ export class HrtGroupRepSutabilityPageComponent implements OnInit, OnDestroy {
             visibleIf:
               "{Are your interests in the complaint different from the group or class members’ interests?} = 'Yes'",
             isRequired: true,
-		        maxLength: 32000,
+		        maxLength: 2000,
           },
           {
             type: "radiogroup",
@@ -86,7 +86,7 @@ export class HrtGroupRepSutabilityPageComponent implements OnInit, OnDestroy {
           {
             type: "text",
             name: "If yes, explain. ",
-		        maxLength: 5000,
+		        maxLength: 2000,
             visibleIf:
               "{Do you have reason to believe that group or class members may not want you to make this complaint on their behalf?} = 'Yes'",
             isRequired: true,
@@ -103,7 +103,7 @@ export class HrtGroupRepSutabilityPageComponent implements OnInit, OnDestroy {
             visibleIf:
               "{Have you notified the group or class about the complaint?} = 'Yes'",
             isRequired: true,
-		        maxLength: 5000,
+		        maxLength: 2000,
           },
           {
             type: "text",

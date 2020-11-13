@@ -29,13 +29,13 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             type: "text",
             name: "Legal Name - First Name",
             isRequired: true,
-            maxLength: 255,
+            maxLength: 125,
           },
           {
             type: "text",
             name: "Legal Name - Last Name",
             isRequired: true,
-            maxLength: 255,
+            maxLength: 125,
           },
           {
             type: "text",

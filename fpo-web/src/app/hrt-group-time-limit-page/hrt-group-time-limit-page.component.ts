@@ -90,7 +90,7 @@ export class HrtGroupTimeLimitPageComponent implements OnInit, OnDestroy {
             popupdescription: `<div class="section"> <p> <b>Examples.</b> </p> <ul> <li>Each event is about a co-worker using racial slurs. </li> <li>Each event is about an employer not accommodating a disability.</li> </ul> </div>`,
             visibleIf: "{Is all of the conduct related or similar?} = 'Yes'",
             isRequired: true,
-            maxLength: 5000,
+            maxLength: 2000,
           },
           {
             type: "comment",
@@ -98,7 +98,7 @@ export class HrtGroupTimeLimitPageComponent implements OnInit, OnDestroy {
             popupdescription: `<div class="section"> <p>Gaps in time might mean there is no “continuing contravention”. The Tribunal will consider reasons for gaps. </p> <p> <b>Examples.</b> </p> <ul> <li>“The Respondent won’t provide an ASL interpreter. The events where interpreters are needed are three months apart.” </li> <li>“The manager uses racial slurs. The manager was on leave for four months.”</li> </ul> </div>`,
             visibleIf: "{Is all of the conduct related or similar?} = 'Yes'",
             isRequired: true,
-            maxLength: 5000,
+            maxLength: 2000,
           },
         ],
       },
@@ -130,7 +130,7 @@ export class HrtGroupTimeLimitPageComponent implements OnInit, OnDestroy {
             type: "comment",
             name: "Why did you file late?",
             isRequired: true,
-            maxLength: 32000,
+            maxLength: 2000,
             popupdescription:
               "<p><b>Examples the Tribunal will consider:</b></p><ul><li>The complainant has a disability that prevented them from filing on time. </li><li>The complainant faced trauma or a family or housing crisis that made it hard to file the complaint at the time of the events</li><li>The complainant recently found evidence of discrimination</li><li>The delay is very short and there is some reason for filing late</li></ul><p>Attach any documents that support you reasons for filing late. <b>Examples:</b> doctor’s note, or letter from a counsellor.</p>",
           },
@@ -138,7 +138,7 @@ export class HrtGroupTimeLimitPageComponent implements OnInit, OnDestroy {
             type: "comment",
             name: "How will accepting your complaint benefit the public?",
             isRequired: true,
-            maxLength: 32000,
+            maxLength: 2000,
             popupdescription:
               "<p><b>Example:</b></p><ul><li>A complaint is about a situation that the Tribunal has not addressed often</li><li>A complaint seeks a remedy that would help many people. </li></ul> ",
           },
@@ -146,7 +146,7 @@ export class HrtGroupTimeLimitPageComponent implements OnInit, OnDestroy {
             type: "comment",
             name: "Why would the delay in filing not harm anyone else?",
             isRequired: true,
-            maxLength: 32000,
+            maxLength: 2000,
             popupdescription:
               '<div class="section"> <p> The delay means the time after the 1-year time limit: </p> <ul> <li>“The complaint is two months late. Documents and witnesses should still be available.”</li> <li>“The complaint is six months late. I know of no harm to the Respondents.”</li> </ul> </div>',
           },
