@@ -187,7 +187,7 @@ export class HrtGroupRepresentativeComponent implements OnInit, OnDestroy {
             type: "text",
             name: "Mailing address",
             title: "Mailing address",
-		        maxLength: 255,
+		        maxLength: 250,
           },
           {
             type: "text",

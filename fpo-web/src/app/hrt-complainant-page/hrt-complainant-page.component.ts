@@ -29,13 +29,13 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             type: "text",
             name: "Legal Name - First Name",
             isRequired: true,
-            maxLength: 125,
+            maxLength: 40,
           },
           {
             type: "text",
             name: "Legal Name - Last Name",
             isRequired: true,
-            maxLength: 125,
+            maxLength: 40,
           },
           {
             type: "text",
@@ -163,7 +163,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             type: "text",
             name: "Complainant Contact Mailing address",
             title: "Mailing address",
-            maxLength: 255,
+            maxLength: 250,
             // isRequired: true,
           },
           {
@@ -282,7 +282,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
                 type: "text",
                 name: "Mailing address",
                 isRequired: true,
-                maxLength: 255,
+                maxLength: 250,
               },
               {
                 type: "text",

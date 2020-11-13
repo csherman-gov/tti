@@ -64,7 +64,7 @@ export class HrtGroupRespondentContactInformationPageComponent
               {
                 type: "text",
                 name: "Mailing address",
-		            maxLength: 255,
+		            maxLength: 250,
                 isRequired: true,
               },
               {
