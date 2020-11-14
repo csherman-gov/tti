@@ -287,13 +287,13 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
               {
                 type: "text",
                 name: "Address line 2",
-                maxLength: 255,
+                maxLength: 250,
               },
               {
                 type: "text",
                 name: "City",
                 isRequired: true,
-                maxLength: 255,
+                maxLength: 40,
               },
               {
                 type: "dropdown",

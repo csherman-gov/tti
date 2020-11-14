@@ -527,7 +527,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             name: "Complainant Contact City",
             width: "30%",
             title: "City ",
-	          maxLength: 255,
+	          maxLength: 40,
             // isRequired: true,
           },
           {
@@ -651,7 +651,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
                 type: "text",
                 name: "City",
                 isRequired: true,
-	              maxLength: 255,
+	              maxLength: 40,
               },
               {
                 type: "dropdown",

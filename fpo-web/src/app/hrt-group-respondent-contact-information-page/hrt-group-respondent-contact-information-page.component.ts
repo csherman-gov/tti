@@ -75,7 +75,7 @@ export class HrtGroupRespondentContactInformationPageComponent
               {
                 type: "text",
                 name: "City",
-		            maxLength: 255,
+		            maxLength: 40,
                 isRequired: true,
               },
               {

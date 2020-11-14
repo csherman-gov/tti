@@ -140,7 +140,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                         name: "address_line_1",
                         title: "Address line 1: ",
                         isRequired: true,
-		                    maxLength: 255,
+		                    maxLength: 250,
                         titleLocation: "top",
                       },
                       {
@@ -148,7 +148,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                         name: "address_line_2",
                         // "visible": false,
                         title: "Address line 2",
-		                    maxLength: 255,
+		                    maxLength: 250,
                         titleLocation: "top",
                       },
                       {
@@ -156,7 +156,7 @@ export class HrtRespondentsPageComponent implements OnInit, OnDestroy {
                         name: "city",
                         title: "City",
                         isRequired: true,
-		                    maxLength: 255,
+		                    maxLength: 40,
                         titleLocation: "top",
                       },
                       {
