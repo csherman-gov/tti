@@ -616,7 +616,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
               {
                 type: "text",
                 name: "Name of the Respondent",
-	              maxLength: 80,
+                maxLength: 40,
                 isRequired: true,
               },
               {
@@ -654,7 +654,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
 	              maxLength: 40,
               },
               {
-                type: "dropdown",
+                type: "dropdown",`
                 name: "Province",
                 startWithNewLine: false,
                 isRequired: true,

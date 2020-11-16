@@ -171,7 +171,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             name: "Complainant Contact City",
             width: "30%",
             title: "City ",
-            maxLength: 240,
+            maxLength: 40,
             // isRequired: true,
           },
           {
@@ -258,7 +258,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
               {
                 type: "text",
                 name: "Name of the Respondent",
-                maxLength: 80,
+                maxLength: 40,
                 isRequired: true,
               },
               {
