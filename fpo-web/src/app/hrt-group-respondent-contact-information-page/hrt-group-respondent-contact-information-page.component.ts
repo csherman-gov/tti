@@ -64,13 +64,13 @@ export class HrtGroupRespondentContactInformationPageComponent
               {
                 type: "text",
                 name: "Mailing address",
-		            maxLength: 250,
+		            maxLength: 245,
                 isRequired: true,
               },
               {
                 type: "text",
                 name: "Address line 2",
-		            maxLength: 255,
+		            maxLength: 245,
               },
               {
                 type: "text",
