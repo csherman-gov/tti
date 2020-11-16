@@ -163,7 +163,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             type: "text",
             name: "Complainant Contact Mailing address",
             title: "Mailing address",
-            maxLength: 245,
+            maxLength: 240,
             // isRequired: true,
           },
           {
@@ -171,7 +171,7 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
             name: "Complainant Contact City",
             width: "30%",
             title: "City ",
-            maxLength: 245,
+            maxLength: 240,
             // isRequired: true,
           },
           {
@@ -282,12 +282,12 @@ export class HrtComplainantPageComponent implements OnInit, OnDestroy {
                 type: "text",
                 name: "Mailing address",
                 isRequired: true,
-                maxLength: 245,
+                maxLength: 240,
               },
               {
                 type: "text",
                 name: "Address line 2",
-                maxLength: 245,
+                maxLength: 240,
               },
               {
                 type: "text",

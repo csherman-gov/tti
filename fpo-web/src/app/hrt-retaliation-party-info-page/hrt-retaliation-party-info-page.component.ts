@@ -519,7 +519,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
             type: "text",
             name: "Complainant Contact Mailing address",
             title: "Mailing address",
-	          maxLength: 245,
+	          maxLength: 240,
             // isRequired: true,
           },
           {
@@ -639,13 +639,13 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
               {
                 type: "text",
                 name: "Mailing address",
-	              maxLength: 245,
+	              maxLength: 240,
                 isRequired: true,
               },
               {
                 type: "text",
                 name: "Address line 2",
-	              maxLength: 245,
+	              maxLength: 240,
               },
               {
                 type: "text",
