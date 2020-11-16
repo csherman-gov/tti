@@ -654,7 +654,7 @@ export class HrtRetaliationPartyInfoPageComponent implements OnInit, OnDestroy {
 	              maxLength: 40,
               },
               {
-                type: "dropdown",`
+                type: "dropdown",
                 name: "Province",
                 startWithNewLine: false,
                 isRequired: true,
