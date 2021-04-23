@@ -30,7 +30,7 @@ export class HrtRetaliationIndigenousPageComponent
             type: "html",
             name: "question1",
             html:
-              '<p>The Tribunal is committed to Truth and Reconciliation. This includes incorporating Indigenous protocols or ways of resolving disputes in its process.</p><p>Anyone can ask the Tribunal about:</p><ul style="margin-bottom: 0;"><li>help to understand the Tribunal process</li> <li>process options</li> <li>incorporating Indigenous protocols</li> </ul>',
+              '<p>Indigenous or Aboriginal Peoples are First Nations, Métis, or Inuit.</p><p>The Tribunal is committed to Truth and Reconciliation with Indigenous Peoples. This includes: <p><ul style="margin-bottom: 0;"><li>explaining the process and process options</li><li>incorporating Indigenous protocols or ways of resolving disputes in the process.</li></ul></p>',
           },
           {
             type: "checkbox",
@@ -38,7 +38,7 @@ export class HrtRetaliationIndigenousPageComponent
             hideNumber: true,
             titleLocation: "hidden",
             choices: [
-              "Check here if you are Indigenous and want the Tribunal to contact you to talk about the process",
+              "Check here if you are First Nations, Métis or Inuit and are interested in the Tribunal contacting you to talk about the to talk about the process",
             ],
           },
         ],
