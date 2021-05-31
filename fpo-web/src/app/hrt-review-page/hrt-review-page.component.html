@@ -193,9 +193,7 @@
           <b>Mailing Address:</b><br />
           {{ respondent["Mailing address"] }},
           {{
-            respondent["Address line 2"]
-              ? respondent["Address line 2"] + ", "
-              : ""
+            respondent["Address line 2"] ? respondent["Address line 2"] + ", " : ""
           }}
           {{ respondent["City"] + ", " || "" }}
           {{ respondent["Province"] + ", " || "" }}
