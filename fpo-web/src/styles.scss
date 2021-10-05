@@ -178,6 +178,14 @@ $indicator-thickness: 0.2em;
   padding-top: 1em;
 }
 
+.navbar, .navbar-expand-lg, .navbar-dark {
+  background-color: #ffffff;
+}
+
+.navbar-extra > span {
+  color: #555555 !important;
+}
+
 .btn.btn-default {
   background-color: #036;
   color: #fff;
