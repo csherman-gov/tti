@@ -182,6 +182,10 @@ $indicator-thickness: 0.2em;
   background-color: #ffffff;
 }
 
+.navbar-dark, .navbar-nav, .nav-link {
+  color: #555555 !important;
+}
+
 .navbar-extra > span {
   color: #555555 !important;
 }
