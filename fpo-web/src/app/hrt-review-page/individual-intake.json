@@ -56,6 +56,7 @@
                     "A job"
                 ], // Optional, only display when  "What is the Area of Discrimination?": "Employment",
                 "What are the Grounds of Discrimination?": [
+                    "Indigenous identity",
                     "Race",
                     "Ancestry",
                     "Colour",
@@ -78,6 +79,7 @@
                 "Details - Criminal Conviction": "Details ",
                 "Details - Family Status": "Details ",
                 "Details - Gender Identity or Expression": "Details ",
+                "Details - Indigenous identity": "Details ",
                 "Drtails - Marital Status": "Details ",
                 "Details - Mental Disability": "Details ",
                 "Details - Physical Disability": "Details ",
