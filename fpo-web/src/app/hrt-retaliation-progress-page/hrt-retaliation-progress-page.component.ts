@@ -32,7 +32,7 @@ export class HrtRetaliationProgressPageComponent implements OnInit, OnDestroy {
       short_name: "partyInfo",
     },
     {
-      name: "Your Role in a Complaint",
+      name: "Your Role in a Complaint or Inquiry",
       intro: "",
       url: "hrt-retaliation/role-in-complaint",
       short_name: "roleInComplaint",

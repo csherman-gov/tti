@@ -107,7 +107,7 @@ export class HrtRetaliationReviewPageComponent implements OnInit, OnDestroy {
                   "Date": "2005-01-18"
                 }
               ],
-              "Explain why you think this conduct is retaliation for your role in a complaint": "123"
+              "Explain why you think this conduct is retaliation for your role in a complaint or inquiry": "123"
             }
           ]
         },

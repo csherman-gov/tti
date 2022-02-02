@@ -32,7 +32,7 @@ export class HrtRetaliationRoleInComplaintPageComponent
             type: "html",
             name: "question1",
             html:
-              "<h2>Retaliation About a Complaint</h2>\n<p style='margin-bottom: 0;'>\n<b>Information:</b> The Human Rights Code forbids retaliation. It says that no one can retaliate against you for your role in a complaint to the BC Human Rights Tribunal.</p>",
+              "<h2>Retaliation About a Complaint</h2>\n<p style='margin-bottom: 0;'>\n<b>Information:</b> The Human Rights Code forbids retaliation. It says that no one can retaliate against you for:<ul><li>in a complaint to the BC Human Rights Tribunal</li><li>in an inquiry by the Office of the Human Rights Commissioner</li></ul></p>",
           },
           {
             type: "radiogroup",
@@ -41,6 +41,7 @@ export class HrtRetaliationRoleInComplaintPageComponent
             choices: [
               "A complaint that someone filed with the BC Human Rights Tribunal",
               "A complaint that someone might file with the BC Human Rights Tribunal",
+              "An inquiry by the Office of the Human Rights Commissioner",
             ],
           },
         ],
@@ -130,6 +131,45 @@ export class HrtRetaliationRoleInComplaintPageComponent
         ],
         visibleIf:
           "{Is the retaliation about} = 'A complaint that someone might file with the BC Human Rights Tribunal'",
+      },
+      {
+        name: "page4",
+        elements: [
+          {
+            type: "html",
+            name: "question4",
+            visibleIf:
+              "{Is the retaliation about} = 'An inquiry by the Office of the Human Rights Commissioner'",
+            html:
+              "<h2>Your Role in an Inquiry by the Officer of the Human Rights Commissioner</h2>\n<p style='margin-bottom: 0;'>\n<b>If the retaliation is about an inquiry by the Office of the Human Rights Commissioner:</p>",
+          },
+          {
+            type: "dropdown",
+            name: "What is your role in the inquiry?",
+            title: "What is your role in the inquiry?",
+            isRequired: true,
+            choices: [
+              "I took part",
+              "I might take part",
+            ],
+          },
+          {
+            type: "text",
+            name: "How did you take part?  How might you take part?",
+		        maxLength: 255,
+            isRequired: true,
+          },
+          {
+            type: "text",
+            name: "How did the Respondent(s) know about your role?",
+		        description:
+                  "Example: 'I told the Respondents I had evidence for the inquiry.'",
+            maxLength: 255,
+            isRequired: true,
+          }
+        ],
+        visibleIf:
+          "{Is the retaliation about} = 'An inquiry by the Office of the Human Rights Commissioner'",
       },
     ],
   };

@@ -90,9 +90,9 @@ export class HrtRetaliationDetailsOfTheRetaliationPageComponent
                 type: "comment",
                 maxLength: 2000,
                 name:
-                  "Explain why you think this conduct is retaliation for your role in a complaint",
+                  "Explain why you think this conduct is retaliation for your role in a complaint or inquiry",
                 description:
-                  "<div> <p> <b> Examples: </b> </p> <ul> <li> “I talked about discrimination at work. My boss said he’d never promote me if I made a complaint.” </li> <li> “I filed a discrimination complaint against my landlord. Two months later the landlord sued me in court. The lawsuit had no basis. It was just to smear my character.” </li> <li> “After I filed a complaint, my manager investigated me. My employer suspended me for 5 days for being late to work once. At most, this deserved a verbal warning.” </li> </ul> <p> Consider getting help if you are not sure. See  <a href='http://www.bchrt.bc.ca/whocanhelp/index.htm' target='_blank'>Who Can Help?</a>. </p> </div>",
+                  "<div> <p> <b> Examples: </b> </p> <ul> <li> “I talked about discrimination at work. My boss said he’d never promote me if I made a complaint.” </li> <li> “I filed a discrimination complaint against my landlord. Two months later the landlord sued me in court. The lawsuit had no basis. It was just to smear my character.” </li> <li> “After I filed a complaint, my manager investigated me. My employer suspended me for 5 days for being late to work once. At most, this deserved a verbal warning.” </li><li>”My employer told me I'd lose my job if I testified at an inquiry.”</li> </ul> <p> Consider getting help if you are not sure. See  <a href='http://www.bchrt.bc.ca/whocanhelp/index.htm' target='_blank'>Who Can Help?</a>. </p> </div>",
               },
             ],
             panelAddText: "Add Details for Another Named Respondent",
