@@ -32,7 +32,7 @@ export class HrtRetaliationRoleInComplaintPageComponent
             type: "html",
             name: "question1",
             html:
-              "<h2>Retaliation About a Complaint</h2>\n<p style='margin-bottom: 0;'>\n<b>Information:</b> The Human Rights Code forbids retaliation. It says that no one can retaliate against you for:<ul><li>in a complaint to the BC Human Rights Tribunal</li><li>in an inquiry by the Office of the Human Rights Commissioner</li></ul></p>",
+              "<h2>Retaliation About a Complaint</h2>\n<p style='margin-bottom: 0;'>\n<b>Information:</b> The Human Rights Code forbids retaliation. It says that no one can retaliate against you for your role:<ul><li>in a complaint to the BC Human Rights Tribunal</li><li>in an inquiry by the Office of the Human Rights Commissioner</li></ul></p>",
           },
           {
             type: "radiogroup",
@@ -142,6 +142,12 @@ export class HrtRetaliationRoleInComplaintPageComponent
               "{Is the retaliation about} = 'An inquiry by the Office of the Human Rights Commissioner'",
             html:
               "<h2>Your Role in an Inquiry by the Officer of the Human Rights Commissioner</h2>\n<p style='margin-bottom: 0;'>\n<b>If the retaliation is about an inquiry by the Office of the Human Rights Commissioner:</p>",
+          },
+          {
+            type: "text",
+            name: "What is the Commissioner's inquiry about?",
+		        maxLength: 255,
+            isRequired: true,
           },
           {
             type: "dropdown",
