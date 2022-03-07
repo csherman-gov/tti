@@ -161,13 +161,15 @@ export class HrtRetaliationRoleInComplaintPageComponent
           },
           {
             type: "text",
-            name: "How did you take part?  How might you take part?",
+            name: "How did you take part? How might you take part?",
 		        maxLength: 255,
             isRequired: true,
           },
           {
             type: "text",
-            name: "How did the Respondent(s) know about your role?",
+            name: "How did the Respondent(s) know about your Role?",
+            visibleIf:
+              "{Is the retaliation about} = 'An inquiry by the Office of the Human Rights Commissioner'",
 		        description:
                   "Example: 'I told the Respondents I had evidence for the inquiry.'",
             maxLength: 255,

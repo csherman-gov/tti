@@ -186,8 +186,8 @@
 
       <ng-container
         *ngIf="
-          formData.roleInComplaint['Is the retaliation about'] !==
-          'A complaint that someone might file with the BC Human Rights Tribunal'
+          formData.roleInComplaint['Is the retaliation about'] ===
+          'A complaint that someone filed with the BC Human Rights Tribunal'
         "
       >
         <p>
@@ -217,11 +217,7 @@
           <b>
             How did the Respondent(s) know about your role?
           </b>
-          {{
-            formData.roleInComplaint[
-              "How did the Respondent(s) know about your role?"
-            ]
-          }}
+          {{ formData.roleInComplaint["How did the Respondent(s) know about your role?"] }}
         </p>
       </ng-container>
       <ng-container
@@ -242,6 +238,42 @@
           </b>
           {{
             formData.roleInComplaint["Why did the Respondent(s) think this?"]
+          }}
+        </p>
+      </ng-container>
+
+      <ng-container
+        *ngIf="
+          formData.roleInComplaint['Is the retaliation about'] ===
+          'An inquiry by the Office of the Human Rights Commissioner'
+        "
+      >
+        <p>
+          <b>
+            What is the Commissioner's inquiry about?
+          </b>
+          {{ formData.roleInComplaint["What is the Commissioner's inquiry about?"] }}
+        </p>
+        <p>
+          <b>
+            What is your role in the inquiry?
+          </b>
+          {{ formData.roleInComplaint["What is your role in the inquiry?"] }}
+        </p>
+        <p>
+          <b>
+            How did you take part? How might you take part?
+          </b>
+          {{
+            formData.roleInComplaint["How did you take part? How might you take part?"]
+          }}
+        </p>
+        <p>
+          <b>
+            How did the Respondent(s) know about your role?
+          </b>
+          {{
+            formData.roleInComplaint["How did the Respondent(s) know about your Role?"]
           }}
         </p>
       </ng-container>
@@ -951,8 +983,8 @@
         </h4>
         <ng-container
           *ngIf="
-            formData.roleInComplaint['Is the retaliation about'] !==
-            'A complaint that someone might file with the BC Human Rights Tribunal'
+            formData.roleInComplaint['Is the retaliation about'] ===
+            'A complaint that someone filed with the BC Human Rights Tribunal'
           "
         >
           <p>
